@@ -105,6 +105,8 @@
 		7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F0F62636EBDC00D25097 /* SetAnchors.swift */; };
 		7201F0FB2636EC0400D25097 /* AddSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F0FA2636EC0400D25097 /* AddSubView.swift */; };
 		7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F0FF2636EC6300D25097 /* DependencyContainer.swift */; };
+		7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F1042636ED9700D25097 /* AppCoordinator.swift */; };
+		7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F10A2636EDC600D25097 /* AppCoordinatorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +211,8 @@
 		7201F0F62636EBDC00D25097 /* SetAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAnchors.swift; sourceTree = "<group>"; };
 		7201F0FA2636EC0400D25097 /* AddSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubView.swift; sourceTree = "<group>"; };
 		7201F0FF2636EC6300D25097 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		7201F1042636ED9700D25097 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		7201F10A2636EDC600D25097 /* AppCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorFactory.swift; sourceTree = "<group>"; };
 		A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -246,6 +250,7 @@
 		7201EF732636DF2D00D25097 /* Kreditomat */ = {
 			isa = PBXGroup;
 			children = (
+				7201F1032636ED8D00D25097 /* AppCoordinator */,
 				7201F0FE2636EC5700D25097 /* DI */,
 				7201EF742636DF2D00D25097 /* AppDelegate.swift */,
 				7201EF782636DF2D00D25097 /* ViewController.swift */,
@@ -651,6 +656,31 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		7201F1032636ED8D00D25097 /* AppCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7201F1092636EDBA00D25097 /* AppCoordinatorFactory */,
+				7201F1072636EDA500D25097 /* Coordinator */,
+			);
+			path = AppCoordinator;
+			sourceTree = "<group>";
+		};
+		7201F1072636EDA500D25097 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7201F1042636ED9700D25097 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7201F1092636EDBA00D25097 /* AppCoordinatorFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7201F10A2636EDC600D25097 /* AppCoordinatorFactory.swift */,
+			);
+			path = AppCoordinatorFactory;
+			sourceTree = "<group>";
+		};
 		EA97BADE1D40BDC29617CCDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +815,8 @@
 			files = (
 				7201F0272636E4B800D25097 /* KeyChainStorage.swift in Sources */,
 				7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */,
+				7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */,
+				7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */,
 				7201F0882636E71600D25097 /* Result.swift in Sources */,
 				7201F0322636E58700D25097 /* EmojiModifier.swift in Sources */,
 				7201F0412636E5CD00D25097 /* ApiRequestable.swift in Sources */,
