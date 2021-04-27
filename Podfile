@@ -21,5 +21,5 @@ target 'Kreditomat' do
   pod 'UltraDrawerView', '0.5.0'
   pod 'SwiftMessages', '8.0.3'
   pod 'lottie-ios', '3.1.2'
-
+  pod 'SwiftDataTables'
 end
