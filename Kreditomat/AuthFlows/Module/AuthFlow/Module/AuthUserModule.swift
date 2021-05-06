@@ -1,0 +1,3 @@
+protocol AuthUserModule: Presentable {
+    
+}
