@@ -32,7 +32,7 @@ final class ConfigServiceImpl: ConfigService {
   }()
 
   lazy var apiUrl: URL = {
-    guard let url = URL(string: "https://api-cert.smartideagroup.kz") else {
+    guard let url = URL(string: "https://dozp.ddns.net:4724/KreditomatAPI") else {
       fatalError("Api URL not correct")
     }
     return url

@@ -1,6 +1,7 @@
 import Foundation
 
 enum AuthTarget: ApiTarget {
+//    case authUser(phone: String, password: String)
     case checkUser(iin: String)
     case sendSms(phone: String)
     case verification(phone: String, activateCode: String)

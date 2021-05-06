@@ -5,6 +5,7 @@ final class AppCoordinator: BaseCoordinator {
     
     private let appCoordinatorFactory: AppCoordinatorFactory
     private let authService: AuthenticationService
+    private var authCoordinator: AuthCoordinator?
     private let disposeBag = DisposeBag()
     
     override init(router: Router, container: DependencyContainer) {
@@ -15,10 +16,17 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     override func start() {
+        checkAuth { [weak self] in
+            self?.startHome()
+        }
     }
  
     private func startAuth() {}
     private func startHome() {
+//        let module = appCoordinatorFactory.makeAuthCoordinator()
+//        module.start()
+//        addDependency(module)
     }
 }
 
+extension AppCoordinator: AuthCheckCoordinator {}
