@@ -15,6 +15,7 @@ public protocol AuthenticationService {
     func resetPassword(iin: String, phone: String, password: String, password2: String) -> Observable<LoadingSequence<ResponseStatus>>
     func updateToken(with newToken: UserResponse?)
     func forceLogout()
+    func authUser(phone: String, password: String) -> Observable<LoadingSequence<ResponseStatus>>
     func register()
     
 }
@@ -122,6 +123,12 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     public func clearUserInfo() {
         infoStorage.clearAll()
         sessionStorage.clearAll()
+    }
+  
+    public func authUser(phone: String, password: String) -> Observable<LoadingSequence<ResponseStatus>> {
+        return apiService.makeRequest(to: AuthTarget.authUser(phone: phone, password: password))
+            .result(ResponseStatus.self)
+            .asLoadingSequence()
     }
     
     public func register() {

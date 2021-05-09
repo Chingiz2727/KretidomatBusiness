@@ -12,8 +12,9 @@ final class AuthModuleFactory {
     }
     
     func makeAuthUser() -> AuthUserModule {
-        
-        return AuthUserViewController()
+        let apiService = container.resolve(AuthenticationService.self)!
+        let viewModel = AuthUserViewModel(authService: apiService)
+        return AuthUserViewController(viewModel: viewModel)
     }
     
     func makeRegister() -> RegisterModule {
