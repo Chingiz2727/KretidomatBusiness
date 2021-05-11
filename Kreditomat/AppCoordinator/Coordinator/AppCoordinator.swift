@@ -16,16 +16,17 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        checkAuth { [weak self] in
-            self?.startHome()
-        }
+//        checkAuth { [weak self] in
+//            self?.startHome()
+//        }
+        startHome()
     }
  
     private func startAuth() {}
     private func startHome() {
-//        let module = appCoordinatorFactory.makeAuthCoordinator()
-//        module.start()
-//        addDependency(module)
+        let coordinator = appCoordinatorFactory.homeCoordinator()
+        coordinator.start()
+        addDependency(coordinator)
     }
 }
 

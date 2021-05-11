@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55738B022647FDB900CE2BD5 /* CabinetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B012647FDB900CE2BD5 /* CabinetView.swift */; };
+		55738B062647FF4200CE2BD5 /* InfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B052647FF4200CE2BD5 /* InfoItemView.swift */; };
+		55738B09264801ED00CE2BD5 /* SumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B08264801ED00CE2BD5 /* SumView.swift */; };
+		55738B0D2648080700CE2BD5 /* CabinetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B0C2648080700CE2BD5 /* CabinetModule.swift */; };
+		55738B112648082B00CE2BD5 /* CabinetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B102648082B00CE2BD5 /* CabinetViewController.swift */; };
+		55738B16264808E000CE2BD5 /* HomeModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B15264808E000CE2BD5 /* HomeModuleFactory.swift */; };
+		55738B192648092B00CE2BD5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B182648092B00CE2BD5 /* HomeCoordinator.swift */; };
+		55738B1F26480D7200CE2BD5 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B1E26480D7200CE2BD5 /* Images.swift */; };
+		55738B2A2649328E00CE2BD5 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B292649328E00CE2BD5 /* ImagePickerManager.swift */; };
+		55738B2F26493A2E00CE2BD5 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B2E26493A2E00CE2BD5 /* SuccessView.swift */; };
+		55738B33264940C500CE2BD5 /* SuccessModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B32264940C500CE2BD5 /* SuccessModule.swift */; };
+		55738B37264940E300CE2BD5 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B36264940E300CE2BD5 /* SuccessViewController.swift */; };
+		55738B41264973C300CE2BD5 /* CreatePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B40264973C300CE2BD5 /* CreatePointView.swift */; };
+		55738B46264978B200CE2BD5 /* CreatePointModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B45264978B200CE2BD5 /* CreatePointModule.swift */; };
+		55738B4A264978D800CE2BD5 /* CreatePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B49264978D800CE2BD5 /* CreatePointViewController.swift */; };
+		55738B4E264A3CB000CE2BD5 /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B4D264A3CB000CE2BD5 /* PointCell.swift */; };
+		55738B57264A481A00CE2BD5 /* PointPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B56264A481A00CE2BD5 /* PointPickerViewDelegate.swift */; };
+		55738B5A264A486F00CE2BD5 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B59264A486F00CE2BD5 /* Point.swift */; };
+		55738B5D264A48C100CE2BD5 /* PointPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B5C264A48C100CE2BD5 /* PointPickerViewDataSource.swift */; };
+		55738B62264A57E300CE2BD5 /* AttachCashierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B61264A57E300CE2BD5 /* AttachCashierView.swift */; };
+		55738B66264A5B6C00CE2BD5 /* AttachCashierModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B65264A5B6C00CE2BD5 /* AttachCashierModule.swift */; };
+		55738B6A264A5B8900CE2BD5 /* AttachCashierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B69264A5B8900CE2BD5 /* AttachCashierViewController.swift */; };
+		55738B73264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B72264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift */; };
+		55738B77264A655800CE2BD5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B76264A655800CE2BD5 /* CameraView.swift */; };
+		55738B7B264A697500CE2BD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B7A264A697500CE2BD5 /* CameraViewController.swift */; };
+		55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B7F264A69AD00CE2BD5 /* CameraModule.swift */; };
+		55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B83264A6A7B00CE2BD5 /* CameraAction.swift */; };
+		55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */; };
 		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
@@ -135,6 +163,34 @@
 /* Begin PBXFileReference section */
 		0D184BA3DC4205AA62EC48FE /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
 		1CD382529DE5A6AF134D7675 /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
+		55738B012647FDB900CE2BD5 /* CabinetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetView.swift; sourceTree = "<group>"; };
+		55738B052647FF4200CE2BD5 /* InfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItemView.swift; sourceTree = "<group>"; };
+		55738B08264801ED00CE2BD5 /* SumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumView.swift; sourceTree = "<group>"; };
+		55738B0C2648080700CE2BD5 /* CabinetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetModule.swift; sourceTree = "<group>"; };
+		55738B102648082B00CE2BD5 /* CabinetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetViewController.swift; sourceTree = "<group>"; };
+		55738B15264808E000CE2BD5 /* HomeModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleFactory.swift; sourceTree = "<group>"; };
+		55738B182648092B00CE2BD5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		55738B1E26480D7200CE2BD5 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		55738B292649328E00CE2BD5 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		55738B2E26493A2E00CE2BD5 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		55738B32264940C500CE2BD5 /* SuccessModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModule.swift; sourceTree = "<group>"; };
+		55738B36264940E300CE2BD5 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		55738B40264973C300CE2BD5 /* CreatePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointView.swift; sourceTree = "<group>"; };
+		55738B45264978B200CE2BD5 /* CreatePointModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointModule.swift; sourceTree = "<group>"; };
+		55738B49264978D800CE2BD5 /* CreatePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointViewController.swift; sourceTree = "<group>"; };
+		55738B4D264A3CB000CE2BD5 /* PointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCell.swift; sourceTree = "<group>"; };
+		55738B56264A481A00CE2BD5 /* PointPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointPickerViewDelegate.swift; sourceTree = "<group>"; };
+		55738B59264A486F00CE2BD5 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		55738B5C264A48C100CE2BD5 /* PointPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointPickerViewDataSource.swift; sourceTree = "<group>"; };
+		55738B61264A57E300CE2BD5 /* AttachCashierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachCashierView.swift; sourceTree = "<group>"; };
+		55738B65264A5B6C00CE2BD5 /* AttachCashierModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachCashierModule.swift; sourceTree = "<group>"; };
+		55738B69264A5B8900CE2BD5 /* AttachCashierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachCashierViewController.swift; sourceTree = "<group>"; };
+		55738B72264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMetaDataOutputDelegate.swift; sourceTree = "<group>"; };
+		55738B76264A655800CE2BD5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		55738B7A264A697500CE2BD5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		55738B7F264A69AD00CE2BD5 /* CameraModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModule.swift; sourceTree = "<group>"; };
+		55738B83264A6A7B00CE2BD5 /* CameraAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAction.swift; sourceTree = "<group>"; };
+		55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermission.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -274,6 +330,279 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55738AFD2647FCF200CE2BD5 /* UserFlow */ = {
+			isa = PBXGroup;
+			children = (
+				55738B132648088B00CE2BD5 /* Coordinator */,
+				55738AFE2647FD7D00CE2BD5 /* Modules */,
+			);
+			path = UserFlow;
+			sourceTree = "<group>";
+		};
+		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				55738B5F264A57CD00CE2BD5 /* AttachCashier */,
+				55738B3E264973A900CE2BD5 /* CreatePoint */,
+				55738B2C26493A1900CE2BD5 /* SuccessPage */,
+				55738AFF2647FD9C00CE2BD5 /* Cabinet */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		55738AFF2647FD9C00CE2BD5 /* Cabinet */ = {
+			isa = PBXGroup;
+			children = (
+				55738B282649327D00CE2BD5 /* ImagePicker */,
+				55738B0F2648081A00CE2BD5 /* Controller */,
+				55738B0B264807FA00CE2BD5 /* Module */,
+				55738B002647FDA600CE2BD5 /* View */,
+			);
+			path = Cabinet;
+			sourceTree = "<group>";
+		};
+		55738B002647FDA600CE2BD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55738B012647FDB900CE2BD5 /* CabinetView.swift */,
+				55738B052647FF4200CE2BD5 /* InfoItemView.swift */,
+				55738B08264801ED00CE2BD5 /* SumView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55738B0B264807FA00CE2BD5 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55738B0C2648080700CE2BD5 /* CabinetModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55738B0F2648081A00CE2BD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55738B102648082B00CE2BD5 /* CabinetViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55738B132648088B00CE2BD5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				55738B14264808AA00CE2BD5 /* ModuleFactory */,
+				55738B182648092B00CE2BD5 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		55738B14264808AA00CE2BD5 /* ModuleFactory */ = {
+			isa = PBXGroup;
+			children = (
+				55738B15264808E000CE2BD5 /* HomeModuleFactory.swift */,
+			);
+			path = ModuleFactory;
+			sourceTree = "<group>";
+		};
+		55738B1B26480D2200CE2BD5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				55738B86264A6B0D00CE2BD5 /* Camera */,
+				55738B1C26480D5200CE2BD5 /* Resources */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		55738B1C26480D5200CE2BD5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				55738B1D26480D5800CE2BD5 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		55738B1D26480D5800CE2BD5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				55738B1E26480D7200CE2BD5 /* Images.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		55738B282649327D00CE2BD5 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				55738B292649328E00CE2BD5 /* ImagePickerManager.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		55738B2C26493A1900CE2BD5 /* SuccessPage */ = {
+			isa = PBXGroup;
+			children = (
+				55738B35264940D400CE2BD5 /* Controller */,
+				55738B31264940B600CE2BD5 /* Module */,
+				55738B2D26493A2400CE2BD5 /* View */,
+			);
+			path = SuccessPage;
+			sourceTree = "<group>";
+		};
+		55738B2D26493A2400CE2BD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55738B2E26493A2E00CE2BD5 /* SuccessView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55738B31264940B600CE2BD5 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55738B32264940C500CE2BD5 /* SuccessModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55738B35264940D400CE2BD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55738B36264940E300CE2BD5 /* SuccessViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55738B3E264973A900CE2BD5 /* CreatePoint */ = {
+			isa = PBXGroup;
+			children = (
+				55738B50264A47CC00CE2BD5 /* PointPicker */,
+				55738B48264978C600CE2BD5 /* Controller */,
+				55738B442649789F00CE2BD5 /* Module */,
+				55738B3F264973B500CE2BD5 /* View */,
+			);
+			path = CreatePoint;
+			sourceTree = "<group>";
+		};
+		55738B3F264973B500CE2BD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55738B40264973C300CE2BD5 /* CreatePointView.swift */,
+				55738B4D264A3CB000CE2BD5 /* PointCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55738B442649789F00CE2BD5 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55738B45264978B200CE2BD5 /* CreatePointModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55738B48264978C600CE2BD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55738B49264978D800CE2BD5 /* CreatePointViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55738B50264A47CC00CE2BD5 /* PointPicker */ = {
+			isa = PBXGroup;
+			children = (
+				55738B56264A481A00CE2BD5 /* PointPickerViewDelegate.swift */,
+				55738B59264A486F00CE2BD5 /* Point.swift */,
+				55738B5C264A48C100CE2BD5 /* PointPickerViewDataSource.swift */,
+			);
+			path = PointPicker;
+			sourceTree = "<group>";
+		};
+		55738B5F264A57CD00CE2BD5 /* AttachCashier */ = {
+			isa = PBXGroup;
+			children = (
+				55738B68264A5B7600CE2BD5 /* Controller */,
+				55738B64264A5B5100CE2BD5 /*  AttachCashierModule */,
+				55738B60264A57D400CE2BD5 /* View */,
+			);
+			path = AttachCashier;
+			sourceTree = "<group>";
+		};
+		55738B60264A57D400CE2BD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55738B61264A57E300CE2BD5 /* AttachCashierView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55738B64264A5B5100CE2BD5 /*  AttachCashierModule */ = {
+			isa = PBXGroup;
+			children = (
+				55738B65264A5B6C00CE2BD5 /* AttachCashierModule.swift */,
+			);
+			path = " AttachCashierModule";
+			sourceTree = "<group>";
+		};
+		55738B68264A5B7600CE2BD5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55738B69264A5B8900CE2BD5 /* AttachCashierViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55738B71264A649000CE2BD5 /* CameraModule */ = {
+			isa = PBXGroup;
+			children = (
+				55738B82264A6A6C00CE2BD5 /* Model */,
+				55738B7E264A69A100CE2BD5 /* Module */,
+				55738B79264A663F00CE2BD5 /*  Controller */,
+				55738B75264A652900CE2BD5 /* View */,
+				55738B72264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift */,
+			);
+			path = CameraModule;
+			sourceTree = "<group>";
+		};
+		55738B75264A652900CE2BD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55738B76264A655800CE2BD5 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55738B79264A663F00CE2BD5 /*  Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55738B7A264A697500CE2BD5 /* CameraViewController.swift */,
+			);
+			path = " Controller";
+			sourceTree = "<group>";
+		};
+		55738B7E264A69A100CE2BD5 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55738B7F264A69AD00CE2BD5 /* CameraModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55738B82264A6A6C00CE2BD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55738B83264A6A7B00CE2BD5 /* CameraAction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55738B86264A6B0D00CE2BD5 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +789,7 @@
 				72DF18BD263C2CB500E5F3D6 /* Components */,
 				72F61494263C1ED300039B35 /* View */,
 				7201EF9E2636E0B700D25097 /* Core */,
+				55738B1B26480D2200CE2BD5 /* Helpers */,
 				7201EF732636DF2D00D25097 /* Kreditomat */,
 				7201EF722636DF2D00D25097 /* Products */,
 				EA97BADE1D40BDC29617CCDE /* Pods */,
@@ -478,6 +808,8 @@
 		7201EF732636DF2D00D25097 /* Kreditomat */ = {
 			isa = PBXGroup;
 			children = (
+				55738B71264A649000CE2BD5 /* CameraModule */,
+				55738AFD2647FCF200CE2BD5 /* UserFlow */,
 				5FBE1BE526425CE5001F4CAF /* AuthFlows */,
 				7201F1032636ED8D00D25097 /* AppCoordinator */,
 				7201F0FE2636EC5700D25097 /* DI */,
@@ -1091,13 +1423,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7201F0272636E4B800D25097 /* KeyChainStorage.swift in Sources */,
+				55738B6A264A5B8900CE2BD5 /* AttachCashierViewController.swift in Sources */,
 				72DF18BF263C2CBF00E5F3D6 /* Colors.swift in Sources */,
 				7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */,
 				7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */,
 				7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */,
 				7201F0882636E71600D25097 /* Result.swift in Sources */,
+				55738B57264A481A00CE2BD5 /* PointPickerViewDelegate.swift in Sources */,
 				7201F0322636E58700D25097 /* EmojiModifier.swift in Sources */,
 				7201F0412636E5CD00D25097 /* ApiRequestable.swift in Sources */,
+				55738B46264978B200CE2BD5 /* CreatePointModule.swift in Sources */,
 				7201F0032636E3C900D25097 /* CardSegue.swift in Sources */,
 				7201F0142636E43500D25097 /* AdditionalMenuPresentationController.swift in Sources */,
 				7201F06C2636E69B00D25097 /* DateContent.swift in Sources */,
@@ -1116,8 +1451,12 @@
 				7201F0E52636EA8400D25097 /* StatusBarHeight.swift in Sources */,
 				7201F0722636E6B700D25097 /* IdPaginationAdapter.swift in Sources */,
 				7201F02F2636E57A00D25097 /* LoggerConfigurator.swift in Sources */,
+				55738B09264801ED00CE2BD5 /* SumView.swift in Sources */,
+				55738B4E264A3CB000CE2BD5 /* PointCell.swift in Sources */,
 				7201F0AB2636E7C300D25097 /* ProgressView.swift in Sources */,
+				55738B62264A57E300CE2BD5 /* AttachCashierView.swift in Sources */,
 				72DF18EC263C2FB200E5F3D6 /* BaseButton.swift in Sources */,
+				55738B1F26480D7200CE2BD5 /* Images.swift in Sources */,
 				7201F01B2636E46000D25097 /* StoriesTransitionDelegate.swift in Sources */,
 				7201F07E2636E6E500D25097 /* PaginationManager.swift in Sources */,
 				7201F0922636E73F00D25097 /* LoadingSequence+RX.swift in Sources */,
@@ -1132,13 +1471,17 @@
 				7201F0CC2636E8EE00D25097 /* BackButton.swift in Sources */,
 				7201F0E02636EA0C00D25097 /* UICollectionView+Reuse.swift in Sources */,
 				7201F0DA2636E9F200D25097 /* UiViewController+Keyboard.swift in Sources */,
+				55738B4A264978D800CE2BD5 /* CreatePointViewController.swift in Sources */,
 				72DF18BB263C2C9400E5F3D6 /* RightButtonTextField.swift in Sources */,
 				7201F0B72636E81B00D25097 /* UserSessionStorage.swift in Sources */,
 				7201F0752636E6C200D25097 /* IdPaginationManager.swift in Sources */,
 				7201F03E2636E5BF00D25097 /* Requestable.swift in Sources */,
+				55738B192648092B00CE2BD5 /* HomeCoordinator.swift in Sources */,
 				7201F0B22636E7F800D25097 /* UserInfoStorage.swift in Sources */,
 				7201F0EC2636EABF00D25097 /* UserResponse.swift in Sources */,
+				55738B062647FF4200CE2BD5 /* InfoItemView.swift in Sources */,
 				7201F0D42636E9D600D25097 /* UiView+RoundedCorners.swift in Sources */,
+				55738B41264973C300CE2BD5 /* CreatePointView.swift in Sources */,
 				7201F00D2636E40900D25097 /* SlidingPresentationController.swift in Sources */,
 				7201F0982636E75700D25097 /* Observable+Timer.swift in Sources */,
 				5FBE1C3926427D9B001F4CAF /* AuthCoordinator.swift in Sources */,
@@ -1149,6 +1492,7 @@
 				7201F0352636E59500D25097 /* SertLombardLogger+HTTP.swift in Sources */,
 				7201EFD72636E2C800D25097 /* CoordinatorNavigationController.swift in Sources */,
 				5FBE1C3526426970001F4CAF /* TitleAndButtonView.swift in Sources */,
+				55738B5D264A48C100CE2BD5 /* PointPickerViewDataSource.swift in Sources */,
 				7201EFEA2636E32D00D25097 /* NotificationDeepLinkAction.swift in Sources */,
 				7201F0592636E63F00D25097 /* SerlLombardRequestAdapter.swift in Sources */,
 				5FBE1C3D26427E78001F4CAF /* AuthModuleFactory.swift in Sources */,
@@ -1157,6 +1501,8 @@
 				5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */,
 				7201EFE22636E30800D25097 /* DeepLinkAction.swift in Sources */,
 				7201EFF22636E35D00D25097 /* Router.swift in Sources */,
+				55738B66264A5B6C00CE2BD5 /* AttachCashierModule.swift in Sources */,
+				55738B0D2648080700CE2BD5 /* CabinetModule.swift in Sources */,
 				7201EFBB2636E22300D25097 /* BackButtonContainerView.swift in Sources */,
 				7201EFBE2636E23200D25097 /* BackPressHandler.swift in Sources */,
 				7201F0442636E5DC00D25097 /* ApiTarget.swift in Sources */,
@@ -1169,6 +1515,7 @@
 				7201F0D02636E94C00D25097 /* AuthTarget.swift in Sources */,
 				7201F0A82636E7B100D25097 /* UIViewController+Alert.swift in Sources */,
 				7201EFAC2636E1E300D25097 /* AppSessionManager.swift in Sources */,
+				55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */,
 				7201F0BB2636E83100D25097 /* ViewHolder.swift in Sources */,
 				7201F0222636E49E00D25097 /* InputValidatable.swift in Sources */,
 				7201F0DD2636E9FE00D25097 /* UITableView+Reuse.swift in Sources */,
@@ -1176,13 +1523,17 @@
 				5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */,
 				7201F01E2636E46D00D25097 /* StoriesDismissAnimationController.swift in Sources */,
 				7201EFB52636E20A00D25097 /* BackButtonContainerViewController.swift in Sources */,
+				55738B2F26493A2E00CE2BD5 /* SuccessView.swift in Sources */,
 				7201F08F2636E73300D25097 /* LoadingSequenceConvertible.swift in Sources */,
 				7201EFB12636E1FC00D25097 /* BackContainerViewController.swift in Sources */,
+				55738B5A264A486F00CE2BD5 /* Point.swift in Sources */,
 				7201F0502636E61800D25097 /* ApiError.swift in Sources */,
 				7201F0812636E6F100D25097 /* PaginationState.swift in Sources */,
+				55738B77264A655800CE2BD5 /* CameraView.swift in Sources */,
 				5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */,
 				7201F0472636E5EC00D25097 /* HTTPMethod.swift in Sources */,
 				7201F0682636E68300D25097 /* AuthServiceAssembly.swift in Sources */,
+				55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */,
 				72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */,
 				7201EFD02636E2AE00D25097 /* CloseableViewController.swift in Sources */,
 				7201F03A2636E5B100D25097 /* ResponseStatus.swift in Sources */,
@@ -1192,19 +1543,28 @@
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
 				7201F08C2636E72100D25097 /* UIScrollView+ReachedBottom.swift in Sources */,
 				72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */,
+				55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */,
 				7201F0C22636E85600D25097 /* ViewModel.swift in Sources */,
 				7201F06F2636E6AA00D25097 /* IdPagination.swift in Sources */,
+				55738B112648082B00CE2BD5 /* CabinetViewController.swift in Sources */,
 				7201F0112636E42800D25097 /* AdditionalMenuTransitioningDelegate.swift in Sources */,
+				55738B2A2649328E00CE2BD5 /* ImagePickerManager.swift in Sources */,
 				5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */,
+				55738B7B264A697500CE2BD5 /* CameraViewController.swift in Sources */,
 				72DF18C5263C2DB100E5F3D6 /* PasswordTextField.swift in Sources */,
 				7201EF752636DF2D00D25097 /* AppDelegate.swift in Sources */,
 				7201F0062636E3DC00D25097 /* Router+Transitions.swift in Sources */,
+				55738B022647FDB900CE2BD5 /* CabinetView.swift in Sources */,
+				55738B37264940E300CE2BD5 /* SuccessViewController.swift in Sources */,
 				7201F0AF2636E7E800D25097 /* UserDefaultsStorage.swift in Sources */,
 				7201F0782636E6CE00D25097 /* Pagination.swift in Sources */,
+				55738B73264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift in Sources */,
+				55738B16264808E000CE2BD5 /* HomeModuleFactory.swift in Sources */,
 				5FBE1C412642C76B001F4CAF /* AuthCheckCoordinator.swift in Sources */,
 				7201F09F2636E77900D25097 /* AuthTokenService.swift in Sources */,
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
+				55738B33264940C500CE2BD5 /* SuccessModule.swift in Sources */,
 				72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */,
 				7201F05C2636E64D00D25097 /* ApiRequest.swift in Sources */,
 				7201F0622636E66700D25097 /* UploadService.swift in Sources */,
@@ -1349,14 +1709,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				DEVELOPMENT_TEAM = 68F942NMT8;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat;
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1370,14 +1730,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				DEVELOPMENT_TEAM = 68F942NMT8;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat;
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
