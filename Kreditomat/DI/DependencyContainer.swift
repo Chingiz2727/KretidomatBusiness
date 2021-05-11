@@ -35,5 +35,9 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(NotificationCenter.self) { _ in
             NotificationCenter.default
         }.inObjectScope(.container)
+        
+        container.register(MenuModule.self) { _ in
+            return MenuViewController()
+        }
     }
 }

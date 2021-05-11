@@ -17,4 +17,8 @@ final class AppCoordinatorFactory {
         return BaseCoordinator(router: router, container: container)
     }
     
+    func msainCoordinator() -> Coordinator {
+        return MainCoordinator(router: router, container: container)
+    }
+    
 }
