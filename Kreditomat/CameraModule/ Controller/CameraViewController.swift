@@ -11,6 +11,10 @@ import AVFoundation
 import UIKit
 
 class CameraViewController: UIViewController, CameraModule {
+    var giveCredit: GiveCredit?
+    
+    var payCredit: PayCredit?
+    
     var cameraActionType: CameraAction?
     
     private var avCaptureOuput: AVCaptureOutput?
@@ -71,9 +75,9 @@ class CameraViewController: UIViewController, CameraModule {
     private func qrScanned(qr: String) {
         switch cameraActionType {
         case .giveCredit:
-            return
+            giveCredit?(qr)
         case .payCredit:
-            return
+            payCredit?(qr)
         default:
             return
         }

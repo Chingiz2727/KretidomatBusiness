@@ -28,7 +28,9 @@ final class MainCoordinator: BaseCoordinator {
             case .createPoint:
                 self?.showCreatePoint()
             case .getCredit:
-                self?.showCamera()
+                self?.showCamera(type: .giveCredit)
+            case .clearCredit:
+                self?.showCamera(type: .payCredit)
             default:
                 return
             }
@@ -49,24 +51,26 @@ final class MainCoordinator: BaseCoordinator {
         router.push(module)
     }
     
-    private func showCamera() {
+    private func showCamera(type: CameraAction) {
         var module = container.resolve(CameraModule.self)!
+        module.cameraActionType = type
         switch module.cameraActionType {
         case .giveCredit:
-            showSignature()
+            module.giveCredit = { [weak self] qr in
+                self?.showSignature()
+            }
+        case .payCredit:
+            module.payCredit = { [weak self] qr in
+            }
         default:
             return
         }
         router.push(module)
     }
     
-    private func showSignature() {
-        
-    }
-    
     private func showAttachCashier() {
         let module = moduleFactory.makeAttachCashier()
-        router.setRootModule(module)
+        router.push(module)
     }
     
     private func showSignature() {
