@@ -22,4 +22,6 @@ target 'Kreditomat' do
   pod 'SwiftMessages', '8.0.3'
   pod 'lottie-ios', '3.1.2'
   pod 'SwiftDataTables'
+  pod 'TouchDraw', '~> 2.1'
+
 end

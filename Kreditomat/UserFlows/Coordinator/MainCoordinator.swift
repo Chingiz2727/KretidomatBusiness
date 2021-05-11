@@ -13,7 +13,12 @@ final class MainCoordinator: BaseCoordinator {
     }
     
     private func startHome() {
-        let module = assembler.resolver.resolve(MenuModule.self)!
+        var module = assembler.resolver.resolve(MenuModule.self)!
         router.setRootModule(module)
+    }
+    
+    private func showSignature() {
+        let module = assembler.resolver.resolve(SignatureModule.self)!
+        router.push(module)
     }
 }
