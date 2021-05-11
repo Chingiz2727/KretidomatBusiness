@@ -66,6 +66,11 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showAttachCashier() {
         let module = moduleFactory.makeAttachCashier()
+        router.setRootModule(module)
+    }
+    
+    private func showSignature() {
+        let module = assembler.resolver.resolve(SignatureModule.self)!
         router.push(module)
     }
 }

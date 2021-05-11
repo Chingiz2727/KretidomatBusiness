@@ -75,6 +75,8 @@ public final class DependencyContainerAssembly: Assembly {
                 avCapturePreviewLayer: layer,
                 cameraUsagePermession: cameraUsagePermission)
             return controller
+        container.register(SignatureModule.self) { _ in
+            return SignatureViewController()
         }
     }
 }
