@@ -39,12 +39,9 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
             .disposed(by: disposeBag)
         
         rootView.tableView.rx.itemSelected
-            .withLatestFrom(Observable.just(menu)) { [unowned self] path, menu -> Menu in
-                return menu[path.row]
-            }.subscribe(onNext: { [unowned self] menu in
-                print(menu)
-                self.selectMenu?(menu)
-            })
-            .disposed(by: disposeBag)
+            .withLatestFrom(Observable.just(Menu.allCases)) { $1[$0.row] }
+            .bind { [unowned self] item in
+                self.selectMenu?(item)
+            }.disposed(by: disposeBag)
     }
 }
