@@ -12,8 +12,6 @@
 		55738B09264801ED00CE2BD5 /* SumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B08264801ED00CE2BD5 /* SumView.swift */; };
 		55738B0D2648080700CE2BD5 /* CabinetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B0C2648080700CE2BD5 /* CabinetModule.swift */; };
 		55738B112648082B00CE2BD5 /* CabinetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B102648082B00CE2BD5 /* CabinetViewController.swift */; };
-		55738B16264808E000CE2BD5 /* HomeModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B15264808E000CE2BD5 /* HomeModuleFactory.swift */; };
-		55738B192648092B00CE2BD5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B182648092B00CE2BD5 /* HomeCoordinator.swift */; };
 		55738B1F26480D7200CE2BD5 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B1E26480D7200CE2BD5 /* Images.swift */; };
 		55738B2A2649328E00CE2BD5 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B292649328E00CE2BD5 /* ImagePickerManager.swift */; };
 		55738B2F26493A2E00CE2BD5 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B2E26493A2E00CE2BD5 /* SuccessView.swift */; };
@@ -35,6 +33,7 @@
 		55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B7F264A69AD00CE2BD5 /* CameraModule.swift */; };
 		55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B83264A6A7B00CE2BD5 /* CameraAction.swift */; };
 		55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */; };
+		55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */; };
 		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
@@ -175,8 +174,6 @@
 		55738B08264801ED00CE2BD5 /* SumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumView.swift; sourceTree = "<group>"; };
 		55738B0C2648080700CE2BD5 /* CabinetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetModule.swift; sourceTree = "<group>"; };
 		55738B102648082B00CE2BD5 /* CabinetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetViewController.swift; sourceTree = "<group>"; };
-		55738B15264808E000CE2BD5 /* HomeModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleFactory.swift; sourceTree = "<group>"; };
-		55738B182648092B00CE2BD5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		55738B1E26480D7200CE2BD5 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		55738B292649328E00CE2BD5 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		55738B2E26493A2E00CE2BD5 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
@@ -198,6 +195,7 @@
 		55738B7F264A69AD00CE2BD5 /* CameraModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModule.swift; sourceTree = "<group>"; };
 		55738B83264A6A7B00CE2BD5 /* CameraAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAction.swift; sourceTree = "<group>"; };
 		55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermission.swift; sourceTree = "<group>"; };
+		55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleFactory.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -344,15 +342,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		55738AFD2647FCF200CE2BD5 /* UserFlow */ = {
-			isa = PBXGroup;
-			children = (
-				55738B132648088B00CE2BD5 /* Coordinator */,
-				55738AFE2647FD7D00CE2BD5 /* Modules */,
-			);
-			path = UserFlow;
-			sourceTree = "<group>";
-		};
 		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,23 +388,6 @@
 				55738B102648082B00CE2BD5 /* CabinetViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		55738B132648088B00CE2BD5 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				55738B14264808AA00CE2BD5 /* ModuleFactory */,
-				55738B182648092B00CE2BD5 /* HomeCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		55738B14264808AA00CE2BD5 /* ModuleFactory */ = {
-			isa = PBXGroup;
-			children = (
-				55738B15264808E000CE2BD5 /* HomeModuleFactory.swift */,
-			);
-			path = ModuleFactory;
 			sourceTree = "<group>";
 		};
 		55738B1B26480D2200CE2BD5 /* Helpers */ = {
@@ -615,6 +587,14 @@
 				55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		55738B92264A8BFC00CE2BD5 /* ModuleFactory */ = {
+			isa = PBXGroup;
+			children = (
+				55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */,
+			);
+			path = ModuleFactory;
 			sourceTree = "<group>";
 		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
@@ -823,7 +803,6 @@
 			isa = PBXGroup;
 			children = (
 				55738B71264A649000CE2BD5 /* CameraModule */,
-				55738AFD2647FCF200CE2BD5 /* UserFlow */,
 				72392134264A75270050BA37 /* UserFlows */,
 				5FBE1BE526425CE5001F4CAF /* AuthFlows */,
 				7201F1032636ED8D00D25097 /* AppCoordinator */,
@@ -1259,6 +1238,7 @@
 		72392134264A75270050BA37 /* UserFlows */ = {
 			isa = PBXGroup;
 			children = (
+				55738AFE2647FD7D00CE2BD5 /* Modules */,
 				72567B8F264A8668004D45C8 /* Coordinator */,
 				72392135264A752E0050BA37 /* MainMenu */,
 			);
@@ -1312,6 +1292,7 @@
 		72567B8F264A8668004D45C8 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				55738B92264A8BFC00CE2BD5 /* ModuleFactory */,
 				72567B90264A8674004D45C8 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -1565,7 +1546,6 @@
 				7201F0B72636E81B00D25097 /* UserSessionStorage.swift in Sources */,
 				7201F0752636E6C200D25097 /* IdPaginationManager.swift in Sources */,
 				7201F03E2636E5BF00D25097 /* Requestable.swift in Sources */,
-				55738B192648092B00CE2BD5 /* HomeCoordinator.swift in Sources */,
 				7201F0B22636E7F800D25097 /* UserInfoStorage.swift in Sources */,
 				7201F0EC2636EABF00D25097 /* UserResponse.swift in Sources */,
 				55738B062647FF4200CE2BD5 /* InfoItemView.swift in Sources */,
@@ -1631,6 +1611,7 @@
 				7201F02B2636E56D00D25097 /* Logger.swift in Sources */,
 				7201F0842636E6FD00D25097 /* PaginationTableFooterView.swift in Sources */,
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
+				55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */,
 				7201F08C2636E72100D25097 /* UIScrollView+ReachedBottom.swift in Sources */,
 				72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */,
 				55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */,
@@ -1649,7 +1630,6 @@
 				7201F0AF2636E7E800D25097 /* UserDefaultsStorage.swift in Sources */,
 				7201F0782636E6CE00D25097 /* Pagination.swift in Sources */,
 				55738B73264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift in Sources */,
-				55738B16264808E000CE2BD5 /* HomeModuleFactory.swift in Sources */,
 				5FBE1C412642C76B001F4CAF /* AuthCheckCoordinator.swift in Sources */,
 				7201F09F2636E77900D25097 /* AuthTokenService.swift in Sources */,
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,

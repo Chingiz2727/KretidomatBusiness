@@ -60,16 +60,22 @@ class CameraViewController: UIViewController, CameraModule {
             switch self.cameraActionType {
             case .giveCredit:
                 qrScanned(qr: qr)
+            case .payCredit:
+                qrScanned(qr: qr)
             default:
-                break
+                return
             }
         }
     }
 
     private func qrScanned(qr: String) {
         switch cameraActionType {
+        case .giveCredit:
+            return
+        case .payCredit:
+            return
         default:
-            break
+            return
         }
     }
 

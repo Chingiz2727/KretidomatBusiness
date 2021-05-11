@@ -7,8 +7,4 @@
 
 import Foundation
 protocol CabinetModule: Presentable {
-    typealias Create = () -> Void
-    typealias Camera = () -> Void
-    var create: Create? { get set }
-    var camera: Camera? { get set }
 }

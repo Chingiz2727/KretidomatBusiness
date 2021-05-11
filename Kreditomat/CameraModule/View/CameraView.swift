@@ -28,13 +28,14 @@ final class CameraView: UIView {
         contentView.addSubview(rectangleImageView)
         contentView.snp.makeConstraints { $0.edges.equalToSuperview() }
         titleLabel.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview().inset(100)
+            make.top.equalToSuperview().inset(80)
+            make.centerX.equalToSuperview()
         }
 
         rectangleImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.size.equalTo(300)
-            make.top.equalTo(titleLabel.snp.bottom).offset(30)
+            make.top.equalTo(titleLabel.snp.bottom).offset(60)
         }
     }
 
@@ -45,5 +46,6 @@ final class CameraView: UIView {
         titleLabel.textAlignment = .center
         contentView.backgroundColor = .clear
         backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        rectangleImageView.image = Images.Border.image
     }
 }

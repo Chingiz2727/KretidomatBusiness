@@ -14,6 +14,7 @@ enum Images: String {
     case success
     case arrowbottom
     case lock
+    case Border
 }
 
 extension Images {

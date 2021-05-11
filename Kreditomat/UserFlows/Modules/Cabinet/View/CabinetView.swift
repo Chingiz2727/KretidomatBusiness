@@ -49,9 +49,6 @@ class CabinetView: UIView {
         distribution: .fillEqually,
         spacing: 12)
     
-    let createButton = PrimaryButton()
-    let cameraButton = PrimaryButton()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupInitialLayouts()
@@ -100,20 +97,6 @@ class CabinetView: UIView {
             make.left.right.equalToSuperview().inset(10)
             make.height.equalTo(83)
         }
-        
-        addSubview(createButton)
-        createButton.snp.makeConstraints { (make) in
-            make.top.equalTo(sumStackView.snp.bottom).offset(50)
-            make.left.equalToSuperview().inset(16)
-            make.height.equalTo(40)
-        }
-        
-        addSubview(cameraButton)
-        cameraButton.snp.makeConstraints { (make) in
-            make.top.equalTo(createButton.snp.top)
-            make.right.equalToSuperview().inset(16)
-            make.height.equalTo(40)
-        }
     }
     
     private func configureView() {
@@ -132,8 +115,6 @@ class CabinetView: UIView {
         emailItem.dividerLine.backgroundColor = .white
         bonusSum.layer.addShadow()
         cashboxSum.layer.addShadow()
-        cameraButton.setTitle("Camera", for: .normal)
-        createButton.setTitle("Create", for: .normal)
     }
     
     func setupData() {

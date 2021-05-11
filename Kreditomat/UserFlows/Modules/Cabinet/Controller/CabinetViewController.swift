@@ -9,9 +9,6 @@ import UIKit
 import RxSwift
 
 class CabinetViewController: ViewController, ViewHolder, CabinetModule {
-    var create: Create?
-    var camera: Camera?
-    
     typealias RootViewType = CabinetView
     
     private let disposeBag = DisposeBag()
@@ -31,16 +28,6 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
                 ImagePickerManager().pickImage(self) { (image) in
                     rootView.profileImage.image = image
                 }
-            }).disposed(by: disposeBag)
-        
-        rootView.createButton.rx.tap
-            .subscribe(onNext: { [unowned self] in
-                self.create?()
-            }).disposed(by: disposeBag)
-        
-        rootView.cameraButton.rx.tap
-            .subscribe(onNext: { [unowned self] in
-                camera?()
             }).disposed(by: disposeBag)
     }
 }

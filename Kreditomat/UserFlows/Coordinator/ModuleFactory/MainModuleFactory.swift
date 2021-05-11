@@ -1,13 +1,13 @@
 //
-//  HomeModuleFactory.swift
+//  MainModuleFactory.swift
 //  Kreditomat
 //
-//  Created by kairzhan on 5/9/21.
+//  Created by kairzhan on 5/11/21.
 //
 
 import Swinject
 
-final class HomeModuleFactory {
+final class MainModuleFactory {
     private let container: DependencyContainer
 
     init(container: DependencyContainer) {
