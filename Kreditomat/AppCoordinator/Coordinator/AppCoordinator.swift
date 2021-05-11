@@ -23,10 +23,11 @@ final class AppCoordinator: BaseCoordinator {
     }
  
     private func startAuth() {}
+    
     private func startHome() {
-        let coordinator = appCoordinatorFactory.homeCoordinator()
-        coordinator.start()
-        addDependency(coordinator)
+        let module = appCoordinatorFactory.msainCoordinator()
+        addDependency(module)
+        module.start()
     }
 }
 
