@@ -39,5 +39,9 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(MenuModule.self) { _ in
             return MenuViewController()
         }
+        
+        container.register(SignatureModule.self) { _ in
+            return SignatureViewController()
+        }
     }
 }
