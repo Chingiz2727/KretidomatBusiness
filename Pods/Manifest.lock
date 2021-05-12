@@ -24,7 +24,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
   - SnapKit (5.0.1)
-  - SwiftDataTables (0.8.2)
+  - SpreadsheetView (0.9.1)
   - SwiftLint (0.39.2)
   - SwiftMessages (8.0.3):
     - SwiftMessages/App (= 8.0.3)
@@ -46,7 +46,7 @@ DEPENDENCIES:
   - RxDataSources (= 4.0.1)
   - RxSwift (= 5.0.1)
   - SnapKit (~> 5.0.0)
-  - SwiftDataTables
+  - SpreadsheetView
   - SwiftLint (= 0.39.2)
   - SwiftMessages (= 8.0.3)
   - Swinject (= 2.7.1)
@@ -69,7 +69,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
-    - SwiftDataTables
+    - SpreadsheetView
     - SwiftLint
     - SwiftMessages
     - Swinject
@@ -91,7 +91,7 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SwiftDataTables: 1c6bd4d477b44b07df86ca22c5ae67c85fe894ff
+  SpreadsheetView: 688dbd19f2b355df0eb09e486266fd913a013449
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   SwiftMessages: 063ec9ffea3ffa7d17ba595157a9ec78e4fe045f
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
@@ -99,6 +99,6 @@ SPEC CHECKSUMS:
   UltraDrawerView: 50968b8838d22adf33d083a4d7a8e5293a74bec8
   Willow: 8efe9bd7bb99b06fe017566848492748b763a0ac
 
-PODFILE CHECKSUM: e3efbf74bfcb27fc7c60694aada4560189402a4a
+PODFILE CHECKSUM: 87d9d79f9c12aaab4a59554b89a26caf4db0621b
 
 COCOAPODS: 1.10.1

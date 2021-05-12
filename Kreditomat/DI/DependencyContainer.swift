@@ -43,5 +43,9 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(SignatureModule.self) { _ in
             return SignatureViewController()
         }
+        
+        container.register(KassOperationReportModule.self) { _ in
+            return KassOperationReportViewController()
+        }
     }
 }

@@ -12,7 +12,6 @@ final class TextFieldContainer<T: RegularTextField>: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
-        label.backgroundColor = .background
         label.font = .systemFont(ofSize: 12)
         return label
     }()
@@ -30,18 +29,22 @@ final class TextFieldContainer<T: RegularTextField>: UIView {
         addSubview(textField)
         addSubview(titleLabel)
 
-        textField.snp.makeConstraints { $0.edges.equalToSuperview() }
         textField.font = .systemFont(ofSize: 15)
 
         titleLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(textField.snp.top)
-            make.leading.equalTo(textField.snp.leading).offset(17)
+            make.top.equalToSuperview().inset(1)
+            make.leading.equalToSuperview()
         }
+        
+        textField.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(titleLabel.snp.bottom).offset(5)
+        }
+
+        
     }
 
     func setTitleBackground(background: UIColor) {
-        titleLabel.backgroundColor = background
-        textField.backgroundColor = background
         backgroundColor = background
     }
 
