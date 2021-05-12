@@ -38,9 +38,18 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     }
     
     private func showSignUp() {
-        let module = moduleFactory.makeRegister()
+        var module = moduleFactory.makeRegister()
         
+        module.offerTapped = { [weak self] in
+            self?.showOfferView()
+        }
         router.push(module)
+    }
+    
+    private func showOfferView() {
+        let module = moduleFactory.makeOfferShow()
+        
+//        router.present(module)
     }
     
     

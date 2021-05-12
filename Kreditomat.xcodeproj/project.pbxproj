@@ -14,7 +14,13 @@
 		5F14B6422644126200315D87 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6412644126200315D87 /* RegisterModule.swift */; };
 		5F14B6452644128300315D87 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6442644128300315D87 /* RegisterView.swift */; };
 		5F14B648264412AF00315D87 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B647264412AF00315D87 /* RegisterViewController.swift */; };
+		5F3CCF46264AAC18001836A8 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */; };
+		5F582C0E2649142D00BB070D /* CityContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C0D2649142D00BB070D /* CityContainerView.swift */; };
+		5F582C38264961F800BB070D /* OfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C37264961F800BB070D /* OfferButton.swift */; };
+		5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C3A26499D7E00BB070D /* OfferContainerView.swift */; };
 		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
+		5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */; };
+		5F9FD526264808610067EE19 /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD525264808610067EE19 /* NumberTextField.swift */; };
 		5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C03264260CE001F4CAF /* AuthStateView.swift */; };
 		5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */; };
 		5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0926426183001F4CAF /* AuthStateModule.swift */; };
@@ -141,7 +147,13 @@
 		5F14B6412644126200315D87 /* RegisterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
 		5F14B6442644128300315D87 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5F14B647264412AF00315D87 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		5F582C0D2649142D00BB070D /* CityContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityContainerView.swift; sourceTree = "<group>"; };
+		5F582C37264961F800BB070D /* OfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferButton.swift; sourceTree = "<group>"; };
+		5F582C3A26499D7E00BB070D /* OfferContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferContainerView.swift; sourceTree = "<group>"; };
 		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
+		5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
+		5F9FD525264808610067EE19 /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
 		5FBE1C03264260CE001F4CAF /* AuthStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateView.swift; sourceTree = "<group>"; };
 		5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewController.swift; sourceTree = "<group>"; };
 		5FBE1C0926426183001F4CAF /* AuthStateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateModule.swift; sourceTree = "<group>"; };
@@ -288,7 +300,7 @@
 		5F14B62D264410AC00315D87 /* RegisterFlow */ = {
 			isa = PBXGroup;
 			children = (
-				5F14B64A2644130500315D87 /* ViewModel */,
+				5F3CCF44264AAC03001836A8 /* ViewModel */,
 				5F14B6402644125400315D87 /* Module */,
 				5F14B63F2644124A00315D87 /* View */,
 				5F14B63E2644124200315D87 /* Controller */,
@@ -344,19 +356,28 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
-		5F14B64A2644130500315D87 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		5F14B64B2644130B00315D87 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F3CCF44264AAC03001836A8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F9FD5212647FB830067EE19 /* TitleAndTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */,
+			);
+			path = TitleAndTextField;
 			sourceTree = "<group>";
 		};
 		5FBE1BE526425CE5001F4CAF /* AuthFlows */ = {
@@ -931,6 +952,7 @@
 			children = (
 				72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */,
 				72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */,
+				5F582C37264961F800BB070D /* OfferButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -938,9 +960,12 @@
 		72F61494263C1ED300039B35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5F9FD5212647FB830067EE19 /* TitleAndTextField */,
 				5FBE1C332642693B001F4CAF /* TitleAndButtonView */,
 				72DF18EA263C2FA800E5F3D6 /* Button */,
 				72F61495263C1EDC00039B35 /* TextField */,
+				5F582C0D2649142D00BB070D /* CityContainerView.swift */,
+				5F582C3A26499D7E00BB070D /* OfferContainerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -954,6 +979,7 @@
 				72DF18C1263C2D7C00E5F3D6 /* PhoneNumberTextField.swift */,
 				72DF18C4263C2DB100E5F3D6 /* PasswordTextField.swift */,
 				72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */,
+				5F9FD525264808610067EE19 /* NumberTextField.swift */,
 			);
 			name = TextField;
 			path = "../New Group/TextField";
@@ -1107,6 +1133,7 @@
 				7201EFDE2636E2F300D25097 /* Presentable.swift in Sources */,
 				7201F0E92636EAAB00D25097 /* UserAuthResponse.swift in Sources */,
 				7201F0F32636EB8100D25097 /* AccessCode.swift in Sources */,
+				5F582C0E2649142D00BB070D /* CityContainerView.swift in Sources */,
 				5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */,
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
@@ -1131,6 +1158,7 @@
 				72DF18C8263C2E5C00E5F3D6 /* Layout.swift in Sources */,
 				7201F0CC2636E8EE00D25097 /* BackButton.swift in Sources */,
 				7201F0E02636EA0C00D25097 /* UICollectionView+Reuse.swift in Sources */,
+				5F582C38264961F800BB070D /* OfferButton.swift in Sources */,
 				7201F0DA2636E9F200D25097 /* UiViewController+Keyboard.swift in Sources */,
 				72DF18BB263C2C9400E5F3D6 /* RightButtonTextField.swift in Sources */,
 				7201F0B72636E81B00D25097 /* UserSessionStorage.swift in Sources */,
@@ -1138,6 +1166,8 @@
 				7201F03E2636E5BF00D25097 /* Requestable.swift in Sources */,
 				7201F0B22636E7F800D25097 /* UserInfoStorage.swift in Sources */,
 				7201F0EC2636EABF00D25097 /* UserResponse.swift in Sources */,
+				5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */,
+				5F3CCF46264AAC18001836A8 /* RegisterViewModel.swift in Sources */,
 				7201F0D42636E9D600D25097 /* UiView+RoundedCorners.swift in Sources */,
 				7201F00D2636E40900D25097 /* SlidingPresentationController.swift in Sources */,
 				7201F0982636E75700D25097 /* Observable+Timer.swift in Sources */,
@@ -1154,6 +1184,7 @@
 				5FBE1C3D26427E78001F4CAF /* AuthModuleFactory.swift in Sources */,
 				7201F0952636E74A00D25097 /* UIViewController+Error.swift in Sources */,
 				7201F0C72636E87400D25097 /* CallBack.swift in Sources */,
+				5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */,
 				5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */,
 				7201EFE22636E30800D25097 /* DeepLinkAction.swift in Sources */,
 				7201EFF22636E35D00D25097 /* Router.swift in Sources */,
@@ -1168,6 +1199,7 @@
 				7201F0FB2636EC0400D25097 /* AddSubView.swift in Sources */,
 				7201F0D02636E94C00D25097 /* AuthTarget.swift in Sources */,
 				7201F0A82636E7B100D25097 /* UIViewController+Alert.swift in Sources */,
+				5F9FD526264808610067EE19 /* NumberTextField.swift in Sources */,
 				7201EFAC2636E1E300D25097 /* AppSessionManager.swift in Sources */,
 				7201F0BB2636E83100D25097 /* ViewHolder.swift in Sources */,
 				7201F0222636E49E00D25097 /* InputValidatable.swift in Sources */,

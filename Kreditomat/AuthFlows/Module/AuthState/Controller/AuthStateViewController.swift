@@ -25,8 +25,13 @@ final class AuthStateViewController: ViewController, ViewHolder, AuthStateModule
                 self.signInTapped?()
             }).disposed(by: disposeBag)
         
-        rootView.signUpView.baseButton.rx.tap
-            .subscribe(onNext: { [unowned self] in
+//        rootView.signUpView.baseButton.rx.tap
+//            .subscribe(onNext: { [unowned self] in
+//                self.signUpTapped?()
+//            }).disposed(by: disposeBag)
+        
+        rootView.registerButton.rx.tap
+            .subscribe(onNext:  { [unowned self] in
                 self.signUpTapped?()
             }).disposed(by: disposeBag)
     }

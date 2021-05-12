@@ -28,7 +28,7 @@ final class TitleAndButtonView: UIView {
             make.leading.trailing.equalToSuperview()
         }
         
-        baseButton.snp.makeConstraints { $0.height.equalTo(Layout.buttonHeight - 10) }
+        baseButton.snp.makeConstraints { $0.height.equalTo(Layout.buttonHeight) }
     }
     
     required init?(coder: NSCoder) {
