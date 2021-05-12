@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
+final class RegisterViewController: ViewController, ViewHolder, RegisterModule {    
     typealias RootViewType = RegisterView
     
     override func loadView() {
