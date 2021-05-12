@@ -20,5 +20,9 @@ final class AuthModuleFactory {
     func makeRegister() -> RegisterModule {
         return RegisterViewController()
     }
+    
+    func makeResetPassword() -> ResetPasswordModule {
+        return ResetPasswordViewController()
+    }
  
 }

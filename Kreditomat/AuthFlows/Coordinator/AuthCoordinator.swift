@@ -32,7 +32,11 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     }
     
     private func showSignIn() {
-        let module = moduleFactory.makeAuthUser()
+        var module = moduleFactory.makeAuthUser()
+        
+        module.resetTapped = { [weak self] in
+            self?.showResetPassword()
+        }
         
         router.push(module)
     }
@@ -43,5 +47,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         router.push(module)
     }
     
+    private func showResetPassword() {
+        let module = moduleFactory.makeResetPassword()
+        router.push(module)
+    }
     
 }
