@@ -55,6 +55,10 @@
 		5F14B6422644126200315D87 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6412644126200315D87 /* RegisterModule.swift */; };
 		5F14B6452644128300315D87 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6442644128300315D87 /* RegisterView.swift */; };
 		5F14B648264412AF00315D87 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B647264412AF00315D87 /* RegisterViewController.swift */; };
+		5F3CCFA4264BDAF3001836A8 /* ResetPasswordModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFA3264BDAF3001836A8 /* ResetPasswordModule.swift */; };
+		5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */; };
+		5F3CCFAB264BDBC8001836A8 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFAA264BDBC8001836A8 /* ResetPasswordViewController.swift */; };
+		5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFAE264BEBF8001836A8 /* ResetPasswordViewModel.swift */; };
 		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
 		5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C03264260CE001F4CAF /* AuthStateView.swift */; };
 		5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */; };
@@ -233,6 +237,10 @@
 		5F14B6412644126200315D87 /* RegisterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
 		5F14B6442644128300315D87 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5F14B647264412AF00315D87 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5F3CCFA3264BDAF3001836A8 /* ResetPasswordModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModule.swift; sourceTree = "<group>"; };
+		5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		5F3CCFAA264BDBC8001836A8 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		5F3CCFAE264BEBF8001836A8 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
 		5FBE1C03264260CE001F4CAF /* AuthStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateView.swift; sourceTree = "<group>"; };
 		5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewController.swift; sourceTree = "<group>"; };
@@ -792,6 +800,49 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFA2264BDADB001836A8 /* ViewModel */,
+				5F3CCFA1264BDAD2001836A8 /* Module */,
+				5F3CCFA0264BDACE001836A8 /* View */,
+				5F3CCF9F264BDAC9001836A8 /* Controller */,
+			);
+			path = ResetPasswordFlow;
+			sourceTree = "<group>";
+		};
+		5F3CCF9F264BDAC9001836A8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFAA264BDBC8001836A8 /* ResetPasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F3CCFA0264BDACE001836A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F3CCFA1264BDAD2001836A8 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFA3264BDAF3001836A8 /* ResetPasswordModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		5F3CCFA2264BDADB001836A8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFAE264BEBF8001836A8 /* ResetPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5FBE1BE526425CE5001F4CAF /* AuthFlows */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,6 +857,7 @@
 		5FBE1BF626425E4F001F4CAF /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */,
 				5F14B62D264410AC00315D87 /* RegisterFlow */,
 				5F14B62C264410A500315D87 /* AuthFlow */,
 				5FBE1BFE26426099001F4CAF /* AuthState */,
@@ -1663,6 +1715,7 @@
 				5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */,
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
+				5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */,
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
 				7201EFD42636E2BB00D25097 /* BaseCoordinator.swift in Sources */,
 				7201EFF72636E38300D25097 /* DropdownTransitioningDelegate.swift in Sources */,
@@ -1679,6 +1732,7 @@
 				55738B1F26480D7200CE2BD5 /* Images.swift in Sources */,
 				7201F01B2636E46000D25097 /* StoriesTransitionDelegate.swift in Sources */,
 				72567B83264A78BE004D45C8 /* MenuModule.swift in Sources */,
+				5F3CCFA4264BDAF3001836A8 /* ResetPasswordModule.swift in Sources */,
 				7201F07E2636E6E500D25097 /* PaginationManager.swift in Sources */,
 				7201F0922636E73F00D25097 /* LoadingSequence+RX.swift in Sources */,
 				7201EF792636DF2D00D25097 /* ViewController.swift in Sources */,
@@ -1734,6 +1788,7 @@
 				7201F0D72636E9E400D25097 /* UIStackView+Init.swift in Sources */,
 				5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */,
 				72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */,
+				5F3CCFAB264BDBC8001836A8 /* ResetPasswordViewController.swift in Sources */,
 				7201EFE62636E31400D25097 /* DeepLinkActionFactory.swift in Sources */,
 				7201F07B2636E6D900D25097 /* PaginationAdapter.swift in Sources */,
 				7201F0FB2636EC0400D25097 /* AddSubView.swift in Sources */,
@@ -1799,6 +1854,7 @@
 				5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */,
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
+				5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */,
 				55738B33264940C500CE2BD5 /* SuccessModule.swift in Sources */,
 				72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */,
 				7201F05C2636E64D00D25097 /* ApiRequest.swift in Sources */,
@@ -1945,7 +2001,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68F942NMT8;
+				DEVELOPMENT_TEAM = H86R55AKT5;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1966,7 +2022,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68F942NMT8;
+				DEVELOPMENT_TEAM = H86R55AKT5;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

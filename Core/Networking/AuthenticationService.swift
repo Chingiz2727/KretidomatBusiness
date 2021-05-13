@@ -12,7 +12,7 @@ public protocol AuthenticationService {
     func verification(phone: String, activateCode: String) -> Observable<LoadingSequence<ResponseStatus>>
     func signUp(iin: String, phone: String, ftoken: String, password: String, password2: String) -> Observable<LoadingSequence<UserAuthResponse>>
     func signIn(iin: String, password: String) -> Observable<LoadingSequence<UserAuthResponse>>
-    func resetPassword(iin: String, phone: String, password: String, password2: String) -> Observable<LoadingSequence<ResponseStatus>>
+    func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>>
     func updateToken(with newToken: UserResponse?)
     func forceLogout()
     func authUser(phone: String, password: String) -> Observable<LoadingSequence<ResponseStatus>>
@@ -99,8 +99,8 @@ public final class AuthenticationServiceImpl: AuthenticationService {
             })
     }
     
-    public func resetPassword(iin: String, phone: String, password: String, password2: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.resetPassword(iin: iin, phone: phone, password: password, password2: password2))
+    public func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>> {
+        return apiService.makeRequest(to: AuthTarget.resetPassword(phone: phone, email: email))
             .result()
             .asLoadingSequence()
     }

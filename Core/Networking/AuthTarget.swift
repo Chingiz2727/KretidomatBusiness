@@ -7,7 +7,7 @@ enum AuthTarget: ApiTarget {
     case verification(phone: String, activateCode: String)
     case signUp(iin: String, phone: String, ftoken: String, password: String, password2: String)
     case signIn(iin: String, password: String)
-    case resetPassword(iin: String, phone: String, password: String, password2: String)
+    case resetPassword(phone: String, email: String)
     
     var servicePath: String  { "" }
     var version: ApiVersion {
@@ -29,7 +29,7 @@ enum AuthTarget: ApiTarget {
         case .signIn:
             return "/sign-in"
         case .resetPassword:
-            return "/reset"
+            return "ResetPassword"
         }
         
     }
@@ -69,13 +69,9 @@ enum AuthTarget: ApiTarget {
                           "password" : password
             ] as [String : Any]
             return param
-        case let .resetPassword(iin, phone, password, password2):
-            let param = [ "iin" : iin,
-                          "phone" : phone,
-                          "password" : password,
-                          "password2" : password2
-            ] as [String : Any]
-            return param
+        case let .resetPassword(phone, email):
+            return [ "Phone" : phone,
+                     "Email" : email]
         }
     }
     
