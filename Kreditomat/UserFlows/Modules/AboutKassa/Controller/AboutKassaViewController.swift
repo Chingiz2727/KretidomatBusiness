@@ -1,16 +1,10 @@
-//
-//  CreatePointViewController.swift
-//  Kreditomat
-//
-//  Created by kairzhan on 5/10/21.
-//
-import RxSwift
 import UIKit
+import RxSwift
 
-class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
-    var create: Create?
-    typealias RootViewType = CreatePointView
-        
+final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModule {
+    
+    typealias RootViewType = AboutKassaView
+    
     private var pointPickerDelegate: PointPickerViewDelegate
     private var pointPickerDataSource: PointPickerViewDataSource
     private let pointPickerView = UIPickerView()
@@ -27,26 +21,23 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
     }
     
     override func loadView() {
-        view = CreatePointView()
+        view = AboutKassaView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindView()
+        bindViewModel()
         setupPointPickerView()
     }
     
-    private func bindView() {
+    private func bindViewModel() {
         rootView.tableView.registerClassForCell(PointCell.self)
-        rootView.createButton.rx.tap
-            .subscribe(onNext: { [unowned self] in
-                self.create?()
-            }).disposed(by: disposeBag)
     }
     
     private func setupPointPickerView() {
         pointPickerView.delegate = pointPickerDelegate
         pointPickerView.dataSource = pointPickerDataSource
-        rootView.pointsList.textField.inputView = pointPickerView
+        rootView.pointListTextField.textField.inputView = pointPickerView
     }
+    
 }

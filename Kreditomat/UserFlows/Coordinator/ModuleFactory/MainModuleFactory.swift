@@ -25,4 +25,8 @@ final class MainModuleFactory {
     func makeAttachCashier() -> AttachCashierModule {
         return AttachCashierViewController()
     }
+    
+    func makeAboutKassa() -> AboutKassaModule {
+        return AboutKassaViewController()
+    }
 }
