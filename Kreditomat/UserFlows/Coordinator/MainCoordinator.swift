@@ -46,7 +46,7 @@ final class MainCoordinator: BaseCoordinator {
     private func showCreatePoint() {
         var module = moduleFactory.makeCreatePoint()
         module.create = { [weak self] in
-            self?.showAttachCashier()
+            self?.showCreatePointForm()
         }
         router.push(module)
     }
@@ -65,6 +65,11 @@ final class MainCoordinator: BaseCoordinator {
         default:
             return
         }
+        router.push(module)
+    }
+    
+    private func showCreatePointForm() {
+        let module = moduleFactory.makeCreatePointForm()
         router.push(module)
     }
     

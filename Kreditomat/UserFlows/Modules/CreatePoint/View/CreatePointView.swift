@@ -92,14 +92,10 @@ class CreatePointView: UIView {
     
     private func configureView() {
         backgroundColor = .background
-        pointsList.backgroundColor = .white
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.registerClassForCell(PointCell.self)
         tableView.rowHeight = 400
-        pointsList.layer.cornerRadius = 8
-        pointsList.layer.borderColor = UIColor.primary.cgColor
-        pointsList.layer.borderWidth = 2
         pointsList.textField.placeholder = "Все ..."
         createButton.layer.addShadow()
         pointsList.layer.addShadow()

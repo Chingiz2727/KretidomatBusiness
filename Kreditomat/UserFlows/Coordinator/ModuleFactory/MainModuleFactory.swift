@@ -25,4 +25,9 @@ final class MainModuleFactory {
     func makeAttachCashier() -> AttachCashierModule {
         return AttachCashierViewController()
     }
+    
+    func makeCreatePointForm() -> CreatePointFormModule {
+        let viewModel = CreatePointFormViewModel()
+        return CreatePointFormViewController(viewModel: viewModel)
+    }
 }
