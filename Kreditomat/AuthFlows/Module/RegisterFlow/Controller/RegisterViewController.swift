@@ -29,6 +29,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     }
     
     private func bindViewModel() {
+        let output = viewModel.transform(input: .init(registerTapped: rootView.registerButton.rx.tap.asObservable()))
 //        let output = viewModel.transform(
 //            input: .init(registerTapped: rootView.registerButton.rx.tap.asObservable(),
 //                         nameUser: rootView.nameUserView.textField.rx.text.asObservable(),
@@ -38,6 +39,59 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             .subscribe(onNext: { [unowned self] in
                 self.offerTapped?()
             }).disposed(by: disposeBag)
+        
+        rootView.nameUserView.textField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.name = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.emailTextField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.email = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.numberPhoneTextField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.phone = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.cityView.cityTextField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.city = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.numberHouse.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.house = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.emailTextField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.email = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.binUserView.textField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.bin = text
+            })
+            .disposed(by: disposeBag)
+        
+        let token = output.token.publish()
+        token.loading.bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        token.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        token.connect()
+            .disposed(by: disposeBag)
     }
     
 }
