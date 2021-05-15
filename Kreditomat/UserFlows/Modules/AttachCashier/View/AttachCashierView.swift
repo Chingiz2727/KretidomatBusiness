@@ -10,7 +10,7 @@ import UIKit
 class AttachCashierView: UIView {
     let chooseLabel: UILabel = {
         let label = UILabel()
-        label.text =  "Выберите точку"
+        label.text = "Выберите точку"
         label.textColor = .black
         return label
     }()
@@ -111,17 +111,8 @@ class AttachCashierView: UIView {
     
     private func configureView() {
         backgroundColor = .background
-        pointsList.layer.cornerRadius = 8
-        pointsList.layer.borderColor = UIColor.primary.cgColor
-        pointsList.layer.borderWidth = 2
         pointsList.textField.placeholder = "Все ..."
-        nameCashierTextField.layer.cornerRadius = 8
-        nameCashierTextField.layer.borderColor = UIColor.primary.cgColor
-        nameCashierTextField.layer.borderWidth = 2
         nameCashierTextField.textField.placeholder = "ФИО кассира"
-        phoneCashierTextField.layer.cornerRadius = 8
-        phoneCashierTextField.layer.borderColor = UIColor.primary.cgColor
-        phoneCashierTextField.layer.borderWidth = 2
         attachButton.setTitle("ПРИКРЕПИТЬ КАССИРА", for: .normal)
         pointsList.layer.addShadow()
         nameCashierTextField.layer.addShadow()

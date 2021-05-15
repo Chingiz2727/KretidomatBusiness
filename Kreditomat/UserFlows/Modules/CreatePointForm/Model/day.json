@@ -1,0 +1,39 @@
+{
+  "days" : [
+      {
+          "id": 1,
+          "shortName": "ПН",
+          "longName": "Понедельник"
+      },
+      {
+          "id": 2,
+          "shortName": "ВТ",
+          "longName": "Вторник"
+      },
+      {
+          "id": 3,
+          "shortName": "СР",
+          "longName": "Среда"
+      },
+      {
+          "id": 4,
+          "shortName": "ЧТ",
+          "longName": "Четверг"
+      },
+      {
+          "id": 5,
+          "shortName": "ПТ",
+          "longName": "Пятница"
+      },
+      {
+          "id": 6,
+          "shortName": "СБ",
+          "longName": "Суббота"
+      },
+      {
+          "id": 7,
+          "shortName": "ВС",
+          "longName": "Воскресенье"
+      },
+  ]
+}

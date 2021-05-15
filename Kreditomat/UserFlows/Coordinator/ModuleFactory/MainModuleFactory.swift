@@ -29,4 +29,9 @@ final class MainModuleFactory {
     func makeAboutKassa() -> AboutKassaModule {
         return AboutKassaViewController()
     }
+    
+    func makeCreatePointForm() -> CreatePointFormModule {
+        let viewModel = CreatePointFormViewModel()
+        return CreatePointFormViewController(viewModel: viewModel)
+    }
 }
