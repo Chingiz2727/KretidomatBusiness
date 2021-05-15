@@ -16,10 +16,10 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        checkAuth { [weak self] in
-            self?.startHome()
-        }
-//        startHome()
+//        checkAuth { [weak self] in
+//            self?.startHome()
+//        }
+        startHome()
     }
  
     private func startAuth() {}

@@ -59,7 +59,11 @@
 		5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */; };
 		5F3CCFAB264BDBC8001836A8 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFAA264BDBC8001836A8 /* ResetPasswordViewController.swift */; };
 		5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFAE264BEBF8001836A8 /* ResetPasswordViewModel.swift */; };
+		5F3CCFFB264BFBE3001836A8 /* AboutKassaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFFA264BFBE3001836A8 /* AboutKassaView.swift */; };
+		5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFFE264BFC47001836A8 /* AboutKassaModule.swift */; };
+		5F3CD002264BFC5E001836A8 /* AboutKassaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CD001264BFC5E001836A8 /* AboutKassaViewController.swift */; };
 		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
+		5FB75693264D16BC00FD155B /* AmountOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB75692264D16BC00FD155B /* AmountOperationView.swift */; };
 		5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C03264260CE001F4CAF /* AuthStateView.swift */; };
 		5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */; };
 		5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0926426183001F4CAF /* AuthStateModule.swift */; };
@@ -241,7 +245,11 @@
 		5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		5F3CCFAA264BDBC8001836A8 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		5F3CCFAE264BEBF8001836A8 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		5F3CCFFA264BFBE3001836A8 /* AboutKassaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKassaView.swift; sourceTree = "<group>"; };
+		5F3CCFFE264BFC47001836A8 /* AboutKassaModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKassaModule.swift; sourceTree = "<group>"; };
+		5F3CD001264BFC5E001836A8 /* AboutKassaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKassaViewController.swift; sourceTree = "<group>"; };
 		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
+		5FB75692264D16BC00FD155B /* AmountOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountOperationView.swift; sourceTree = "<group>"; };
 		5FBE1C03264260CE001F4CAF /* AuthStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateView.swift; sourceTree = "<group>"; };
 		5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewController.swift; sourceTree = "<group>"; };
 		5FBE1C0926426183001F4CAF /* AuthStateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateModule.swift; sourceTree = "<group>"; };
@@ -462,6 +470,7 @@
 		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5F3CCFF6264BFBC3001836A8 /* AboutKassa */,
 				5510BCDF264BEDD200900F4E /* CreatePointForm */,
 				55738B5F264A57CD00CE2BD5 /* AttachCashier */,
 				55738B3E264973A900CE2BD5 /* CreatePoint */,
@@ -841,6 +850,48 @@
 				5F3CCFAE264BEBF8001836A8 /* ResetPasswordViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F3CCFF6264BFBC3001836A8 /* AboutKassa */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFF9264BFBD7001836A8 /* Controller */,
+				5F3CCFF8264BFBD3001836A8 /* Module */,
+				5F3CCFF7264BFBCE001836A8 /* View */,
+			);
+			path = AboutKassa;
+			sourceTree = "<group>";
+		};
+		5F3CCFF7264BFBCE001836A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFFA264BFBE3001836A8 /* AboutKassaView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F3CCFF8264BFBD3001836A8 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CCFFE264BFC47001836A8 /* AboutKassaModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		5F3CCFF9264BFBD7001836A8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F3CD001264BFC5E001836A8 /* AboutKassaViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5FB75691264D16A300FD155B /* AmountOperationView */ = {
+			isa = PBXGroup;
+			children = (
+				5FB75692264D16BC00FD155B /* AmountOperationView.swift */,
+			);
+			path = AmountOperationView;
 			sourceTree = "<group>";
 		};
 		5FBE1BE526425CE5001F4CAF /* AuthFlows */ = {
@@ -1532,6 +1583,7 @@
 		72F61494263C1ED300039B35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5FB75691264D16A300FD155B /* AmountOperationView */,
 				72567B8C264A7BD3004D45C8 /* NameValueView */,
 				5FBE1C332642693B001F4CAF /* TitleAndButtonView */,
 				72DF18EA263C2FA800E5F3D6 /* Button */,
@@ -1715,6 +1767,7 @@
 				5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */,
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
+				5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */,
 				5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */,
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
 				7201EFD42636E2BB00D25097 /* BaseCoordinator.swift in Sources */,
@@ -1754,9 +1807,11 @@
 				7201F03E2636E5BF00D25097 /* Requestable.swift in Sources */,
 				7201F0B22636E7F800D25097 /* UserInfoStorage.swift in Sources */,
 				7201F0EC2636EABF00D25097 /* UserResponse.swift in Sources */,
+				5FB75693264D16BC00FD155B /* AmountOperationView.swift in Sources */,
 				55738B062647FF4200CE2BD5 /* InfoItemView.swift in Sources */,
 				7201F0D42636E9D600D25097 /* UiView+RoundedCorners.swift in Sources */,
 				55738B41264973C300CE2BD5 /* CreatePointView.swift in Sources */,
+				5F3CCFFB264BFBE3001836A8 /* AboutKassaView.swift in Sources */,
 				7201F00D2636E40900D25097 /* SlidingPresentationController.swift in Sources */,
 				7201F0982636E75700D25097 /* Observable+Timer.swift in Sources */,
 				5FBE1C3926427D9B001F4CAF /* AuthCoordinator.swift in Sources */,
@@ -1848,6 +1903,7 @@
 				7201F0782636E6CE00D25097 /* Pagination.swift in Sources */,
 				55738B73264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift in Sources */,
 				5FBE1C412642C76B001F4CAF /* AuthCheckCoordinator.swift in Sources */,
+				5F3CD002264BFC5E001836A8 /* AboutKassaViewController.swift in Sources */,
 				7201F09F2636E77900D25097 /* AuthTokenService.swift in Sources */,
 				5510BD05264CD48D00900F4E /* DayPickerViewDataSource.swift in Sources */,
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,

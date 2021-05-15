@@ -31,6 +31,8 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showCamera(type: .giveCredit)
             case .clearCredit:
                 self?.showCamera(type: .payCredit)
+            case .aboutKassa:
+                self?.showAboutKassa()
             default:
                 return
             }
@@ -80,6 +82,11 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showSignature() {
         let module = assembler.resolver.resolve(SignatureModule.self)!
+        router.push(module)
+    }
+    
+    private func showAboutKassa() {
+        let module = moduleFactory.makeAboutKassa()
         router.push(module)
     }
 }

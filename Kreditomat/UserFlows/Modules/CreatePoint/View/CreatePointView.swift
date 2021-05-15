@@ -99,5 +99,6 @@ class CreatePointView: UIView {
         pointsList.textField.placeholder = "Все ..."
         createButton.layer.addShadow()
         pointsList.layer.addShadow()
+        
     }
 }
