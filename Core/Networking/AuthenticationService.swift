@@ -83,8 +83,13 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     }
   
     public func authUser(phone: String, password: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.authUser(phone: phone, password: password))
+        return apiService.makeRequest(to: AuthTarget.authUser(phone: phone.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: ""), password: password))
             .result(ResponseStatus.self)
+            .do(onNext: { [unowned self] token in
+                if token.ErrorCode == 0 {
+                    self.sessionStorage.accessToken = token.Message
+                }
+            })
             .asLoadingSequence()
     }
     

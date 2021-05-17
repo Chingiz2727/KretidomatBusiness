@@ -19,7 +19,6 @@ final class AppCoordinator: BaseCoordinator {
         checkAuth { [weak self] in
             self?.startHome()
         }
-//        startHome()
     }
  
     private func startAuth() {}

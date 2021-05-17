@@ -28,6 +28,8 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         module.signUpTapped = { [weak self] in
             self?.showSignUp()
         }
+        
+        
         router.setRootModule(module)
     }
     
@@ -38,6 +40,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
             self?.showResetPassword()
         }
         
+        module.authTapped = { [weak self] in
+            self?.authCompletion?(true)
+        }
         router.push(module)
     }
     

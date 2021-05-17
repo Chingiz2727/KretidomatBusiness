@@ -37,10 +37,6 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     
     private func bindViewModel() {
         let output = viewModel.transform(input: .init(registerTapped: rootView.registerButton.rx.tap.asObservable()))
-//        let output = viewModel.transform(
-//            input: .init(registerTapped: rootView.registerButton.rx.tap.asObservable(),
-//                         nameUser: rootView.nameUserView.textField.rx.text.asObservable(),
-//                         email: rootView.emailTextField.rx.text.asObservable(), phone: <#T##Observable<String>#>, city: <#T##Observable<String>#>, address: <#T##Observable<String>#>, house: <#T##Observable<String>#>, apartments: <#T##Observable<String>#>, bin: <#T##Observable<String>#>, posLat: <#T##Observable<String>#>, posLng: <#T##Observable<String>#>))
         
         rootView.ipButton.rx.tap
             .subscribe(onNext: { [unowned self] in
@@ -119,12 +115,25 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         token.loading.bind(to: ProgressView.instance.rx.loading)
             .disposed(by: disposeBag)
         
+        token.element.subscribe(onNext: { [unowned self] status in
+            if status.Success == false {
+                self.showErrorInAlert(text: status.Message)
+            }  else {
+                
+            }
+        })
+        .disposed(by: disposeBag)
+        
         token.errors
             .bind(to: rx.error)
             .disposed(by: disposeBag)
         
         token.connect()
             .disposed(by: disposeBag)
+        cityPickerDelegate.selectedCity.subscribe(onNext: { [unowned self] city in
+            self.rootView.cityView.cityTextField.text = city.name
+        })
+        .disposed(by: disposeBag)
     }
     
     private func setupCityPickerView() {
