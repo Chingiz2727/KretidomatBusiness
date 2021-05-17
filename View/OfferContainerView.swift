@@ -37,7 +37,7 @@ final class OfferContainerView: UIView {
     }
     
     private func setupInitialLayouts() {
-        backgroundColor = .white
+        backgroundColor = .background
         addSubview(title)
         title.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10)
@@ -54,14 +54,14 @@ final class OfferContainerView: UIView {
         addSubview(buttonContainerView)
         buttonContainerView.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
-            make.size.equalTo(50)
+            make.size.equalTo(40)
             make.top.equalTo(title.snp.bottom).offset(5)
         }
         
         buttonContainerView.addSubview(offerButton)
         offerButton.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(30)
+            make.size.equalTo(25)
         }
     }
     

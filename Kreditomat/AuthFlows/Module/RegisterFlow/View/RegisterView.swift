@@ -4,6 +4,7 @@ import InputMask
 final class RegisterView: UIView {
     
     private let scrollView = UIScrollView()
+    let tableView = UITableView()
     
     let chooseFormTitle: UILabel = {
         let label = UILabel()
@@ -126,7 +127,7 @@ final class RegisterView: UIView {
     
     let registerButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 20
         button.backgroundColor = .primary
         button.setTitleColor(.white, for: .normal)
         return button
@@ -167,7 +168,7 @@ final class RegisterView: UIView {
         
         scrollView.addSubview(fullStackView)
         fullStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().inset(10)
             make.leading.trailing.width.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(30)
         }
@@ -181,7 +182,6 @@ final class RegisterView: UIView {
         phoneView.addSubview(numberPhoneTextField)
         numberPhoneTextField.snp.makeConstraints { make in
             make.top.equalTo(phoneNumberTitle.snp.bottom).offset(5)
-            make.height.equalTo(Layout.textFieldHeight)
             make.leading.trailing.equalToSuperview()
         }
         
@@ -202,20 +202,29 @@ final class RegisterView: UIView {
         coordinateView.addSubview(coordinateButtonView)
         coordinateButtonView.snp.makeConstraints { make in
             make.top.equalTo(coordinateTextField.snp.top)
-            make.size.equalTo(50)
+            make.size.equalTo(40)
             make.trailing.equalToSuperview()
         }
         
         coordinateButtonView.addSubview(coordinateButton)
         coordinateButton.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(30)
+            make.size.equalTo(25)
         }
-        setupHeight(stackHeight: 80, textFieldHeight: Layout.textFieldHeight, buttonHeight: 50)
+        
+        addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+        }
+        setupHeight(stackHeight: 70, textFieldHeight: 40, buttonHeight: 40)
     }
     
     private func configureView() {
-        backgroundColor = .white
+        backgroundColor = .background
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.registerClassForCell(UITableViewCell.self)
+        tableView.rowHeight = 400
         chooseFormTitle.text = "Выберите форму собственности"
         nameUserView.rightTitle.isHidden = false
         nameUserView.rightTitle.text = "Обязательно"
@@ -240,17 +249,28 @@ final class RegisterView: UIView {
     private func setupHeight(stackHeight: CGFloat, textFieldHeight: CGFloat, buttonHeight: CGFloat) {
         buttonStack.snp.makeConstraints { $0.height.equalTo(buttonHeight)}
         nameUserView.snp.makeConstraints {$0.height.equalTo(stackHeight)}
+        nameUserView.textField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         binUserView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
+        binUserView.textField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         addressStackView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
         numberHouse.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         numberOffice.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         numberStackView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
+        cityView.cityTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
+        streetView.textField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         phoneView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
+        numberPhoneTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         emailStack.snp.makeConstraints { $0.height.equalTo(stackHeight)}
         emailTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         coordinateView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
+        coordinateTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         offerView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
+        
         registerButton.snp.makeConstraints { $0.height.equalTo(buttonHeight)}
+         
+//        if addshadow == true {
+//            bin
+//        }
     }
  
 }

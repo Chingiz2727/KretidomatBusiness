@@ -61,15 +61,15 @@ final class AuthStateView: UIView {
         
         signUpView.addSubview(registerButton)
         registerButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
+            make.height.equalTo(40)
             make.top.equalTo(registerTitle.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview()
         }
         
         addSubview(titleText)
         titleText.snp.makeConstraints { make in
-            make.bottom.equalTo(signInView.snp.top).offset(10)
-            make.centerX.equalTo(signInView.snp.centerX).offset(20)
+            make.bottom.equalTo(signInView.snp.top).offset(-20)
+            make.centerX.equalTo(signInView.snp.centerX)
         }
     }
     

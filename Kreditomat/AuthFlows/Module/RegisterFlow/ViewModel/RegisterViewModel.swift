@@ -15,6 +15,7 @@ final class RegisterViewModel: ViewModel {
     
     struct Input {
         let registerTapped: Observable<Void>
+//        let loadCity: Observable<City>
     }
     
     struct Output {
@@ -32,6 +33,22 @@ final class RegisterViewModel: ViewModel {
             .flatMap { [unowned self] _ in
                 authService.register(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: "", posLng: "")
             }.share()
+        
         return .init(token: registerUser)
+    }
+    
+    private func loadJson() -> [City] {
+        if let url = Bundle.main.url(forResource: "city", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let city = try decoder.decode(CityList.self, from: data)
+                return city.cities
+            } catch let error {
+                print(error)
+                return []
+            }
+        }
+        return []
     }
 }

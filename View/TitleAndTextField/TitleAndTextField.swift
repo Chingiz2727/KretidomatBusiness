@@ -39,7 +39,6 @@ class TitleAndTextField: UIView {
         textField.snp.makeConstraints { make in
             make.top.equalTo(title.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(50)
         }
         
         addSubview(rightTitle)

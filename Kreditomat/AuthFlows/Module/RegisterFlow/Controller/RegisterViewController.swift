@@ -10,8 +10,14 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     private let viewModel: RegisterViewModel
     private let disposeBag = DisposeBag()
     
+    private var cityPickerDelegate: CityPickerViewDelegate
+    private var cityPickerDataSource: CityPickerViewDataSource
+    private let cityPicker = UIPickerView()
+    
     init(viewModel: RegisterViewModel) {
         self.viewModel = viewModel
+        self.cityPickerDataSource = CityPickerViewDataSource()
+        self.cityPickerDelegate = CityPickerViewDelegate()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,6 +32,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        setupCityPickerView()
     }
     
     private func bindViewModel() {
@@ -92,6 +99,12 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         
         token.connect()
             .disposed(by: disposeBag)
+    }
+    
+    private func setupCityPickerView() {
+        cityPicker.delegate = cityPickerDelegate
+        cityPicker.dataSource = cityPickerDataSource
+        rootView.cityView.cityTextField.inputView = cityPicker
     }
     
 }

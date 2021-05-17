@@ -22,6 +22,7 @@ final class CityContainerView: UIView {
         tf.layer.borderColor = UIColor.error.cgColor
         tf.layer.borderWidth = 1
         tf.placeholder = "Город"
+        tf.backgroundColor = .clear
         return tf
     }()
     
@@ -48,8 +49,9 @@ final class CityContainerView: UIView {
         
         buttonView.addSubview(chooseButton)
         chooseButton.snp.makeConstraints { make in
-            make.size.equalTo(20)
-            make.center.equalToSuperview()
+            make.height.equalTo(8)
+            make.width.equalTo(14)
+            make.centerX.equalToSuperview()
             make.trailing.equalToSuperview().inset(10)
         }
         
@@ -68,29 +70,6 @@ final class CityContainerView: UIView {
     }
     
     private func configureView() {
-        cityTextField.rightView = buttonView
-        cityTextField.rightViewMode = .always
         cityTextField.delegate = listener
-        pickerView.delegate = self
-        pickerView.dataSource = self
-    }
-}
-
-extension CityContainerView: UIPickerViewDataSource {
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
-    }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-}
-
-extension CityContainerView: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ""
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        cityTextField.text = ""
     }
 }
