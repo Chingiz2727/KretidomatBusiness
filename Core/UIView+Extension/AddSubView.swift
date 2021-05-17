@@ -223,7 +223,7 @@ public extension UIView {
 
 extension CALayer {
     func addShadow() {
-        shadowOffset = CGSize(width: 0, height: 3)
+        shadowOffset = CGSize(width: 3, height: 3)
         shadowOpacity = 0.2
         shadowRadius = 1
         shadowColor = UIColor.black.cgColor

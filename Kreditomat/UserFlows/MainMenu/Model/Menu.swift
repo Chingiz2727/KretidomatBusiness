@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 enum Menu: CaseIterable {
+    case mainPage
     case getCredit
     case clearCredit
     case aboutCredit
@@ -21,6 +22,8 @@ enum Menu: CaseIterable {
     
     var title: String {
         switch self {
+        case  .mainPage:
+            return "Главная"
         case .getCredit:
             return "Выдача микрокредита"
         case .clearCredit:
@@ -44,6 +47,8 @@ enum Menu: CaseIterable {
     
     var logoImg: UIImage {
         switch self {
+        case .mainPage:
+            return #imageLiteral(resourceName: "kredit")
         case .getCredit:
             return #imageLiteral(resourceName: "kredit")
         case .clearCredit:

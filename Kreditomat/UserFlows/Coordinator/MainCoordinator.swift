@@ -8,6 +8,13 @@
 import Foundation
 
 final class MainCoordinator: BaseCoordinator {
+    private let moduleFactory: MainModuleFactory
+    
+    override init(router: Router, container: DependencyContainer) {
+        moduleFactory = MainModuleFactory(container: container)
+        super.init(router: router, container: container)
+    }
+    
     override func start() {
         startHome()
     }
@@ -20,9 +27,61 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showKassReport()
             default:
                 break
+            case .mainPage:
+                self?.showCabinet()
+            case .createPoint:
+                self?.showCreatePoint()
+            case .getCredit:
+                self?.showCamera(type: .giveCredit)
+            case .clearCredit:
+                self?.showCamera(type: .payCredit)
+            case .aboutKassa:
+                self?.showAboutKassa()
+            default:
+                return
             }
         }
         router.setRootModule(module)
+    }
+    
+    private func showCabinet() {
+        let module = moduleFactory.makeCabiner()
+        router.push(module)
+    }
+    
+    private func showCreatePoint() {
+        var module = moduleFactory.makeCreatePoint()
+        module.create = { [weak self] in
+            self?.showCreatePointForm()
+        }
+        router.push(module)
+    }
+    
+    private func showCamera(type: CameraAction) {
+        var module = container.resolve(CameraModule.self)!
+        module.cameraActionType = type
+        switch module.cameraActionType {
+        case .giveCredit:
+            module.giveCredit = { [weak self] qr in
+                self?.showSignature()
+            }
+        case .payCredit:
+            module.payCredit = { [weak self] qr in
+            }
+        default:
+            return
+        }
+        router.push(module)
+    }
+    
+    private func showCreatePointForm() {
+        let module = moduleFactory.makeCreatePointForm()
+        router.push(module)
+    }
+    
+    private func showAttachCashier() {
+        let module = moduleFactory.makeAttachCashier()
+        router.push(module)
     }
     
     private func showSignature() {
@@ -32,6 +91,10 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showKassReport() {
         let module = assembler.resolver.resolve(KassOperationReportModule.self)!
+    }
+    
+    private func showAboutKassa() {
+        let module = moduleFactory.makeAboutKassa()
         router.push(module)
     }
 }
