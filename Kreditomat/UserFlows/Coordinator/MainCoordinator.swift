@@ -25,8 +25,6 @@ final class MainCoordinator: BaseCoordinator {
             switch menu {
             case .aboutCredit:
                 self?.showKassReport()
-            default:
-                break
             case .mainPage:
                 self?.showCabinet()
             case .createPoint:
@@ -91,6 +89,7 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showKassReport() {
         let module = assembler.resolver.resolve(KassOperationReportModule.self)!
+         router.push(module)
     }
     
     private func showAboutKassa() {
