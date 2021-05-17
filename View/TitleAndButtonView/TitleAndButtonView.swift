@@ -22,13 +22,18 @@ final class TitleAndButtonView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupInitialLayouts()
+    }
+    
+    private func setupInitialLayouts() {
+        
         addSubview(mainStack)
         mainStack.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.leading.trailing.equalToSuperview()
         }
         
-        baseButton.snp.makeConstraints { $0.height.equalTo(Layout.buttonHeight - 10) }
+        baseButton.snp.makeConstraints { $0.height.equalTo(40) }
     }
     
     required init?(coder: NSCoder) {

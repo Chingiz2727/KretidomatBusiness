@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         makeCoordinator(application: application)
         setupKeyboardManager()
         setupNavigationBar()
+        LoggerConfigurator.configure()
         return true
     }
     

@@ -2,7 +2,7 @@ import UIKit
 
 private enum Constants {
     static let cornerRadius: CGFloat = 12
-    static let borderWidth: CGFloat = 0.5
+    static let borderWidth: CGFloat = 1
 }
 
 class RegularTextField: UITextField {
