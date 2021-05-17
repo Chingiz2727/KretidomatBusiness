@@ -56,16 +56,6 @@
 		5F14B6452644128300315D87 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6442644128300315D87 /* RegisterView.swift */; };
 		5F14B648264412AF00315D87 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B647264412AF00315D87 /* RegisterViewController.swift */; };
 		5F3CCF46264AAC18001836A8 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */; };
-		5F582C0E2649142D00BB070D /* CityContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C0D2649142D00BB070D /* CityContainerView.swift */; };
-		5F582C38264961F800BB070D /* OfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C37264961F800BB070D /* OfferButton.swift */; };
-		5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C3A26499D7E00BB070D /* OfferContainerView.swift */; };
-		5F9E095F265241AD00E30A2B /* CityPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E095E265241AD00E30A2B /* CityPickerViewDelegate.swift */; };
-		5F9E0962265241C000E30A2B /* CityPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E0961265241C000E30A2B /* CityPickerViewDataSource.swift */; };
-		5F9E09662652427200E30A2B /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E09652652427200E30A2B /* City.swift */; };
-		5F9E096B265245A100E30A2B /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E096A265245A100E30A2B /* city.json */; };
-		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
-		5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */; };
-		5F9FD526264808610067EE19 /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD525264808610067EE19 /* NumberTextField.swift */; };
 		5F3CCFA4264BDAF3001836A8 /* ResetPasswordModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFA3264BDAF3001836A8 /* ResetPasswordModule.swift */; };
 		5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */; };
 		5F3CCFAB264BDBC8001836A8 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFAA264BDBC8001836A8 /* ResetPasswordViewController.swift */; };
@@ -73,7 +63,13 @@
 		5F3CCFFB264BFBE3001836A8 /* AboutKassaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFFA264BFBE3001836A8 /* AboutKassaView.swift */; };
 		5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFFE264BFC47001836A8 /* AboutKassaModule.swift */; };
 		5F3CD002264BFC5E001836A8 /* AboutKassaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CD001264BFC5E001836A8 /* AboutKassaViewController.swift */; };
+		5F582C0E2649142D00BB070D /* CityContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C0D2649142D00BB070D /* CityContainerView.swift */; };
+		5F582C38264961F800BB070D /* OfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C37264961F800BB070D /* OfferButton.swift */; };
+		5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C3A26499D7E00BB070D /* OfferContainerView.swift */; };
+		5F9E096B265245A100E30A2B /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E096A265245A100E30A2B /* city.json */; };
 		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
+		5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */; };
+		5F9FD526264808610067EE19 /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD525264808610067EE19 /* NumberTextField.swift */; };
 		5FB75693264D16BC00FD155B /* AmountOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB75692264D16BC00FD155B /* AmountOperationView.swift */; };
 		5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C03264260CE001F4CAF /* AuthStateView.swift */; };
 		5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */; };
@@ -253,16 +249,6 @@
 		5F14B6442644128300315D87 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5F14B647264412AF00315D87 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
-		5F582C0D2649142D00BB070D /* CityContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityContainerView.swift; sourceTree = "<group>"; };
-		5F582C37264961F800BB070D /* OfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferButton.swift; sourceTree = "<group>"; };
-		5F582C3A26499D7E00BB070D /* OfferContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferContainerView.swift; sourceTree = "<group>"; };
-		5F9E095E265241AD00E30A2B /* CityPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewDelegate.swift; sourceTree = "<group>"; };
-		5F9E0961265241C000E30A2B /* CityPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewDataSource.swift; sourceTree = "<group>"; };
-		5F9E09652652427200E30A2B /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		5F9E096A265245A100E30A2B /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
-		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
-		5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
-		5F9FD525264808610067EE19 /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
 		5F3CCFA3264BDAF3001836A8 /* ResetPasswordModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModule.swift; sourceTree = "<group>"; };
 		5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		5F3CCFAA264BDBC8001836A8 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -270,7 +256,13 @@
 		5F3CCFFA264BFBE3001836A8 /* AboutKassaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKassaView.swift; sourceTree = "<group>"; };
 		5F3CCFFE264BFC47001836A8 /* AboutKassaModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKassaModule.swift; sourceTree = "<group>"; };
 		5F3CD001264BFC5E001836A8 /* AboutKassaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKassaViewController.swift; sourceTree = "<group>"; };
+		5F582C0D2649142D00BB070D /* CityContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityContainerView.swift; sourceTree = "<group>"; };
+		5F582C37264961F800BB070D /* OfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferButton.swift; sourceTree = "<group>"; };
+		5F582C3A26499D7E00BB070D /* OfferContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferContainerView.swift; sourceTree = "<group>"; };
+		5F9E096A265245A100E30A2B /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
+		5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
+		5F9FD525264808610067EE19 /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
 		5FB75692264D16BC00FD155B /* AmountOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountOperationView.swift; sourceTree = "<group>"; };
 		5FBE1C03264260CE001F4CAF /* AuthStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateView.swift; sourceTree = "<group>"; };
 		5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewController.swift; sourceTree = "<group>"; };
@@ -804,7 +796,6 @@
 		5F14B63F2644124A00315D87 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5F9E095D2652417200E30A2B /* CityPicker */,
 				5F14B6442644128300315D87 /* RegisterView.swift */,
 			);
 			path = View;
@@ -832,32 +823,6 @@
 				5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		5F9E095D2652417200E30A2B /* CityPicker */ = {
-			isa = PBXGroup;
-			children = (
-				5F9E095E265241AD00E30A2B /* CityPickerViewDelegate.swift */,
-				5F9E0961265241C000E30A2B /* CityPickerViewDataSource.swift */,
-			);
-			path = CityPicker;
-			sourceTree = "<group>";
-		};
-		5F9E09642652426B00E30A2B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5F9E096A265245A100E30A2B /* city.json */,
-				5F9E09652652427200E30A2B /* City.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		5F9FD5212647FB830067EE19 /* TitleAndTextField */ = {
-			isa = PBXGroup;
-			children = (
-				5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */,
-			);
-			path = TitleAndTextField;
 			sourceTree = "<group>";
 		};
 		5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */ = {
@@ -935,6 +900,22 @@
 				5F3CD001264BFC5E001836A8 /* AboutKassaViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F9E09642652426B00E30A2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E096A265245A100E30A2B /* city.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F9FD5212647FB830067EE19 /* TitleAndTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */,
+			);
+			path = TitleAndTextField;
 			sourceTree = "<group>";
 		};
 		5FB75691264D16A300FD155B /* AmountOperationView */ = {
@@ -1830,7 +1811,6 @@
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
 				7201EFD42636E2BB00D25097 /* BaseCoordinator.swift in Sources */,
 				7201EFF72636E38300D25097 /* DropdownTransitioningDelegate.swift in Sources */,
-				5F9E0962265241C000E30A2B /* CityPickerViewDataSource.swift in Sources */,
 				7201F0E52636EA8400D25097 /* StatusBarHeight.swift in Sources */,
 				72567B8E264A7BE3004D45C8 /* NameValueView.swift in Sources */,
 				7201F0722636E6B700D25097 /* IdPaginationAdapter.swift in Sources */,
@@ -1867,7 +1847,6 @@
 				7201F03E2636E5BF00D25097 /* Requestable.swift in Sources */,
 				7201F0B22636E7F800D25097 /* UserInfoStorage.swift in Sources */,
 				7201F0EC2636EABF00D25097 /* UserResponse.swift in Sources */,
-				5F9E095F265241AD00E30A2B /* CityPickerViewDelegate.swift in Sources */,
 				5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */,
 				5F3CCF46264AAC18001836A8 /* RegisterViewModel.swift in Sources */,
 				5FB75693264D16BC00FD155B /* AmountOperationView.swift in Sources */,
@@ -1980,7 +1959,6 @@
 				72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */,
 				7201F05C2636E64D00D25097 /* ApiRequest.swift in Sources */,
 				7201F0622636E66700D25097 /* UploadService.swift in Sources */,
-				5F9E09662652427200E30A2B /* City.swift in Sources */,
 				5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */,
 				72567B86264A78EB004D45C8 /* MenuView.swift in Sources */,
 			);

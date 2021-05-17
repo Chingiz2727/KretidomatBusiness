@@ -7,12 +7,11 @@ public protocol AuthenticationService {
     var sessionStorage: UserSessionStorage { get }
     var authenticated: Observable<Bool> { get }
     func clearUserInfo()
-   
-    func resetPassword(iin: String, phone: String, password: String, password2: String) -> Observable<LoadingSequence<ResponseStatus>>
     func updateToken(with newToken: UserResponse?)
     func forceLogout()
     func authUser(phone: String, password: String) -> Observable<LoadingSequence<ResponseStatus>>
     func register(name: String, email: String, phone: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String) -> Observable<LoadingSequence<ResponseStatus>>
+    func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>>
     
 }
 
@@ -57,12 +56,9 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     }
     
 
-    
-   
-    
     public func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>> {
         return apiService.makeRequest(to: AuthTarget.resetPassword(phone: phone, email: email))
-            .result()
+            .result(ResponseStatus.self)
             .asLoadingSequence()
     }
 
