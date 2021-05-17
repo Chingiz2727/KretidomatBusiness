@@ -37,18 +37,18 @@ final class RegisterViewModel: ViewModel {
         return .init(token: registerUser)
     }
     
-    private func loadJson() -> [City] {
-        if let url = Bundle.main.url(forResource: "city", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let city = try decoder.decode(CityList.self, from: data)
-                return city.cities
-            } catch let error {
-                print(error)
-                return []
-            }
-        }
-        return []
-    }
+//    private func loadJson() -> [City] {
+//        if let url = Bundle.main.url(forResource: "city", withExtension: "json") {
+//            do {
+//                let data = try Data(contentsOf: url)
+//                let decoder = JSONDecoder()
+//                let city = try decoder.decode(CityList.self, from: data)
+//                return city.cities
+//            } catch let error {
+//                print(error)
+//                return []
+//            }
+//        }
+//        return []
+//    }
 }
