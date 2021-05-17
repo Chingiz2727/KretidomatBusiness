@@ -179,6 +179,8 @@
 		72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B96264A88B9004D45C8 /* SignatureModule.swift */; };
 		72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B98264A891E004D45C8 /* SignatureViewController.swift */; };
 		72567B9B264A8A48004D45C8 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B9A264A8A48004D45C8 /* SignatureView.swift */; };
+		727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727431482650535E00A1B9F4 /* CustomAlertViewController.swift */; };
+		7286B5BA264FCCAB0015FA4F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */; };
 		72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */; };
 		72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */; };
 		72DF18BB263C2C9400E5F3D6 /* RightButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */; };
@@ -367,6 +369,8 @@
 		72567B96264A88B9004D45C8 /* SignatureModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureModule.swift; sourceTree = "<group>"; };
 		72567B98264A891E004D45C8 /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		72567B9A264A8A48004D45C8 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		727431482650535E00A1B9F4 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
 		72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextFieldState.swift; sourceTree = "<group>"; };
 		72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightButtonTextField.swift; sourceTree = "<group>"; };
@@ -1033,6 +1037,7 @@
 		7201EF9E2636E0B700D25097 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7286B5B8264FCC9C0015FA4F /* CustomTitleAlert */,
 				7201F0F52636EBC400D25097 /* Anchors */,
 				7201F0F12636EB7600D25097 /* AccessCode */,
 				7201F0E32636EA7500D25097 /* StatusBar */,
@@ -1546,6 +1551,15 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		7286B5B8264FCC9C0015FA4F /* CustomTitleAlert */ = {
+			isa = PBXGroup;
+			children = (
+				7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */,
+				727431482650535E00A1B9F4 /* CustomAlertViewController.swift */,
+			);
+			path = CustomTitleAlert;
+			sourceTree = "<group>";
+		};
 		729E279B264A75A600029268 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1747,6 +1761,7 @@
 				7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */,
 				7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */,
 				5510BCFA264CC21100900F4E /* TimeTextFieldContainer.swift in Sources */,
+				7286B5BA264FCCAB0015FA4F /* CustomAlertView.swift in Sources */,
 				7201F0882636E71600D25097 /* Result.swift in Sources */,
 				5510BCF7264BFC0300900F4E /* CreatePointFormViewController.swift in Sources */,
 				55738B57264A481A00CE2BD5 /* PointPickerViewDelegate.swift in Sources */,
@@ -1906,6 +1921,7 @@
 				5F3CD002264BFC5E001836A8 /* AboutKassaViewController.swift in Sources */,
 				7201F09F2636E77900D25097 /* AuthTokenService.swift in Sources */,
 				5510BD05264CD48D00900F4E /* DayPickerViewDataSource.swift in Sources */,
+				727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */,
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,
 				5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */,
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
