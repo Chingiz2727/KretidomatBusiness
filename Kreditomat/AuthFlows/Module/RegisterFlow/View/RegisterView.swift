@@ -5,6 +5,19 @@ final class RegisterView: UIView {
     
     private let scrollView = UIScrollView()
     let tableView = UITableView()
+    var isSelected : Bool = false {
+        didSet {
+            if isSelected == true {
+                offerView.checkBox.setImage(Images.checkboxSelected.image, for: .normal)
+                registerButton.backgroundColor = .primary
+                registerButton.isEnabled = true
+            } else {
+                offerView.checkBox.setImage(Images.checkboxUnselected.image, for: .normal)
+                registerButton.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+                registerButton.isEnabled = false
+            }
+        }
+    }
     
     let chooseFormTitle: UILabel = {
         let label = UILabel()
@@ -128,7 +141,8 @@ final class RegisterView: UIView {
     let registerButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
-        button.backgroundColor = .primary
+        button.isEnabled = false
+        button.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
         button.setTitleColor(.white, for: .normal)
         return button
     }()
@@ -271,6 +285,20 @@ final class RegisterView: UIView {
 //        if addshadow == true {
 //            bin
 //        }
+    }
+    
+    func buttonActive(ipButtonSelected: Bool) {
+        if ipButtonSelected == true {
+            ipButton.backgroundColor = .primary
+            tooButton.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+        } else {
+            ipButton.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+            tooButton.backgroundColor = .secondary
+        }
+    }
+    
+   @objc func checkBox() {
+      isSelected = !isSelected
     }
  
 }

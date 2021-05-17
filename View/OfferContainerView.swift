@@ -26,6 +26,12 @@ final class OfferContainerView: UIView {
     
     let offerButton = OfferButton()
     
+    let checkBox: UIButton = {
+        let b = UIButton()
+        b.setImage(Images.checkboxUnselected.image, for: .normal)
+        b.backgroundColor = .clear
+        return b
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,6 +69,13 @@ final class OfferContainerView: UIView {
             make.center.equalToSuperview()
             make.size.equalTo(25)
         }
+        
+        addSubview(checkBox)
+        checkBox.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.top.equalTo(title.snp.bottom).offset(5)
+            make.size.equalTo(35)
+        }
     }
     
     func configureView(titleText: String, offerTitle: String, image: UIImage) {
@@ -70,4 +83,5 @@ final class OfferContainerView: UIView {
         offerContractTitle.text = offerTitle
         offerButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
     }
+    
 }
