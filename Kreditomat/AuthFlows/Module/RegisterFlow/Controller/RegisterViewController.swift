@@ -42,10 +42,17 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
 //                         nameUser: rootView.nameUserView.textField.rx.text.asObservable(),
 //                         email: rootView.emailTextField.rx.text.asObservable(), phone: <#T##Observable<String>#>, city: <#T##Observable<String>#>, address: <#T##Observable<String>#>, house: <#T##Observable<String>#>, apartments: <#T##Observable<String>#>, bin: <#T##Observable<String>#>, posLat: <#T##Observable<String>#>, posLng: <#T##Observable<String>#>))
         
-        rootView.offerView.offerButton.rx.tap
+        rootView.ipButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-                self.offerTapped?()
-            }).disposed(by: disposeBag)
+                rootView.buttonActive(ipButtonSelected: true)
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.tooButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                rootView.buttonActive(ipButtonSelected: false)
+            })
+            .disposed(by: disposeBag)
         
         rootView.nameUserView.textField.rx.text.unwrap()
             .subscribe(onNext: { [unowned self] text in
@@ -53,15 +60,21 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             })
             .disposed(by: disposeBag)
         
-        rootView.emailTextField.rx.text.unwrap()
+        rootView.binUserView.textField.rx.text.unwrap()
             .subscribe(onNext: { [unowned self] text in
-                self.viewModel.email = text
+                self.viewModel.bin = text
             })
             .disposed(by: disposeBag)
         
-        rootView.numberPhoneTextField.rx.text.unwrap()
-            .subscribe(onNext: { [unowned self] text in
-                self.viewModel.phone = text
+        rootView.offerView.offerButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.offerTapped?()
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.offerView.checkBox.rx.tap
+            .subscribe(onNext: { [unowned self]  in
+                self.rootView.checkBox()
             })
             .disposed(by: disposeBag)
         
@@ -71,9 +84,27 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             })
             .disposed(by: disposeBag)
         
+        rootView.streetView.textField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.address = text
+            })
+            .disposed(by: disposeBag)
+        
         rootView.numberHouse.rx.text.unwrap()
             .subscribe(onNext: { [unowned self] text in
                 self.viewModel.house = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.numberOffice.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.apartments = text
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.numberPhoneTextField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.phone = text
             })
             .disposed(by: disposeBag)
         
@@ -83,11 +114,6 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             })
             .disposed(by: disposeBag)
         
-        rootView.binUserView.textField.rx.text.unwrap()
-            .subscribe(onNext: { [unowned self] text in
-                self.viewModel.bin = text
-            })
-            .disposed(by: disposeBag)
         
         let token = output.token.publish()
         token.loading.bind(to: ProgressView.instance.rx.loading)

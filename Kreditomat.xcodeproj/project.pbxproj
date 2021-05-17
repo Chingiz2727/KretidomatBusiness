@@ -796,7 +796,6 @@
 		5F14B63F2644124A00315D87 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5F9E095D2652417200E30A2B /* CityPicker */,
 				5F14B6442644128300315D87 /* RegisterView.swift */,
 			);
 			path = View;
@@ -824,32 +823,6 @@
 				5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		5F9E095D2652417200E30A2B /* CityPicker */ = {
-			isa = PBXGroup;
-			children = (
-				5F9E095E265241AD00E30A2B /* CityPickerViewDelegate.swift */,
-				5F9E0961265241C000E30A2B /* CityPickerViewDataSource.swift */,
-			);
-			path = CityPicker;
-			sourceTree = "<group>";
-		};
-		5F9E09642652426B00E30A2B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5F9E096A265245A100E30A2B /* city.json */,
-				5F9E09652652427200E30A2B /* City.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		5F9FD5212647FB830067EE19 /* TitleAndTextField */ = {
-			isa = PBXGroup;
-			children = (
-				5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */,
-			);
-			path = TitleAndTextField;
 			sourceTree = "<group>";
 		};
 		5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */ = {
@@ -1838,7 +1811,6 @@
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
 				7201EFD42636E2BB00D25097 /* BaseCoordinator.swift in Sources */,
 				7201EFF72636E38300D25097 /* DropdownTransitioningDelegate.swift in Sources */,
-				5F9E0962265241C000E30A2B /* CityPickerViewDataSource.swift in Sources */,
 				7201F0E52636EA8400D25097 /* StatusBarHeight.swift in Sources */,
 				72567B8E264A7BE3004D45C8 /* NameValueView.swift in Sources */,
 				7201F0722636E6B700D25097 /* IdPaginationAdapter.swift in Sources */,
@@ -1987,7 +1959,6 @@
 				72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */,
 				7201F05C2636E64D00D25097 /* ApiRequest.swift in Sources */,
 				7201F0622636E66700D25097 /* UploadService.swift in Sources */,
-				5F9E09662652427200E30A2B /* City.swift in Sources */,
 				5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */,
 				72567B86264A78EB004D45C8 /* MenuView.swift in Sources */,
 			);

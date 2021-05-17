@@ -15,6 +15,8 @@ enum Images: String {
     case arrowbottom
     case lock
     case Border
+    case checkboxSelected
+    case checkboxUnselected
 }
 
 extension Images {
