@@ -3,7 +3,7 @@ import Foundation
 enum AuthTarget: ApiTarget {
     case authUser(phone: String, password: String)
     case register(name: String, email: String, phone: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String)
-    case resetPassword(iin: String, phone: String, password: String, password2: String)
+    case resetPassword(phone: String, email: String)
     
     var servicePath: String  { "" }
     var version: ApiVersion {
@@ -48,13 +48,9 @@ enum AuthTarget: ApiTarget {
                     "BIN": bin,
                     "Pos_Lat": posLat,
                     "Pos_Lng": posLng]
-        case let .resetPassword(iin, phone, password, password2):
-            let param = [ "iin" : iin,
-                          "phone" : phone,
-                          "password" : password,
-                          "password2" : password2
-            ] as [String : Any]
-            return param
+        case let .resetPassword(phone, email):
+            return [ "Phone": phone,
+                     "Email": email]
         }
     }
     
