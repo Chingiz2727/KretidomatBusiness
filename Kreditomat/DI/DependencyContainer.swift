@@ -35,5 +35,49 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(NotificationCenter.self) { _ in
             NotificationCenter.default
         }.inObjectScope(.container)
+        
+        container.register(MenuModule.self) { _ in
+            return MenuViewController()
+        }
+        
+        container.register(AVMediaType.self) { _ in
+            AVMediaType.video
+        }
+
+        container.register(AVCaptureDevice.self) { _ in
+            let mediaType = container.resolve(AVMediaType.self)!
+            return AVCaptureDevice.default(for: mediaType)!
+        }
+
+        container.register(AVCaptureSession.self) { _ in
+            return AVCaptureSession()
+        }
+        
+        container.register(AVCaptureVideoPreviewLayer.self) {  _ in
+            let session = container.resolve(AVCaptureSession.self)!
+            let layer = AVCaptureVideoPreviewLayer(session: session)
+            return layer
+        }
+        
+        container.register(CameraUsagePermission.self) {  _ in
+            let status = container.resolve(AVAuthorizationStatus.self)!
+            return CameraUsagePermission(avAuthorizationStatus: status)
+        }
+        
+        container.register(CameraModule.self) { _ in
+            let session = container.resolve(AVCaptureSession.self)!
+            let device = container.resolve(AVCaptureDevice.self)!
+            let layer = container.resolve(AVCaptureVideoPreviewLayer.self)!
+            let cameraUsagePermission = container.resolve(CameraUsagePermission.self)!
+            let controller = CameraViewController(
+                avCaptureSession: session,
+                avCaptureDevice: device,
+                avCapturePreviewLayer: layer,
+                cameraUsagePermession: cameraUsagePermission)
+            return controller
     }
+        container.register(SignatureModule.self) { _ in
+            return SignatureViewController()
+        }
+}
 }

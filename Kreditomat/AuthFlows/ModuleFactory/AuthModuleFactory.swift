@@ -26,5 +26,9 @@ final class AuthModuleFactory {
     func makeOfferShow() {
         
     }
+    
+    func makeResetPassword() -> ResetPasswordModule {
+        return ResetPasswordViewController()
+    }
  
 }

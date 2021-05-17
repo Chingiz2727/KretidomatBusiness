@@ -17,7 +17,7 @@ enum AuthTarget: ApiTarget {
         case .register:
             return "Register"
         case .resetPassword:
-            return "/reset"
+            return "ResetPassword"
         }
         
     }

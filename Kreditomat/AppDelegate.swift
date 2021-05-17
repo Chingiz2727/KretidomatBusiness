@@ -4,11 +4,12 @@ import Swinject
 import IQKeyboardManagerSwift
 import Kingfisher
 
+public let assembler = Assembler([DependencyContainerAssembly()])
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let assembler = Assembler([DependencyContainerAssembly()])
     private var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

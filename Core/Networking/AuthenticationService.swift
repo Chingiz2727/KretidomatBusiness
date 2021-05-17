@@ -60,8 +60,8 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     
    
     
-    public func resetPassword(iin: String, phone: String, password: String, password2: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.resetPassword(iin: iin, phone: phone, password: password, password2: password2))
+    public func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>> {
+        return apiService.makeRequest(to: AuthTarget.resetPassword(phone: phone, email: email))
             .result()
             .asLoadingSequence()
     }
