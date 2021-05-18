@@ -53,7 +53,6 @@ class CabinetView: UIView {
         super.init(frame: frame)
         setupInitialLayouts()
         configureView()
-        setupData()
     }
     
     required init?(coder: NSCoder) {
@@ -117,16 +116,16 @@ class CabinetView: UIView {
         cashboxSum.layer.addShadow()
     }
     
-    func setupData() {
-        agentItem.setupData(title: "Агент:", value: "Кайра")
-        binItem.setupData(title: "БИН:", value: "86768465")
-        cityItem.setupData(title: "Город:", value: "Токио")
-        streetItem.setupData(title: "Улица:", value: "Улица")
-        homeItem.setupData(title: "Номер дома:", value: "23")
-        officeItem.setupData(title: "Номер офиса:", value: "4")
-        phoneItem.setupData(title: "Телефон:", value: "87777777777")
-        emailItem.setupData(title: "Почта:", value: "email@gmail.com")
-        bonusSum.setupSum(title: "СУММА БОНУСОВ", value: "000 тенге")
-        cashboxSum.setupSum(title: "СУММА В КАССЕ", value: "000 тенге")
+    func setupData(data: CabinetData) {
+        agentItem.setupData(title: "Агент:", value: data.Name)
+        binItem.setupData(title: "БИН:", value: data.BIN)
+        cityItem.setupData(title: "Город:", value: data.City)
+        streetItem.setupData(title: "Улица:", value: data.Address)
+        homeItem.setupData(title: "Номер дома:", value: data.House)
+        officeItem.setupData(title: "Номер офиса:", value: data.Apartments)
+        phoneItem.setupData(title: "Телефон:", value: data.Phone)
+        emailItem.setupData(title: "Почта:", value: data.Email)
+        bonusSum.setupSum(title: "СУММА БОНУСОВ", value: "\(data.BonusSum) тенге")
+        cashboxSum.setupSum(title: "СУММА В КАССЕ", value: "\(data.Balance) тенге")
     }
 }

@@ -11,12 +11,14 @@ class InfoItemView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = .regular12
         return label
     }()
     
     let valueLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
+        label.font = .regular12
         return label
     }()
     
