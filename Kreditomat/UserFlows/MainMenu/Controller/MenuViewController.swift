@@ -17,6 +17,7 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        presentCustomAlert(type: .anketoOnRequest)
     }
     
     private func bindViewModel() {
