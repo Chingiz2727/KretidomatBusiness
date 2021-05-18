@@ -24,13 +24,13 @@ final class CustomAlertView: UIView {
     private lazy var titleStackView = UIStackView(
         views: [titleLabel, subtitleTitleLabel],
         axis: .vertical,
-        distribution: .fillEqually,
+        distribution: .fill,
         spacing: 2)
     
     private lazy var descriptionStackView = UIStackView(
         views: [descriptionTitleLabel, descriptionSubtitleLabel],
         axis: .vertical,
-        distribution: .fillEqually,
+        distribution: .fill,
         spacing: 2)
     
     private lazy var fullStackView = UIStackView(
@@ -53,7 +53,23 @@ final class CustomAlertView: UIView {
     }
     
     func configureByType(type: AlertType) {
+        titleLabel.text = type.title
+        subtitleTitleLabel.text = type.titleSubtitle
+        descriptionTitleLabel.text = type.descriptionTitle
+        descriptionSubtitleLabel.text = type.descriptionSubtitle
+        acceptButton.isHidden = type.firstButtonHidden
+        declineButton.isHidden = type.secondButtonHidden
         
+        if type.firstButtonHidden == true && type.secondButtonHidden == true {
+            buttonsStackView.isHidden = true
+        }
+        
+        if type.firstButtonHidden == false && type.secondButtonHidden == false {
+            acceptButton.setTitle("Да", for: .normal)
+            declineButton.setTitle("Нет", for: .normal)
+        } else {
+            acceptButton.setTitle("Подтвердить", for: .normal)
+        }
     }
     
     private func setupInitialLayout() {
@@ -81,8 +97,9 @@ final class CustomAlertView: UIView {
         backgroundView.addSubview(fullStackView)
         
         fullStackView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview().inset(15)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(headerView.snp.bottom).offset(15)
+            make.bottom.equalToSuperview().inset(10)
         }
         
         buttonsStackView.snp.makeConstraints { make in
@@ -109,15 +126,9 @@ final class CustomAlertView: UIView {
         declineButton.layer.cornerRadius = 20
         backgroundColor = .black.withAlphaComponent(0.3)
         
-        titleLabel.text = "it's title"
         titleLabel.textAlignment = .center
-        subtitleTitleLabel.text = "it's subtitle title"
         subtitleTitleLabel.textAlignment = .center
-        descriptionTitleLabel.text = "it's description title"
         descriptionTitleLabel.textAlignment = .center
-        descriptionSubtitleLabel.text = "it's description subtitle"
         descriptionSubtitleLabel.textAlignment = .center
-        acceptButton.setTitle("accept", for: .normal)
-        declineButton.setTitle("decline", for: .normal)
     }
 }
