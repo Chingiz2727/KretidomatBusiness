@@ -48,6 +48,12 @@
 		55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B83264A6A7B00CE2BD5 /* CameraAction.swift */; };
 		55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */; };
 		55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */; };
+		55A6F3CE265378E500ADB9CB /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3CD265378E500ADB9CB /* UIFont.swift */; };
+		55A6F3DB26537C5E00ADB9CB /* Evolventa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */; };
+		55A6F3DC26537C5E00ADB9CB /* Evolventa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */; };
+		55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */; };
+		55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3E72653838200ADB9CB /* CabinetTarget.swift */; };
+		55A6F3EC2653849900ADB9CB /* CabinetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */; };
 		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
@@ -244,6 +250,12 @@
 		55738B83264A6A7B00CE2BD5 /* CameraAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAction.swift; sourceTree = "<group>"; };
 		55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermission.swift; sourceTree = "<group>"; };
 		55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleFactory.swift; sourceTree = "<group>"; };
+		55A6F3CD265378E500ADB9CB /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Evolventa-Bold.ttf"; sourceTree = "<group>"; };
+		55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Evolventa-Regular.ttf"; sourceTree = "<group>"; };
+		55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetViewModel.swift; sourceTree = "<group>"; };
+		55A6F3E72653838200ADB9CB /* CabinetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetTarget.swift; sourceTree = "<group>"; };
+		55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetInfo.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -501,6 +513,9 @@
 		55738AFF2647FD9C00CE2BD5 /* Cabinet */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3EA2653848F00ADB9CB /* Model */,
+				55A6F3E62653837200ADB9CB /* Target */,
+				55A6F3E12653815F00ADB9CB /* ViewModel */,
 				55738B282649327D00CE2BD5 /* ImagePicker */,
 				55738B0F2648081A00CE2BD5 /* Controller */,
 				55738B0B264807FA00CE2BD5 /* Module */,
@@ -538,6 +553,7 @@
 		55738B1B26480D2200CE2BD5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3C62653780B00ADB9CB /* Fonts */,
 				55738B86264A6B0D00CE2BD5 /* Camera */,
 				55738B1C26480D5200CE2BD5 /* Resources */,
 			);
@@ -547,6 +563,7 @@
 		55738B1C26480D5200CE2BD5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3CC265378D500ADB9CB /* Fonts */,
 				55738B1D26480D5800CE2BD5 /* Images */,
 			);
 			path = Resources;
@@ -740,6 +757,47 @@
 				55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */,
 			);
 			path = ModuleFactory;
+			sourceTree = "<group>";
+		};
+		55A6F3C62653780B00ADB9CB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */,
+				55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		55A6F3CC265378D500ADB9CB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3CD265378E500ADB9CB /* UIFont.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		55A6F3E12653815F00ADB9CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55A6F3E62653837200ADB9CB /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3E72653838200ADB9CB /* CabinetTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		55A6F3EA2653848F00ADB9CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
@@ -1737,7 +1795,9 @@
 			files = (
 				7201EF812636DF2E00D25097 /* LaunchScreen.storyboard in Resources */,
 				7201EFA12636E10900D25097 /* Colors.xcassets in Resources */,
+				55A6F3DC26537C5E00ADB9CB /* Evolventa-Regular.ttf in Resources */,
 				5F9E096B265245A100E30A2B /* city.json in Resources */,
+				55A6F3DB26537C5E00ADB9CB /* Evolventa-Bold.ttf in Resources */,
 				5510BD2A264CFA8700900F4E /* day.json in Resources */,
 				7201EF7E2636DF2E00D25097 /* Assets.xcassets in Resources */,
 			);
@@ -1921,6 +1981,7 @@
 				5510BD0F264CD65900900F4E /* CityPickerViewDataSource.swift in Sources */,
 				55738B2F26493A2E00CE2BD5 /* SuccessView.swift in Sources */,
 				7201F08F2636E73300D25097 /* LoadingSequenceConvertible.swift in Sources */,
+				55A6F3EC2653849900ADB9CB /* CabinetInfo.swift in Sources */,
 				7201EFB12636E1FC00D25097 /* BackContainerViewController.swift in Sources */,
 				55738B5A264A486F00CE2BD5 /* Point.swift in Sources */,
 				7201F0502636E61800D25097 /* ApiError.swift in Sources */,
@@ -1933,6 +1994,7 @@
 				55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */,
 				72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */,
 				7201EFD02636E2AE00D25097 /* CloseableViewController.swift in Sources */,
+				55A6F3CE265378E500ADB9CB /* UIFont.swift in Sources */,
 				7201F03A2636E5B100D25097 /* ResponseStatus.swift in Sources */,
 				7201F04A2636E5FA00D25097 /* AuthenticationService.swift in Sources */,
 				7201F02B2636E56D00D25097 /* Logger.swift in Sources */,
@@ -1941,6 +2003,7 @@
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
 				55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */,
 				7201F08C2636E72100D25097 /* UIScrollView+ReachedBottom.swift in Sources */,
+				55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */,
 				72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */,
 				55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */,
 				7201F0C22636E85600D25097 /* ViewModel.swift in Sources */,
@@ -1969,6 +2032,7 @@
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,
 				5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */,
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
+				55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
 				5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */,
 				55738B33264940C500CE2BD5 /* SuccessModule.swift in Sources */,

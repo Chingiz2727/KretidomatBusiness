@@ -7,8 +7,10 @@ public struct SertLombardRequestAdapter: RequestAdapter {
     
     public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var resultRequest = urlRequest
-
-        if let token = authService.token {
+        let userSession = assembler.resolver.resolve(UserSessionStorage.self)!
+        
+        if let token = userSession.accessToken {
+            
             resultRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
         return resultRequest
