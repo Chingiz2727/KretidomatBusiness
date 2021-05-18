@@ -18,7 +18,13 @@ final class AuthModuleFactory {
     }
     
     func makeRegister() -> RegisterModule {
-        return RegisterViewController()
+        let apiService = container.resolve(AuthenticationService.self)!
+        let viewModel = RegisterViewModel(authService: apiService)
+        return RegisterViewController(viewModel: viewModel)
+    }
+    
+    func makeOfferShow() {
+        
     }
     
     func makeResetPassword() -> ResetPasswordModule {

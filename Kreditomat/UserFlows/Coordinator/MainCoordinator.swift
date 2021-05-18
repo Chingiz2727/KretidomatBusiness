@@ -33,6 +33,9 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showCamera(type: .payCredit)
             case .aboutKassa:
                 self?.showAboutKassa()
+            case .logout:
+                let authState = assembler.resolver.resolve(AuthStateObserver.self)!
+                authState.forceLogout()
             default:
                 return
             }

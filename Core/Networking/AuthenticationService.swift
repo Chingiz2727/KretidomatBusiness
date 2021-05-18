@@ -7,16 +7,11 @@ public protocol AuthenticationService {
     var sessionStorage: UserSessionStorage { get }
     var authenticated: Observable<Bool> { get }
     func clearUserInfo()
-    func checkUser(iin: String) -> Observable<LoadingSequence<CheckUserResponse>>
-    func sendSms(phone: String) -> Observable<LoadingSequence<ResponseStatus>>
-    func verification(phone: String, activateCode: String) -> Observable<LoadingSequence<ResponseStatus>>
-    func signUp(iin: String, phone: String, ftoken: String, password: String, password2: String) -> Observable<LoadingSequence<UserAuthResponse>>
-    func signIn(iin: String, password: String) -> Observable<LoadingSequence<UserAuthResponse>>
-    func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>>
     func updateToken(with newToken: UserResponse?)
     func forceLogout()
     func authUser(phone: String, password: String) -> Observable<LoadingSequence<ResponseStatus>>
-    func register()
+    func register(name: String, email: String, phone: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String) -> Observable<LoadingSequence<ResponseStatus>>
+    func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>>
     
 }
 
@@ -25,6 +20,7 @@ public protocol LogoutListener {
 }
 
 public final class AuthenticationServiceImpl: AuthenticationService {
+    
     
   
     public var token: String?
@@ -59,49 +55,10 @@ public final class AuthenticationServiceImpl: AuthenticationService {
         authenticatedRelay.accept(token != nil)
     }
     
-    public func checkUser(iin: String) -> Observable<LoadingSequence<CheckUserResponse>> {
-        return apiService.makeRequest(to: AuthTarget.checkUser(iin: iin))
-            .result()
-            .asLoadingSequence()
-    }
-    
-    public func sendSms(phone: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.sendSms(phone: phone))
-            .result()
-            .asLoadingSequence()
-    }
-    
-    public func verification(phone: String, activateCode: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.verification(phone: phone, activateCode: activateCode))
-            .result()
-            .asLoadingSequence()
-    }
-    
-    public func signUp(iin: String, phone: String, ftoken: String, password: String, password2: String) -> Observable<LoadingSequence<UserAuthResponse>> {
-        return apiService.makeRequest(to: AuthTarget.signUp(iin: iin, phone: phone, ftoken: ftoken, password: password, password2: password2))
-            .result(UserAuthResponse.self)
-            .asLoadingSequence()
-            .do(onNext: { [weak self] token in
-                guard let token = token.result?.element?.user else { return }
-                self?.updateToken(with: token)
-                self?.token = token.access_token
-            })
-    }
-    
-    public func signIn(iin: String, password: String) -> Observable<LoadingSequence<UserAuthResponse>> {
-        return apiService.makeRequest(to: AuthTarget.signIn(iin: iin, password: password))
-            .result(UserAuthResponse.self)
-            .asLoadingSequence()
-            .do(onNext: { [weak self] token in
-                guard let token = token.result?.element?.user else { return }
-                self?.token = token.access_token
-                self?.updateToken(with: token)
-            })
-    }
-    
+
     public func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>> {
         return apiService.makeRequest(to: AuthTarget.resetPassword(phone: phone, email: email))
-            .result()
+            .result(ResponseStatus.self)
             .asLoadingSequence()
     }
 
@@ -126,13 +83,20 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     }
   
     public func authUser(phone: String, password: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.authUser(phone: phone, password: password))
+        return apiService.makeRequest(to: AuthTarget.authUser(phone: phone.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: ""), password: password))
             .result(ResponseStatus.self)
+            .do(onNext: { [unowned self] token in
+                if token.ErrorCode == 0 {
+                    self.sessionStorage.accessToken = token.Message
+                }
+            })
             .asLoadingSequence()
     }
     
-    public func register() {
-        
+    public func register(name: String, email: String, phone: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String) -> Observable<LoadingSequence<ResponseStatus>> {
+        return apiService.makeRequest(to: AuthTarget.register(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: posLng, posLng: posLng))
+            .result(ResponseStatus.self)
+            .asLoadingSequence()
     }
 }
 
