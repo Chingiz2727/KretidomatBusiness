@@ -21,10 +21,10 @@ final class MainCoordinator: BaseCoordinator {
     
     private func startHome() {
         var module = assembler.resolver.resolve(MenuModule.self)!
-        module.selectMenu = { [weak self] menu in
+        module.selectMenu = { [weak self] menu, data in
             switch menu {
             case .mainPage:
-                self?.showCabinet()
+                self?.showCabinet(data: data)
             case .createPoint:
                 self?.showCreatePoint()
             case .getCredit:
@@ -43,8 +43,8 @@ final class MainCoordinator: BaseCoordinator {
         router.setRootModule(module)
     }
     
-    private func showCabinet() {
-        let module = moduleFactory.makeCabiner()
+    private func showCabinet(data: CabinetData) {
+        let module = moduleFactory.makeCabiner(data: data)
         router.push(module)
     }
     

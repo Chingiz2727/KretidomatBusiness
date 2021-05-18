@@ -15,20 +15,25 @@ public struct CabinetInfo: Codable {
 }
 
 struct CabinetData: Codable {
+    let AppSignature: String?
+    let SellerID: Int
+    let AlterNames: String
+    let RegTime: String
+    let RegCode: Int
     let Name: String
-    let Email: String
+    let Email: String?
     let Phone: String
     let City: String
     let Address: String
     let House: String
     let Apartments: String
-    let UniqueCode: String
-    let BIN: String
-    let Pos_Lat: String
-    let Pos_Lng: String
+    let UniqueCode: Int
+    let BIN: String?
+    let Pos_Lat: String?
+    let Pos_Lng: String?
     let Balance: Int
     let BonusSum: Int
-    let CashierID: String
+    let CashierID: Int
     let CashierName: String
     let CashierPhone: String
 }
