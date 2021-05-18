@@ -15,6 +15,7 @@ class SumView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.font = .regular12
         return label
     }()
     
@@ -24,6 +25,7 @@ class SumView: UIView {
         let label = UILabel()
         label.text = "000 тенге"
         label.textColor = .gray
+        label.font = .regular12
         return label
     }()
     
