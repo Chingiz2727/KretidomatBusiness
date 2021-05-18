@@ -127,9 +127,11 @@ enum AlertType {
 
 extension UIViewController {
     
-    func presentCustomAlert(type: AlertType) {
+    func presentCustomAlert(type: AlertType, firstButtonAction: Callback? = nil, secondButtonAction: Callback? = nil) {
         let controller = CustomAlertViewController()
         controller.type = type
+        controller.firstButtonAction = { firstButtonAction?() }
+        controller.secondButtonAction = { secondButtonAction?() }
         controller.modalPresentationStyle = .overCurrentContext
         navigationController?.present(controller, animated: true, completion: nil)
     }
