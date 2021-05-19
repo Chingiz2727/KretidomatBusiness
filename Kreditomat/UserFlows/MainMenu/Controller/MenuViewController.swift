@@ -35,6 +35,7 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
         Observable.just(menu)
             .bind(to: rootView.tableView.rx.items(UITableViewCell.self)) { _, model, cell in
                 cell.textLabel?.text = model.title
+                cell.textLabel?.font = .regular16
                 cell.imageView?.image = model.logoImg
                 cell.imageView?.contentMode = .scaleAspectFit
                 cell.imageView?.snp.makeConstraints { make in

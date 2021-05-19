@@ -12,7 +12,7 @@ final class NameValueView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .systemFont(ofSize: 10)
+        label.font = .regular14
         label.textAlignment = .left
         label.numberOfLines = 1
         return label
@@ -21,7 +21,7 @@ final class NameValueView: UIView {
     private let detailLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
-        label.font = .systemFont(ofSize: 10)
+        label.font = .regular14
         label.numberOfLines = 1
         return label
     }()

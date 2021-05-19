@@ -32,9 +32,6 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
-        let editButton = UIBarButtonItem(image: Images.edit.image, style: .done, target: self, action: #selector(handleEdit))
-        navigationController?.navigationItem.rightBarButtonItem = editButton
-        title = "Личный кабинет"
     }
     
     @objc func handleEdit() {

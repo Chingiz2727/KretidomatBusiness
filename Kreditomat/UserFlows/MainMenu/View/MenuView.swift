@@ -18,7 +18,7 @@ final class MenuView: UIView {
         addSubview(headerView)
         headerView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(140)
+            make.height.equalTo(170)
         }
         
         tableView.snp.makeConstraints { make in
