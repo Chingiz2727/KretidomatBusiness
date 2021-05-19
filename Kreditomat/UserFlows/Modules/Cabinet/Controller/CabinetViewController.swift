@@ -12,10 +12,12 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     typealias RootViewType = CabinetView
     
     private let disposeBag = DisposeBag()
+    private let data: CabinetData
     private let viewModel: CabinetViewModel
     
-    init(viewModel: CabinetViewModel) {
+    init(viewModel: CabinetViewModel, data: CabinetData) {
         self.viewModel = viewModel
+        self.data = data
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,11 +31,14 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) name: \(names)")
-        }
         bindView()
+        let editButton = UIBarButtonItem(image: Images.edit.image, style: .done, target: self, action: #selector(handleEdit))
+        navigationController?.navigationItem.rightBarButtonItem = editButton
+        title = "Личный кабинет"
+    }
+    
+    @objc func handleEdit() {
+        
     }
     
     private func bindView() {
@@ -44,24 +49,6 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
                 }
             }).disposed(by: disposeBag)
         
-        let output = viewModel.transform(input: .init(loadInfo: .just(())))
-        
-        let info = output.info.publish()
-        
-        info.element
-            .subscribe(onNext: { [unowned self] info in
-                rootView.setupData(data: info.Data)
-            }).disposed(by: disposeBag)
-        
-        info.errors
-            .bind(to: rx.error)
-            .disposed(by: disposeBag)
-        
-        info.loading
-            .bind(to: ProgressView.instance.rx.loading)
-            .disposed(by: disposeBag)
-        
-        info.connect()
-            .disposed(by: disposeBag)
+        rootView.setupData(data: data)
     }
 }

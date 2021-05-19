@@ -3,7 +3,7 @@ import UIKit
 
 final class MenuView: UIView {
     let tableView = UITableView()
-    private let headerView = MenuHeaderView()
+    let headerView = MenuHeaderView()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupInitialLayout()

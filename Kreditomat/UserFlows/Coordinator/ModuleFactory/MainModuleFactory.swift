@@ -14,10 +14,10 @@ final class MainModuleFactory {
         self.container = container
     }
     
-    func makeCabiner() -> CabinetModule {
+    func makeCabiner(data: CabinetData) -> CabinetModule {
         let apiService = container.resolve(ApiService.self)!
         let viewModel = CabinetViewModel(apiService: apiService)
-        return CabinetViewController(viewModel: viewModel)
+        return CabinetViewController(viewModel: viewModel, data: data)
     }
     
     func makeCreatePoint() -> CreatePointModule {
