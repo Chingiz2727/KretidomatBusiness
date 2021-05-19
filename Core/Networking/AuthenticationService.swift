@@ -57,7 +57,7 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     
 
     public func resetPassword(phone: String, email: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.resetPassword(phone: phone, email: email))
+        return apiService.makeRequest(to: AuthTarget.resetPassword(phone: phone.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: ""), email: email))
             .result(ResponseStatus.self)
             .asLoadingSequence()
     }
@@ -94,7 +94,7 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     }
     
     public func register(name: String, email: String, phone: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String) -> Observable<LoadingSequence<ResponseStatus>> {
-        return apiService.makeRequest(to: AuthTarget.register(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: posLng, posLng: posLng))
+        return apiService.makeRequest(to: AuthTarget.register(name: name, email: email, phone: phone.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: ""), city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: posLng, posLng: posLng))
             .result(ResponseStatus.self)
             .asLoadingSequence()
     }

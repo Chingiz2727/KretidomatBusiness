@@ -32,7 +32,11 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        bindView()
         setupCityPickerView()
+        title = "Регистрация"
+        navigationController?.navigationBar.layer.addShadow()
+        
     }
     
     private func bindViewModel() {
@@ -74,11 +78,18 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             })
             .disposed(by: disposeBag)
         
-        rootView.cityView.cityTextField.rx.text.unwrap()
+        cityPickerDelegate.selectedCity
+            .subscribe(onNext: { [unowned self] city in
+                rootView.cityView.cityListTextField.textField.text = city.name
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.cityView.cityListTextField.textField.rx.text.unwrap()
             .subscribe(onNext: { [unowned self] text in
                 self.viewModel.city = text
             })
             .disposed(by: disposeBag)
+        
         
         rootView.streetView.textField.rx.text.unwrap()
             .subscribe(onNext: { [unowned self] text in
@@ -131,15 +142,38 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         token.connect()
             .disposed(by: disposeBag)
         cityPickerDelegate.selectedCity.subscribe(onNext: { [unowned self] city in
-            self.rootView.cityView.cityTextField.text = city.name
+            self.rootView.cityView.cityListTextField.textField.text = city.name
         })
         .disposed(by: disposeBag)
+    }
+    
+    private func bindView() {
+        bindMaskTextField()
+        let filled = [
+            rootView.nameUserView.textField.filled,
+            rootView.binUserView.textField.filled,
+            rootView.cityView.cityListTextField.textField.filled,
+            rootView.streetView.textField.filled,
+            rootView.numberHouse.isFilled,
+            rootView.numberOffice.isFilled,
+            rootView.numberPhoneTextField.isFilled,
+            rootView.emailTextField.filled
+//            rootView.offerView.checkBox.isS
+        ]
+        Observable.combineLatest(filled.map {$0}) { $0.allSatisfy {$0}}
+            .distinctUntilChanged()
+            .bind(to: rootView.registerButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindMaskTextField() {
+//        rootView.numberPhoneTextField.format = "[000] [000]-[00]-[00]"
     }
     
     private func setupCityPickerView() {
         cityPicker.delegate = cityPickerDelegate
         cityPicker.dataSource = cityPickerDataSource
-        rootView.cityView.cityTextField.inputView = cityPicker
+        rootView.cityView.cityListTextField.textField.inputView = cityPicker
     }
     
 }

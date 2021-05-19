@@ -4,7 +4,8 @@ final class AuthUserView: UIView {
     
     let phoneTitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = .regular12
+        label.text = "Введите номер телефона"
         label.textAlignment = .center
         return label
     }()
@@ -13,7 +14,8 @@ final class AuthUserView: UIView {
     
     let passwordTitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = .regular12
+        label.text = "Введите пароль"
         label.textAlignment = .center
         return label
     }()
@@ -22,27 +24,28 @@ final class AuthUserView: UIView {
     
     let resetPasswordButton: UIButton = {
         let button = UIButton()
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitle("Забыли пароль?", for: .normal)
+        button.setTitleColor(.resetPswdColor, for: .normal)
+        button.titleLabel?.font = .regular12
+        
         return button
     }()
     
     let authButton: UIButton = {
         let button = UIButton()
+        button.setTitle("ВОЙТИ", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
+        button.titleLabel?.font = .regular12
+        button.layer.cornerRadius = 20
         button.backgroundColor = .primary
         return button
     }()
-    
-    lazy var verticalStackView = UIStackView(views: [phoneTitle, phoneTextField, UIView(), passwordTitle, passwordTextField], axis: .vertical, distribution: .fill, spacing: 5)
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupInitialLayouts()
         configureView()
     }
-    
     
     required init?(coder: NSCoder) {
         nil
@@ -51,37 +54,55 @@ final class AuthUserView: UIView {
     private func setupInitialLayouts() {
         backgroundColor = .white
         
-        addSubview(verticalStackView)
-        verticalStackView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-60)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(180)
+        addSubview(phoneTitle)
+        phoneTitle.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(40)
+            make.center.equalTo(self).offset(-150)
         }
         
-        phoneTextField.snp.makeConstraints { $0.height.equalTo(Layout.textFieldHeight) }
-        passwordTextField.snp.makeConstraints { $0.height.equalTo(Layout.textFieldHeight) }
+        addSubview(phoneTextField)
+        phoneTextField.snp.makeConstraints { make in
+            make.top.equalTo(phoneTitle.snp.bottom).offset(5)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(40)
+        }
+        
+        addSubview(passwordTitle)
+        passwordTitle.snp.makeConstraints { make in
+            make.top.equalTo(phoneTextField.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.centerX.equalTo(self)
+        }
+        
+        addSubview(passwordTextField)
+        passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(passwordTitle.snp.bottom).offset(5)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(40)
+        }
         
         addSubview(resetPasswordButton)
         resetPasswordButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(70)
-            make.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.right.equalToSuperview().inset(50)
         }
         
         addSubview(authButton)
         authButton.snp.makeConstraints { make in
-            make.top.equalTo(resetPasswordButton.snp.bottom).offset(10)
-            make.height.equalTo(Layout.buttonHeight)
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(resetPasswordButton.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(50)
+            make.height.equalTo(40)
         }
     }
     
     private func configureView() {
-        phoneTitle.text = "Введите номер телефона"
-        passwordTitle.text = "Введите пароль"
-        resetPasswordButton.setTitle("Забыли пароль?", for: .normal)
-        authButton.setTitle("ВОЙТИ", for: .normal)
+        backgroundColor = .background
+        phoneTextField.layer.borderWidth = 1.5
+        phoneTextField.layer.addShadow()
+        passwordTextField.placeholder = "Пароль"
+        passwordTextField.layer.addShadow()
+        passwordTextField.layer.borderWidth = 1.5
+        authButton.layer.addShadow()
     }
-   
 }
    

@@ -111,6 +111,7 @@ final class CustomAlertView: UIView {
         backgroundView.backgroundColor = .background
         backgroundView.layer.cornerRadius = 10
         headerView.layer.cornerRadius = 10
+        headerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         headerView.backgroundColor = .primary
         logoImageView.image = #imageLiteral(resourceName: "titleLogo")
         logoImageView.contentMode = .scaleAspectFit
@@ -124,7 +125,7 @@ final class CustomAlertView: UIView {
         subtitleTitleLabel.font = .boldSystemFont(ofSize: 14)
         acceptButton.layer.cornerRadius = 20
         declineButton.layer.cornerRadius = 20
-        backgroundColor = .black.withAlphaComponent(0.3)
+        backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         titleLabel.textAlignment = .center
         subtitleTitleLabel.textAlignment = .center

@@ -6,7 +6,7 @@ final class CityContainerView: UIView {
     
     lazy var title: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.font = .regular12
         l.textAlignment = .left
         return l
     }()
@@ -16,21 +16,12 @@ final class CityContainerView: UIView {
         v.backgroundColor = .clear
         return v
     }()
+    let cityListTextField = TextFieldContainer()
     
-    lazy var cityTextField: RegularTextField = {
-        let tf = RegularTextField()
-        tf.layer.borderColor = UIColor.error.cgColor
-        tf.layer.borderWidth = 1
-        tf.placeholder = "Город"
-        tf.backgroundColor = .clear
-        return tf
-    }()
-    
-    lazy var chooseButton: UIButton = {
-        let b = UIButton()
-        b.setImage(#imageLiteral(resourceName: "arrowbottom").withRenderingMode(.alwaysOriginal), for: .normal)
-        b.contentMode = .scaleAspectFit
-        return b
+    let cityListImage : UIImageView = {
+        let iv =  UIImageView()
+        iv.image = Images.arrowbottom.image
+        return iv
     }()
     
     let listener = MaskedTextFieldDelegate(primaryFormat: "[A…]")
@@ -47,29 +38,28 @@ final class CityContainerView: UIView {
     
     private func setupInitialLayouts() {
         
-        buttonView.addSubview(chooseButton)
-        chooseButton.snp.makeConstraints { make in
-            make.height.equalTo(8)
-            make.width.equalTo(14)
-            make.centerX.equalToSuperview()
-            make.trailing.equalToSuperview().inset(10)
-        }
-        
         addSubview(title)
         title.snp.makeConstraints { make in
             make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        addSubview(cityListTextField)
+        cityListTextField.snp.makeConstraints { make in
+            make.top.equalTo(title.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview()
         }
         
-        addSubview(cityTextField)
-        cityTextField.snp.makeConstraints { make in
-            make.top.equalTo(title.snp.bottom).offset(5)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(Layout.textFieldHeight)
+        cityListTextField.addSubview(cityListImage)
+        cityListImage.snp.makeConstraints { make in
+            make.height.equalTo(8)
+            make.width.equalTo(14)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().inset(10)
         }
     }
     
     private func configureView() {
-        cityTextField.delegate = listener
+        cityListTextField.textField.delegate = listener
     }
 }

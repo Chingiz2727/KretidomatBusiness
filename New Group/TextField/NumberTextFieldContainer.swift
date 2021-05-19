@@ -26,11 +26,11 @@ final class NumberTextFieldContainer: RegularTextField {
         return extractedValue
     }
     
-    var isFilled: Bool = false {
-        didSet {
-            
-        }
-    }
+//    var isFilled: Bool = false {
+//        didSet {
+//
+//        }
+//    }
     
     override var isEnabled: Bool {
         didSet {
@@ -59,7 +59,7 @@ final class NumberTextFieldContainer: RegularTextField {
     
     private func configureView() {
         setupInitialLayout()
-        configureDelegate()
+//        configureDelegate()
         configureTextStyle()
         configureColor()
     }
@@ -84,12 +84,12 @@ final class NumberTextFieldContainer: RegularTextField {
         prefixLabel.text = Constants.prefixText
     }
     
-    private func configureDelegate() {
-        delegate = listener
-        listener.onMaskedTextChangedCallback = { [weak self] _, _, isFilled in
-            self?.isFilled = isFilled
-        }
-    }
+//    private func configureDelegate() {
+//        delegate = listener
+//        listener.onMaskedTextChangedCallback = { [weak self] _, _, isFilled in
+//            self?.isFilled = isFilled
+//        }
+//    }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.textRect(forBounds: bounds)

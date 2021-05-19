@@ -4,7 +4,7 @@ final class OfferContainerView: UIView {
     
     let title: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 10)
+        l.font = .regular12
         l.textColor = UIColor.gray.withAlphaComponent(0.4)
         l.textAlignment = .center
         return l
@@ -12,15 +12,14 @@ final class OfferContainerView: UIView {
     
     let offerContractTitle: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
-        l.textAlignment = .center
+        l.font = .regular15
         return l
     }()
     
     let buttonContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .primary
-        view.layer.cornerRadius = Layout.cornerRadius
+        view.layer.cornerRadius = 10
         return view
     }()
     
@@ -46,15 +45,21 @@ final class OfferContainerView: UIView {
         backgroundColor = .background
         addSubview(title)
         title.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(20)
             make.leading.trailing.equalToSuperview()
-            
+        }
+        
+        addSubview(checkBox)
+        checkBox.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.top.equalTo(title.snp.bottom).offset(5)
+            make.size.equalTo(35)
         }
         
         addSubview(offerContractTitle)
         offerContractTitle.snp.makeConstraints { make in
-            make.top.equalTo(title.snp.bottom).offset(20)
-            make.centerX.equalToSuperview().inset(-10)
+            make.top.equalTo(title.snp.bottom).offset(15)
+            make.left.equalTo(checkBox.snp.right).offset(10)
         }
         
         addSubview(buttonContainerView)
@@ -70,12 +75,7 @@ final class OfferContainerView: UIView {
             make.size.equalTo(25)
         }
         
-        addSubview(checkBox)
-        checkBox.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.top.equalTo(title.snp.bottom).offset(5)
-            make.size.equalTo(35)
-        }
+      
     }
     
     func configureView(titleText: String, offerTitle: String, image: UIImage) {
