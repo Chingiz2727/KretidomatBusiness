@@ -82,7 +82,7 @@ enum AlertType {
     
     var descriptionTitle: String? {
         switch self {
-        case .anketoOnRequest:
+        case .anketoOnRequest, .recoverPass:
             return "Возникли вопросы? \nВы можете связаться с нами:"
         case .giveMoneyToPoint:
             return "на сумму:"
@@ -95,7 +95,7 @@ enum AlertType {
     
     var descriptionSubtitle: String? {
         switch self {
-        case .anketoOnRequest:
+        case .anketoOnRequest, .recoverPass:
             return "+7 (000) - 000 - 00 - 00 \nпочта - KREDITOMAT.kz"
         case .getMoneyFromPoint(_,let sum),.giveMoneyToPoint(_ , let sum):
             return "\(sum) тенге"

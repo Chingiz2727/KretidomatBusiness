@@ -28,6 +28,8 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        title = "Вход"
+        navigationController?.navigationBar.layer.addShadow()
     }
     
     private func bindViewModel() {
@@ -66,6 +68,15 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
                 self.resetTapped?()
             })
             .disposed(by: disposeBag)
+        
+    }
+    
+    private func bindView() {
+//        let filled = [
+//            rootView.phoneTextField.isFilled,
+//            rootView.passwordTextField.isFilled]
+        
+        
         
     }
 }

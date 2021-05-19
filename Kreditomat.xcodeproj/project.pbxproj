@@ -81,7 +81,6 @@
 		5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C03264260CE001F4CAF /* AuthStateView.swift */; };
 		5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */; };
 		5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0926426183001F4CAF /* AuthStateModule.swift */; };
-		5FBE1C3526426970001F4CAF /* TitleAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C3426426970001F4CAF /* TitleAndButtonView.swift */; };
 		5FBE1C3926427D9B001F4CAF /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C3826427D9B001F4CAF /* AuthCoordinator.swift */; };
 		5FBE1C3D26427E78001F4CAF /* AuthModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C3C26427E78001F4CAF /* AuthModuleFactory.swift */; };
 		5FBE1C412642C76B001F4CAF /* AuthCheckCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */; };
@@ -283,7 +282,6 @@
 		5FBE1C03264260CE001F4CAF /* AuthStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateView.swift; sourceTree = "<group>"; };
 		5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewController.swift; sourceTree = "<group>"; };
 		5FBE1C0926426183001F4CAF /* AuthStateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateModule.swift; sourceTree = "<group>"; };
-		5FBE1C3426426970001F4CAF /* TitleAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndButtonView.swift; sourceTree = "<group>"; };
 		5FBE1C3826427D9B001F4CAF /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		5FBE1C3C26427E78001F4CAF /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
 		5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCheckCoordinator.swift; sourceTree = "<group>"; };
@@ -1003,7 +1001,6 @@
 			children = (
 				5FBE1C3B26427E69001F4CAF /* ModuleFactory */,
 				5FBE1BF826425E5D001F4CAF /* Coordinator */,
-				5FBE1BF726425E58001F4CAF /* Model */,
 				5FBE1BF626425E4F001F4CAF /* Module */,
 			);
 			path = AuthFlows;
@@ -1016,16 +1013,8 @@
 				5F14B62D264410AC00315D87 /* RegisterFlow */,
 				5F14B62C264410A500315D87 /* AuthFlow */,
 				5FBE1BFE26426099001F4CAF /* AuthState */,
-				5FBE1BF926425EAC001F4CAF /* AuthModule */,
 			);
 			path = Module;
-			sourceTree = "<group>";
-		};
-		5FBE1BF726425E58001F4CAF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5FBE1BF826425E5D001F4CAF /* Coordinator */ = {
@@ -1035,13 +1024,6 @@
 				5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		5FBE1BF926425EAC001F4CAF /* AuthModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AuthModule;
 			sourceTree = "<group>";
 		};
 		5FBE1BFE26426099001F4CAF /* AuthState */ = {
@@ -1076,14 +1058,6 @@
 				5FBE1C0926426183001F4CAF /* AuthStateModule.swift */,
 			);
 			path = Module;
-			sourceTree = "<group>";
-		};
-		5FBE1C332642693B001F4CAF /* TitleAndButtonView */ = {
-			isa = PBXGroup;
-			children = (
-				5FBE1C3426426970001F4CAF /* TitleAndButtonView.swift */,
-			);
-			path = TitleAndButtonView;
 			sourceTree = "<group>";
 		};
 		5FBE1C3B26427E69001F4CAF /* ModuleFactory */ = {
@@ -1702,7 +1676,6 @@
 				5F9FD5212647FB830067EE19 /* TitleAndTextField */,
 				5FB75691264D16A300FD155B /* AmountOperationView */,
 				72567B8C264A7BD3004D45C8 /* NameValueView */,
-				5FBE1C332642693B001F4CAF /* TitleAndButtonView */,
 				72DF18EA263C2FA800E5F3D6 /* Button */,
 				72F61495263C1EDC00039B35 /* TextField */,
 				5F582C0D2649142D00BB070D /* CityContainerView.swift */,
@@ -1950,7 +1923,6 @@
 				5F14B6452644128300315D87 /* RegisterView.swift in Sources */,
 				7201F0352636E59500D25097 /* SertLombardLogger+HTTP.swift in Sources */,
 				7201EFD72636E2C800D25097 /* CoordinatorNavigationController.swift in Sources */,
-				5FBE1C3526426970001F4CAF /* TitleAndButtonView.swift in Sources */,
 				55738B5D264A48C100CE2BD5 /* PointPickerViewDataSource.swift in Sources */,
 				7201EFEA2636E32D00D25097 /* NotificationDeepLinkAction.swift in Sources */,
 				7201F0592636E63F00D25097 /* SerlLombardRequestAdapter.swift in Sources */,

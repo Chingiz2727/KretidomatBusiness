@@ -11,6 +11,7 @@ final class ResetPasswordViewController: ViewController, ViewHolder, ResetPasswo
     
     override func loadView() {
         view = ResetPasswordView()
+        title = "Забыли пароль?"
     }
     
     override func viewDidLoad() {
@@ -20,7 +21,10 @@ final class ResetPasswordViewController: ViewController, ViewHolder, ResetPasswo
     }
     
     private func bindViewModel() {
-        let output = viewModel.transform(input: .init(phoneText: rootView.phoneTextField.rx.text.unwrap(), emailText: rootView.emailTextField.rx.text.unwrap(), resetTapped: rootView.resetButton.rx.tap.asObservable()))
+        let output = viewModel.transform(
+            input: .init(phoneText: rootView.phoneTextField.rx.text.unwrap(),
+                         emailText: rootView.emailTextField.rx.text.unwrap(),
+                         resetTapped: rootView.resetButton.rx.tap.asObservable()))
         
         let result = output.resetTapped.publish()
         
@@ -30,6 +34,9 @@ final class ResetPasswordViewController: ViewController, ViewHolder, ResetPasswo
                     self.showErrorInAlert(text: result.Message)
                 } else {
                     self.resetTapped?()
+                    self.presentCustomAlert(type: .recoverPass, secondButtonAction:  {
+//                        self.hide
+                    })
                 }
             })
             .disposed(by: disposeBag)

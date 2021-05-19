@@ -4,7 +4,7 @@ class TitleAndTextField: UIView {
     
     let title: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12)
+        label.font = .regular12
         label.textColor = .black
         label.textAlignment = .left
         return label
@@ -13,14 +13,14 @@ class TitleAndTextField: UIView {
     lazy var textField: RegularTextField = {
         let tf = RegularTextField()
         tf.layer.borderColor = UIColor.error.cgColor
-        tf.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        tf.backgroundColor = .white
         tf.layer.borderWidth = 1
         return tf
     }()
     
     let rightTitle: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.font = .regular12
         l.textColor = .error
         l.textAlignment = .right
         l.isHidden = true
@@ -33,7 +33,7 @@ class TitleAndTextField: UIView {
         addSubview(title)
         title.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().inset(10)
         }
         addSubview(textField)
         textField.snp.makeConstraints { make in
