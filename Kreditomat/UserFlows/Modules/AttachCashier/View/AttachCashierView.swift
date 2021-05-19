@@ -11,6 +11,7 @@ class AttachCashierView: UIView {
     let chooseLabel: UILabel = {
         let label = UILabel()
         label.text = "Выберите точку"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -26,6 +27,7 @@ class AttachCashierView: UIView {
     let nameCashierLabel: UILabel = {
         let label = UILabel()
         label.text =  "Введите ФИО кассира"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -35,6 +37,7 @@ class AttachCashierView: UIView {
     let phoneCashierLabel: UILabel = {
         let label = UILabel()
         label.text =  "Введите номер телефона кассира"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()

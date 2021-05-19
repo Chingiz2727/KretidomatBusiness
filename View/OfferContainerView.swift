@@ -12,7 +12,7 @@ final class OfferContainerView: UIView {
     
     let offerContractTitle: UILabel = {
         let l = UILabel()
-        l.font = .regular15
+        l.font = .regular13
         return l
     }()
     

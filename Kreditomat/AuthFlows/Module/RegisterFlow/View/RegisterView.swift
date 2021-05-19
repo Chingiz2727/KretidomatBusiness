@@ -20,7 +20,7 @@ final class RegisterView: UIView {
         }
     }
     
-    private let selectedSubject = PublishSubject<Bool>()
+    let selectedSubject = PublishSubject<Bool>()
     
     let chooseFormTitle: UILabel = {
         let label = UILabel()
@@ -307,7 +307,7 @@ final class RegisterView: UIView {
         streetView.textField.currentState = .error
         emailTextField.placeholder = "Почта"
         coordinateTextField.placeholder = "Адрес..."
-        offerView.configureView(titleText: "Ознокомьтесь с публичным договором(Оферта)", offerTitle: "Я согласен(-на) с условиями оферты", image: #imageLiteral(resourceName: "dogovor"))
+        offerView.configureView(titleText: "Ознакомьтесь с публичным договором(Оферта)", offerTitle: "Я согласен(-на) с условиями оферты", image: #imageLiteral(resourceName: "dogovor"))
         configureShadows()
     }
     
@@ -362,6 +362,7 @@ final class RegisterView: UIView {
     
    @objc func checkBox() {
       isSelected = !isSelected
+      selectedSubject.onNext(isSelected)
     }
  
 }

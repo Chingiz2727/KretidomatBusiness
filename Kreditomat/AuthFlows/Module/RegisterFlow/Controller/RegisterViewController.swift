@@ -157,7 +157,8 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             rootView.numberHouse.isFilled,
             rootView.numberOffice.isFilled,
             rootView.numberPhoneTextField.isFilled,
-            rootView.emailTextField.filled
+            rootView.emailTextField.filled,
+            rootView.selectedSubject
 //            rootView.offerView.checkBox.isS
         ]
         Observable.combineLatest(filled.map {$0}) { $0.allSatisfy {$0}}

@@ -15,6 +15,7 @@ class PointCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Наименованиие точки"
+        label.font = .regular14
         label.textColor = .white
         return label
     }()

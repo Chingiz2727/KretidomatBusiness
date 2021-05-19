@@ -94,7 +94,6 @@ class RegularTextField: UITextField {
         layer.cornerRadius = Constants.cornerRadius
         layer.borderWidth = Constants.borderWidth
         tintColor = .primary
-//        currentState = .normal
         setActions()
     }
     
@@ -105,7 +104,6 @@ class RegularTextField: UITextField {
             guard let text = field.text else { return }
             self?.textSubject.onNext(text)
             self?.isFilledSubject.onNext(isFilled)
-            
         }
     }
     
