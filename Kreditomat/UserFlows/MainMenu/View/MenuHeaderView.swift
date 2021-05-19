@@ -40,15 +40,15 @@ final class MenuHeaderView: UIView {
     }
     
     func setupData(data: CabinetData) {
+        firstValue.setup(title: "Мой промокод:")
+        secondValue.setup(title: "Агент:")
+        thirdValue.setup(title: "Телефон:")
         firstValue.setup(detail: "№ \(data.UniqueCode)")
         secondValue.setup(detail: data.Name)
         thirdValue.setup(detail: data.Phone)
     }
     
     private func configureView() {
-        firstValue.setup(title: "Мой промокод:")
-        secondValue.setup(title: "Агент:")
-        thirdValue.setup(title: "Телефон:")
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "logo")
     }

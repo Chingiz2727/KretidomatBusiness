@@ -14,7 +14,7 @@ final class NameValueView: UIView {
         label.textColor = .black
         label.font = .systemFont(ofSize: 10)
         label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         return label
     }()
 
@@ -22,11 +22,9 @@ final class NameValueView: UIView {
         let label = UILabel()
         label.textColor = .lightGray
         label.font = .systemFont(ofSize: 10)
-        label.numberOfLines = 0
-        label.textAlignment = .right
+        label.numberOfLines = 1
         return label
     }()
-
 
     private lazy var stackView = UIStackView(
         views: [titleLabel, detailLabel],
@@ -36,8 +34,7 @@ final class NameValueView: UIView {
     private lazy var horizontalStackView = UIStackView(
         views: [titleLabel, UIView(), detailLabel],
         axis: .horizontal,
-        distribution: .fillProportionally,
-        alignment: .top,
+        distribution: .fill,
         spacing: 10)
 
     override init(frame: CGRect) {
@@ -59,6 +56,9 @@ final class NameValueView: UIView {
 
     private func setupInitialLayout() {
         addSubview(horizontalStackView)
-        horizontalStackView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        horizontalStackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            
+        }
     }
 }
