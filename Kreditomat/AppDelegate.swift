@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = CoordinatorNavigationController(backBarButtonImage: nil)
+        window?.rootViewController = CoordinatorNavigationController(backBarButtonImage: nil, closeBarButtonImage: nil)
         window?.makeKeyAndVisible()
     }
     

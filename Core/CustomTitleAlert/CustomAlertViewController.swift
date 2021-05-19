@@ -96,7 +96,7 @@ enum AlertType {
     var descriptionSubtitle: String? {
         switch self {
         case .anketoOnRequest:
-            return "+7 (000) - 000 - 00 - 00 /nпочта - KREDITOMAT.kz"
+            return "+7 (000) - 000 - 00 - 00 \nпочта - KREDITOMAT.kz"
         case .getMoneyFromPoint(_,let sum),.giveMoneyToPoint(_ , let sum):
             return "\(sum) тенге"
         case .getCreditPay(let sum, _):

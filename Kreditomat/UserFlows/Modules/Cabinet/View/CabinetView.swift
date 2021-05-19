@@ -38,7 +38,8 @@ class CabinetView: UIView {
     lazy var infoStackView = UIStackView(
         views: [agentItem, binItem, cityItem, streetItem, homeItem, officeItem, phoneItem, emailItem],
         axis: .vertical,
-        distribution: .fillEqually)
+        distribution: .fillEqually,
+        spacing: 2)
     
     let bonusSum = SumView()
     let cashboxSum = SumView()
@@ -82,12 +83,13 @@ class CabinetView: UIView {
         infoView.snp.makeConstraints { (make) in
             make.top.equalTo(profileImageView.snp.bottom).offset(28)
             make.left.right.equalToSuperview().inset(12)
-            make.height.equalTo(300)
+            make.height.equalTo(270)
         }
         
         infoView.addSubview(infoStackView)
         infoStackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(10)
+            make.left.right.equalToSuperview()
         }
         
         addSubview(sumStackView)
@@ -110,22 +112,21 @@ class CabinetView: UIView {
         infoView.layer.borderColor = UIColor.secondary.cgColor
         infoView.layer.borderWidth = 2
         infoView.layer.addShadow()
-        emailItem.dividerLine.constrainHeight(constant: 4)
-        emailItem.dividerLine.backgroundColor = .white
+        emailItem.dividerLine.isHidden = true
         bonusSum.layer.addShadow()
         cashboxSum.layer.addShadow()
     }
     
     func setupData(data: CabinetData) {
-        agentItem.setupData(title: "Агент:", value: data.Name)
-        binItem.setupData(title: "БИН:", value: data.BIN)
-        cityItem.setupData(title: "Город:", value: data.City)
-        streetItem.setupData(title: "Улица:", value: data.Address)
-        homeItem.setupData(title: "Номер дома:", value: data.House)
-        officeItem.setupData(title: "Номер офиса:", value: data.Apartments)
-        phoneItem.setupData(title: "Телефон:", value: data.Phone)
-        emailItem.setupData(title: "Почта:", value: data.Email)
-        bonusSum.setupSum(title: "СУММА БОНУСОВ", value: "\(data.BonusSum) тенге")
-        cashboxSum.setupSum(title: "СУММА В КАССЕ", value: "\(data.Balance) тенге")
+        agentItem.setupData(title: "Агент:", value: data.Name ?? "Test")
+        binItem.setupData(title: "БИН:", value: data.BIN ?? "test")
+        cityItem.setupData(title: "Город:", value: data.City ?? "test")
+        streetItem.setupData(title: "Улица:", value: data.Address ?? "test")
+        homeItem.setupData(title: "Номер дома:", value: data.House ?? "test")
+        officeItem.setupData(title: "Номер офиса:", value: data.Apartments ?? "test")
+        phoneItem.setupData(title: "Телефон:", value: data.Phone ?? "test")
+        emailItem.setupData(title: "Почта:", value: data.Email ?? "test")
+        bonusSum.setupSum(title: "СУММА БОНУСОВ", value: "\(data.BonusSum ?? 0) тенге")
+        cashboxSum.setupSum(title: "СУММА В КАССЕ", value: "\(data.Balance ?? 0) тенге")
     }
 }

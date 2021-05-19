@@ -124,7 +124,7 @@ final class CustomAlertView: UIView {
         subtitleTitleLabel.font = .boldSystemFont(ofSize: 14)
         acceptButton.layer.cornerRadius = 20
         declineButton.layer.cornerRadius = 20
-        backgroundColor = .black.withAlphaComponent(0.3)
+        backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         titleLabel.textAlignment = .center
         subtitleTitleLabel.textAlignment = .center

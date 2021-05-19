@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 enum Menu: CaseIterable {
+    
     case mainPage
     case getCredit
     case clearCredit

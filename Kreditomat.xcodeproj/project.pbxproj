@@ -54,6 +54,7 @@
 		55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */; };
 		55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3E72653838200ADB9CB /* CabinetTarget.swift */; };
 		55A6F3EC2653849900ADB9CB /* CabinetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */; };
+		55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */; };
 		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
@@ -256,6 +257,7 @@
 		55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetViewModel.swift; sourceTree = "<group>"; };
 		55A6F3E72653838200ADB9CB /* CabinetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetTarget.swift; sourceTree = "<group>"; };
 		55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetInfo.swift; sourceTree = "<group>"; };
+		55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -798,6 +800,14 @@
 				55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		55A6F3F02653AD5D00ADB9CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
@@ -1557,6 +1567,7 @@
 		72392135264A752E0050BA37 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3F02653AD5D00ADB9CB /* ViewModel */,
 				72567B87264A7940004D45C8 /* Controller */,
 				72567B84264A78E3004D45C8 /* View */,
 				72567B81264A7897004D45C8 /* Module */,
@@ -1854,6 +1865,7 @@
 			files = (
 				7201F0272636E4B800D25097 /* KeyChainStorage.swift in Sources */,
 				55738B6A264A5B8900CE2BD5 /* AttachCashierViewController.swift in Sources */,
+				55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */,
 				72DF18BF263C2CBF00E5F3D6 /* Colors.swift in Sources */,
 				7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */,
 				7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */,
@@ -2181,14 +2193,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				DEVELOPMENT_TEAM = 68F942NMT8;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat;
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2202,7 +2214,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				DEVELOPMENT_TEAM = 68F942NMT8;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
