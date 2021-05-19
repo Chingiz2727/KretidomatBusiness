@@ -36,4 +36,14 @@ final class MainModuleFactory {
         let viewModel = CreatePointFormViewModel()
         return CreatePointFormViewController(viewModel: viewModel)
     }
+    
+    func makeChangePassword() -> ChangePasswordModule {
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = ChangePasswordViewModel(apiService: apiService)
+        return ChangePasswordViewController(viewModel: viewModel)
+    }
+    
+    func makeResetPassword() -> ResetPasswordModule {
+        return ResetPasswordViewController()
+    }
 }
