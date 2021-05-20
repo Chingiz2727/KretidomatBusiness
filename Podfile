@@ -23,5 +23,6 @@ target 'Kreditomat' do
   pod 'lottie-ios', '3.1.2'
   pod 'SwiftDataTables'
   pod 'TouchDraw', '~> 2.1'
-
+  pod 'GoogleMaps', '4.2.0'
+  pod 'GooglePlaces', '4.2.0'
 end
