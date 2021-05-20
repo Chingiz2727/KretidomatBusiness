@@ -94,6 +94,7 @@ class RegularTextField: UITextField {
         layer.cornerRadius = Constants.cornerRadius
         layer.borderWidth = Constants.borderWidth
         tintColor = .primary
+        currentState = .normal
         setActions()
     }
     

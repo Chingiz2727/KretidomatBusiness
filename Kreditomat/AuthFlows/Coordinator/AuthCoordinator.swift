@@ -52,6 +52,11 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         module.offerTapped = { [weak self] in
             self?.showOfferView()
         }
+        module.mapTapped = { [weak self] in
+            self?.showMap(addressSelected: { address in
+                module.putAddress?(address)
+            })
+        }
         router.push(module)
     }
     
@@ -59,6 +64,15 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         let module = moduleFactory.makeOfferShow()
         
 //        router.present(module)
+    }
+    
+    private func showMap(addressSelected: @escaping ((Address) -> Void)) {
+        var module = moduleFactory.makeMap()
+        module.didAddressSelectedHandler = { [weak self] address in
+            self?.router.popModule()
+            addressSelected(address)
+        }
+        router.push(module)
     }
     
     private func showResetPassword() {

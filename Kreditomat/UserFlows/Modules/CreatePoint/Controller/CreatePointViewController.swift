@@ -34,6 +34,7 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
         super.viewDidLoad()
         bindView()
         setupPointPickerView()
+        title = "Создать точку"
     }
     
     private func bindView() {
@@ -48,5 +49,9 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
         pointPickerView.delegate = pointPickerDelegate
         pointPickerView.dataSource = pointPickerDataSource
         rootView.pointsList.textField.inputView = pointPickerView
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -47,4 +47,8 @@ final class ResetPasswordViewController: ViewController, ViewHolder, ResetPasswo
         result.connect()
             .disposed(by: disposeBag)
     }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
+    }
 }

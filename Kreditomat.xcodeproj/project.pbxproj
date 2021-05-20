@@ -55,6 +55,10 @@
 		55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3E72653838200ADB9CB /* CabinetTarget.swift */; };
 		55A6F3EC2653849900ADB9CB /* CabinetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */; };
 		55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */; };
+		55B818EB26563258007DB5F9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818EA26563258007DB5F9 /* MapView.swift */; };
+		55B818F026563360007DB5F9 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818EF2656335F007DB5F9 /* MapModule.swift */; };
+		55B818F426563378007DB5F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818F326563378007DB5F9 /* MapViewController.swift */; };
+		55B818F826565F3E007DB5F9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818F726565F3E007DB5F9 /* Address.swift */; };
 		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
@@ -262,6 +266,10 @@
 		55A6F3E72653838200ADB9CB /* CabinetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetTarget.swift; sourceTree = "<group>"; };
 		55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetInfo.swift; sourceTree = "<group>"; };
 		55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		55B818EA26563258007DB5F9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		55B818EF2656335F007DB5F9 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
+		55B818F326563378007DB5F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		55B818F726565F3E007DB5F9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -819,6 +827,49 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		55B818E8265631CB007DB5F9 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				55B818F626565F34007DB5F9 /* Model */,
+				55B818F226563369007DB5F9 /* Controller */,
+				55B818EE26563355007DB5F9 /* Module */,
+				55B818E92656324C007DB5F9 /* View */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		55B818E92656324C007DB5F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55B818EA26563258007DB5F9 /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55B818EE26563355007DB5F9 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55B818EF2656335F007DB5F9 /* MapModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55B818F226563369007DB5F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55B818F326563378007DB5F9 /* MapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55B818F626565F34007DB5F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55B818F726565F3E007DB5F9 /* Address.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,6 +1123,7 @@
 		5FBE1BF626425E4F001F4CAF /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				55B818E8265631CB007DB5F9 /* Map */,
 				5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */,
 				5F14B62D264410AC00315D87 /* RegisterFlow */,
 				5F14B62C264410A500315D87 /* AuthFlow */,
@@ -1930,6 +1982,7 @@
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
 				5F591809265532AE00317529 /* ChangePasswordModule.swift in Sources */,
+				55B818F426563378007DB5F9 /* MapViewController.swift in Sources */,
 				5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */,
 				5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */,
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
@@ -1981,6 +2034,7 @@
 				5F3CCFFB264BFBE3001836A8 /* AboutKassaView.swift in Sources */,
 				7201F00D2636E40900D25097 /* SlidingPresentationController.swift in Sources */,
 				7201F0982636E75700D25097 /* Observable+Timer.swift in Sources */,
+				55B818EB26563258007DB5F9 /* MapView.swift in Sources */,
 				5FBE1C3926427D9B001F4CAF /* AuthCoordinator.swift in Sources */,
 				72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */,
 				5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */,
@@ -2005,6 +2059,7 @@
 				7201EFBB2636E22300D25097 /* BackButtonContainerView.swift in Sources */,
 				7201EFBE2636E23200D25097 /* BackPressHandler.swift in Sources */,
 				5F59180C2655332500317529 /* ChangePasswordViewController.swift in Sources */,
+				55B818F826565F3E007DB5F9 /* Address.swift in Sources */,
 				7201F0442636E5DC00D25097 /* ApiTarget.swift in Sources */,
 				7201F09B2636E76400D25097 /* String+Unwrap.swift in Sources */,
 				7201F0652636E67600D25097 /* StubApiRequset.swift in Sources */,
@@ -2084,6 +2139,7 @@
 				5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */,
 				5F59181526553B6F00317529 /* ChangePassTarget.swift in Sources */,
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
+				55B818F026563360007DB5F9 /* MapModule.swift in Sources */,
 				55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
 				5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */,
