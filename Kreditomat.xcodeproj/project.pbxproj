@@ -59,6 +59,9 @@
 		55B818F026563360007DB5F9 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818EF2656335F007DB5F9 /* MapModule.swift */; };
 		55B818F426563378007DB5F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818F326563378007DB5F9 /* MapViewController.swift */; };
 		55B818F826565F3E007DB5F9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818F726565F3E007DB5F9 /* Address.swift */; };
+		55B819EC26568D88007DB5F9 /* OfertaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819EB26568D88007DB5F9 /* OfertaView.swift */; };
+		55B819F12656912E007DB5F9 /* OfertaModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F02656912E007DB5F9 /* OfertaModule.swift */; };
+		55B819F52656914B007DB5F9 /* OfertaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F42656914B007DB5F9 /* OfertaViewController.swift */; };
 		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
@@ -270,6 +273,9 @@
 		55B818EF2656335F007DB5F9 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
 		55B818F326563378007DB5F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		55B818F726565F3E007DB5F9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		55B819EB26568D88007DB5F9 /* OfertaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaView.swift; sourceTree = "<group>"; };
+		55B819F02656912E007DB5F9 /* OfertaModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaModule.swift; sourceTree = "<group>"; };
+		55B819F42656914B007DB5F9 /* OfertaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaViewController.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -870,6 +876,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		55B819E926568D6D007DB5F9 /* Oferta */ = {
+			isa = PBXGroup;
+			children = (
+				55B819F32656913D007DB5F9 /* Controller */,
+				55B819EF26569123007DB5F9 /* Module */,
+				55B819EA26568D7A007DB5F9 /* View */,
+			);
+			path = Oferta;
+			sourceTree = "<group>";
+		};
+		55B819EA26568D7A007DB5F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55B819EB26568D88007DB5F9 /* OfertaView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55B819EF26569123007DB5F9 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55B819F02656912E007DB5F9 /* OfertaModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55B819F32656913D007DB5F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55B819F42656914B007DB5F9 /* OfertaViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,6 +1163,7 @@
 		5FBE1BF626425E4F001F4CAF /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				55B819E926568D6D007DB5F9 /* Oferta */,
 				55B818E8265631CB007DB5F9 /* Map */,
 				5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */,
 				5F14B62D264410AC00315D87 /* RegisterFlow */,
@@ -2022,6 +2063,7 @@
 				72567B83264A78BE004D45C8 /* MenuModule.swift in Sources */,
 				5F3CCFA4264BDAF3001836A8 /* ResetPasswordModule.swift in Sources */,
 				7201F07E2636E6E500D25097 /* PaginationManager.swift in Sources */,
+				55B819EC26568D88007DB5F9 /* OfertaView.swift in Sources */,
 				7201F0922636E73F00D25097 /* LoadingSequence+RX.swift in Sources */,
 				7201EF792636DF2D00D25097 /* ViewController.swift in Sources */,
 				7201EFEE2636E34200D25097 /* NotificationDeepLinkActionModel.swift in Sources */,
@@ -2100,6 +2142,7 @@
 				7201F0182636E45400D25097 /* StoriesPresentAnimationController.swift in Sources */,
 				5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */,
 				7201F01E2636E46D00D25097 /* StoriesDismissAnimationController.swift in Sources */,
+				55B819F52656914B007DB5F9 /* OfertaViewController.swift in Sources */,
 				7201EFB52636E20A00D25097 /* BackButtonContainerViewController.swift in Sources */,
 				5510BD0F264CD65900900F4E /* CityPickerViewDataSource.swift in Sources */,
 				55738B2F26493A2E00CE2BD5 /* SuccessView.swift in Sources */,
@@ -2140,6 +2183,7 @@
 				55738B7B264A697500CE2BD5 /* CameraViewController.swift in Sources */,
 				72DF18C5263C2DB100E5F3D6 /* PasswordTextField.swift in Sources */,
 				7201EF752636DF2D00D25097 /* AppDelegate.swift in Sources */,
+				55B819F12656912E007DB5F9 /* OfertaModule.swift in Sources */,
 				7201F0062636E3DC00D25097 /* Router+Transitions.swift in Sources */,
 				55738B022647FDB900CE2BD5 /* CabinetView.swift in Sources */,
 				5510BD37264D014100900F4E /* StartDayPickerViewDelegate.swift in Sources */,

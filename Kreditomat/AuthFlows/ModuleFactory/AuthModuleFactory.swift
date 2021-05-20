@@ -23,8 +23,8 @@ final class AuthModuleFactory {
         return RegisterViewController(viewModel: viewModel)
     }
     
-    func makeOfferShow() {
-        
+    func makeOferta() -> OfertaModule {
+        return OfertaViewController()
     }
     
     func makeResetPassword() -> ResetPasswordModule {
