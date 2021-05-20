@@ -20,7 +20,7 @@ final class RegisterView: UIView {
         }
     }
     
-    private let selectedSubject = PublishSubject<Bool>()
+    let selectedSubject = PublishSubject<Bool>()
     
     let chooseFormTitle: UILabel = {
         let label = UILabel()
@@ -39,11 +39,11 @@ final class RegisterView: UIView {
         button.backgroundColor = .primary
         return button
     }()
-   
+    
     let tooButton: UIButton = {
         let button = UIButton()
         button.setTitle("ТОО", for: .normal)
-
+        
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .secondary
@@ -61,7 +61,7 @@ final class RegisterView: UIView {
         l.textAlignment = .left
         return l
     }()
-
+    
     let numberOfficeTitle: UILabel = {
         let l = UILabel()
         l.text = "Номер офиса"
@@ -162,7 +162,7 @@ final class RegisterView: UIView {
         button.setTitleColor(.white, for: .normal)
         return button
     }()
-        
+    
     lazy var buttonStack = UIStackView(views: [ipButton, tooButton], axis: .horizontal, distribution: .fillEqually, spacing: 10)
     
     lazy var addressStackView = UIStackView(views: [cityView, streetView], axis: .horizontal, distribution: .fillEqually, spacing: 5)
@@ -211,7 +211,7 @@ final class RegisterView: UIView {
             make.top.equalTo(numberHouseTitle.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview()
         }
-    
+        
         numberOfficeView.addSubview(numberOfficeTitle)
         numberOfficeView.addSubview(numberOffice)
         
@@ -230,7 +230,7 @@ final class RegisterView: UIView {
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(10)
         }
-
+        
         phoneView.addSubview(numberPhoneTextField)
         numberPhoneTextField.snp.makeConstraints { make in
             make.top.equalTo(phoneNumberTitle.snp.bottom).offset(5)
@@ -249,7 +249,7 @@ final class RegisterView: UIView {
             make.top.equalTo(emailTitle.snp.bottom).offset(5)
             make.left.right.equalToSuperview()
         }
-
+        
         coordinateView.addSubview(coordinateTitle)
         coordinateTitle.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -360,8 +360,9 @@ final class RegisterView: UIView {
         }
     }
     
-   @objc func checkBox() {
-      isSelected = !isSelected
+    @objc func checkBox() {
+        isSelected = !isSelected
+        selectedSubject.onNext(isSelected)
     }
- 
+    
 }
