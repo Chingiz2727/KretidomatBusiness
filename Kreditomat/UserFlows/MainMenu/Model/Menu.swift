@@ -24,7 +24,7 @@ enum Menu: CaseIterable {
     var title: String {
         switch self {
         case  .mainPage:
-            return "Главная"
+            return "Личный кабинет"
         case .getCredit:
             return "Выдача микрокредита"
         case .clearCredit:
@@ -46,10 +46,11 @@ enum Menu: CaseIterable {
         }
     }
     
+    
     var logoImg: UIImage {
         switch self {
         case .mainPage:
-            return #imageLiteral(resourceName: "kredit")
+            return #imageLiteral(resourceName: "logout")
         case .getCredit:
             return #imageLiteral(resourceName: "kredit")
         case .clearCredit:

@@ -12,6 +12,7 @@ class CreatePointView: UIView {
         let label = UILabel()
         label.text =  "Вы хотите создать новую точку?"
         label.textColor = .gray
+        label.font = .regular14
         return label
     }()
     
@@ -24,6 +25,7 @@ class CreatePointView: UIView {
     let chooseLabel: UILabel = {
         let label = UILabel()
         label.text =  "Выберите точку"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()

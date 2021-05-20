@@ -33,6 +33,8 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showCamera(type: .payCredit)
             case .aboutKassa:
                 self?.showAboutKassa()
+            case .changePassWord:
+                self?.showChangePassword()
             case .logout:
                 let authState = assembler.resolver.resolve(AuthStateObserver.self)!
                 authState.forceLogout()
@@ -90,6 +92,19 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showAboutKassa() {
         let module = moduleFactory.makeAboutKassa()
+        router.push(module)
+    }
+    
+    private func showChangePassword() {
+        var  module = moduleFactory.makeChangePassword()
+        module.resetPasTapped = { [weak self] in
+            self?.showResetPassword()
+        }
+        router.push(module)
+    }
+    
+    private func showResetPassword() {
+        let module = moduleFactory.makeResetPassword()
         router.push(module)
     }
 }

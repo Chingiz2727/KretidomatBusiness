@@ -5,7 +5,7 @@ final class AboutKassaView: UIView {
     let pointTitle: UILabel = {
         let l = UILabel()
         l.text = "Выберите точку"
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.font = .regular14
         l.textAlignment = .left
         return l
     }()
@@ -24,7 +24,7 @@ final class AboutKassaView: UIView {
         let l = UILabel()
         l.text = "Выберите желаемую кассовую операцию"
         l.textAlignment = .center
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.font = .regular14
         l.textColor = UIColor.gray.withAlphaComponent(0.5)
         return l
     }()
@@ -44,7 +44,7 @@ final class AboutKassaView: UIView {
     let amountOperationTitle: UILabel = {
         let l = UILabel()
         l.text = "Укажите желаемую сумму для кассовой операции"
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.font = .regular14
         l.textAlignment = .center
         l.textColor = UIColor.gray.withAlphaComponent(0.5)
         return l
@@ -55,7 +55,7 @@ final class AboutKassaView: UIView {
     let infoLabel: UILabel = {
         let l = UILabel()
         l.text = "Минимальная сумма 50 000 тенге, максимальная сумма 1 000 000 тенге. Просим учесть, что каждый шаг при выборе суммы равен 10 000 тенге"
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.font = .regular14
         l.textAlignment = .center
         l.textColor = UIColor.gray.withAlphaComponent(0.5)
         l.numberOfLines = 0
@@ -93,12 +93,11 @@ final class AboutKassaView: UIView {
     private func setupInitialLayouts() {
         addSubview(mainStack)
         mainStack.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().inset(20)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
         pointListTextField.snp.makeConstraints { $0.height.equalTo(Layout.textFieldHeight)}
-        buttonStack.snp.makeConstraints { $0.height.equalTo(Layout.buttonHeight)}
         
         pointListTextField.addSubview(pointImage)
         pointImage.snp.makeConstraints { make in
@@ -118,8 +117,17 @@ final class AboutKassaView: UIView {
         
         addSubview(accessButton)
         accessButton.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(50)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(40)
+            make.height.equalTo(40)
+        }
+        
+        refillButton.snp.makeConstraints { (make) in
+            make.height.equalTo(40)
+        }
+        
+        withdrawalButton.snp.makeConstraints { (make) in
+            make.height.equalTo(40)
         }
         
         addSubview(tableView)

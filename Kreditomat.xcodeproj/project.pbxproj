@@ -73,6 +73,11 @@
 		5F582C0E2649142D00BB070D /* CityContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C0D2649142D00BB070D /* CityContainerView.swift */; };
 		5F582C38264961F800BB070D /* OfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C37264961F800BB070D /* OfferButton.swift */; };
 		5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C3A26499D7E00BB070D /* OfferContainerView.swift */; };
+		5F5918062655324600317529 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5918052655324600317529 /* ChangePasswordView.swift */; };
+		5F591809265532AE00317529 /* ChangePasswordModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F591808265532AE00317529 /* ChangePasswordModule.swift */; };
+		5F59180C2655332500317529 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59180B2655332500317529 /* ChangePasswordViewController.swift */; };
+		5F59181126553A6100317529 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59181026553A6100317529 /* ChangePasswordViewModel.swift */; };
+		5F59181526553B6F00317529 /* ChangePassTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59181426553B6F00317529 /* ChangePassTarget.swift */; };
 		5F9E096B265245A100E30A2B /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E096A265245A100E30A2B /* city.json */; };
 		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
 		5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */; };
@@ -274,6 +279,11 @@
 		5F582C0D2649142D00BB070D /* CityContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityContainerView.swift; sourceTree = "<group>"; };
 		5F582C37264961F800BB070D /* OfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferButton.swift; sourceTree = "<group>"; };
 		5F582C3A26499D7E00BB070D /* OfferContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferContainerView.swift; sourceTree = "<group>"; };
+		5F5918052655324600317529 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		5F591808265532AE00317529 /* ChangePasswordModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModule.swift; sourceTree = "<group>"; };
+		5F59180B2655332500317529 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		5F59181026553A6100317529 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		5F59181426553B6F00317529 /* ChangePassTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassTarget.swift; sourceTree = "<group>"; };
 		5F9E096A265245A100E30A2B /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
 		5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
@@ -500,6 +510,7 @@
 		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5FA65059265531B4009B93F7 /* ChangePassword */,
 				5F3CCFF6264BFBC3001836A8 /* AboutKassa */,
 				5510BCDF264BEDD200900F4E /* CreatePointForm */,
 				55738B5F264A57CD00CE2BD5 /* AttachCashier */,
@@ -972,6 +983,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		5F59180E26553A4200317529 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F59181026553A6100317529 /* ChangePasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F59180F26553A4E00317529 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				5F59181426553B6F00317529 /* ChangePassTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
 		5F9E09642652426B00E30A2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1013,42 @@
 				5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */,
 			);
 			path = TitleAndTextField;
+			sourceTree = "<group>";
+		};
+		5FA65059265531B4009B93F7 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				5F59180F26553A4E00317529 /* Target */,
+				5F59180E26553A4200317529 /* ViewModel */,
+				5FA6505C265531D1009B93F7 /* Controller */,
+				5FA6505B265531C8009B93F7 /* Module */,
+				5FA6505A265531BF009B93F7 /* View */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		5FA6505A265531BF009B93F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F5918052655324600317529 /* ChangePasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FA6505B265531C8009B93F7 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				5F591808265532AE00317529 /* ChangePasswordModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		5FA6505C265531D1009B93F7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F59180B2655332500317529 /* ChangePasswordViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		5FB75691264D16A300FD155B /* AmountOperationView */ = {
@@ -1866,6 +1929,7 @@
 				5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */,
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
+				5F591809265532AE00317529 /* ChangePasswordModule.swift in Sources */,
 				5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */,
 				5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */,
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
@@ -1873,6 +1937,7 @@
 				7201EFF72636E38300D25097 /* DropdownTransitioningDelegate.swift in Sources */,
 				7201F0E52636EA8400D25097 /* StatusBarHeight.swift in Sources */,
 				72567B8E264A7BE3004D45C8 /* NameValueView.swift in Sources */,
+				5F5918062655324600317529 /* ChangePasswordView.swift in Sources */,
 				7201F0722636E6B700D25097 /* IdPaginationAdapter.swift in Sources */,
 				7201F02F2636E57A00D25097 /* LoggerConfigurator.swift in Sources */,
 				5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */,
@@ -1939,6 +2004,7 @@
 				55738B0D2648080700CE2BD5 /* CabinetModule.swift in Sources */,
 				7201EFBB2636E22300D25097 /* BackButtonContainerView.swift in Sources */,
 				7201EFBE2636E23200D25097 /* BackPressHandler.swift in Sources */,
+				5F59180C2655332500317529 /* ChangePasswordViewController.swift in Sources */,
 				7201F0442636E5DC00D25097 /* ApiTarget.swift in Sources */,
 				7201F09B2636E76400D25097 /* String+Unwrap.swift in Sources */,
 				7201F0652636E67600D25097 /* StubApiRequset.swift in Sources */,
@@ -1992,6 +2058,7 @@
 				55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */,
 				7201F0C22636E85600D25097 /* ViewModel.swift in Sources */,
 				7201F06F2636E6AA00D25097 /* IdPagination.swift in Sources */,
+				5F59181126553A6100317529 /* ChangePasswordViewModel.swift in Sources */,
 				5510BD02264CD45300900F4E /* Day.swift in Sources */,
 				55738B112648082B00CE2BD5 /* CabinetViewController.swift in Sources */,
 				7201F0112636E42800D25097 /* AdditionalMenuTransitioningDelegate.swift in Sources */,
@@ -2015,6 +2082,7 @@
 				727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */,
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,
 				5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */,
+				5F59181526553B6F00317529 /* ChangePassTarget.swift in Sources */,
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
 				55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
