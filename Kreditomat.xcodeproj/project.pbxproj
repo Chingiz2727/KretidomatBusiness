@@ -63,7 +63,6 @@
 		55B819EC26568D88007DB5F9 /* OfertaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819EB26568D88007DB5F9 /* OfertaView.swift */; };
 		55B819F12656912E007DB5F9 /* OfertaModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F02656912E007DB5F9 /* OfertaModule.swift */; };
 		55B819F52656914B007DB5F9 /* OfertaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F42656914B007DB5F9 /* OfertaViewController.swift */; };
-		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
 		5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B63B2644117400315D87 /* AuthUserView.swift */; };
@@ -2353,6 +2352,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XCVRQLC39R;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2360,6 +2360,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2376,6 +2377,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XCVRQLC39R;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2383,6 +2385,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
