@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 
 final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
-    
+    var backTapped: BackButton?
     var authTapped: AuthButtonTap?
     var resetTapped: ResetButtonTap?
     
@@ -69,6 +69,10 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
             })
             .disposed(by: disposeBag)
         
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func bindView() {

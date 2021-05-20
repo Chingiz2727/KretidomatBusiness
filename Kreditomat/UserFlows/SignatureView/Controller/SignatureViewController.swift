@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class SignatureViewController: UIViewController, SignatureModule, ViewHolder {
+class SignatureViewController: ViewController, SignatureModule, ViewHolder {
     typealias RootViewType = SignatureView
     
     private let disposeBag = DisposeBag()
@@ -32,5 +32,9 @@ class SignatureViewController: UIViewController, SignatureModule, ViewHolder {
             .disposed(by: disposeBag)
         
         title = "Выдача микрокредита"
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }

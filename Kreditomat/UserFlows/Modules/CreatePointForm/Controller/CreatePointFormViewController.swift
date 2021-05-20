@@ -44,6 +44,7 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         super.viewDidLoad()
         bindView()
         setupPickersView()
+        title = "Создать точку"
     }
     
     private func bindView() {
@@ -83,5 +84,9 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         cityPickerView.delegate = cityPickerDelegate
         cityPickerView.dataSource = cityPickerDataSource
         rootView.cityList.textField.inputView = cityPickerView
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }

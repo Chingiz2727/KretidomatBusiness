@@ -27,11 +27,11 @@ final class CloseableViewController: CoordinatorNavigationController {
 
     private func setupCloseButton() {
         guard let rootViewController = viewControllers.first else { return }
-        rootViewController.navigationItem.leftBarButtonItem = nil
-        rootViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(image: closeBarButtonImage?.withRenderingMode(.alwaysOriginal),
-                                                                               style: .done,
-                                                                               target: self,
-                                                                               action: #selector(closeButtonDidTap))
+        rootViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: closeBarButtonImage,
+                                                                              style: .done,
+                                                                              target: self,
+                                                                              action: #selector(closeButtonDidTap))
+        rootViewController.navigationItem.rightBarButtonItem = nil
     }
 
     @objc
@@ -39,3 +39,4 @@ final class CloseableViewController: CoordinatorNavigationController {
         coordinatorNavigationDelegate?.customCloseButtonDidTap()
     }
 }
+

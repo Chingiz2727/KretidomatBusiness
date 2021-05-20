@@ -73,5 +73,7 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
             .disposed(by: disposeBag)
     }
     
-    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
+    }
 }

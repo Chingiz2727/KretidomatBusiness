@@ -31,4 +31,7 @@ final class AuthModuleFactory {
         return ResetPasswordViewController()
     }
  
+    func makeMap() -> MapModule {
+        return MapViewController()
+    }
 }
