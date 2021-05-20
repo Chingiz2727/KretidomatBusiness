@@ -50,7 +50,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         var module = moduleFactory.makeRegister()
         
         module.offerTapped = { [weak self] in
-            self?.showOfferView()
+            self?.showOferta()
         }
         module.mapTapped = { [weak self] in
             self?.showMap(addressSelected: { address in
@@ -60,10 +60,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         router.push(module)
     }
     
-    private func showOfferView() {
-        let module = moduleFactory.makeOfferShow()
-        
-//        router.present(module)
+    private func showOferta() {
+        let module = moduleFactory.makeOferta()
+        router.push(module)
     }
     
     private func showMap(addressSelected: @escaping ((Address) -> Void)) {
