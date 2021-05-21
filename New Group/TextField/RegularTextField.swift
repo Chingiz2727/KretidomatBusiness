@@ -20,8 +20,8 @@ class RegularTextField: UITextField {
     public var format = "[…]"
     
 //    private let listener = MaskedTextFieldDelegate(primaryFormat: format)
-    private let isFilledSubject = PublishSubject<Bool>()
-    private let textSubject = PublishSubject<String>()
+    let isFilledSubject = PublishSubject<Bool>()
+    let textSubject = PublishSubject<String>()
 
     var currentState: RegularTextFieldState  = .normal {
         didSet {
@@ -93,6 +93,7 @@ class RegularTextField: UITextField {
         clipsToBounds = true
         layer.cornerRadius = Constants.cornerRadius
         layer.borderWidth = Constants.borderWidth
+        currentState = .normal
         tintColor = .primary
         setActions()
     }

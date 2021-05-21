@@ -10,12 +10,12 @@ final class RegisterView: UIView {
         didSet {
             if isSelected == true {
                 offerView.checkBox.setImage(Images.checkboxSelected.image, for: .normal)
-                registerButton.backgroundColor = .primary
-                registerButton.isEnabled = true
+//                registerButton.backgroundColor = .primary
+//                registerButton.isEnabled = true
             } else {
                 offerView.checkBox.setImage(Images.checkboxUnselected.image, for: .normal)
-                registerButton.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
-                registerButton.isEnabled = false
+//                registerButton.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+//                registerButton.isEnabled = false
             }
         }
     }
@@ -43,7 +43,6 @@ final class RegisterView: UIView {
     let tooButton: UIButton = {
         let button = UIButton()
         button.setTitle("ТОО", for: .normal)
-
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .secondary
@@ -153,12 +152,10 @@ final class RegisterView: UIView {
     
     let offerView = OfferContainerView()
     
-    let registerButton: UIButton = {
-        let button = UIButton()
+    let registerButton: PrimaryButton = {
+        let button = PrimaryButton()
         button.setTitle("Отправить", for: .normal)
         button.layer.cornerRadius = 20
-        button.isEnabled = false
-        button.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
         button.setTitleColor(.white, for: .normal)
         return button
     }()
@@ -361,8 +358,8 @@ final class RegisterView: UIView {
     }
     
    @objc func checkBox() {
-      isSelected = !isSelected
       selectedSubject.onNext(isSelected)
+    isSelected = !isSelected
     }
  
 }
