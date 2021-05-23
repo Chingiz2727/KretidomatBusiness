@@ -5,12 +5,12 @@ import RxSwift
 final class PasswordTextField: RightButtonTextField {
     
     private let listener = MaskedTextFieldDelegate(primaryFormat: "[…]")
-    private let textSubject = PublishSubject<String>()
-    private let isFilledSubject = PublishSubject<Bool>()
+//    private let textSubject = PublishSubject<String>()
+//    private let isFilledSubject = PublishSubject<Bool>()
 
-    public var cardText: Observable<String> {
-        textSubject
-    }
+//    public var cardText: Observable<String> {
+//        textSubject
+//    }
 
     
     override var isSecureTextEntry: Bool {
@@ -32,7 +32,7 @@ final class PasswordTextField: RightButtonTextField {
 //        configureDelegate()
     }
     
-//    func configureDelegate() {
+//    override func configureDelegate() {
 //        delegate = listener
 //        listener.onMaskedTextChangedCallback = { [weak self] field, _, isFilled in
 //            guard let text = field.text else { return }

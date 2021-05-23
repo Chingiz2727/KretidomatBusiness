@@ -10,6 +10,16 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
 
     var offerTapped: OfferButtonTapped?
     var registerTapped: RegisterTapped?
+    
+    var isValidEmail : Observable<Bool> {
+        return emailSubject.map { $0!.validEmail()}
+    }
+//    var isValidPhone: Observable<Bool> {
+//        return phoneSubject.map { $0.}
+//    }
+//    var isValidBin: Observable<Bool>{
+//        binSubject.map { $0.val}
+//    }
 
     private let viewModel: RegisterViewModel
     private let disposeBag = DisposeBag()
@@ -37,7 +47,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        bindView()
+        bindViewValidation()
         setupCityPickerView()
         title = "Регистрация"
         
@@ -134,7 +144,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             if status.Success == false {
                 self.showErrorInAlert(text: status.Message)
             }  else {
-                
+                self.presentCustomAlert(type: .anketoOnRequest)
             }
         })
         .disposed(by: disposeBag)
@@ -160,28 +170,46 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         }
     }
     
-    private func bindView() {
-        bindMaskTextField()
-        let filled = [
-            rootView.nameUserView.textField.filled,
-            rootView.binUserView.textField.filled,
-            rootView.cityView.cityListTextField.textField.filled,
-            rootView.streetView.textField.filled,
-            rootView.numberHouse.isFilled,
-            rootView.numberOffice.isFilled,
-            rootView.numberPhoneTextField.isFilled,
-            rootView.emailTextField.filled,
-            rootView.selectedSubject
-//            rootView.offerView.checkBox.isS
-        ]
-        Observable.combineLatest(filled.map {$0}) { $0.allSatisfy {$0}}
+    private func bindViewValidation() {
+        rootView.nameUserView.textField.rx.text
+            .bind(to: viewModel.nameSubject)
+            .disposed(by: disposeBag)
+        
+        rootView.binUserView.textField.rx.text
+            .bind(to: viewModel.binSubject)
+            .disposed(by: disposeBag)
+        
+        rootView.cityView.cityListTextField.textField.rx.text
+            .bind(to: viewModel.citySubject)
+            .disposed(by: disposeBag)
+        
+        rootView.streetView.textField.rx.text
+            .bind(to: viewModel.streetSubject)
+            .disposed(by: disposeBag)
+        
+        rootView.numberHouse.rx.text
+            .bind(to: viewModel.houseNumberSubject)
+            .disposed(by: disposeBag)
+        
+        rootView.numberPhoneTextField.rx.text
+            .bind(to: viewModel.phoneSubject)
+            .disposed(by: disposeBag)
+        
+        rootView.emailTextField.rx.text
+            .bind(to: viewModel.emailSubject)
+            .disposed(by: disposeBag)
+        
+//        rootView.offerView.checkBox.rx.tap
+//            .bind(to: viewModel.selectCheckBox)
+//            .disposed(by: disposeBag)
+        
+        
+        viewModel.isValidForm
             .distinctUntilChanged()
             .bind(to: rootView.registerButton.rx.isEnabled)
             .disposed(by: disposeBag)
-    }
-    
-    private func bindMaskTextField() {
-//        rootView.numberPhoneTextField.format = "[000] [000]-[00]-[00]"
+        
+        
     }
     
     private func setupCityPickerView() {

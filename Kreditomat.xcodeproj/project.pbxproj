@@ -69,6 +69,7 @@
 		5F14B6422644126200315D87 /* RegisterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6412644126200315D87 /* RegisterModule.swift */; };
 		5F14B6452644128300315D87 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6442644128300315D87 /* RegisterView.swift */; };
 		5F14B648264412AF00315D87 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B647264412AF00315D87 /* RegisterViewController.swift */; };
+		5F1B4C03265691AB00FA0E7D /* RxValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1B4C02265691AB00FA0E7D /* RxValidation.swift */; };
 		5F3CCF46264AAC18001836A8 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */; };
 		5F3CCFA4264BDAF3001836A8 /* ResetPasswordModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFA3264BDAF3001836A8 /* ResetPasswordModule.swift */; };
 		5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */; };
@@ -280,6 +281,7 @@
 		5F14B6412644126200315D87 /* RegisterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModule.swift; sourceTree = "<group>"; };
 		5F14B6442644128300315D87 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5F14B647264412AF00315D87 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5F1B4C02265691AB00FA0E7D /* RxValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxValidation.swift; sourceTree = "<group>"; };
 		5F3CCF45264AAC18001836A8 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		5F3CCFA3264BDAF3001836A8 /* ResetPasswordModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModule.swift; sourceTree = "<group>"; };
 		5F3CCFA7264BDB34001836A8 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
@@ -1543,6 +1545,7 @@
 				7201F0942636E74A00D25097 /* UIViewController+Error.swift */,
 				7201F0972636E75700D25097 /* Observable+Timer.swift */,
 				7201F09A2636E76400D25097 /* String+Unwrap.swift */,
+				5F1B4C02265691AB00FA0E7D /* RxValidation.swift */,
 			);
 			path = "Rx+Extension";
 			sourceTree = "<group>";
@@ -2180,6 +2183,7 @@
 				7201F0112636E42800D25097 /* AdditionalMenuTransitioningDelegate.swift in Sources */,
 				55738B2A2649328E00CE2BD5 /* ImagePickerManager.swift in Sources */,
 				5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */,
+				5F1B4C03265691AB00FA0E7D /* RxValidation.swift in Sources */,
 				55738B7B264A697500CE2BD5 /* CameraViewController.swift in Sources */,
 				72DF18C5263C2DB100E5F3D6 /* PasswordTextField.swift in Sources */,
 				7201EF752636DF2D00D25097 /* AppDelegate.swift in Sources */,

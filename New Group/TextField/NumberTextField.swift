@@ -20,9 +20,13 @@ final class NumberTextField: RegularTextField {
         return extractedValue
     }
     
-    public var isFilled: Observable<Bool> {
-        isFilledSubject
-    }
+//    public var numberTextField: Observable<String> {
+//        textSubject
+//    }
+//
+//    public var isFilled: Observable<Bool> {
+//        isFilledSubject
+//    }
 
     override var isEnabled: Bool {
         didSet {
@@ -32,7 +36,8 @@ final class NumberTextField: RegularTextField {
     }
 
     private let listener = MaskedTextFieldDelegate(primaryFormat: Constants.textMask)
-    private let isFilledSubject = PublishSubject<Bool>()
+//    private let isFilledSubject = PublishSubject<Bool>()
+//    private let textSubject = PublishSubject<String>()
     private let prefixLabel = UILabel()
     private let dividerView = UIView()
     
@@ -52,7 +57,7 @@ final class NumberTextField: RegularTextField {
     
     private func configureView() {
         setupInitialLayout()
-        configureDelegate()
+//        configureDelegate()
         configureTextStyle()
         configureColor()
     }
@@ -77,12 +82,13 @@ final class NumberTextField: RegularTextField {
         prefixLabel.text = Constants.prefixText
     }
     
-    override func configureDelegate() {
-        delegate = listener
-        listener.onMaskedTextChangedCallback = { [weak self] _, _, isFilled in
-            self?.isFilledSubject.onNext(isFilled)
-        }
-    }
+//    override func configureDelegate() {
+//        delegate = listener
+//        listener.onMaskedTextChangedCallback = { [weak self] field, _, isFilled in
+//            self?.textSubject.onNext(field.text ?? "")
+//            self?.isFilledSubject.onNext(isFilled)
+//        }
+//    }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.textRect(forBounds: bounds)
