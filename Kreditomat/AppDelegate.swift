@@ -3,6 +3,8 @@ import CoreData
 import Swinject
 import IQKeyboardManagerSwift
 import Kingfisher
+import GooglePlaces
+import GoogleMaps
 
 public let assembler = Assembler([DependencyContainerAssembly()])
 
@@ -17,13 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         makeCoordinator(application: application)
         setupKeyboardManager()
         setupNavigationBar()
-        LoggerConfigurator.configure()
+//        LoggerConfigurator.configure()
+        GMSServices.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
+        GMSPlacesClient.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
+        
+        
         return true
     }
     
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = CoordinatorNavigationController(backBarButtonImage: nil, closeBarButtonImage: nil)
+        window?.rootViewController = CoordinatorNavigationController(backBarButtonImage: nil, closeBarButtonImage: Images.back_black.image)
         window?.makeKeyAndVisible()
     }
     
@@ -62,6 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBar.shadowImage = UIImage()
         navigationBar.titleTextAttributes = Constants.titleTextAttributes
         navigationBar.barTintColor = .white
+        navigationBar.tintColor = .black
+        navigationBar.layer.addShadow()
     }
 
     // MARK: - Core Data stack

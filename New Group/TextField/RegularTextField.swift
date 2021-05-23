@@ -95,6 +95,7 @@ class RegularTextField: UITextField {
         layer.borderWidth = Constants.borderWidth
         currentState = .normal
         tintColor = .primary
+        currentState = .normal
         setActions()
     }
     

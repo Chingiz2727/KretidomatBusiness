@@ -31,11 +31,16 @@ class AttachCashierViewController: ViewController, ViewHolder, AttachCashierModu
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPointPickerView()
+        title = "Прикрепить кассира"
     }
     
     private func setupPointPickerView() {
         pointPickerView.delegate = pointPickerDelegate
         pointPickerView.dataSource = pointPickerDataSource
         rootView.pointsList.textField.inputView = pointPickerView
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }

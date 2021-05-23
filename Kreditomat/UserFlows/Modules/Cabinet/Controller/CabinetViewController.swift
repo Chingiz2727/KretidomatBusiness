@@ -32,6 +32,7 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
+        title = "Личный кабинет"
     }
     
     @objc func handleEdit() {
@@ -47,5 +48,9 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
             }).disposed(by: disposeBag)
         
         rootView.setupData(data: data)
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }

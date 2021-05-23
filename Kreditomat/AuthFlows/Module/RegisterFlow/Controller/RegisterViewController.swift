@@ -1,7 +1,11 @@
 import UIKit
 import RxSwift
 
-final class RegisterViewController: ViewController, ViewHolder, RegisterModule {    
+final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
+    var putAddress: PutAddress?
+    
+    var mapTapped: MapTapped?
+    
     typealias RootViewType = RegisterView
 
     var offerTapped: OfferButtonTapped?
@@ -23,9 +27,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     private var cityPickerDelegate: CityPickerViewDelegate
     private var cityPickerDataSource: CityPickerViewDataSource
     private let cityPicker = UIPickerView()
-    private let emailSubject = BehaviorSubject<String?>(value: "")
-    private let phoneSubject = BehaviorSubject<String?>(value: "")
-    private let binSubject = BehaviorSubject<String?>(value: "")
+    private let mapController = MapViewController()
     
     init(viewModel: RegisterViewModel) {
         self.viewModel = viewModel
@@ -48,7 +50,6 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         bindViewValidation()
         setupCityPickerView()
         title = "Регистрация"
-        navigationController?.navigationBar.layer.addShadow()
         
     }
     
@@ -158,6 +159,15 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             self.rootView.cityView.cityListTextField.textField.text = city.name
         })
         .disposed(by: disposeBag)
+        
+        rootView.coordinateButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.mapTapped?()
+            }).disposed(by: disposeBag)
+        
+        putAddress = { [unowned self] address in
+            self.rootView.coordinateTextField.text = address.name
+        }
     }
     
     private func bindViewValidation() {
@@ -206,6 +216,10 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         cityPicker.delegate = cityPickerDelegate
         cityPicker.dataSource = cityPickerDataSource
         rootView.cityView.cityListTextField.textField.inputView = cityPicker
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

@@ -20,6 +20,11 @@ enum Images: String {
     case edit
     case previousArrow
     case back
+    case question
+    case back_black
+    case placeholder
+    case logo
+    case titleLogo
 }
 
 extension Images {

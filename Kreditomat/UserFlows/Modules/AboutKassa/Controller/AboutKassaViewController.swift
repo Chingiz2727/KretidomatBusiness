@@ -28,6 +28,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         super.viewDidLoad()
         bindViewModel()
         setupPointPickerView()
+        title = "Кассовые операции"
     }
     
     private func bindViewModel() {
@@ -40,4 +41,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         rootView.pointListTextField.textField.inputView = pointPickerView
     }
     
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
+    }
 }
