@@ -38,13 +38,17 @@ final class MenuHeaderView: UIView {
             make.height.equalTo(70)
         }
     }
-    private func configureView() {
+    
+    func setupData(data: CabinetData) {
         firstValue.setup(title: "Мой промокод:")
-        firstValue.setup(detail: "№ 000000")
         secondValue.setup(title: "Агент:")
-        secondValue.setup(detail: "Наименование агента")
         thirdValue.setup(title: "Телефон:")
-        thirdValue.setup(detail: "+7 (777)-777-77 77")
+        firstValue.setup(detail: "№ \(data.UniqueCode)")
+        secondValue.setup(detail: data.Name)
+        thirdValue.setup(detail: data.Phone)
+    }
+    
+    private func configureView() {
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "logo")
     }

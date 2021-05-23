@@ -26,7 +26,7 @@ final class SignatureView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 12)
+        label.font = .regular14
         label.textAlignment = .center
         label.text = "Ставя подпись. Вы соглашаетесь со всеми \nусловиями договора(Офферта)"
         label.textColor = .lightGray

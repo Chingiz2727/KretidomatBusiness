@@ -19,16 +19,21 @@ final class AuthStateViewController: ViewController, ViewHolder, AuthStateModule
         bindView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func bindView() {
-        rootView.signInView.baseButton.rx.tap
+        rootView.logInButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.signInTapped?()
             }).disposed(by: disposeBag)
-        
-//        rootView.signUpView.baseButton.rx.tap
-//            .subscribe(onNext: { [unowned self] in
-//                self.signUpTapped?()
-//            }).disposed(by: disposeBag)
         
         rootView.registerButton.rx.tap
             .subscribe(onNext:  { [unowned self] in

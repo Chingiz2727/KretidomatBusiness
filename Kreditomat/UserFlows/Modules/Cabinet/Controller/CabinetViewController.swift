@@ -12,6 +12,18 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     typealias RootViewType = CabinetView
     
     private let disposeBag = DisposeBag()
+    private let data: CabinetData
+    private let viewModel: CabinetViewModel
+    
+    init(viewModel: CabinetViewModel, data: CabinetData) {
+        self.viewModel = viewModel
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = CabinetView()
@@ -20,6 +32,11 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
+        title = "Личный кабинет"
+    }
+    
+    @objc func handleEdit() {
+        
     }
     
     private func bindView() {
@@ -29,5 +46,11 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
                     rootView.profileImage.image = image
                 }
             }).disposed(by: disposeBag)
+        
+        rootView.setupData(data: data)
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }

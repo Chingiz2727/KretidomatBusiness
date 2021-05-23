@@ -8,7 +8,7 @@
 import UIKit
 
 final class CityPickerViewDataSource: NSObject, UIPickerViewDataSource {
-    var city: [City] = []
+    var city: [City] = [City(id: 1, name: "Алматы"),City(id: 2, name: "Астана")]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1

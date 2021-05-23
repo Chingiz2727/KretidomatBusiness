@@ -17,6 +17,14 @@ enum Images: String {
     case Border
     case checkboxSelected
     case checkboxUnselected
+    case edit
+    case previousArrow
+    case back
+    case question
+    case back_black
+    case placeholder
+    case logo
+    case titleLogo
 }
 
 extension Images {

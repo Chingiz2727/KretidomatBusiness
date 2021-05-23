@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08924591ADA3F57C6CA3EA55 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */; };
 		5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */; };
 		5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */; };
 		5510BCF3264BFBE600900F4E /* CreatePointFormModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */; };
@@ -48,7 +49,20 @@
 		55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B83264A6A7B00CE2BD5 /* CameraAction.swift */; };
 		55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */; };
 		55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */; };
-		595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */; };
+		55A6F3CE265378E500ADB9CB /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3CD265378E500ADB9CB /* UIFont.swift */; };
+		55A6F3DB26537C5E00ADB9CB /* Evolventa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */; };
+		55A6F3DC26537C5E00ADB9CB /* Evolventa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */; };
+		55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */; };
+		55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3E72653838200ADB9CB /* CabinetTarget.swift */; };
+		55A6F3EC2653849900ADB9CB /* CabinetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */; };
+		55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */; };
+		55B818EB26563258007DB5F9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818EA26563258007DB5F9 /* MapView.swift */; };
+		55B818F026563360007DB5F9 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818EF2656335F007DB5F9 /* MapModule.swift */; };
+		55B818F426563378007DB5F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818F326563378007DB5F9 /* MapViewController.swift */; };
+		55B818F826565F3E007DB5F9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B818F726565F3E007DB5F9 /* Address.swift */; };
+		55B819EC26568D88007DB5F9 /* OfertaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819EB26568D88007DB5F9 /* OfertaView.swift */; };
+		55B819F12656912E007DB5F9 /* OfertaModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F02656912E007DB5F9 /* OfertaModule.swift */; };
+		55B819F52656914B007DB5F9 /* OfertaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F42656914B007DB5F9 /* OfertaViewController.swift */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
 		5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B63B2644117400315D87 /* AuthUserView.swift */; };
@@ -66,6 +80,11 @@
 		5F582C0E2649142D00BB070D /* CityContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C0D2649142D00BB070D /* CityContainerView.swift */; };
 		5F582C38264961F800BB070D /* OfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C37264961F800BB070D /* OfferButton.swift */; };
 		5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F582C3A26499D7E00BB070D /* OfferContainerView.swift */; };
+		5F5918062655324600317529 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5918052655324600317529 /* ChangePasswordView.swift */; };
+		5F591809265532AE00317529 /* ChangePasswordModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F591808265532AE00317529 /* ChangePasswordModule.swift */; };
+		5F59180C2655332500317529 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59180B2655332500317529 /* ChangePasswordViewController.swift */; };
+		5F59181126553A6100317529 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59181026553A6100317529 /* ChangePasswordViewModel.swift */; };
+		5F59181526553B6F00317529 /* ChangePassTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59181426553B6F00317529 /* ChangePassTarget.swift */; };
 		5F9E096B265245A100E30A2B /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E096A265245A100E30A2B /* city.json */; };
 		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
 		5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */; };
@@ -74,7 +93,6 @@
 		5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C03264260CE001F4CAF /* AuthStateView.swift */; };
 		5FBE1C0726426126001F4CAF /* AuthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */; };
 		5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C0926426183001F4CAF /* AuthStateModule.swift */; };
-		5FBE1C3526426970001F4CAF /* TitleAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C3426426970001F4CAF /* TitleAndButtonView.swift */; };
 		5FBE1C3926427D9B001F4CAF /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C3826427D9B001F4CAF /* AuthCoordinator.swift */; };
 		5FBE1C3D26427E78001F4CAF /* AuthModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C3C26427E78001F4CAF /* AuthModuleFactory.swift */; };
 		5FBE1C412642C76B001F4CAF /* AuthCheckCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */; };
@@ -186,6 +204,8 @@
 		72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B96264A88B9004D45C8 /* SignatureModule.swift */; };
 		72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B98264A891E004D45C8 /* SignatureViewController.swift */; };
 		72567B9B264A8A48004D45C8 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B9A264A8A48004D45C8 /* SignatureView.swift */; };
+		727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727431482650535E00A1B9F4 /* CustomAlertViewController.swift */; };
+		7286B5BA264FCCAB0015FA4F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */; };
 		72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */; };
 		72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */; };
 		72DF18BB263C2C9400E5F3D6 /* RightButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */; };
@@ -199,8 +219,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D184BA3DC4205AA62EC48FE /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
-		1CD382529DE5A6AF134D7675 /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 		5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormView.swift; sourceTree = "<group>"; };
 		5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextFieldContainer.swift; sourceTree = "<group>"; };
 		5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormModule.swift; sourceTree = "<group>"; };
@@ -242,6 +260,20 @@
 		55738B83264A6A7B00CE2BD5 /* CameraAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAction.swift; sourceTree = "<group>"; };
 		55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermission.swift; sourceTree = "<group>"; };
 		55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleFactory.swift; sourceTree = "<group>"; };
+		55A6F3CD265378E500ADB9CB /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Evolventa-Bold.ttf"; sourceTree = "<group>"; };
+		55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Evolventa-Regular.ttf"; sourceTree = "<group>"; };
+		55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetViewModel.swift; sourceTree = "<group>"; };
+		55A6F3E72653838200ADB9CB /* CabinetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetTarget.swift; sourceTree = "<group>"; };
+		55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetInfo.swift; sourceTree = "<group>"; };
+		55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		55B818EA26563258007DB5F9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		55B818EF2656335F007DB5F9 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
+		55B818F326563378007DB5F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		55B818F726565F3E007DB5F9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		55B819EB26568D88007DB5F9 /* OfertaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaView.swift; sourceTree = "<group>"; };
+		55B819F02656912E007DB5F9 /* OfertaModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaModule.swift; sourceTree = "<group>"; };
+		55B819F42656914B007DB5F9 /* OfertaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaViewController.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -259,6 +291,11 @@
 		5F582C0D2649142D00BB070D /* CityContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityContainerView.swift; sourceTree = "<group>"; };
 		5F582C37264961F800BB070D /* OfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferButton.swift; sourceTree = "<group>"; };
 		5F582C3A26499D7E00BB070D /* OfferContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferContainerView.swift; sourceTree = "<group>"; };
+		5F5918052655324600317529 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		5F591808265532AE00317529 /* ChangePasswordModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModule.swift; sourceTree = "<group>"; };
+		5F59180B2655332500317529 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		5F59181026553A6100317529 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		5F59181426553B6F00317529 /* ChangePassTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassTarget.swift; sourceTree = "<group>"; };
 		5F9E096A265245A100E30A2B /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
 		5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
@@ -267,10 +304,10 @@
 		5FBE1C03264260CE001F4CAF /* AuthStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateView.swift; sourceTree = "<group>"; };
 		5FBE1C0626426126001F4CAF /* AuthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateViewController.swift; sourceTree = "<group>"; };
 		5FBE1C0926426183001F4CAF /* AuthStateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateModule.swift; sourceTree = "<group>"; };
-		5FBE1C3426426970001F4CAF /* TitleAndButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndButtonView.swift; sourceTree = "<group>"; };
 		5FBE1C3826427D9B001F4CAF /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		5FBE1C3C26427E78001F4CAF /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
 		5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCheckCoordinator.swift; sourceTree = "<group>"; };
+		6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 		7201EF712636DF2D00D25097 /* Kreditomat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kreditomat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7201EF742636DF2D00D25097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7201EF782636DF2D00D25097 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -381,6 +418,8 @@
 		72567B96264A88B9004D45C8 /* SignatureModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureModule.swift; sourceTree = "<group>"; };
 		72567B98264A891E004D45C8 /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		72567B9A264A8A48004D45C8 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		727431482650535E00A1B9F4 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
 		72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextFieldState.swift; sourceTree = "<group>"; };
 		72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightButtonTextField.swift; sourceTree = "<group>"; };
@@ -391,7 +430,8 @@
 		72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,7 +439,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				595D54F5E06D82DB9662B891 /* Pods_Kreditomat.framework in Frameworks */,
+				08924591ADA3F57C6CA3EA55 /* Pods_Kreditomat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +524,7 @@
 		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5FA65059265531B4009B93F7 /* ChangePassword */,
 				5F3CCFF6264BFBC3001836A8 /* AboutKassa */,
 				5510BCDF264BEDD200900F4E /* CreatePointForm */,
 				55738B5F264A57CD00CE2BD5 /* AttachCashier */,
@@ -497,6 +538,9 @@
 		55738AFF2647FD9C00CE2BD5 /* Cabinet */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3EA2653848F00ADB9CB /* Model */,
+				55A6F3E62653837200ADB9CB /* Target */,
+				55A6F3E12653815F00ADB9CB /* ViewModel */,
 				55738B282649327D00CE2BD5 /* ImagePicker */,
 				55738B0F2648081A00CE2BD5 /* Controller */,
 				55738B0B264807FA00CE2BD5 /* Module */,
@@ -534,6 +578,7 @@
 		55738B1B26480D2200CE2BD5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3C62653780B00ADB9CB /* Fonts */,
 				55738B86264A6B0D00CE2BD5 /* Camera */,
 				55738B1C26480D5200CE2BD5 /* Resources */,
 			);
@@ -543,6 +588,7 @@
 		55738B1C26480D5200CE2BD5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3CC265378D500ADB9CB /* Fonts */,
 				55738B1D26480D5800CE2BD5 /* Images */,
 			);
 			path = Resources;
@@ -738,6 +784,132 @@
 			path = ModuleFactory;
 			sourceTree = "<group>";
 		};
+		55A6F3C62653780B00ADB9CB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */,
+				55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		55A6F3CC265378D500ADB9CB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3CD265378E500ADB9CB /* UIFont.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		55A6F3E12653815F00ADB9CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3E22653816D00ADB9CB /* CabinetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55A6F3E62653837200ADB9CB /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3E72653838200ADB9CB /* CabinetTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		55A6F3EA2653848F00ADB9CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3EB2653849900ADB9CB /* CabinetInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55A6F3F02653AD5D00ADB9CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55A6F3F12653AD7000ADB9CB /* MainMenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55B818E8265631CB007DB5F9 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				55B818F626565F34007DB5F9 /* Model */,
+				55B818F226563369007DB5F9 /* Controller */,
+				55B818EE26563355007DB5F9 /* Module */,
+				55B818E92656324C007DB5F9 /* View */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		55B818E92656324C007DB5F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55B818EA26563258007DB5F9 /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55B818EE26563355007DB5F9 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55B818EF2656335F007DB5F9 /* MapModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55B818F226563369007DB5F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55B818F326563378007DB5F9 /* MapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55B818F626565F34007DB5F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55B818F726565F3E007DB5F9 /* Address.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55B819E926568D6D007DB5F9 /* Oferta */ = {
+			isa = PBXGroup;
+			children = (
+				55B819F32656913D007DB5F9 /* Controller */,
+				55B819EF26569123007DB5F9 /* Module */,
+				55B819EA26568D7A007DB5F9 /* View */,
+			);
+			path = Oferta;
+			sourceTree = "<group>";
+		};
+		55B819EA26568D7A007DB5F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55B819EB26568D88007DB5F9 /* OfertaView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55B819EF26569123007DB5F9 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55B819F02656912E007DB5F9 /* OfertaModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55B819F32656913D007DB5F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55B819F42656914B007DB5F9 /* OfertaViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +1074,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		5F59180E26553A4200317529 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F59181026553A6100317529 /* ChangePasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F59180F26553A4E00317529 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				5F59181426553B6F00317529 /* ChangePassTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
 		5F9E09642652426B00E30A2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +1106,42 @@
 			path = TitleAndTextField;
 			sourceTree = "<group>";
 		};
+		5FA65059265531B4009B93F7 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				5F59180F26553A4E00317529 /* Target */,
+				5F59180E26553A4200317529 /* ViewModel */,
+				5FA6505C265531D1009B93F7 /* Controller */,
+				5FA6505B265531C8009B93F7 /* Module */,
+				5FA6505A265531BF009B93F7 /* View */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		5FA6505A265531BF009B93F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F5918052655324600317529 /* ChangePasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FA6505B265531C8009B93F7 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				5F591808265532AE00317529 /* ChangePasswordModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		5FA6505C265531D1009B93F7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F59180B2655332500317529 /* ChangePasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		5FB75691264D16A300FD155B /* AmountOperationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,7 +1155,6 @@
 			children = (
 				5FBE1C3B26427E69001F4CAF /* ModuleFactory */,
 				5FBE1BF826425E5D001F4CAF /* Coordinator */,
-				5FBE1BF726425E58001F4CAF /* Model */,
 				5FBE1BF626425E4F001F4CAF /* Module */,
 			);
 			path = AuthFlows;
@@ -940,20 +1163,14 @@
 		5FBE1BF626425E4F001F4CAF /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				55B819E926568D6D007DB5F9 /* Oferta */,
+				55B818E8265631CB007DB5F9 /* Map */,
 				5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */,
 				5F14B62D264410AC00315D87 /* RegisterFlow */,
 				5F14B62C264410A500315D87 /* AuthFlow */,
 				5FBE1BFE26426099001F4CAF /* AuthState */,
-				5FBE1BF926425EAC001F4CAF /* AuthModule */,
 			);
 			path = Module;
-			sourceTree = "<group>";
-		};
-		5FBE1BF726425E58001F4CAF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5FBE1BF826425E5D001F4CAF /* Coordinator */ = {
@@ -963,13 +1180,6 @@
 				5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		5FBE1BF926425EAC001F4CAF /* AuthModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AuthModule;
 			sourceTree = "<group>";
 		};
 		5FBE1BFE26426099001F4CAF /* AuthState */ = {
@@ -1006,14 +1216,6 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
-		5FBE1C332642693B001F4CAF /* TitleAndButtonView */ = {
-			isa = PBXGroup;
-			children = (
-				5FBE1C3426426970001F4CAF /* TitleAndButtonView.swift */,
-			);
-			path = TitleAndButtonView;
-			sourceTree = "<group>";
-		};
 		5FBE1C3B26427E69001F4CAF /* ModuleFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -1032,7 +1234,7 @@
 				7201EF732636DF2D00D25097 /* Kreditomat */,
 				7201EF722636DF2D00D25097 /* Products */,
 				EA97BADE1D40BDC29617CCDE /* Pods */,
-				F089B0A9653A5E98C242D4F7 /* Frameworks */,
+				CA6EC27A451C214EA4EADE0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1065,6 +1267,7 @@
 		7201EF9E2636E0B700D25097 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7286B5B8264FCC9C0015FA4F /* CustomTitleAlert */,
 				7201F0F52636EBC400D25097 /* Anchors */,
 				7201F0F12636EB7600D25097 /* AccessCode */,
 				7201F0E32636EA7500D25097 /* StatusBar */,
@@ -1494,6 +1697,7 @@
 		72392135264A752E0050BA37 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				55A6F3F02653AD5D00ADB9CB /* ViewModel */,
 				72567B87264A7940004D45C8 /* Controller */,
 				72567B84264A78E3004D45C8 /* View */,
 				72567B81264A7897004D45C8 /* Module */,
@@ -1578,6 +1782,15 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		7286B5B8264FCC9C0015FA4F /* CustomTitleAlert */ = {
+			isa = PBXGroup;
+			children = (
+				7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */,
+				727431482650535E00A1B9F4 /* CustomAlertViewController.swift */,
+			);
+			path = CustomTitleAlert;
+			sourceTree = "<group>";
+		};
 		729E279B264A75A600029268 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1619,7 +1832,6 @@
 				5F9FD5212647FB830067EE19 /* TitleAndTextField */,
 				5FB75691264D16A300FD155B /* AmountOperationView */,
 				72567B8C264A7BD3004D45C8 /* NameValueView */,
-				5FBE1C332642693B001F4CAF /* TitleAndButtonView */,
 				72DF18EA263C2FA800E5F3D6 /* Button */,
 				72F61495263C1EDC00039B35 /* TextField */,
 				5F582C0D2649142D00BB070D /* CityContainerView.swift */,
@@ -1645,21 +1857,21 @@
 			path = "../New Group/TextField";
 			sourceTree = "<group>";
 		};
+		CA6EC27A451C214EA4EADE0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA97BADE1D40BDC29617CCDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0D184BA3DC4205AA62EC48FE /* Pods-Kreditomat.debug.xcconfig */,
-				1CD382529DE5A6AF134D7675 /* Pods-Kreditomat.release.xcconfig */,
+				F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */,
+				6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		F089B0A9653A5E98C242D4F7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A2B0A7EB89FD57C42CF884E2 /* Pods_Kreditomat.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1669,11 +1881,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7201EF852636DF2E00D25097 /* Build configuration list for PBXNativeTarget "Kreditomat" */;
 			buildPhases = (
-				9C246D7543136E04FE08F305 /* [CP] Check Pods Manifest.lock */,
+				25830B19C036654DCDBAC6AE /* [CP] Check Pods Manifest.lock */,
 				7201EF6D2636DF2D00D25097 /* Sources */,
 				7201EF6E2636DF2D00D25097 /* Frameworks */,
 				7201EF6F2636DF2D00D25097 /* Resources */,
-				A37EA168564248E5347CEC84 /* [CP] Embed Pods Frameworks */,
+				9C5F88F867C1578CB5CAF1A5 /* [CP] Embed Pods Frameworks */,
+				6094684F13B597A22A96CCB3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1723,7 +1936,9 @@
 			files = (
 				7201EF812636DF2E00D25097 /* LaunchScreen.storyboard in Resources */,
 				7201EFA12636E10900D25097 /* Colors.xcassets in Resources */,
+				55A6F3DC26537C5E00ADB9CB /* Evolventa-Regular.ttf in Resources */,
 				5F9E096B265245A100E30A2B /* city.json in Resources */,
+				55A6F3DB26537C5E00ADB9CB /* Evolventa-Bold.ttf in Resources */,
 				5510BD2A264CFA8700900F4E /* day.json in Resources */,
 				7201EF7E2636DF2E00D25097 /* Assets.xcassets in Resources */,
 			);
@@ -1732,7 +1947,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9C246D7543136E04FE08F305 /* [CP] Check Pods Manifest.lock */ = {
+		25830B19C036654DCDBAC6AE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1754,7 +1969,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A37EA168564248E5347CEC84 /* [CP] Embed Pods Frameworks */ = {
+		6094684F13B597A22A96CCB3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C5F88F867C1578CB5CAF1A5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1780,11 +2012,13 @@
 			files = (
 				7201F0272636E4B800D25097 /* KeyChainStorage.swift in Sources */,
 				55738B6A264A5B8900CE2BD5 /* AttachCashierViewController.swift in Sources */,
+				55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */,
 				72DF18BF263C2CBF00E5F3D6 /* Colors.swift in Sources */,
 				7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */,
 				7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */,
 				7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */,
 				5510BCFA264CC21100900F4E /* TimeTextFieldContainer.swift in Sources */,
+				7286B5BA264FCCAB0015FA4F /* CustomAlertView.swift in Sources */,
 				7201F0882636E71600D25097 /* Result.swift in Sources */,
 				5510BCF7264BFC0300900F4E /* CreatePointFormViewController.swift in Sources */,
 				55738B57264A481A00CE2BD5 /* PointPickerViewDelegate.swift in Sources */,
@@ -1806,6 +2040,8 @@
 				5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */,
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
+				5F591809265532AE00317529 /* ChangePasswordModule.swift in Sources */,
+				55B818F426563378007DB5F9 /* MapViewController.swift in Sources */,
 				5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */,
 				5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */,
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
@@ -1813,6 +2049,7 @@
 				7201EFF72636E38300D25097 /* DropdownTransitioningDelegate.swift in Sources */,
 				7201F0E52636EA8400D25097 /* StatusBarHeight.swift in Sources */,
 				72567B8E264A7BE3004D45C8 /* NameValueView.swift in Sources */,
+				5F5918062655324600317529 /* ChangePasswordView.swift in Sources */,
 				7201F0722636E6B700D25097 /* IdPaginationAdapter.swift in Sources */,
 				7201F02F2636E57A00D25097 /* LoggerConfigurator.swift in Sources */,
 				5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */,
@@ -1826,6 +2063,7 @@
 				72567B83264A78BE004D45C8 /* MenuModule.swift in Sources */,
 				5F3CCFA4264BDAF3001836A8 /* ResetPasswordModule.swift in Sources */,
 				7201F07E2636E6E500D25097 /* PaginationManager.swift in Sources */,
+				55B819EC26568D88007DB5F9 /* OfertaView.swift in Sources */,
 				7201F0922636E73F00D25097 /* LoadingSequence+RX.swift in Sources */,
 				7201EF792636DF2D00D25097 /* ViewController.swift in Sources */,
 				7201EFEE2636E34200D25097 /* NotificationDeepLinkActionModel.swift in Sources */,
@@ -1856,6 +2094,7 @@
 				5F3CCFFB264BFBE3001836A8 /* AboutKassaView.swift in Sources */,
 				7201F00D2636E40900D25097 /* SlidingPresentationController.swift in Sources */,
 				7201F0982636E75700D25097 /* Observable+Timer.swift in Sources */,
+				55B818EB26563258007DB5F9 /* MapView.swift in Sources */,
 				5FBE1C3926427D9B001F4CAF /* AuthCoordinator.swift in Sources */,
 				72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */,
 				5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */,
@@ -1863,7 +2102,6 @@
 				5F14B6452644128300315D87 /* RegisterView.swift in Sources */,
 				7201F0352636E59500D25097 /* SertLombardLogger+HTTP.swift in Sources */,
 				7201EFD72636E2C800D25097 /* CoordinatorNavigationController.swift in Sources */,
-				5FBE1C3526426970001F4CAF /* TitleAndButtonView.swift in Sources */,
 				55738B5D264A48C100CE2BD5 /* PointPickerViewDataSource.swift in Sources */,
 				7201EFEA2636E32D00D25097 /* NotificationDeepLinkAction.swift in Sources */,
 				7201F0592636E63F00D25097 /* SerlLombardRequestAdapter.swift in Sources */,
@@ -1880,6 +2118,8 @@
 				55738B0D2648080700CE2BD5 /* CabinetModule.swift in Sources */,
 				7201EFBB2636E22300D25097 /* BackButtonContainerView.swift in Sources */,
 				7201EFBE2636E23200D25097 /* BackPressHandler.swift in Sources */,
+				5F59180C2655332500317529 /* ChangePasswordViewController.swift in Sources */,
+				55B818F826565F3E007DB5F9 /* Address.swift in Sources */,
 				7201F0442636E5DC00D25097 /* ApiTarget.swift in Sources */,
 				7201F09B2636E76400D25097 /* String+Unwrap.swift in Sources */,
 				7201F0652636E67600D25097 /* StubApiRequset.swift in Sources */,
@@ -1902,10 +2142,12 @@
 				7201F0182636E45400D25097 /* StoriesPresentAnimationController.swift in Sources */,
 				5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */,
 				7201F01E2636E46D00D25097 /* StoriesDismissAnimationController.swift in Sources */,
+				55B819F52656914B007DB5F9 /* OfertaViewController.swift in Sources */,
 				7201EFB52636E20A00D25097 /* BackButtonContainerViewController.swift in Sources */,
 				5510BD0F264CD65900900F4E /* CityPickerViewDataSource.swift in Sources */,
 				55738B2F26493A2E00CE2BD5 /* SuccessView.swift in Sources */,
 				7201F08F2636E73300D25097 /* LoadingSequenceConvertible.swift in Sources */,
+				55A6F3EC2653849900ADB9CB /* CabinetInfo.swift in Sources */,
 				7201EFB12636E1FC00D25097 /* BackContainerViewController.swift in Sources */,
 				55738B5A264A486F00CE2BD5 /* Point.swift in Sources */,
 				7201F0502636E61800D25097 /* ApiError.swift in Sources */,
@@ -1918,6 +2160,7 @@
 				55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */,
 				72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */,
 				7201EFD02636E2AE00D25097 /* CloseableViewController.swift in Sources */,
+				55A6F3CE265378E500ADB9CB /* UIFont.swift in Sources */,
 				7201F03A2636E5B100D25097 /* ResponseStatus.swift in Sources */,
 				7201F04A2636E5FA00D25097 /* AuthenticationService.swift in Sources */,
 				7201F02B2636E56D00D25097 /* Logger.swift in Sources */,
@@ -1926,10 +2169,12 @@
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
 				55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */,
 				7201F08C2636E72100D25097 /* UIScrollView+ReachedBottom.swift in Sources */,
+				55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */,
 				72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */,
 				55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */,
 				7201F0C22636E85600D25097 /* ViewModel.swift in Sources */,
 				7201F06F2636E6AA00D25097 /* IdPagination.swift in Sources */,
+				5F59181126553A6100317529 /* ChangePasswordViewModel.swift in Sources */,
 				5510BD02264CD45300900F4E /* Day.swift in Sources */,
 				55738B112648082B00CE2BD5 /* CabinetViewController.swift in Sources */,
 				7201F0112636E42800D25097 /* AdditionalMenuTransitioningDelegate.swift in Sources */,
@@ -1938,6 +2183,7 @@
 				55738B7B264A697500CE2BD5 /* CameraViewController.swift in Sources */,
 				72DF18C5263C2DB100E5F3D6 /* PasswordTextField.swift in Sources */,
 				7201EF752636DF2D00D25097 /* AppDelegate.swift in Sources */,
+				55B819F12656912E007DB5F9 /* OfertaModule.swift in Sources */,
 				7201F0062636E3DC00D25097 /* Router+Transitions.swift in Sources */,
 				55738B022647FDB900CE2BD5 /* CabinetView.swift in Sources */,
 				5510BD37264D014100900F4E /* StartDayPickerViewDelegate.swift in Sources */,
@@ -1950,9 +2196,13 @@
 				5F3CD002264BFC5E001836A8 /* AboutKassaViewController.swift in Sources */,
 				7201F09F2636E77900D25097 /* AuthTokenService.swift in Sources */,
 				5510BD05264CD48D00900F4E /* DayPickerViewDataSource.swift in Sources */,
+				727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */,
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,
 				5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */,
+				5F59181526553B6F00317529 /* ChangePassTarget.swift in Sources */,
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
+				55B818F026563360007DB5F9 /* MapModule.swift in Sources */,
+				55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
 				5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */,
 				55738B33264940C500CE2BD5 /* SuccessModule.swift in Sources */,
@@ -2096,20 +2346,24 @@
 		};
 		7201EF862636DF2E00D25097 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D184BA3DC4205AA62EC48FE /* Pods-Kreditomat.debug.xcconfig */;
+			baseConfigurationReference = F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H86R55AKT5;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = XCVRQLC39R;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat1;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2117,20 +2371,24 @@
 		};
 		7201EF872636DF2E00D25097 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CD382529DE5A6AF134D7675 /* Pods-Kreditomat.release.xcconfig */;
+			baseConfigurationReference = 6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H86R55AKT5;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = XCVRQLC39R;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cheena.Kreditomat1;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

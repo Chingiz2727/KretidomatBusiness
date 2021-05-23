@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import InputMask
 
 private enum Constants {
     static let cornerRadius: CGFloat = 12
@@ -7,12 +9,32 @@ private enum Constants {
 
 class RegularTextField: UITextField {
     
+    public var textEdit: Observable<String> {
+        textSubject
+    }
+    
+    public var filled: Observable<Bool> {
+        isFilledSubject
+    }
+    
+    public var format = "[…]"
+    
+//    private let listener = MaskedTextFieldDelegate(primaryFormat: format)
+    private let isFilledSubject = PublishSubject<Bool>()
+    private let textSubject = PublishSubject<String>()
+
     var currentState: RegularTextFieldState  = .normal {
         didSet {
-            backgroundColor = currentState.backgroundColor
-            layer.borderColor = currentState.borderColor
-            textColor = currentState.textColor
-            font = currentState.textFont
+            switch currentState {
+            case .error :
+                backgroundColor = currentState.backgroundColor
+                layer.borderColor = currentState.borderColor
+            default:
+                backgroundColor = currentState.backgroundColor
+                layer.borderColor = currentState.borderColor
+                textColor = currentState.textColor
+                font = currentState.textFont
+            }
         }
     }
     
@@ -23,7 +45,7 @@ class RegularTextField: UITextField {
     }
     
     private let placeholderColor: UIColor = .lightGray
-    private let placeholderFont: UIFont = .systemFont(ofSize: 14)
+    private let placeholderFont: UIFont = .regular12
     
     override var isEnabled: Bool {
         didSet {
@@ -43,6 +65,7 @@ class RegularTextField: UITextField {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureView()
+        configureDelegate()
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -75,6 +98,16 @@ class RegularTextField: UITextField {
         setActions()
     }
     
+    func configureDelegate() {
+        let listener = MaskedTextFieldDelegate(primaryFormat: format)
+        delegate = listener
+        listener.onMaskedTextChangedCallback = { [weak self] field, _, isFilled in
+            guard let text = field.text else { return }
+            self?.textSubject.onNext(text)
+            self?.isFilledSubject.onNext(isFilled)
+        }
+    }
+    
     private func configurePlaceholder() {
         attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
                                                    attributes: [
@@ -90,16 +123,31 @@ class RegularTextField: UITextField {
     
     @objc
     private func editingDidBegin() {
-        currentState = .selected
+        switch currentState {
+        case .error:
+            return layer.borderColor = UIColor.error.cgColor
+        default:
+            return layer.borderColor = UIColor.primary.cgColor
+        }
     }
     
     @objc
     private func editingDidChanged() {
-        currentState = .selected
+        switch currentState {
+        case .error:
+            return layer.borderColor = UIColor.error.cgColor
+        default:
+            return layer.borderColor = UIColor.primary.cgColor
+        }
     }
     
     @objc
     private func editingDidEnd() {
-        currentState = .normal
+        switch currentState {
+        case .error:
+            return layer.borderColor = UIColor.error.cgColor
+        default:
+            return layer.borderColor = UIColor.primary.cgColor
+        }
     }
 }

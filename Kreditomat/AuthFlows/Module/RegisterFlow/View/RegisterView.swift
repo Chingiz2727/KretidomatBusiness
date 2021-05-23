@@ -1,5 +1,6 @@
 import UIKit
 import InputMask
+import RxSwift
 
 final class RegisterView: UIView {
     
@@ -19,23 +20,30 @@ final class RegisterView: UIView {
         }
     }
     
+    let selectedSubject = PublishSubject<Bool>()
+    
     let chooseFormTitle: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12)
+        label.text = "Выберите форму собственности"
+        label.font = .regular12
         label.textAlignment = .center
+        label.textColor = UIColor.gray.withAlphaComponent(0.7)
         return label
     }()
     
     let ipButton: UIButton = {
         let button = UIButton()
+        button.setTitle("ИП", for: .normal)
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .primary
         return button
     }()
-   
+    
     let tooButton: UIButton = {
         let button = UIButton()
+        button.setTitle("ТОО", for: .normal)
+        
         button.layer.cornerRadius = 20
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .secondary
@@ -44,16 +52,20 @@ final class RegisterView: UIView {
     
     let cityView = CityContainerView()
     
+    let numberHouseView = UIView()
+    let numberOfficeView = UIView()
     let numberHouseTitle: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.text = "Номер дома"
+        l.font = .regular12
         l.textAlignment = .left
         return l
     }()
-
+    
     let numberOfficeTitle: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.text = "Номер офиса"
+        l.font = .regular12
         l.textAlignment = .left
         return l
     }()
@@ -61,14 +73,14 @@ final class RegisterView: UIView {
     let numberHouse: NumberTextField = {
         let tf = NumberTextField()
         tf.currentState = .error
-        tf.placeholder = "Номер дома"
+        tf.placeholder = "000"
         return tf
     }()
     
     let numberOffice: NumberTextField = {
         let tf = NumberTextField()
         tf.currentState = .error
-        tf.placeholder = "Номер офиса"
+        tf.placeholder = "000"
         return tf
     }()
     
@@ -79,7 +91,8 @@ final class RegisterView: UIView {
     let phoneView = UIView()
     let phoneNumberTitle: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.text = "Укажите Ваш контактный телефон"
+        l.font = .regular12
         l.textAlignment = .left
         return l
     }()
@@ -94,7 +107,8 @@ final class RegisterView: UIView {
     
     let emailTitle: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.text = "Укажите вашу почту"
+        l.font = .regular12
         l.textAlignment = .left
         return l
     }()
@@ -109,7 +123,8 @@ final class RegisterView: UIView {
     let coordinateView = UIView()
     let coordinateTitle: UILabel = {
         let l = UILabel()
-        l.font = UIFont.systemFont(ofSize: 12)
+        l.text = "Укажите геопозицию объекта"
+        l.font = .regular12
         l.textAlignment = .left
         return l
     }()
@@ -123,7 +138,7 @@ final class RegisterView: UIView {
     let coordinateButtonView: UIView = {
         let b = UIButton()
         b.backgroundColor = .primary
-        b.layer.cornerRadius = Layout.cornerRadius
+        b.layer.cornerRadius = 10
         return b
     }()
     
@@ -140,6 +155,7 @@ final class RegisterView: UIView {
     
     let registerButton: UIButton = {
         let button = UIButton()
+        button.setTitle("Отправить", for: .normal)
         button.layer.cornerRadius = 20
         button.isEnabled = false
         button.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
@@ -147,19 +163,13 @@ final class RegisterView: UIView {
         return button
     }()
     
-    lazy var numberHouseStack = UIStackView(views: [numberHouseTitle, numberHouse], axis: .vertical, distribution: .fill, spacing: 0)
-
-    lazy var numberOfficeStack = UIStackView(views: [numberOfficeTitle, numberOffice], axis: .vertical, distribution: .fill, spacing: 0)
-    
     lazy var buttonStack = UIStackView(views: [ipButton, tooButton], axis: .horizontal, distribution: .fillEqually, spacing: 10)
     
     lazy var addressStackView = UIStackView(views: [cityView, streetView], axis: .horizontal, distribution: .fillEqually, spacing: 5)
     
-    lazy var numberStackView = UIStackView(views: [numberHouseStack, numberOfficeStack], axis: .horizontal, distribution: .fillEqually, spacing: 5)
+    lazy var numberStackView = UIStackView(views: [numberHouseView, numberOfficeView], axis: .horizontal, distribution: .fillEqually, spacing: 5)
     
-    lazy var emailStack = UIStackView(views: [emailTitle, emailTextField], axis: .vertical, distribution: .fill, spacing: 5)
-
-    lazy var fullStackView = UIStackView(views: [chooseFormTitle, buttonStack, nameUserView, binUserView, addressStackView, numberStackView, phoneView, emailStack, coordinateView, offerView, registerButton], axis: .vertical, distribution: .fill, spacing: 5)
+    lazy var fullStackView = UIStackView(views: [chooseFormTitle, buttonStack, nameUserView, binUserView, addressStackView, numberStackView, phoneView, emailView, coordinateView, offerView, registerButton], axis: .vertical, distribution: .fill, spacing: 5)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -182,15 +192,43 @@ final class RegisterView: UIView {
         
         scrollView.addSubview(fullStackView)
         fullStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(20)
             make.leading.trailing.width.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(30)
         }
         
+        numberHouseView.snp.makeConstraints { $0.height.equalTo(60)}
+        numberOfficeView.snp.makeConstraints { $0.height.equalTo(60)}
+        numberHouseView.addSubview(numberHouseTitle)
+        numberHouseView.addSubview(numberHouse)
+        
+        numberHouseTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        numberHouse.snp.makeConstraints { make in
+            make.top.equalTo(numberHouseTitle.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        numberOfficeView.addSubview(numberOfficeTitle)
+        numberOfficeView.addSubview(numberOffice)
+        
+        numberOfficeTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        numberOffice.snp.makeConstraints { make in
+            make.top.equalTo(numberOfficeTitle.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         phoneView.addSubview(phoneNumberTitle)
         phoneNumberTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
         }
         
         phoneView.addSubview(numberPhoneTextField)
@@ -199,10 +237,23 @@ final class RegisterView: UIView {
             make.leading.trailing.equalToSuperview()
         }
         
+        emailView.addSubview(emailTitle)
+        emailView.addSubview(emailTextField)
+        
+        emailTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
+        }
+        
+        emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(emailTitle.snp.bottom).offset(5)
+            make.left.right.equalToSuperview()
+        }
+        
         coordinateView.addSubview(coordinateTitle)
         coordinateTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
-            make.leading.equalToSuperview()
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().inset(10)
         }
         
         coordinateView.addSubview(coordinateTextField)
@@ -210,7 +261,6 @@ final class RegisterView: UIView {
             make.top.equalTo(coordinateTitle.snp.bottom).offset(5)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview().inset(70)
-            make.height.equalTo(Layout.textFieldHeight)
         }
         
         coordinateView.addSubview(coordinateButtonView)
@@ -226,6 +276,8 @@ final class RegisterView: UIView {
             make.size.equalTo(25)
         }
         
+        offerView.snp.makeConstraints { $0.height.equalTo(100)}
+        
         addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
@@ -239,25 +291,41 @@ final class RegisterView: UIView {
         tableView.separatorStyle = .none
         tableView.registerClassForCell(UITableViewCell.self)
         tableView.rowHeight = 400
-        chooseFormTitle.text = "Выберите форму собственности"
         nameUserView.rightTitle.isHidden = false
+        nameUserView.textField.currentState = .error
         nameUserView.rightTitle.text = "Обязательно"
-        ipButton.setTitle("ИП", for: .normal)
-        tooButton.setTitle("ТОО", for: .normal)
         nameUserView.title.text = "Наименование юридического лица"
         nameUserView.textField.placeholder = "Наименование"
         binUserView.configureTexts(placeHolderText: "БИН", titleText: "БИН")
+        binUserView.textField.currentState = .error
+        binUserView.textField.format = "[0…]"
+        binUserView.textField.keyboardType = .numberPad
         cityView.title.text = "Город"
+        cityView.cityListTextField.textField.currentState = .error
+        cityView.cityListTextField.textField.placeholder = "Город"
         streetView.configureTexts(placeHolderText: "Улица", titleText: "Улица")
-        numberHouseTitle.text = "Номер дома"
-        numberOfficeTitle.text = "Номер офиса"
-        phoneNumberTitle.text = "Укажите Ваш контактный телефон"
-        emailTitle.text = "Укажите вашу почту"
+        streetView.textField.currentState = .error
         emailTextField.placeholder = "Почта"
-        coordinateTitle.text = "Укажите геопозицию объекта"
         coordinateTextField.placeholder = "Адрес..."
-        registerButton.setTitle("Отправить", for: .normal)
-        offerView.configureView(titleText: "Ознокомьтесь с публичным договором(Оферта)", offerTitle: "Я согласен(-на) с условиями оферты", image: #imageLiteral(resourceName: "dogovor"))
+        offerView.configureView(titleText: "Ознакомьтесь с публичным договором(Оферта)", offerTitle: "Я согласен(-на) с условиями оферты", image: #imageLiteral(resourceName: "dogovor"))
+        configureShadows()
+    }
+    
+    private func configureShadows() {
+        ipButton.layer.addShadow()
+        tooButton.layer.addShadow()
+        nameUserView.textField.layer.addShadow()
+        binUserView.textField.layer.addShadow()
+        cityView.cityListTextField.layer.addShadow()
+        streetView.textField.layer.addShadow()
+        numberHouse.layer.addShadow()
+        numberOffice.layer.addShadow()
+        numberPhoneTextField.layer.addShadow()
+        emailTextField.layer.addShadow()
+        coordinateTextField.layer.addShadow()
+        coordinateButtonView.layer.addShadow()
+        offerView.checkBox.layer.addShadow()
+        offerView.buttonContainerView.layer.addShadow()
     }
     
     private func setupHeight(stackHeight: CGFloat, textFieldHeight: CGFloat, buttonHeight: CGFloat) {
@@ -270,21 +338,16 @@ final class RegisterView: UIView {
         numberHouse.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         numberOffice.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         numberStackView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
-        cityView.cityTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
+        cityView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
+        cityView.cityListTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         streetView.textField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         phoneView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
         numberPhoneTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
-        emailStack.snp.makeConstraints { $0.height.equalTo(stackHeight)}
+        emailView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
         emailTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
         coordinateView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
         coordinateTextField.snp.makeConstraints { $0.height.equalTo(textFieldHeight)}
-        offerView.snp.makeConstraints { $0.height.equalTo(stackHeight)}
-        
         registerButton.snp.makeConstraints { $0.height.equalTo(buttonHeight)}
-         
-//        if addshadow == true {
-//            bin
-//        }
     }
     
     func buttonActive(ipButtonSelected: Bool) {
@@ -299,6 +362,7 @@ final class RegisterView: UIView {
     
    @objc func checkBox() {
       isSelected = !isSelected
+      selectedSubject.onNext(isSelected)
     }
- 
+    
 }

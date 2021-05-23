@@ -11,12 +11,14 @@ class InfoItemView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = .regular13
         return label
     }()
     
     let valueLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
+        label.font = .regular13
         return label
     }()
     
@@ -40,12 +42,14 @@ class InfoItemView: UIView {
     private func setupInitialLayouts() {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().inset(10)
+            make.left.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(5)
         }
 
         addSubview(valueLabel)
         valueLabel.snp.makeConstraints { (make) in
-            make.top.right.equalToSuperview().inset(10)
+            make.right.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(5)
         }
         
         addSubview(dividerLine)

@@ -2,13 +2,14 @@ import UIKit
 import RxSwift
 
 final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
-    
+    var backTapped: BackButton?
     var authTapped: AuthButtonTap?
     var resetTapped: ResetButtonTap?
     
     typealias RootViewType = AuthUserView
     
     private let viewModel: AuthUserViewModel
+    private let userSession = assembler.resolver.resolve(UserSessionStorage.self)!
     private let disposeBag = DisposeBag()
     
     init(viewModel: AuthUserViewModel) {
@@ -27,6 +28,8 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        title = "Вход"
+        navigationController?.navigationBar.layer.addShadow()
     }
     
     private func bindViewModel() {
@@ -42,6 +45,9 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
             .subscribe(onNext: { status in
                 if status.Success == true {
                     self.authTapped?()
+                    self.userSession.save(accessToken: status.Message, refreshToken: status.Message)
+                } else {
+                    self.showErrorInAlert(text: status.Message)
                 }
             }).disposed(by: disposeBag)
         
@@ -62,6 +68,19 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
                 self.resetTapped?()
             })
             .disposed(by: disposeBag)
+        
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func bindView() {
+//        let filled = [
+//            rootView.phoneTextField.isFilled,
+//            rootView.passwordTextField.isFilled]
+        
+        
         
     }
 }

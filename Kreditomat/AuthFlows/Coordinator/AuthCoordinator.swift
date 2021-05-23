@@ -28,6 +28,8 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         module.signUpTapped = { [weak self] in
             self?.showSignUp()
         }
+        
+        
         router.setRootModule(module)
     }
     
@@ -38,6 +40,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
             self?.showResetPassword()
         }
         
+        module.authTapped = { [weak self] in
+            self?.authCompletion?(true)
+        }
         router.push(module)
     }
     
@@ -45,15 +50,28 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         var module = moduleFactory.makeRegister()
         
         module.offerTapped = { [weak self] in
-            self?.showOfferView()
+            self?.showOferta()
+        }
+        module.mapTapped = { [weak self] in
+            self?.showMap(addressSelected: { address in
+                module.putAddress?(address)
+            })
         }
         router.push(module)
     }
     
-    private func showOfferView() {
-        let module = moduleFactory.makeOfferShow()
-        
-//        router.present(module)
+    private func showOferta() {
+        let module = moduleFactory.makeOferta()
+        router.push(module)
+    }
+    
+    private func showMap(addressSelected: @escaping ((Address) -> Void)) {
+        var module = moduleFactory.makeMap()
+        module.didAddressSelectedHandler = { [weak self] address in
+            self?.router.popModule()
+            addressSelected(address)
+        }
+        router.push(module)
     }
     
     private func showResetPassword() {

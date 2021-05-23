@@ -10,7 +10,7 @@ enum RegularTextFieldState {
     var backgroundColor: UIColor {
         switch self {
         case .error:
-            return UIColor.background.withAlphaComponent(0.4)
+            return .white
         case .disabled:
             return UIColor.background.withAlphaComponent(0.4)
         default:

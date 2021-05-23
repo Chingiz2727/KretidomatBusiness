@@ -3,7 +3,7 @@ import UIKit
 
 final class MenuView: UIView {
     let tableView = UITableView()
-    private let headerView = MenuHeaderView()
+    let headerView = MenuHeaderView()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupInitialLayout()
@@ -15,9 +15,18 @@ final class MenuView: UIView {
     
     private func setupInitialLayout() {
         addSubview(tableView)
-        tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        addSubview(headerView)
+        headerView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(170)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
         tableView.registerClassForCell(UITableViewCell.self)
         tableView.tableFooterView = UIView()
-        tableView.tableHeaderView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 140))
+//        tableView.tableHeaderView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 140))
     }
 }

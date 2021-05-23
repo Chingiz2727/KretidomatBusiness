@@ -37,7 +37,9 @@ public final class DependencyContainerAssembly: Assembly {
         }.inObjectScope(.container)
         
         container.register(MenuModule.self) { _ in
-            return MenuViewController()
+            let apiService = container.resolve(ApiService.self)!
+            let viewModel = MainMenuViewModel(apiService: apiService)
+            return MenuViewController(viewModel: viewModel, info: .init(AppSignature: "0", SellerID: 0, AlterNames: "", RegTime: "nil", RegCode: 0, Name: "nil", Email: "nil", Phone: "nil", City: "nil", Address: "nil", House: "nil", Apartments: "nil", UniqueCode: 0, BIN: "nil", Pos_Lat: "nil", Pos_Lng: "nil", Balance: 0, BonusSum: 0, CashierID: 0, CashierName: "nil", CashierPhone: "nil"))
         }
         
         container.register(AVMediaType.self) { _ in

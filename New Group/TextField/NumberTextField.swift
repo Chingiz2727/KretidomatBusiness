@@ -1,11 +1,12 @@
 import InputMask
 import UIKit
+import RxSwift
 
 private enum Constants {
-    static let textMask = "[000]"
+    static let textMask = "[0…]"
     static let prefixText = "№"
     static let prefixSpacing: CGFloat = 16
-    static let dividerWidth: CGFloat = 1
+    static let dividerWidth: CGFloat = 1.5
     static let placeholder = "Номер"
 }
 
@@ -18,13 +19,11 @@ final class NumberTextField: RegularTextField {
             listener.primaryMask.apply(toText: text).extractedValue
         return extractedValue
     }
-
-    var isFilled: Bool = false {
-        didSet {
-            
-        }
-    }
     
+    public var isFilled: Observable<Bool> {
+        isFilledSubject
+    }
+
     override var isEnabled: Bool {
         didSet {
             prefixLabel.textColor = currentState.textColor
@@ -33,6 +32,7 @@ final class NumberTextField: RegularTextField {
     }
 
     private let listener = MaskedTextFieldDelegate(primaryFormat: Constants.textMask)
+    private let isFilledSubject = PublishSubject<Bool>()
     private let prefixLabel = UILabel()
     private let dividerView = UIView()
     
@@ -65,7 +65,7 @@ final class NumberTextField: RegularTextField {
     private func configureColor() {
         textColor = UIColor.black
         prefixLabel.textColor = UIColor.black
-        dividerView.backgroundColor = UIColor.background
+        dividerView.backgroundColor = UIColor.primary
     }
     
     private func configureTextStyle() {
@@ -77,10 +77,10 @@ final class NumberTextField: RegularTextField {
         prefixLabel.text = Constants.prefixText
     }
     
-    private func configureDelegate() {
+    override func configureDelegate() {
         delegate = listener
         listener.onMaskedTextChangedCallback = { [weak self] _, _, isFilled in
-            self?.isFilled = isFilled
+            self?.isFilledSubject.onNext(isFilled)
         }
     }
     

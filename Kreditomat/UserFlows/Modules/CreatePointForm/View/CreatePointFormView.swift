@@ -12,6 +12,7 @@ class CreatePointFormView: UIView {
     let pointNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Введите наименование точки"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -22,6 +23,7 @@ class CreatePointFormView: UIView {
         let label = UILabel()
         label.text = "Город"
         label.textColor = .black
+        label.font = .regular14
         return label
     }()
     
@@ -43,6 +45,7 @@ class CreatePointFormView: UIView {
         let label = UILabel()
         label.text = "Улица"
         label.textColor = .black
+        label.font = .regular14
         return label
     }()
     
@@ -63,6 +66,7 @@ class CreatePointFormView: UIView {
     let houseNumberLabel: UILabel = {
         let label = UILabel()
         label.text = "Номер дома"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -78,6 +82,7 @@ class CreatePointFormView: UIView {
     let officeNumberLabel: UILabel = {
         let label = UILabel()
         label.text = "Номер офиса"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -99,6 +104,7 @@ class CreatePointFormView: UIView {
     let operatingModeLabel: UILabel = {
         let label = UILabel()
         label.text = "Укажите режим работы точки"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -148,6 +154,7 @@ class CreatePointFormView: UIView {
     let cashierNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Введите ФИО кассира"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -157,6 +164,7 @@ class CreatePointFormView: UIView {
     let phoneLCashierabel: UILabel = {
         let label = UILabel()
         label.text = "Введите номер телефона кассира"
+        label.font = .regular14
         label.textColor = .black
         return label
     }()
@@ -285,22 +293,9 @@ class CreatePointFormView: UIView {
             make.width.equalTo(80)
         }
         
-        scrollView.addSubview(cashierNameLabel)
-        cashierNameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(timeStackView.snp.bottom).offset(30)
-            make.left.equalTo(self).inset(20)
-        }
-        
-        scrollView.addSubview(cashierNameTextField)
-        cashierNameTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(cashierNameLabel.snp.bottom).offset(5)
-            make.left.right.equalTo(self).inset(16)
-            make.height.equalTo(40)
-        }
-        
         scrollView.addSubview(phoneLCashierabel)
         phoneLCashierabel.snp.makeConstraints { (make) in
-            make.top.equalTo(cashierNameTextField.snp.bottom).offset(10)
+            make.top.equalTo(timeStackView.snp.bottom).offset(30)
             make.left.equalTo(self).inset(20)
         }
         

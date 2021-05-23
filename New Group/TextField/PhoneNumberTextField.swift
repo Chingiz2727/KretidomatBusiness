@@ -1,12 +1,13 @@
 import InputMask
 import UIKit
+import RxSwift
 
 private enum Constants {
     static let textMask = "[000] [000]-[00]-[00]"
     static let prefixText = "+7"
     static let prefixSpacing: CGFloat = 16
-    static let dividerWidth: CGFloat = 1
-    static let placeholder = "Номер телефона"
+    static let dividerWidth: CGFloat = 2
+    static let placeholder = "(000) 000-00 00"
 }
 
 final class PhoneNumberTextField: RegularTextField {
@@ -19,7 +20,9 @@ final class PhoneNumberTextField: RegularTextField {
         return extractedValue
     }
 
-    var isFilled: Bool = false
+    var isFilled: Observable<Bool> {
+        filledSubject
+    }
     
     override var isEnabled: Bool {
         didSet {
@@ -28,8 +31,9 @@ final class PhoneNumberTextField: RegularTextField {
     }
 
     private let listener = MaskedTextFieldDelegate(primaryFormat: Constants.textMask)
+    private let filledSubject = PublishSubject<Bool>()
     private let prefixLabel = UILabel()
-    private let dividerView = UIView()
+    let dividerView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,7 +64,7 @@ final class PhoneNumberTextField: RegularTextField {
     private func configureColor() {
         textColor = UIColor.black
         prefixLabel.textColor = UIColor.black
-        dividerView.backgroundColor = UIColor.background
+        dividerView.backgroundColor = UIColor.primary
     }
     
     private func configureTextStyle() {
@@ -72,10 +76,10 @@ final class PhoneNumberTextField: RegularTextField {
         prefixLabel.text = Constants.prefixText
     }
     
-    private func configureDelegate() {
+    override func configureDelegate() {
         delegate = listener
         listener.onMaskedTextChangedCallback = { [weak self] _, _, isFilled in
-            self?.isFilled = isFilled
+            self?.filledSubject.onNext(isFilled)
         }
     }
     

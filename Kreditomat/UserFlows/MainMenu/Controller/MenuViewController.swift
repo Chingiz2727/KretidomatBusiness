@@ -8,7 +8,19 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     var selectMenu: SelectMenu?
     
     private let disposeBag = DisposeBag()
+    private let viewModel: MainMenuViewModel
+    private var cabinetData: CabinetData
     let menu = Menu.allCases
+    
+    init(viewModel: MainMenuViewModel, info: CabinetData) {
+        self.viewModel = viewModel
+        self.cabinetData = info
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = MenuView()
@@ -23,6 +35,7 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
         Observable.just(menu)
             .bind(to: rootView.tableView.rx.items(UITableViewCell.self)) { _, model, cell in
                 cell.textLabel?.text = model.title
+                cell.textLabel?.font = .regular16
                 cell.imageView?.image = model.logoImg
                 cell.imageView?.contentMode = .scaleAspectFit
                 cell.imageView?.snp.makeConstraints { make in
@@ -41,7 +54,28 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
         rootView.tableView.rx.itemSelected
             .withLatestFrom(Observable.just(Menu.allCases)) { $1[$0.row] }
             .bind { [unowned self] item in
-                self.selectMenu?(item)
+                self.selectMenu?(item, cabinetData)
             }.disposed(by: disposeBag)
+        
+        let output = viewModel.transform(input: .init(loadInfo: .just(())))
+        
+        let info = output.info.publish()
+        
+        info.element
+            .subscribe(onNext: { [unowned self] info in
+                self.cabinetData = info.Data
+                self.rootView.headerView.setupData(data: info.Data)
+            }).disposed(by: disposeBag)
+        
+        info.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        info.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        info.connect()
+            .disposed(by: disposeBag)
     }
 }

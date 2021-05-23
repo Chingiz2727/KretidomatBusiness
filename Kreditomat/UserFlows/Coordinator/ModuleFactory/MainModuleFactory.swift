@@ -14,8 +14,10 @@ final class MainModuleFactory {
         self.container = container
     }
     
-    func makeCabiner() -> CabinetModule {
-        return CabinetViewController()
+    func makeCabiner(data: CabinetData) -> CabinetModule {
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = CabinetViewModel(apiService: apiService)
+        return CabinetViewController(viewModel: viewModel, data: data)
     }
     
     func makeCreatePoint() -> CreatePointModule {
@@ -33,5 +35,15 @@ final class MainModuleFactory {
     func makeCreatePointForm() -> CreatePointFormModule {
         let viewModel = CreatePointFormViewModel()
         return CreatePointFormViewController(viewModel: viewModel)
+    }
+    
+    func makeChangePassword() -> ChangePasswordModule {
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = ChangePasswordViewModel(apiService: apiService)
+        return ChangePasswordViewController(viewModel: viewModel)
+    }
+    
+    func makeResetPassword() -> ResetPasswordModule {
+        return ResetPasswordViewController()
     }
 }

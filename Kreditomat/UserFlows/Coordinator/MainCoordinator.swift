@@ -21,10 +21,10 @@ final class MainCoordinator: BaseCoordinator {
     
     private func startHome() {
         var module = assembler.resolver.resolve(MenuModule.self)!
-        module.selectMenu = { [weak self] menu in
+        module.selectMenu = { [weak self] menu, data in
             switch menu {
             case .mainPage:
-                self?.showCabinet()
+                self?.showCabinet(data: data)
             case .createPoint:
                 self?.showCreatePoint()
             case .getCredit:
@@ -33,6 +33,11 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showCamera(type: .payCredit)
             case .aboutKassa:
                 self?.showAboutKassa()
+            case .changePassWord:
+                self?.showChangePassword()
+            case .logout:
+                let authState = assembler.resolver.resolve(AuthStateObserver.self)!
+                authState.forceLogout()
             default:
                 return
             }
@@ -40,8 +45,8 @@ final class MainCoordinator: BaseCoordinator {
         router.setRootModule(module)
     }
     
-    private func showCabinet() {
-        let module = moduleFactory.makeCabiner()
+    private func showCabinet(data: CabinetData) {
+        let module = moduleFactory.makeCabiner(data: data)
         router.push(module)
     }
     
@@ -87,6 +92,19 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showAboutKassa() {
         let module = moduleFactory.makeAboutKassa()
+        router.push(module)
+    }
+    
+    private func showChangePassword() {
+        var  module = moduleFactory.makeChangePassword()
+        module.resetPasTapped = { [weak self] in
+            self?.showResetPassword()
+        }
+        router.push(module)
+    }
+    
+    private func showResetPassword() {
+        let module = moduleFactory.makeResetPassword()
         router.push(module)
     }
 }

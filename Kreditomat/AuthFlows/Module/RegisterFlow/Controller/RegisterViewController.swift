@@ -1,7 +1,11 @@
 import UIKit
 import RxSwift
 
-final class RegisterViewController: ViewController, ViewHolder, RegisterModule {    
+final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
+    var putAddress: PutAddress?
+    
+    var mapTapped: MapTapped?
+    
     typealias RootViewType = RegisterView
 
     var offerTapped: OfferButtonTapped?
@@ -13,6 +17,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     private var cityPickerDelegate: CityPickerViewDelegate
     private var cityPickerDataSource: CityPickerViewDataSource
     private let cityPicker = UIPickerView()
+    private let mapController = MapViewController()
     
     init(viewModel: RegisterViewModel) {
         self.viewModel = viewModel
@@ -32,15 +37,14 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        bindView()
         setupCityPickerView()
+        title = "Регистрация"
+        
     }
     
     private func bindViewModel() {
         let output = viewModel.transform(input: .init(registerTapped: rootView.registerButton.rx.tap.asObservable()))
-//        let output = viewModel.transform(
-//            input: .init(registerTapped: rootView.registerButton.rx.tap.asObservable(),
-//                         nameUser: rootView.nameUserView.textField.rx.text.asObservable(),
-//                         email: rootView.emailTextField.rx.text.asObservable(), phone: <#T##Observable<String>#>, city: <#T##Observable<String>#>, address: <#T##Observable<String>#>, house: <#T##Observable<String>#>, apartments: <#T##Observable<String>#>, bin: <#T##Observable<String>#>, posLat: <#T##Observable<String>#>, posLng: <#T##Observable<String>#>))
         
         rootView.ipButton.rx.tap
             .subscribe(onNext: { [unowned self] in
@@ -78,11 +82,18 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
             })
             .disposed(by: disposeBag)
         
-        rootView.cityView.cityTextField.rx.text.unwrap()
+        cityPickerDelegate.selectedCity
+            .subscribe(onNext: { [unowned self] city in
+                rootView.cityView.cityListTextField.textField.text = city.name
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.cityView.cityListTextField.textField.rx.text.unwrap()
             .subscribe(onNext: { [unowned self] text in
                 self.viewModel.city = text
             })
             .disposed(by: disposeBag)
+        
         
         rootView.streetView.textField.rx.text.unwrap()
             .subscribe(onNext: { [unowned self] text in
@@ -119,18 +130,68 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         token.loading.bind(to: ProgressView.instance.rx.loading)
             .disposed(by: disposeBag)
         
+        token.element.subscribe(onNext: { [unowned self] status in
+            if status.Success == false {
+                self.showErrorInAlert(text: status.Message)
+            }  else {
+                
+            }
+        })
+        .disposed(by: disposeBag)
+        
         token.errors
             .bind(to: rx.error)
             .disposed(by: disposeBag)
         
         token.connect()
             .disposed(by: disposeBag)
+        cityPickerDelegate.selectedCity.subscribe(onNext: { [unowned self] city in
+            self.rootView.cityView.cityListTextField.textField.text = city.name
+        })
+        .disposed(by: disposeBag)
+        
+        rootView.coordinateButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.mapTapped?()
+            }).disposed(by: disposeBag)
+        
+        putAddress = { [unowned self] address in
+            self.rootView.coordinateTextField.text = address.name
+        }
+    }
+    
+    private func bindView() {
+        bindMaskTextField()
+        let filled = [
+            rootView.nameUserView.textField.filled,
+            rootView.binUserView.textField.filled,
+            rootView.cityView.cityListTextField.textField.filled,
+            rootView.streetView.textField.filled,
+            rootView.numberHouse.isFilled,
+            rootView.numberOffice.isFilled,
+            rootView.numberPhoneTextField.isFilled,
+            rootView.emailTextField.filled,
+            rootView.selectedSubject
+//            rootView.offerView.checkBox.isS
+        ]
+        Observable.combineLatest(filled.map {$0}) { $0.allSatisfy {$0}}
+            .distinctUntilChanged()
+            .bind(to: rootView.registerButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindMaskTextField() {
+//        rootView.numberPhoneTextField.format = "[000] [000]-[00]-[00]"
     }
     
     private func setupCityPickerView() {
         cityPicker.delegate = cityPickerDelegate
         cityPicker.dataSource = cityPickerDataSource
-        rootView.cityView.cityTextField.inputView = cityPicker
+        rootView.cityView.cityListTextField.textField.inputView = cityPicker
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
     
 }
