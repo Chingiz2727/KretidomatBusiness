@@ -46,4 +46,8 @@ final class MainModuleFactory {
     func makeResetPassword() -> ResetPasswordModule {
         return ResetPasswordViewController()
     }
+    
+    func makeSuccess() -> SuccessModule {
+        return SuccessViewController()
+    }
 }

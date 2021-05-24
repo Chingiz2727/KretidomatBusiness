@@ -10,7 +10,9 @@ import Vision
 import AVFoundation
 import UIKit
 
-class CameraViewController: UIViewController, CameraModule {
+class CameraViewController: ViewController, CameraModule {
+    var showSucces: ShowSuccess?
+    
     var giveCredit: GiveCredit?
     
     var payCredit: PayCredit?
@@ -25,18 +27,21 @@ class CameraViewController: UIViewController, CameraModule {
     private let cameraUsagePermission: CameraUsagePermission
     private let disposeBag = DisposeBag()
     private let cameraView = CameraView()
+    private let viewModel: CameraViewModel
     private var request: [VNRequest] = []
 
     init(
         avCaptureSession: AVCaptureSession,
         avCaptureDevice: AVCaptureDevice,
         avCapturePreviewLayer: AVCaptureVideoPreviewLayer,
-        cameraUsagePermession: CameraUsagePermission
+        cameraUsagePermession: CameraUsagePermission,
+        viewModel: CameraViewModel
     ) {
         self.avCaptureSession = avCaptureSession
         self.avCaptureDevice = avCaptureDevice
         self.avCapturePreviewLayer = avCapturePreviewLayer
         self.cameraUsagePermission = cameraUsagePermession
+        self.viewModel = viewModel
         avCaptureMetadaDegelegate = CameraMetadaOutputDelegate()
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,6 +53,12 @@ class CameraViewController: UIViewController, CameraModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        switch cameraActionType {
+        case .payCredit:
+            title = "Погашение микрокредита"
+        default:
+            title = "Выдача микрокредита"
+        }
     }
 
     private func bindViewModel() {
@@ -72,12 +83,40 @@ class CameraViewController: UIViewController, CameraModule {
         }
     }
 
-    private func qrScanned(qr: String) {
+    private func qrScanned(qr: qrResult) {
         switch cameraActionType {
         case .giveCredit:
             giveCredit?(qr)
         case .payCredit:
-            payCredit?(qr)
+            presentCustomAlert(type: .getCreditPay(sum: "\(qr.CreditSum)", fio: qr.FIO), firstButtonAction: { [unowned self] in
+                viewModel.clientId = qr.ClientID
+                viewModel.creditId = qr.CreditID
+                let clear = self.viewModel.transform(input: .init(clearTapped: .just(())))
+                let output = clear.response.publish()
+                
+                output.element
+                    .subscribe(onNext: { [unowned self] res in
+                        if res.Success {
+                            self.showSucces?(qr)
+                        }
+                    }).disposed(by: disposeBag)
+                
+                output.loading
+                    .bind(to: ProgressView.instance.rx.loading)
+                    .disposed(by: disposeBag)
+                
+                output.errors
+                    .bind(to: rx.error)
+                    .disposed(by: disposeBag)
+                
+                output.connect()
+                    .disposed(by: disposeBag)
+                
+            }, secondButtonAction:  {
+                self.dismiss(animated: true) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
         default:
             return
         }
@@ -108,6 +147,10 @@ class CameraViewController: UIViewController, CameraModule {
         view.layer.addSublayer(avCapturePreviewLayer)
         cameraView.frame = view.frame
         view.addSubview(cameraView)
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

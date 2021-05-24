@@ -67,11 +67,17 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showSignature()
             }
         case .payCredit:
-            module.payCredit = { [weak self] qr in
+            module.showSucces = { [weak self] qr in
+                self?.showSuccess()
             }
         default:
             return
         }
+        router.push(module)
+    }
+    
+    private func showSuccess() {
+        let module = moduleFactory.makeSuccess()
         router.push(module)
     }
     

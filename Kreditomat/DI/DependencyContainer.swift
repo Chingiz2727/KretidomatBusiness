@@ -71,11 +71,13 @@ public final class DependencyContainerAssembly: Assembly {
             let device = container.resolve(AVCaptureDevice.self)!
             let layer = container.resolve(AVCaptureVideoPreviewLayer.self)!
             let cameraUsagePermission = container.resolve(CameraUsagePermission.self)!
+            let apiService = container.resolve(ApiService.self)!
+            let viewModel = CameraViewModel(apiService: apiService)
             let controller = CameraViewController(
                 avCaptureSession: session,
                 avCaptureDevice: device,
                 avCapturePreviewLayer: layer,
-                cameraUsagePermession: cameraUsagePermission)
+                cameraUsagePermession: cameraUsagePermission, viewModel: viewModel)
             return controller
     }
         container.register(SignatureModule.self) { _ in
