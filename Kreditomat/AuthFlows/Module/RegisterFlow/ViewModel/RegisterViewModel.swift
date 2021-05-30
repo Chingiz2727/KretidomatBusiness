@@ -3,25 +3,6 @@ import RxCocoa
 
 final class RegisterViewModel: ViewModel {
     
-    let nameSubject = BehaviorSubject<String?>(value: "")
-    let binSubject = BehaviorSubject<String?>(value: "")
-    let citySubject = BehaviorSubject<String?>(value: "")
-    let streetSubject = BehaviorSubject<String?>(value: "")
-    let houseNumberSubject = BehaviorSubject<String?>(value: "")
-    let phoneSubject = BehaviorSubject<String?>(value: "")
-    let emailSubject = BehaviorSubject<String?>(value: "")
-    let selectCheckBox = BehaviorSubject<Void?>(value: ())
-    let disposeBag = DisposeBag()
-    
-    var isValidForm: Observable<Bool> {
-        return Observable.combineLatest(nameSubject, binSubject, citySubject, streetSubject, houseNumberSubject, phoneSubject, emailSubject) { name, bin, city, street, numberHouse, phone, email   in
-            guard name != nil && bin != nil && city != nil && street != nil && email != nil else { return  false}
-            
-            return !(name!.isEmpty) && bin!.count > 10 && !city!.isEmpty && !street!.isEmpty && !numberHouse!.isEmpty  && phone!.count > 9 && email!.validEmail() //&& select ?? () == Void()
-
-        }
-    }
-    
     var name: String = ""
     var phone: String = ""
     var email: String = ""
