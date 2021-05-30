@@ -17,6 +17,6 @@ final class PointPickerViewDelegate: NSObject, UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return point[row].name
+        return point[row].Name
     }
 }
