@@ -293,22 +293,22 @@ class CreatePointFormView: UIView {
             make.width.equalTo(80)
         }
         
-        scrollView.addSubview(phoneLCashierabel)
-        phoneLCashierabel.snp.makeConstraints { (make) in
-            make.top.equalTo(timeStackView.snp.bottom).offset(30)
-            make.left.equalTo(self).inset(20)
-        }
-        
-        scrollView.addSubview(phoneCashierTextField)
-        phoneCashierTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(phoneLCashierabel.snp.bottom).offset(5)
-            make.left.right.equalTo(self).inset(16)
-            make.height.equalTo(40)
-        }
+//        scrollView.addSubview(phoneLCashierabel)
+//        phoneLCashierabel.snp.makeConstraints { (make) in
+//            make.top.equalTo(timeStackView.snp.bottom).offset(30)
+//            make.left.equalTo(self).inset(20)
+//        }
+//
+//        scrollView.addSubview(phoneCashierTextField)
+//        phoneCashierTextField.snp.makeConstraints { (make) in
+//            make.top.equalTo(phoneLCashierabel.snp.bottom).offset(5)
+//            make.left.right.equalTo(self).inset(16)
+//            make.height.equalTo(40)
+//        }
         
         scrollView.addSubview(createButton)
         createButton.snp.makeConstraints { (make) in
-            make.top.equalTo(phoneCashierTextField.snp.bottom).offset(50)
+            make.top.equalTo(startTimeTextField.snp.bottom).offset(50)
             make.left.right.equalTo(self).inset(16)
             make.bottom.equalToSuperview().inset(30)
             make.height.equalTo(40)

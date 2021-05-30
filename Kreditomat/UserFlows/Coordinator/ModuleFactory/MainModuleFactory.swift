@@ -35,7 +35,8 @@ final class MainModuleFactory {
     }
     
     func makeCreatePointForm() -> CreatePointFormModule {
-        let viewModel = CreatePointFormViewModel()
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = CreatePointFormViewModel(apiService: apiService)
         return CreatePointFormViewController(viewModel: viewModel)
     }
     
