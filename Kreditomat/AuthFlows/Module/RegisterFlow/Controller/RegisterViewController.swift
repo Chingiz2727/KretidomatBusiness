@@ -11,9 +11,9 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     var offerTapped: OfferButtonTapped?
     var registerTapped: RegisterTapped?
     
-    var isValidEmail : Observable<Bool> {
-        return emailSubject.map { $0!.validEmail()}
-    }
+//    var isValidEmail : Observable<Bool> {
+//        return emailSubject.map { $0!.validEmail()}
+//    }
 //    var isValidPhone: Observable<Bool> {
 //        return phoneSubject.map { $0.}
 //    }
