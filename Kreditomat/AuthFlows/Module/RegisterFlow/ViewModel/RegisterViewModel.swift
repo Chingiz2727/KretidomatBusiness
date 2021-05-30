@@ -1,4 +1,5 @@
 import RxSwift
+import RxCocoa
 
 final class RegisterViewModel: ViewModel {
     

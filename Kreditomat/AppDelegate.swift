@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LoggerConfigurator.configure()
         GMSServices.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
         GMSPlacesClient.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
-        
-        
         return true
     }
     
