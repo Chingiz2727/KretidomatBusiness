@@ -25,6 +25,7 @@ enum Images: String {
     case placeholder
     case logo
     case titleLogo
+    case cashier
 }
 
 extension Images {

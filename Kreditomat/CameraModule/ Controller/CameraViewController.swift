@@ -56,6 +56,7 @@ class CameraViewController: ViewController, CameraModule {
         switch cameraActionType {
         case .payCredit:
             title = "Погашение микрокредита"
+            cameraView.titleLabel.text = "Отсканируйте QR код клиента \nдля погашения микрокредита"
         default:
             title = "Выдача микрокредита"
         }
@@ -89,15 +90,17 @@ class CameraViewController: ViewController, CameraModule {
             giveCredit?(qr)
         case .payCredit:
             presentCustomAlert(type: .getCreditPay(sum: "\(qr.CreditSum)", fio: qr.FIO), firstButtonAction: { [unowned self] in
-                viewModel.clientId = qr.ClientID
-                viewModel.creditId = qr.CreditID
+                self.viewModel.clientId = qr.ClientID
+                self.viewModel.creditId = qr.CreditID
                 let clear = self.viewModel.transform(input: .init(clearTapped: .just(())))
                 let output = clear.response.publish()
                 
                 output.element
                     .subscribe(onNext: { [unowned self] res in
                         if res.Success {
-                            self.showSucces?(qr)
+                            self.dismiss(animated: true) {
+                                self.showSucces?(qr)
+                            }
                         }
                     }).disposed(by: disposeBag)
                 
