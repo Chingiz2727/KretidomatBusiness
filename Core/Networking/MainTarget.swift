@@ -20,8 +20,10 @@ enum MainTarget: ApiTarget {
     
     var method: HTTPMethod {
         switch self {
-        case .createCashRequest, .getActualPoints:
+        case .createCashRequest:
             return .post
+        case .getActualPoints:
+            return .get
         }
     }
     

@@ -12,7 +12,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
     private var pointPickerDataSource: PointPickerViewDataSource
     private let pointPickerView = UIPickerView()
     private let disposeBag = DisposeBag()
-    
+    private let buttontapped: PublishSubject<Void> = .init()
     init(viewModel: AboutKassaViewModel) {
         self.viewModel = viewModel
         self.pointPickerDataSource = PointPickerViewDataSource()
@@ -39,12 +39,13 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         
         let output = viewModel.transform(
             input: .init(typeButton: rootView.selectTag,
-                         point: pointPickerDelegate.selectedPoint.asObservable(),
+                         point: .just(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: "", CashierName: "", CashierPhone: "")),
                          sum: rootView.amountOperationView.amountTextField.rx.text.asObservable(),
                          succesTapped: rootView.accessButton.rx.tap.asObservable(),
                          pointList: .just(())))
         
         let result = output.nextTapped.publish()
+        
         result.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
@@ -57,6 +58,8 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         result.errors
             .bind(to: rx.error)
             .disposed(by: disposeBag)
+
+        pointPickerDelegate.selectedPoint.onNext(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: "", CashierName: "", CashierPhone: ""))
         
         result.connect()
             .disposed(by: disposeBag)
@@ -69,6 +72,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                 self?.pointPickerDelegate.point = p.element?.Data ?? []
             }
         }).disposed(by: disposeBag)
+        
+        points.connect()
+            .disposed(by: disposeBag)
         
         pointPickerDelegate.selectedPoint
             .subscribe(onNext: { [unowned self] point in
@@ -84,12 +90,14 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
             .subscribe(onNext: { [unowned self] in
                 self.rootView.configureButton(selected: false)
             }).disposed(by: disposeBag)
-        
-        
+        rootView.accessButton.rx.tap.subscribe(onNext: { [unowned self] tap in
+            self.buttontapped.onNext(())
+        } )
+            .disposed(by: disposeBag)
     }
     
     private func setupPointPickerView() {
-//        rootView.tableView.registerClassForCell(UITableViewCell.self)
+        rootView.tableView.registerClassForCell(UITableViewCell.self)
         pointPickerView.delegate = pointPickerDelegate
         pointPickerView.dataSource = pointPickerDataSource
         rootView.pointListTextField.textField.inputView = pointPickerView

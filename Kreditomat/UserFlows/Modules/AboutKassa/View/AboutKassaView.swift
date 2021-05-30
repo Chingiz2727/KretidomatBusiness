@@ -4,7 +4,7 @@ import RxSwift
 final class AboutKassaView: UIView {
     
     private let disposeBag = DisposeBag()
-    let selectTag = PublishSubject<Int>()
+    let selectTag = BehaviorSubject.init(value: 1)
     
     let pointTitle: UILabel = {
         let l = UILabel()
@@ -166,6 +166,7 @@ final class AboutKassaView: UIView {
         withdrawalButton.layer.addShadow()
         amountOperationView.layer.addShadow()
         accessButton.layer.addShadow()
+        accessButton.isEnabled = true
     }
     
     func configureButton(selected: Bool) {

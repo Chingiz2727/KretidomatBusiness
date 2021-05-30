@@ -30,6 +30,7 @@ final class AboutKassaViewModel: ViewModel {
                     .asLoadingSequence()
             }.share()
         
+        
         let pointList = input.pointList
             .flatMap { [unowned self] in
                 return apiService.makeRequest(to: MainTarget.getActualPoints)
