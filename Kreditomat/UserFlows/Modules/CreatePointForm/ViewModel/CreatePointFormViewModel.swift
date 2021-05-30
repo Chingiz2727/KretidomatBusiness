@@ -9,12 +9,33 @@ import RxSwift
 
 final class CreatePointFormViewModel: ViewModel {
     
+    var name: String = ""
+    var phone: String = ""
+    var email: String = ""
+    var city: String = ""
+    var address: String = ""
+    var house: String = ""
+    var apartments: String = ""
+    var bin: String = ""
+    var lat: Double = 0.0
+    var long: Double = 0.0
+    
     struct Input {
         let loadDay: Observable<Void>
+        let createPointTapped: Observable<Void>
+        
     }
     
     struct Output {
         let getDay: Observable<[Day]>
+        let createPoint: Observable<LoadingSequence<ResponseStatus>>
+        
+    }
+    
+    private let apiService: ApiService
+    
+    init(apiService: ApiService) {
+        self.apiService = apiService
     }
     
     func transform(input: Input) -> Output {
@@ -22,7 +43,15 @@ final class CreatePointFormViewModel: ViewModel {
             .flatMap { [unowned self] in
                 return Observable.just(loadDays())
             }
-        return .init(getDay: loadDay)
+        
+        let point = input.createPointTapped
+            .flatMap { [unowned self] _ in
+                apiService.makeRequest(to: MainTarget.registerPoint(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: String(lat), posLng: String(long)))
+                    .result(ResponseStatus.self)
+                    .asLoadingSequence()
+            }.share()
+        
+        return .init(getDay: loadDay, createPoint: point)
     }
     
     private func loadDays() -> [Day] {
