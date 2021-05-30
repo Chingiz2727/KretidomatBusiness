@@ -35,7 +35,9 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(NotificationCenter.self) { _ in
             NotificationCenter.default
         }.inObjectScope(.container)
-        
+        container.register(KassOperationReportModule.self) { _ in
+            KassOperationReportViewController()
+        }
         container.register(MenuModule.self) { _ in
             let apiService = container.resolve(ApiService.self)!
             let viewModel = MainMenuViewModel(apiService: apiService)

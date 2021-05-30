@@ -38,6 +38,8 @@ final class MainCoordinator: BaseCoordinator {
             case .logout:
                 let authState = assembler.resolver.resolve(AuthStateObserver.self)!
                 authState.forceLogout()
+            case  .aboutBonus, .aboutCredit:
+                self?.showOperations()
             default:
                 return
             }
@@ -72,6 +74,11 @@ final class MainCoordinator: BaseCoordinator {
         default:
             return
         }
+        router.push(module)
+    }
+    
+    private func showOperations() {
+        let module = assembler.resolver.resolve(KassOperationReportModule.self)!
         router.push(module)
     }
     

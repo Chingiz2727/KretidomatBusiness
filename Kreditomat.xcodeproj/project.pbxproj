@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08924591ADA3F57C6CA3EA55 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */; };
 		5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */; };
 		5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */; };
 		5510BCF3264BFBE600900F4E /* CreatePointFormModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */; };
@@ -202,6 +201,7 @@
 		721069B326639FE800D38FFF /* DataSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069B226639FE800D38FFF /* DataSheetCell.swift */; };
 		721069B526639FFE00D38FFF /* KassOperationReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069B426639FFE00D38FFF /* KassOperationReportViewController.swift */; };
 		721069B82663A01D00D38FFF /* KassOperationReportModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069B72663A01D00D38FFF /* KassOperationReportModule.swift */; };
+		721069BB2663A0AD00D38FFF /* SectinNameValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069BA2663A0AD00D38FFF /* SectinNameValue.swift */; };
 		72567B80264A7680004D45C8 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B7F264A7680004D45C8 /* Menu.swift */; };
 		72567B83264A78BE004D45C8 /* MenuModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B82264A78BE004D45C8 /* MenuModule.swift */; };
 		72567B86264A78EB004D45C8 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B85264A78EB004D45C8 /* MenuView.swift */; };
@@ -224,9 +224,11 @@
 		72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */; };
 		72DF18EC263C2FB200E5F3D6 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */; };
 		72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */; };
+		81FEFB493BEACE1707CEB85D /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13154A890713CA31BE17B195 /* Pods_Kreditomat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13154A890713CA31BE17B195 /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormView.swift; sourceTree = "<group>"; };
 		5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextFieldContainer.swift; sourceTree = "<group>"; };
 		5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormModule.swift; sourceTree = "<group>"; };
@@ -318,7 +320,6 @@
 		5FBE1C3826427D9B001F4CAF /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		5FBE1C3C26427E78001F4CAF /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
 		5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCheckCoordinator.swift; sourceTree = "<group>"; };
-		6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 		7201EF712636DF2D00D25097 /* Kreditomat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kreditomat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7201EF742636DF2D00D25097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7201EF782636DF2D00D25097 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +425,7 @@
 		721069B226639FE800D38FFF /* DataSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSheetCell.swift; sourceTree = "<group>"; };
 		721069B426639FFE00D38FFF /* KassOperationReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationReportViewController.swift; sourceTree = "<group>"; };
 		721069B72663A01D00D38FFF /* KassOperationReportModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationReportModule.swift; sourceTree = "<group>"; };
+		721069BA2663A0AD00D38FFF /* SectinNameValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectinNameValue.swift; sourceTree = "<group>"; };
 		72567B7F264A7680004D45C8 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		72567B82264A78BE004D45C8 /* MenuModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModule.swift; sourceTree = "<group>"; };
 		72567B85264A78EB004D45C8 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -446,8 +448,8 @@
 		72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
+		79E8F05E81071843D7720D7F /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
+		8CEB3BC133EAA45A2AA88979 /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,7 +457,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08924591ADA3F57C6CA3EA55 /* Pods_Kreditomat.framework in Frameworks */,
+				81FEFB493BEACE1707CEB85D /* Pods_Kreditomat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,7 +1262,7 @@
 				7201EF732636DF2D00D25097 /* Kreditomat */,
 				7201EF722636DF2D00D25097 /* Products */,
 				EA97BADE1D40BDC29617CCDE /* Pods */,
-				CA6EC27A451C214EA4EADE0A /* Frameworks */,
+				8E2EA8C675C31365A0755B23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1736,6 +1738,14 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		721069B92663A08D00D38FFF /* SectionNameValue */ = {
+			isa = PBXGroup;
+			children = (
+				721069BA2663A0AD00D38FFF /* SectinNameValue.swift */,
+			);
+			path = SectionNameValue;
+			sourceTree = "<group>";
+		};
 		72392134264A75270050BA37 /* UserFlows */ = {
 			isa = PBXGroup;
 			children = (
@@ -1901,6 +1911,7 @@
 		72F61494263C1ED300039B35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				721069B92663A08D00D38FFF /* SectionNameValue */,
 				5F9FD5212647FB830067EE19 /* TitleAndTextField */,
 				5FB75691264D16A300FD155B /* AmountOperationView */,
 				72567B8C264A7BD3004D45C8 /* NameValueView */,
@@ -1929,10 +1940,10 @@
 			path = "../New Group/TextField";
 			sourceTree = "<group>";
 		};
-		CA6EC27A451C214EA4EADE0A /* Frameworks */ = {
+		8E2EA8C675C31365A0755B23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */,
+				13154A890713CA31BE17B195 /* Pods_Kreditomat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1940,8 +1951,8 @@
 		EA97BADE1D40BDC29617CCDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */,
-				6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */,
+				79E8F05E81071843D7720D7F /* Pods-Kreditomat.debug.xcconfig */,
+				8CEB3BC133EAA45A2AA88979 /* Pods-Kreditomat.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1953,12 +1964,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7201EF852636DF2E00D25097 /* Build configuration list for PBXNativeTarget "Kreditomat" */;
 			buildPhases = (
-				25830B19C036654DCDBAC6AE /* [CP] Check Pods Manifest.lock */,
+				5114CD8FCE5070705839BF37 /* [CP] Check Pods Manifest.lock */,
 				7201EF6D2636DF2D00D25097 /* Sources */,
 				7201EF6E2636DF2D00D25097 /* Frameworks */,
 				7201EF6F2636DF2D00D25097 /* Resources */,
-				9C5F88F867C1578CB5CAF1A5 /* [CP] Embed Pods Frameworks */,
-				6094684F13B597A22A96CCB3 /* [CP] Copy Pods Resources */,
+				23D5D79CE7F70416C8635980 /* [CP] Embed Pods Frameworks */,
+				098C4BDFF32AA5E31460F971 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2019,7 +2030,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25830B19C036654DCDBAC6AE /* [CP] Check Pods Manifest.lock */ = {
+		098C4BDFF32AA5E31460F971 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23D5D79CE7F70416C8635980 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5114CD8FCE5070705839BF37 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2039,40 +2084,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6094684F13B597A22A96CCB3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C5F88F867C1578CB5CAF1A5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2246,6 +2257,7 @@
 				72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */,
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
 				55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */,
+				721069BB2663A0AD00D38FFF /* SectinNameValue.swift in Sources */,
 				7201F08C2636E72100D25097 /* UIScrollView+ReachedBottom.swift in Sources */,
 				55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */,
 				72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */,
@@ -2426,7 +2438,7 @@
 		};
 		7201EF862636DF2E00D25097 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */;
+			baseConfigurationReference = 79E8F05E81071843D7720D7F /* Pods-Kreditomat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2451,7 +2463,7 @@
 		};
 		7201EF872636DF2E00D25097 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */;
+			baseConfigurationReference = 8CEB3BC133EAA45A2AA88979 /* Pods-Kreditomat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
