@@ -29,11 +29,14 @@ final class MainModuleFactory {
     }
     
     func makeAboutKassa() -> AboutKassaModule {
-        return AboutKassaViewController()
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = AboutKassaViewModel(apiService: apiService)
+        return AboutKassaViewController(viewModel: viewModel)
     }
     
     func makeCreatePointForm() -> CreatePointFormModule {
-        let viewModel = CreatePointFormViewModel()
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = CreatePointFormViewModel(apiService: apiService)
         return CreatePointFormViewController(viewModel: viewModel)
     }
     

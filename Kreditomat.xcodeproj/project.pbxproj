@@ -86,6 +86,8 @@
 		5F59180C2655332500317529 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59180B2655332500317529 /* ChangePasswordViewController.swift */; };
 		5F59181126553A6100317529 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59181026553A6100317529 /* ChangePasswordViewModel.swift */; };
 		5F59181526553B6F00317529 /* ChangePassTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59181426553B6F00317529 /* ChangePassTarget.swift */; };
+		5F7DEB0F26639009006A1323 /* MainTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7DEB0E26639009006A1323 /* MainTarget.swift */; };
+		5F7DEB132663903F006A1323 /* AboutKassaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7DEB122663903F006A1323 /* AboutKassaViewModel.swift */; };
 		5F9E096B265245A100E30A2B /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E096A265245A100E30A2B /* city.json */; };
 		5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */; };
 		5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */; };
@@ -298,6 +300,8 @@
 		5F59180B2655332500317529 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		5F59181026553A6100317529 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		5F59181426553B6F00317529 /* ChangePassTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassTarget.swift; sourceTree = "<group>"; };
+		5F7DEB0E26639009006A1323 /* MainTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTarget.swift; sourceTree = "<group>"; };
+		5F7DEB122663903F006A1323 /* AboutKassaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKassaViewModel.swift; sourceTree = "<group>"; };
 		5F9E096A265245A100E30A2B /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		5F9FD51A2647E80E0067EE19 /* AuthUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewModel.swift; sourceTree = "<group>"; };
 		5F9FD5222647FB9E0067EE19 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
@@ -1045,6 +1049,7 @@
 		5F3CCFF6264BFBC3001836A8 /* AboutKassa */ = {
 			isa = PBXGroup;
 			children = (
+				5F7DEB1126639033006A1323 /* ViewModel */,
 				5F3CCFF9264BFBD7001836A8 /* Controller */,
 				5F3CCFF8264BFBD3001836A8 /* Module */,
 				5F3CCFF7264BFBCE001836A8 /* View */,
@@ -1090,6 +1095,14 @@
 				5F59181426553B6F00317529 /* ChangePassTarget.swift */,
 			);
 			path = Target;
+			sourceTree = "<group>";
+		};
+		5F7DEB1126639033006A1323 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F7DEB122663903F006A1323 /* AboutKassaViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5F9E09642652426B00E30A2B /* Model */ = {
@@ -1504,6 +1517,7 @@
 				7201F0492636E5FA00D25097 /* AuthenticationService.swift */,
 				7201F0402636E5CD00D25097 /* ApiRequestable.swift */,
 				7201F0432636E5DC00D25097 /* ApiTarget.swift */,
+				5F7DEB0E26639009006A1323 /* MainTarget.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2048,6 +2062,7 @@
 				5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */,
 				5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */,
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
+				5F7DEB0F26639009006A1323 /* MainTarget.swift in Sources */,
 				7201EFD42636E2BB00D25097 /* BaseCoordinator.swift in Sources */,
 				7201EFF72636E38300D25097 /* DropdownTransitioningDelegate.swift in Sources */,
 				7201F0E52636EA8400D25097 /* StatusBarHeight.swift in Sources */,
@@ -2098,6 +2113,7 @@
 				7201F00D2636E40900D25097 /* SlidingPresentationController.swift in Sources */,
 				7201F0982636E75700D25097 /* Observable+Timer.swift in Sources */,
 				55B818EB26563258007DB5F9 /* MapView.swift in Sources */,
+				5F7DEB132663903F006A1323 /* AboutKassaViewModel.swift in Sources */,
 				5FBE1C3926427D9B001F4CAF /* AuthCoordinator.swift in Sources */,
 				72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */,
 				5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */,

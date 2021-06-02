@@ -7,20 +7,11 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     var mapTapped: MapTapped?
     
     typealias RootViewType = RegisterView
-
+    
     var offerTapped: OfferButtonTapped?
     var registerTapped: RegisterTapped?
     
-    var isValidEmail : Observable<Bool> {
-        return emailSubject.map { $0!.validEmail()}
-    }
-//    var isValidPhone: Observable<Bool> {
-//        return phoneSubject.map { $0.}
-//    }
-//    var isValidBin: Observable<Bool>{
-//        binSubject.map { $0.val}
-//    }
-
+    
     private let viewModel: RegisterViewModel
     private let disposeBag = DisposeBag()
     
@@ -47,7 +38,6 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        bindViewValidation()
         setupCityPickerView()
         title = "Регистрация"
         
@@ -168,48 +158,33 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         putAddress = { [unowned self] address in
             self.rootView.coordinateTextField.text = address.name
         }
-    }
-    
-    private func bindViewValidation() {
-        rootView.nameUserView.textField.rx.text
-            .bind(to: viewModel.nameSubject)
-            .disposed(by: disposeBag)
         
-        rootView.binUserView.textField.rx.text
-            .bind(to: viewModel.binSubject)
-            .disposed(by: disposeBag)
-        
-        rootView.cityView.cityListTextField.textField.rx.text
-            .bind(to: viewModel.citySubject)
-            .disposed(by: disposeBag)
-        
-        rootView.streetView.textField.rx.text
-            .bind(to: viewModel.streetSubject)
-            .disposed(by: disposeBag)
-        
-        rootView.numberHouse.rx.text
-            .bind(to: viewModel.houseNumberSubject)
-            .disposed(by: disposeBag)
-        
-        rootView.numberPhoneTextField.rx.text
-            .bind(to: viewModel.phoneSubject)
-            .disposed(by: disposeBag)
-        
-        rootView.emailTextField.rx.text
-            .bind(to: viewModel.emailSubject)
-            .disposed(by: disposeBag)
-        
-//        rootView.offerView.checkBox.rx.tap
-//            .bind(to: viewModel.selectCheckBox)
-//            .disposed(by: disposeBag)
-        
-        
-        viewModel.isValidForm
-            .distinctUntilChanged()
+        isNextButtonEnabled(name: rootView.nameUserView.textField.rx.text.orEmpty.asObservable(),
+                            bin: rootView.binUserView.textField.rx.text.orEmpty.asObservable(),
+                            city: rootView.cityView.cityListTextField.textField.rx.text.orEmpty.asObservable(),
+                            street: rootView.streetView.textField.rx.text.orEmpty.asObservable(),
+                            phone: rootView.numberPhoneTextField.rx.text.orEmpty.asObservable(),
+                            email: rootView.emailTextField.rx.text.orEmpty.asObservable(),
+                            coordinate: rootView.coordinateTextField.rx.text.orEmpty.asObservable(),
+                            checkBox: rootView.offerView.checkBox.rx.tap.asObservable())
             .bind(to: rootView.registerButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
-        
+    }
+    
+    func isNextButtonEnabled(name: Observable<String>, bin: Observable<String>, city: Observable<String>, street: Observable<String>, phone: Observable<String>, email: Observable<String>, coordinate: Observable<String>, checkBox: Observable<Void>) -> Observable<Bool> {
+        return Observable.combineLatest(
+            [
+                name.map { $0.count >= 5 },
+                bin.map { $0.count >= 9},
+                city.map { !$0.isEmpty},
+                street.map { !$0.isEmpty},
+                phone.map { $0.count >= 9},
+                email.map { $0.validEmail() },
+                coordinate.map { !$0.isEmpty },
+                checkBox.scan(false) { state, _ in !state }.startWith(false)
+            ]
+        )
+        .map { $0.allSatisfy { $0 } }
     }
     
     private func setupCityPickerView() {
