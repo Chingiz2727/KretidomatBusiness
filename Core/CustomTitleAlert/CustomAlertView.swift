@@ -119,10 +119,10 @@ final class CustomAlertView: UIView {
         subtitleTitleLabel.numberOfLines = 0
         descriptionTitleLabel.numberOfLines = 0
         descriptionSubtitleLabel.numberOfLines = 0
-        titleLabel.font = .systemFont(ofSize: 14)
-        descriptionTitleLabel.font = .systemFont(ofSize: 14)
-        descriptionSubtitleLabel.font = .boldSystemFont(ofSize: 14)
-        subtitleTitleLabel.font = .boldSystemFont(ofSize: 14)
+        titleLabel.font = .regular14
+        descriptionTitleLabel.font = .regular14
+        descriptionSubtitleLabel.font = .bold15
+        subtitleTitleLabel.font = .bold15
         acceptButton.layer.cornerRadius = 20
         declineButton.layer.cornerRadius = 20
         backgroundColor = UIColor.black.withAlphaComponent(0.3)
