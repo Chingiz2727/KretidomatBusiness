@@ -1,10 +1,11 @@
-
+import RxSwift
 import SpreadsheetView
 import UIKit
 
 class KassOperationReportViewController: UIViewController, KassOperationReportModule, ViewHolder {
     typealias RootViewType = KassOperationReportView
-    
+    var filterTapped: FilterTapped?
+    private let disposeBag = DisposeBag()
     private let operationTitle: [String] = ["ID операции", "Дата и время", "Тип операции", "ФИО Кассира", "Текущий остаток"]
     override func loadView() {
         view = KassOperationReportView()
@@ -13,6 +14,10 @@ class KassOperationReportViewController: UIViewController, KassOperationReportMo
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.dataTable.dataSource = self
+        rootView.calendarButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.filterTapped?()
+            }).disposed(by: disposeBag)
     }
 
 }

@@ -78,7 +78,10 @@ final class MainCoordinator: BaseCoordinator {
     }
     
     private func showOperations() {
-        let module = assembler.resolver.resolve(KassOperationReportModule.self)!
+        var module = assembler.resolver.resolve(KassOperationReportModule.self)!
+        module.filterTapped = { [weak self] in
+            self?.kassoperationFilter()
+        }
         router.push(module)
     }
     
@@ -112,6 +115,11 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showResetPassword() {
         let module = moduleFactory.makeResetPassword()
+        router.push(module)
+    }
+    
+    private func kassoperationFilter() {
+        let module = assembler.resolver.resolve(KassOperationFilterModule.self)!
         router.push(module)
     }
 }

@@ -47,6 +47,7 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(AVMediaType.self) { _ in
             AVMediaType.video
         }
+        
 
         container.register(AVCaptureDevice.self) { _ in
             let mediaType = container.resolve(AVMediaType.self)!
@@ -82,6 +83,9 @@ public final class DependencyContainerAssembly: Assembly {
     }
         container.register(SignatureModule.self) { _ in
             return SignatureViewController()
+        }
+        container.register(KassOperationFilterModule.self) { _ in
+            return KassOperationFilterViewController()
         }
 }
 }

@@ -26,5 +26,6 @@ target 'Kreditomat' do
   pod 'GoogleMaps', '4.2.0'
   pod 'GooglePlaces', '4.2.0'
   pod 'SpreadsheetView'
+  pod "Koyomi"
 
 end

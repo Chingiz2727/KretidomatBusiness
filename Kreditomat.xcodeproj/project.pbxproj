@@ -214,6 +214,12 @@
 		72567B9B264A8A48004D45C8 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B9A264A8A48004D45C8 /* SignatureView.swift */; };
 		727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727431482650535E00A1B9F4 /* CustomAlertViewController.swift */; };
 		7286B5BA264FCCAB0015FA4F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */; };
+		729B16F626669AB50082355D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729B16F526669AB50082355D /* CalendarView.swift */; };
+		72A6167F266450610005B25C /* KassOperatiolFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A6167E266450610005B25C /* KassOperatiolFilterView.swift */; };
+		72A61682266450960005B25C /* KassOperationFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61681266450960005B25C /* KassOperationFilterViewController.swift */; };
+		72A61685266450B80005B25C /* KassOperationFilterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61684266450B80005B25C /* KassOperationFilterModule.swift */; };
+		72A61688266452F70005B25C /* CheapsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61687266452F70005B25C /* CheapsCollectionViewCell.swift */; };
+		72A6168A2664530B0005B25C /* CheapsSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A616892664530B0005B25C /* CheapsSelectorView.swift */; };
 		72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */; };
 		72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */; };
 		72DF18BB263C2C9400E5F3D6 /* RightButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */; };
@@ -438,6 +444,12 @@
 		72567B9A264A8A48004D45C8 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		727431482650535E00A1B9F4 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		729B16F526669AB50082355D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		72A6167E266450610005B25C /* KassOperatiolFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperatiolFilterView.swift; sourceTree = "<group>"; };
+		72A61681266450960005B25C /* KassOperationFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationFilterViewController.swift; sourceTree = "<group>"; };
+		72A61684266450B80005B25C /* KassOperationFilterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationFilterModule.swift; sourceTree = "<group>"; };
+		72A61687266452F70005B25C /* CheapsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapsCollectionViewCell.swift; sourceTree = "<group>"; };
+		72A616892664530B0005B25C /* CheapsSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapsSelectorView.swift; sourceTree = "<group>"; };
 		72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
 		72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextFieldState.swift; sourceTree = "<group>"; };
 		72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightButtonTextField.swift; sourceTree = "<group>"; };
@@ -542,6 +554,7 @@
 		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				72A6167D2664504A0005B25C /* KassOperationFilter */,
 				72C67CB126639E16000CB03D /* KassOperations */,
 				5FA65059265531B4009B93F7 /* ChangePassword */,
 				5F3CCFF6264BFBC3001836A8 /* AboutKassa */,
@@ -1295,6 +1308,7 @@
 		7201EF9E2636E0B700D25097 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				72A61686266452E60005B25C /* CheapsView */,
 				7286B5B8264FCC9C0015FA4F /* CustomTitleAlert */,
 				7201F0F52636EBC400D25097 /* Anchors */,
 				7201F0F12636EB7600D25097 /* AccessCode */,
@@ -1854,12 +1868,55 @@
 			path = CustomTitleAlert;
 			sourceTree = "<group>";
 		};
+		729B16F426669AA80082355D /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				729B16F526669AB50082355D /* CalendarView.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 		729E279B264A75A600029268 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				72567B7F264A7680004D45C8 /* Menu.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		72A6167D2664504A0005B25C /* KassOperationFilter */ = {
+			isa = PBXGroup;
+			children = (
+				72A616832664509E0005B25C /* Module */,
+				72A61680266450860005B25C /* Controller */,
+				72A6167E266450610005B25C /* KassOperatiolFilterView.swift */,
+			);
+			path = KassOperationFilter;
+			sourceTree = "<group>";
+		};
+		72A61680266450860005B25C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				72A61681266450960005B25C /* KassOperationFilterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		72A616832664509E0005B25C /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				72A61684266450B80005B25C /* KassOperationFilterModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		72A61686266452E60005B25C /* CheapsView */ = {
+			isa = PBXGroup;
+			children = (
+				72A61687266452F70005B25C /* CheapsCollectionViewCell.swift */,
+				72A616892664530B0005B25C /* CheapsSelectorView.swift */,
+			);
+			path = CheapsView;
 			sourceTree = "<group>";
 		};
 		72C67CB126639E16000CB03D /* KassOperations */ = {
@@ -1911,6 +1968,7 @@
 		72F61494263C1ED300039B35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				729B16F426669AA80082355D /* CalendarView */,
 				721069B92663A08D00D38FFF /* SectionNameValue */,
 				5F9FD5212647FB830067EE19 /* TitleAndTextField */,
 				5FB75691264D16A300FD155B /* AmountOperationView */,
@@ -2139,6 +2197,7 @@
 				5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */,
 				55738B09264801ED00CE2BD5 /* SumView.swift in Sources */,
 				55738B4E264A3CB000CE2BD5 /* PointCell.swift in Sources */,
+				72A6167F266450610005B25C /* KassOperatiolFilterView.swift in Sources */,
 				7201F0AB2636E7C300D25097 /* ProgressView.swift in Sources */,
 				55738B62264A57E300CE2BD5 /* AttachCashierView.swift in Sources */,
 				72DF18EC263C2FB200E5F3D6 /* BaseButton.swift in Sources */,
@@ -2210,9 +2269,11 @@
 				55B818F826565F3E007DB5F9 /* Address.swift in Sources */,
 				7201F0442636E5DC00D25097 /* ApiTarget.swift in Sources */,
 				7201F09B2636E76400D25097 /* String+Unwrap.swift in Sources */,
+				72A61682266450960005B25C /* KassOperationFilterViewController.swift in Sources */,
 				7201F0652636E67600D25097 /* StubApiRequset.swift in Sources */,
 				7201F0D72636E9E400D25097 /* UIStackView+Init.swift in Sources */,
 				5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */,
+				729B16F626669AB50082355D /* CalendarView.swift in Sources */,
 				72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */,
 				5F3CCFAB264BDBC8001836A8 /* ResetPasswordViewController.swift in Sources */,
 				7201EFE62636E31400D25097 /* DeepLinkActionFactory.swift in Sources */,
@@ -2227,6 +2288,7 @@
 				55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */,
 				7201F0BB2636E83100D25097 /* ViewHolder.swift in Sources */,
 				7201F0222636E49E00D25097 /* InputValidatable.swift in Sources */,
+				72A61685266450B80005B25C /* KassOperationFilterModule.swift in Sources */,
 				7201F0DD2636E9FE00D25097 /* UITableView+Reuse.swift in Sources */,
 				7201F0182636E45400D25097 /* StoriesPresentAnimationController.swift in Sources */,
 				5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */,
@@ -2246,6 +2308,7 @@
 				5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */,
 				7201F0472636E5EC00D25097 /* HTTPMethod.swift in Sources */,
 				7201F0682636E68300D25097 /* AuthServiceAssembly.swift in Sources */,
+				72A61688266452F70005B25C /* CheapsCollectionViewCell.swift in Sources */,
 				55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */,
 				72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */,
 				7201EFD02636E2AE00D25097 /* CloseableViewController.swift in Sources */,
@@ -2296,6 +2359,7 @@
 				55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */,
 				721069B326639FE800D38FFF /* DataSheetCell.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
+				72A6168A2664530B0005B25C /* CheapsSelectorView.swift in Sources */,
 				5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */,
 				55738B33264940C500CE2BD5 /* SuccessModule.swift in Sources */,
 				72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */,
