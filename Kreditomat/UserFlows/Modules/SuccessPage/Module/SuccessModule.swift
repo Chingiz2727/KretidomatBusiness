@@ -7,5 +7,6 @@
 
 import Foundation
 protocol SuccessModule: Presentable {
-    
+    typealias CloseTapped = () -> Void
+    var closeTapped: CloseTapped? { get set }
 }

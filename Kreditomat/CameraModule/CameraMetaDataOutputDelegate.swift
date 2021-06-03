@@ -1,6 +1,6 @@
 import AVFoundation
 protocol CameraMetadataOutput {
-    typealias QrScanned = (String) -> Void
+    typealias QrScanned = (qrResult) -> Void
 
     var qrScanned: QrScanned? { get set }
 }
@@ -15,8 +15,28 @@ final class CameraMetadaOutputDelegate: NSObject, AVCaptureMetadataOutputObjects
     ) {
         guard let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject else { return }
         if object.type == .qr {
-            guard let objectString = object.stringValue else { return }
-            self.qrScanned?(objectString)
+            guard let objectString = object.stringValue?.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "", with: "").replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "{", with: "").replacingOccurrences(of: "}", with: "") else { return }
+            let array = objectString.split(separator: .init(","))
+            let values = array.map { $0.split(separator: ":").last}
+            let result = qrResult(FIO: String(values[0] ?? ""), CreditSum: Int(String(values[1] ?? "")) ?? 0, ClientID: Int(String(values[2] ?? "")) ?? 0 , CreditID: Int(String(values[3] ?? "")) ?? 0)
+            self.qrScanned?(result)
         }
+    }
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+
+}
+
+extension String {
+    func getCharacerByInde() {
+        
     }
 }
