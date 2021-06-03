@@ -31,6 +31,11 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func bindViewModel() {
         Observable.just(menu)
             .bind(to: rootView.tableView.rx.items(UITableViewCell.self)) { _, model, cell in

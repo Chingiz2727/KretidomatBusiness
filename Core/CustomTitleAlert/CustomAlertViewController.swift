@@ -55,7 +55,9 @@ enum AlertType {
         case .logout:
             return "Вы уверены что хотите выйти с приложения KREDITOMAT.KZ"
         case .getCreditPay:
-            return "Вы принимаете оплату микрокредита от заемщикаа"
+            return "Вы принимаете оплату микрокредита от заемщика:"
+        case .giveCredit:
+            return "Вы выдаете денежные средства на сумму:"
         default:
             return nil
         }
@@ -75,6 +77,8 @@ enum AlertType {
             return name
         case .getCreditPay(_,let fio):
             return fio
+        case  .giveCredit(let sum, _):
+            return "\(sum) тенге"
         default:
             return nil
         }
@@ -88,6 +92,10 @@ enum AlertType {
             return "на сумму:"
         case .logout:
             return "Прежде чем выйти из приложения, просим запомнить предоставленный Вам пароль или замените его на новый"
+        case .getCreditPay:
+            return "на сумму:"
+        case  .giveCredit:
+            return "Заемщик:"
         default:
             return nil
         }
@@ -100,7 +108,9 @@ enum AlertType {
         case .getMoneyFromPoint(_,let sum),.giveMoneyToPoint(_ , let sum):
             return "\(sum) тенге"
         case .getCreditPay(let sum, _):
-            return "на сумму: \(sum) тенге"
+            return "\(sum) тенге"
+        case .giveCredit(_, let fio):
+            return fio
         default:
             return nil
         }
@@ -117,7 +127,7 @@ enum AlertType {
     
     var secondButtonHidden: Bool {
         switch self {
-        case .getMoneyFromPoint, .getCreditPay,.blockKassir, .blockPoint, .logout:
+        case .getMoneyFromPoint, .getCreditPay,.blockKassir, .blockPoint, .logout, .giveCredit:
             return false
         default:
             return true

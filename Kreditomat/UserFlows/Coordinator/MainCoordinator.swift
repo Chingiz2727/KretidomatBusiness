@@ -27,6 +27,8 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showCabinet(data: data)
             case .createPoint:
                 self?.showCreatePoint()
+            case .createCashier:
+                self?.showCreateCashier()
             case .getCredit:
                 self?.showCamera(type: .giveCredit)
             case .clearCredit:
@@ -43,6 +45,11 @@ final class MainCoordinator: BaseCoordinator {
             }
         }
         router.setRootModule(module)
+    }
+    
+    private func showCreateCashierForm() {
+        let module = moduleFactory.makeCreateCashierForm()
+        router.push(module)
     }
     
     private func showCabinet(data: CabinetData) {
@@ -64,13 +71,30 @@ final class MainCoordinator: BaseCoordinator {
         switch module.cameraActionType {
         case .giveCredit:
             module.giveCredit = { [weak self] qr in
-                self?.showSignature()
+                self?.showSignature(data: qr)
             }
         case .payCredit:
-            module.payCredit = { [weak self] qr in
+            module.showSucces = { [weak self] qr in
+                self?.showSuccess(data: qr)
             }
         default:
             return
+        }
+        router.push(module)
+    }
+    
+    private func showSuccess(data: qrResult) {
+        var module = moduleFactory.makeSuccess(data: data)
+        module.closeTapped = { [weak self] in
+            self?.router.popToRootModule()
+        }
+        router.push(module)
+    }
+    
+    private func showCreateCashier() {
+        var module = moduleFactory.makeCreateCashier()
+        module.create = { [weak self] in
+            self?.showCreateCashierForm()
         }
         router.push(module)
     }
@@ -85,8 +109,11 @@ final class MainCoordinator: BaseCoordinator {
         router.push(module)
     }
     
-    private func showSignature() {
-        let module = assembler.resolver.resolve(SignatureModule.self)!
+    private func showSignature(data: qrResult) {
+        var module = moduleFactory.makeSignature(data: data)
+        module.showSucces = { [weak self] data in
+            self?.showSuccess(data: data)
+        }
         router.push(module)
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 final class CameraView: UIView {
-    private let titleLabel = UILabel()
+    let titleLabel = UILabel()
     private let rectangleImageView = UIImageView()
     let contentView = UIView()
 
