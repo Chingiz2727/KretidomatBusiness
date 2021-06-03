@@ -51,7 +51,6 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         let output = viewModel.transform(input:
                                             .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in},
                                                   createPointTapped: rootView.createButton.rx.tap.asObservable()))
-//        let output = viewModel.transform(input: .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in  }))
         
         let day = output.getDay.publish()
         
@@ -105,6 +104,15 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
             .subscribe(onNext: { [unowned self] text in
                 self.viewModel.apartments = text
             }).disposed(by: disposeBag)
+        
+        Observable.combineLatest(rootView.startDayTextField.textField.rx.text.unwrap(),
+                                 rootView.endDayTextField.textField.rx.text.unwrap(),
+                                 rootView.startTimeTextField.rx.text.unwrap(),
+                                 rootView.endTimeTextField.rx.text.unwrap())
+            .subscribe(onNext:  { [unowned self] startDay, endDay, startTime, endTime in
+                self.viewModel.workingTime = "\(startDay)-\(endDay); \(startTime) - \(endTime)"
+            }).disposed(by: disposeBag)
+            
         
         let createPoint = output.createPoint.publish()
         

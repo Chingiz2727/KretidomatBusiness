@@ -19,6 +19,7 @@ final class CreatePointFormViewModel: ViewModel {
     var bin: String = ""
     var lat: Double = 0.0
     var long: Double = 0.0
+    var workingTime: String = ""
     
     struct Input {
         let loadDay: Observable<Void>
@@ -46,7 +47,7 @@ final class CreatePointFormViewModel: ViewModel {
         
         let point = input.createPointTapped
             .flatMap { [unowned self] _ in
-                apiService.makeRequest(to: MainTarget.registerPoint(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: String(lat), posLng: String(long)))
+                apiService.makeRequest(to: MainTarget.registerPoint(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: String(lat), posLng: String(long), workingTime: workingTime))
                     .result(ResponseStatus.self)
                     .asLoadingSequence()
             }.share()
