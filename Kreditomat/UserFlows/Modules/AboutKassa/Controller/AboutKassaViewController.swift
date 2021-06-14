@@ -48,7 +48,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         result.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    self.presentCustomAlert(type: .giveMoneyToPoint(name: "", sum: rootView.amountOperationView.amountTextField.allText))
+                    self.presentCustomAlert(type: .giveMoneyToPoint(name: "", sum: rootView.amountOperationView.amountTextField.allText), secondButtonAction:  {
+                        self.navigationController?.popViewController(animated: true)
+                    })
                 } else {
                     self.showErrorInAlert(text: result.Message)
                 }
