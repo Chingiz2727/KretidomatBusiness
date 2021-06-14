@@ -11,6 +11,8 @@ import AVFoundation
 import UIKit
 
 class CameraViewController: ViewController, CameraModule {
+    var errorTapped: Callback?
+    
     var showSucces: ShowSuccess?
     
     var giveCredit: GiveCredit?
@@ -101,6 +103,12 @@ class CameraViewController: ViewController, CameraModule {
                             self.dismiss(animated: true) {
                                 self.showSucces?(qr)
                             }
+                        } else {
+                            self.dismiss(animated: true) {
+                                showErrorAlert(title: "Ошибка", message: res.Message) {
+                                    self.errorTapped?()
+                                }
+                        }
                         }
                     }).disposed(by: disposeBag)
                 

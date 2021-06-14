@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 class CreateCashierView: UIView {
+    private let disposeBag = DisposeBag()
+    var blockTapped = PublishSubject<Void>()
+    var cashiers: [CashierData] = []
     let questionLabel: UILabel = {
         let label = UILabel()
         label.text =  "Вы хотите создать нового кассира?"
@@ -88,19 +92,42 @@ class CreateCashierView: UIView {
         addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(cashiersList.snp.bottom).offset(20)
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.bottom.equalToSuperview().inset(16)
         }
     }
     
     private func configureView() {
+        tableView.register(CashierCell.self, forCellReuseIdentifier: "cashier")
         backgroundColor = .background
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        tableView.registerClassForCell(PointCell.self)
-        tableView.rowHeight = 400
-        cashiersList.textField.placeholder = "Все ..."
+        tableView.rowHeight = 170
+        cashiersList.textField.placeholder = "Выберите кассира"
         createButton.layer.addShadow()
         cashiersList.layer.addShadow()
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
+        backgroundColor = .white
+    }
+}
+
+extension CreateCashierView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cashiers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cashier", for: indexPath) as! CashierCell
+        let cashier = cashiers[indexPath.row]
+        cell.setupData(data: cashier)
+        cell.bodyLockImage.addTarget(self, action: #selector(lockTapped), for: .touchUpInside)
+        cell.selectionStyle = .none
+        cell.layer.addShadow()
+        return cell
+    }
+    
+    @objc func lockTapped() {
+        blockTapped.onNext(())
     }
 }

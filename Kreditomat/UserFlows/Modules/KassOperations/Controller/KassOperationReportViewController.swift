@@ -102,7 +102,7 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
         let items = operations?.data.sellerBalanceOperations[indexPath.row]
         if case (0...(5), 0) = (indexPath.column, indexPath.row) {
             cell.titleLabel.text = operationTitle[indexPath.column]
-            cell.backgroundColor = .primary.withAlphaComponent(0.1)
+            cell.backgroundColor = UIColor.primary.withAlphaComponent(0.1)
 
         } else if case (0...(9), 0...5) = (indexPath.row, indexPath.column) {
             if indexPath.row % 2 != 0 {
@@ -111,7 +111,7 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
                 cell.titleLabel.textColor = .error
             }
             if indexPath.column == 0 {
-                cell.backgroundColor = .primary.withAlphaComponent(0.1)
+                cell.backgroundColor = UIColor.primary.withAlphaComponent(0.1)
             }
             if indexPath.column == 0 {
                 cell.titleLabel.text = "\(items?.requestID)"
