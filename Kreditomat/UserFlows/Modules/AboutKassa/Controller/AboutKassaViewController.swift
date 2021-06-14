@@ -11,6 +11,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
     private let pointPickerView = UIPickerView()
     private let disposeBag = DisposeBag()
     private let buttontapped: PublishSubject<Void> = .init()
+    private let makeRefillActioin = PublishSubject<Void>()
+    private let makeWithAction = PublishSubject<Void>()
+
     private let pointsSelledId = PublishSubject<Int>()
     private var points: [Point] = []
     
@@ -87,7 +90,32 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         
         rootView.accessButton.rx.tap.subscribe(onNext: { [unowned self] tap in
             self.buttontapped.onNext(())
-        } )
+        })
+            .disposed(by: disposeBag)
+        
+        rootView.accessButton.rx.tap
+            .withLatestFrom(rootView.selectTag)
+            .subscribe(onNext: { [unowned self] tag in
+                if tag == 1 {
+                    self.presentCustomAlert(type: .giveMoneyToPoint(name: "name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                        self.makeRefillActioin.onNext(())
+                        self.dismiss(animated: true, completion: nil)
+                    } secondButtonAction: {
+                        
+                    }
+
+                    //refill
+                } else {
+                    //withdrawwl
+                    self.presentCustomAlert(type: .getMoneyFromPoint(name: "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                        self.makeWithAction.onNext(())
+                        self.dismiss(animated: true, completion: nil)
+                    } secondButtonAction: {
+                        
+                    }
+
+                }
+            })
             .disposed(by: disposeBag)
     }
     
