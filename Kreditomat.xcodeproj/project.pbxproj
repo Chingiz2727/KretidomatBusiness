@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08924591ADA3F57C6CA3EA55 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */; };
 		5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */; };
 		5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */; };
 		5510BCF3264BFBE600900F4E /* CreatePointFormModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */; };
@@ -214,6 +213,13 @@
 		7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F0FF2636EC6300D25097 /* DependencyContainer.swift */; };
 		7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F1042636ED9700D25097 /* AppCoordinator.swift */; };
 		7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201F10A2636EDC600D25097 /* AppCoordinatorFactory.swift */; };
+		721069AD26639FA000D38FFF /* TableSheetHeaderDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069AC26639FA000D38FFF /* TableSheetHeaderDownload.swift */; };
+		721069B026639FC600D38FFF /* KassaOperationReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069AF26639FC600D38FFF /* KassaOperationReportView.swift */; };
+		721069B326639FE800D38FFF /* DataSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069B226639FE800D38FFF /* DataSheetCell.swift */; };
+		721069B526639FFE00D38FFF /* KassOperationReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069B426639FFE00D38FFF /* KassOperationReportViewController.swift */; };
+		721069B82663A01D00D38FFF /* KassOperationReportModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069B72663A01D00D38FFF /* KassOperationReportModule.swift */; };
+		721069BB2663A0AD00D38FFF /* SectinNameValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721069BA2663A0AD00D38FFF /* SectinNameValue.swift */; };
+		721B4D1C267334220054B63C /* KassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721B4D1B267334220054B63C /* KassFilter.swift */; };
 		72567B80264A7680004D45C8 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B7F264A7680004D45C8 /* Menu.swift */; };
 		72567B83264A78BE004D45C8 /* MenuModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B82264A78BE004D45C8 /* MenuModule.swift */; };
 		72567B86264A78EB004D45C8 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B85264A78EB004D45C8 /* MenuView.swift */; };
@@ -224,8 +230,20 @@
 		72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B96264A88B9004D45C8 /* SignatureModule.swift */; };
 		72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B98264A891E004D45C8 /* SignatureViewController.swift */; };
 		72567B9B264A8A48004D45C8 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B9A264A8A48004D45C8 /* SignatureView.swift */; };
+		72721E702675DA2F00DA871A /* PaymentOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E6F2675DA2F00DA871A /* PaymentOperations.swift */; };
+		72721E7326770BEB00DA871A /* TimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E7226770BEB00DA871A /* TimesView.swift */; };
+		72721E75267751ED00DA871A /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E74267751ED00DA871A /* OperationType.swift */; };
 		727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727431482650535E00A1B9F4 /* CustomAlertViewController.swift */; };
+		7281C961266F88A40057F683 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7281C960266F88A40057F683 /* DateFormatting.swift */; };
+		7281C963266F88B50057F683 /* PropertyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7281C962266F88B50057F683 /* PropertyFormatter.swift */; };
 		7286B5BA264FCCAB0015FA4F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */; };
+		729B16F626669AB50082355D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729B16F526669AB50082355D /* CalendarView.swift */; };
+		72A6167F266450610005B25C /* KassOperatiolFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A6167E266450610005B25C /* KassOperatiolFilterView.swift */; };
+		72A61682266450960005B25C /* KassOperationFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61681266450960005B25C /* KassOperationFilterViewController.swift */; };
+		72A61685266450B80005B25C /* KassOperationFilterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61684266450B80005B25C /* KassOperationFilterModule.swift */; };
+		72A61688266452F70005B25C /* CheapsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61687266452F70005B25C /* CheapsCollectionViewCell.swift */; };
+		72A6168A2664530B0005B25C /* CheapsSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A616892664530B0005B25C /* CheapsSelectorView.swift */; };
+		72D0A720267097500081DEE5 /* KassOperationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0A71F267097500081DEE5 /* KassOperationsViewModel.swift */; };
 		72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */; };
 		72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */; };
 		72DF18BB263C2C9400E5F3D6 /* RightButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */; };
@@ -236,9 +254,11 @@
 		72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */; };
 		72DF18EC263C2FB200E5F3D6 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */; };
 		72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */; };
+		81FEFB493BEACE1707CEB85D /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13154A890713CA31BE17B195 /* Pods_Kreditomat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13154A890713CA31BE17B195 /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormView.swift; sourceTree = "<group>"; };
 		5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextFieldContainer.swift; sourceTree = "<group>"; };
 		5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormModule.swift; sourceTree = "<group>"; };
@@ -347,7 +367,6 @@
 		5FBE1C3826427D9B001F4CAF /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		5FBE1C3C26427E78001F4CAF /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
 		5FBE1C402642C76B001F4CAF /* AuthCheckCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCheckCoordinator.swift; sourceTree = "<group>"; };
-		6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 		7201EF712636DF2D00D25097 /* Kreditomat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kreditomat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7201EF742636DF2D00D25097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7201EF782636DF2D00D25097 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -448,6 +467,13 @@
 		7201F0FF2636EC6300D25097 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		7201F1042636ED9700D25097 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7201F10A2636EDC600D25097 /* AppCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorFactory.swift; sourceTree = "<group>"; };
+		721069AC26639FA000D38FFF /* TableSheetHeaderDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSheetHeaderDownload.swift; sourceTree = "<group>"; };
+		721069AF26639FC600D38FFF /* KassaOperationReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassaOperationReportView.swift; sourceTree = "<group>"; };
+		721069B226639FE800D38FFF /* DataSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSheetCell.swift; sourceTree = "<group>"; };
+		721069B426639FFE00D38FFF /* KassOperationReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationReportViewController.swift; sourceTree = "<group>"; };
+		721069B72663A01D00D38FFF /* KassOperationReportModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationReportModule.swift; sourceTree = "<group>"; };
+		721069BA2663A0AD00D38FFF /* SectinNameValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectinNameValue.swift; sourceTree = "<group>"; };
+		721B4D1B267334220054B63C /* KassFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassFilter.swift; sourceTree = "<group>"; };
 		72567B7F264A7680004D45C8 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		72567B82264A78BE004D45C8 /* MenuModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModule.swift; sourceTree = "<group>"; };
 		72567B85264A78EB004D45C8 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -458,8 +484,20 @@
 		72567B96264A88B9004D45C8 /* SignatureModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureModule.swift; sourceTree = "<group>"; };
 		72567B98264A891E004D45C8 /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		72567B9A264A8A48004D45C8 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		72721E6F2675DA2F00DA871A /* PaymentOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOperations.swift; sourceTree = "<group>"; };
+		72721E7226770BEB00DA871A /* TimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesView.swift; sourceTree = "<group>"; };
+		72721E74267751ED00DA871A /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		727431482650535E00A1B9F4 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		7281C960266F88A40057F683 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
+		7281C962266F88B50057F683 /* PropertyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFormatter.swift; sourceTree = "<group>"; };
 		7286B5B9264FCCAB0015FA4F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		729B16F526669AB50082355D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		72A6167E266450610005B25C /* KassOperatiolFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperatiolFilterView.swift; sourceTree = "<group>"; };
+		72A61681266450960005B25C /* KassOperationFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationFilterViewController.swift; sourceTree = "<group>"; };
+		72A61684266450B80005B25C /* KassOperationFilterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationFilterModule.swift; sourceTree = "<group>"; };
+		72A61687266452F70005B25C /* CheapsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapsCollectionViewCell.swift; sourceTree = "<group>"; };
+		72A616892664530B0005B25C /* CheapsSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapsSelectorView.swift; sourceTree = "<group>"; };
+		72D0A71F267097500081DEE5 /* KassOperationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KassOperationsViewModel.swift; sourceTree = "<group>"; };
 		72DF18B3263C2C5B00E5F3D6 /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
 		72DF18B7263C2C7200E5F3D6 /* RegularTextFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextFieldState.swift; sourceTree = "<group>"; };
 		72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightButtonTextField.swift; sourceTree = "<group>"; };
@@ -470,8 +508,8 @@
 		72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
+		79E8F05E81071843D7720D7F /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
+		8CEB3BC133EAA45A2AA88979 /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,7 +517,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08924591ADA3F57C6CA3EA55 /* Pods_Kreditomat.framework in Frameworks */,
+				81FEFB493BEACE1707CEB85D /* Pods_Kreditomat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +694,8 @@
 		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				72A6167D2664504A0005B25C /* KassOperationFilter */,
+				72C67CB126639E16000CB03D /* KassOperations */,
 				5560EE34265BDF2E0032BFFA /* CreateCashierForm */,
 				5560EE19265BD92E0032BFFA /* CreateCashier */,
 				5FA65059265531B4009B93F7 /* ChangePassword */,
@@ -1427,7 +1467,7 @@
 				7201EF732636DF2D00D25097 /* Kreditomat */,
 				7201EF722636DF2D00D25097 /* Products */,
 				EA97BADE1D40BDC29617CCDE /* Pods */,
-				CA6EC27A451C214EA4EADE0A /* Frameworks */,
+				8E2EA8C675C31365A0755B23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1460,6 +1500,8 @@
 		7201EF9E2636E0B700D25097 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7281C95F266F888D0057F683 /* DateFormatter */,
+				72A61686266452E60005B25C /* CheapsView */,
 				7286B5B8264FCC9C0015FA4F /* CustomTitleAlert */,
 				7201F0F52636EBC400D25097 /* Anchors */,
 				7201F0F12636EB7600D25097 /* AccessCode */,
@@ -1878,6 +1920,55 @@
 			path = AppCoordinatorFactory;
 			sourceTree = "<group>";
 		};
+		721069AE26639FB600D38FFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				721069AF26639FC600D38FFF /* KassaOperationReportView.swift */,
+				721069B226639FE800D38FFF /* DataSheetCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		721069B126639FCC00D38FFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				721069B426639FFE00D38FFF /* KassOperationReportViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		721069B62663A00D00D38FFF /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				721069B72663A01D00D38FFF /* KassOperationReportModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		721069B92663A08D00D38FFF /* SectionNameValue */ = {
+			isa = PBXGroup;
+			children = (
+				721069BA2663A0AD00D38FFF /* SectinNameValue.swift */,
+			);
+			path = SectionNameValue;
+			sourceTree = "<group>";
+		};
+		721B4D1A267334170054B63C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				721B4D1B267334220054B63C /* KassFilter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		721B4D1D267337440054B63C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72A6167E266450610005B25C /* KassOperatiolFilterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		72392134264A75270050BA37 /* UserFlows */ = {
 			isa = PBXGroup;
 			children = (
@@ -1978,6 +2069,32 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		72721E6E2675DA1C00DA871A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				72721E6F2675DA2F00DA871A /* PaymentOperations.swift */,
+				72721E74267751ED00DA871A /* OperationType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		72721E7126770BDE00DA871A /* TimesView */ = {
+			isa = PBXGroup;
+			children = (
+				72721E7226770BEB00DA871A /* TimesView.swift */,
+			);
+			path = TimesView;
+			sourceTree = "<group>";
+		};
+		7281C95F266F888D0057F683 /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				7281C960266F88A40057F683 /* DateFormatting.swift */,
+				7281C962266F88B50057F683 /* PropertyFormatter.swift */,
+			);
+			path = DateFormatter;
+			sourceTree = "<group>";
+		};
 		7286B5B8264FCC9C0015FA4F /* CustomTitleAlert */ = {
 			isa = PBXGroup;
 			children = (
@@ -1987,12 +2104,85 @@
 			path = CustomTitleAlert;
 			sourceTree = "<group>";
 		};
+		729B16F426669AA80082355D /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				729B16F526669AB50082355D /* CalendarView.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 		729E279B264A75A600029268 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				72567B7F264A7680004D45C8 /* Menu.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		72A6167D2664504A0005B25C /* KassOperationFilter */ = {
+			isa = PBXGroup;
+			children = (
+				721B4D1D267337440054B63C /* View */,
+				721B4D1A267334170054B63C /* Model */,
+				72A616832664509E0005B25C /* Module */,
+				72A61680266450860005B25C /* Controller */,
+			);
+			path = KassOperationFilter;
+			sourceTree = "<group>";
+		};
+		72A61680266450860005B25C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				72A61681266450960005B25C /* KassOperationFilterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		72A616832664509E0005B25C /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				72A61684266450B80005B25C /* KassOperationFilterModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		72A61686266452E60005B25C /* CheapsView */ = {
+			isa = PBXGroup;
+			children = (
+				72A61687266452F70005B25C /* CheapsCollectionViewCell.swift */,
+				72A616892664530B0005B25C /* CheapsSelectorView.swift */,
+			);
+			path = CheapsView;
+			sourceTree = "<group>";
+		};
+		72C67CB126639E16000CB03D /* KassOperations */ = {
+			isa = PBXGroup;
+			children = (
+				72721E6E2675DA1C00DA871A /* Model */,
+				72D0A71E267097350081DEE5 /* ViewModel */,
+				721069B62663A00D00D38FFF /* Module */,
+				721069B126639FCC00D38FFF /* Controller */,
+				721069AE26639FB600D38FFF /* View */,
+				72C67CB226639E33000CB03D /* HeaderView */,
+			);
+			path = KassOperations;
+			sourceTree = "<group>";
+		};
+		72C67CB226639E33000CB03D /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				721069AC26639FA000D38FFF /* TableSheetHeaderDownload.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		72D0A71E267097350081DEE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				72D0A71F267097500081DEE5 /* KassOperationsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		72DF18B6263C2C6600E5F3D6 /* Model */ = {
@@ -2025,6 +2215,9 @@
 		72F61494263C1ED300039B35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72721E7126770BDE00DA871A /* TimesView */,
+				729B16F426669AA80082355D /* CalendarView */,
+				721069B92663A08D00D38FFF /* SectionNameValue */,
 				5F9FD5212647FB830067EE19 /* TitleAndTextField */,
 				5FB75691264D16A300FD155B /* AmountOperationView */,
 				72567B8C264A7BD3004D45C8 /* NameValueView */,
@@ -2053,10 +2246,10 @@
 			path = "../New Group/TextField";
 			sourceTree = "<group>";
 		};
-		CA6EC27A451C214EA4EADE0A /* Frameworks */ = {
+		8E2EA8C675C31365A0755B23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				968A26B8E7A51839E3E4FD3D /* Pods_Kreditomat.framework */,
+				13154A890713CA31BE17B195 /* Pods_Kreditomat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2064,8 +2257,8 @@
 		EA97BADE1D40BDC29617CCDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */,
-				6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */,
+				79E8F05E81071843D7720D7F /* Pods-Kreditomat.debug.xcconfig */,
+				8CEB3BC133EAA45A2AA88979 /* Pods-Kreditomat.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2077,12 +2270,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7201EF852636DF2E00D25097 /* Build configuration list for PBXNativeTarget "Kreditomat" */;
 			buildPhases = (
-				25830B19C036654DCDBAC6AE /* [CP] Check Pods Manifest.lock */,
+				5114CD8FCE5070705839BF37 /* [CP] Check Pods Manifest.lock */,
 				7201EF6D2636DF2D00D25097 /* Sources */,
 				7201EF6E2636DF2D00D25097 /* Frameworks */,
 				7201EF6F2636DF2D00D25097 /* Resources */,
-				9C5F88F867C1578CB5CAF1A5 /* [CP] Embed Pods Frameworks */,
-				6094684F13B597A22A96CCB3 /* [CP] Copy Pods Resources */,
+				23D5D79CE7F70416C8635980 /* [CP] Embed Pods Frameworks */,
+				098C4BDFF32AA5E31460F971 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2143,7 +2336,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25830B19C036654DCDBAC6AE /* [CP] Check Pods Manifest.lock */ = {
+		098C4BDFF32AA5E31460F971 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23D5D79CE7F70416C8635980 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5114CD8FCE5070705839BF37 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2165,40 +2392,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6094684F13B597A22A96CCB3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C5F88F867C1578CB5CAF1A5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2212,6 +2405,7 @@
 				55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */,
 				72DF18BF263C2CBF00E5F3D6 /* Colors.swift in Sources */,
 				7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */,
+				72721E7326770BEB00DA871A /* TimesView.swift in Sources */,
 				7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */,
 				7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */,
 				5510BCFA264CC21100900F4E /* TimeTextFieldContainer.swift in Sources */,
@@ -2234,6 +2428,7 @@
 				7201F0E92636EAAB00D25097 /* UserAuthResponse.swift in Sources */,
 				7201F0F32636EB8100D25097 /* AccessCode.swift in Sources */,
 				5F582C0E2649142D00BB070D /* CityContainerView.swift in Sources */,
+				7281C963266F88B50057F683 /* PropertyFormatter.swift in Sources */,
 				5FBE1C0A26426183001F4CAF /* AuthStateModule.swift in Sources */,
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
@@ -2256,6 +2451,7 @@
 				55738B09264801ED00CE2BD5 /* SumView.swift in Sources */,
 				5560EE3B265BE0080032BFFA /* CreateCashierFormModule.swift in Sources */,
 				55738B4E264A3CB000CE2BD5 /* PointCell.swift in Sources */,
+				72A6167F266450610005B25C /* KassOperatiolFilterView.swift in Sources */,
 				7201F0AB2636E7C300D25097 /* ProgressView.swift in Sources */,
 				55738B62264A57E300CE2BD5 /* AttachCashierView.swift in Sources */,
 				72DF18EC263C2FB200E5F3D6 /* BaseButton.swift in Sources */,
@@ -2272,10 +2468,12 @@
 				5582A4EE2657DE6500E477E4 /* CameraViewModel.swift in Sources */,
 				7201EFFB2636E39000D25097 /* DropdownPresentable.swift in Sources */,
 				7201F00A2636E3FC00D25097 /* SlidingTransitioningDelegate.swift in Sources */,
+				721069B526639FFE00D38FFF /* KassOperationReportViewController.swift in Sources */,
 				72DF18C2263C2D7C00E5F3D6 /* PhoneNumberTextField.swift in Sources */,
 				5560EE2C265BDD880032BFFA /* CashierPickerViewDelegate.swift in Sources */,
 				7201F04D2636E60B00D25097 /* ApiService.swift in Sources */,
 				5F14B648264412AF00315D87 /* RegisterViewController.swift in Sources */,
+				7281C961266F88A40057F683 /* DateFormatting.swift in Sources */,
 				72DF18C8263C2E5C00E5F3D6 /* Layout.swift in Sources */,
 				7201F0CC2636E8EE00D25097 /* BackButton.swift in Sources */,
 				5560EE37265BDF490032BFFA /* CreateCashierFormView.swift in Sources */,
@@ -2285,6 +2483,7 @@
 				7201F0DA2636E9F200D25097 /* UiViewController+Keyboard.swift in Sources */,
 				55738B4A264978D800CE2BD5 /* CreatePointViewController.swift in Sources */,
 				72DF18BB263C2C9400E5F3D6 /* RightButtonTextField.swift in Sources */,
+				72721E75267751ED00DA871A /* OperationType.swift in Sources */,
 				7201F0B72636E81B00D25097 /* UserSessionStorage.swift in Sources */,
 				7201F0752636E6C200D25097 /* IdPaginationManager.swift in Sources */,
 				7201F03E2636E5BF00D25097 /* Requestable.swift in Sources */,
@@ -2292,6 +2491,7 @@
 				7201F0EC2636EABF00D25097 /* UserResponse.swift in Sources */,
 				5F9FD5232647FB9E0067EE19 /* TitleAndTextField.swift in Sources */,
 				5F3CCF46264AAC18001836A8 /* RegisterViewModel.swift in Sources */,
+				721069B026639FC600D38FFF /* KassaOperationReportView.swift in Sources */,
 				5FB75693264D16BC00FD155B /* AmountOperationView.swift in Sources */,
 				55738B062647FF4200CE2BD5 /* InfoItemView.swift in Sources */,
 				7201F0D42636E9D600D25097 /* UiView+RoundedCorners.swift in Sources */,
@@ -2305,6 +2505,7 @@
 				72DF18B4263C2C5B00E5F3D6 /* RegularTextField.swift in Sources */,
 				5FBE1C04264260CE001F4CAF /* AuthStateView.swift in Sources */,
 				7201F0532636E62500D25097 /* ConfigService.swift in Sources */,
+				721069B82663A01D00D38FFF /* KassOperationReportModule.swift in Sources */,
 				5F14B6452644128300315D87 /* RegisterView.swift in Sources */,
 				7201F0352636E59500D25097 /* SertLombardLogger+HTTP.swift in Sources */,
 				7201EFD72636E2C800D25097 /* CoordinatorNavigationController.swift in Sources */,
@@ -2316,6 +2517,7 @@
 				5510BCF3264BFBE600900F4E /* CreatePointFormModule.swift in Sources */,
 				5FBE1C3D26427E78001F4CAF /* AuthModuleFactory.swift in Sources */,
 				7201F0952636E74A00D25097 /* UIViewController+Error.swift in Sources */,
+				72D0A720267097500081DEE5 /* KassOperationsViewModel.swift in Sources */,
 				7201F0C72636E87400D25097 /* CallBack.swift in Sources */,
 				5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */,
 				5560EE3F265BE02C0032BFFA /* CreateCashierFormViewController.swift in Sources */,
@@ -2330,14 +2532,17 @@
 				55B818F826565F3E007DB5F9 /* Address.swift in Sources */,
 				7201F0442636E5DC00D25097 /* ApiTarget.swift in Sources */,
 				7201F09B2636E76400D25097 /* String+Unwrap.swift in Sources */,
+				72A61682266450960005B25C /* KassOperationFilterViewController.swift in Sources */,
 				7201F0652636E67600D25097 /* StubApiRequset.swift in Sources */,
 				5560EE16265BA6EA0032BFFA /* GiveCreditViewModel.swift in Sources */,
 				55BA8E212663CD2900F74589 /* CreateCashierViewModel.swift in Sources */,
 				7201F0D72636E9E400D25097 /* UIStackView+Init.swift in Sources */,
 				5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */,
+				729B16F626669AB50082355D /* CalendarView.swift in Sources */,
 				72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */,
 				5F3CCFAB264BDBC8001836A8 /* ResetPasswordViewController.swift in Sources */,
 				7201EFE62636E31400D25097 /* DeepLinkActionFactory.swift in Sources */,
+				721069AD26639FA000D38FFF /* TableSheetHeaderDownload.swift in Sources */,
 				7201F07B2636E6D900D25097 /* PaginationAdapter.swift in Sources */,
 				7201F0FB2636EC0400D25097 /* AddSubView.swift in Sources */,
 				5510BD09264CD5F900900F4E /* CityPickerViewDelegate.swift in Sources */,
@@ -2345,9 +2550,12 @@
 				7201F0A82636E7B100D25097 /* UIViewController+Alert.swift in Sources */,
 				5F9FD526264808610067EE19 /* NumberTextField.swift in Sources */,
 				7201EFAC2636E1E300D25097 /* AppSessionManager.swift in Sources */,
+				72721E702675DA2F00DA871A /* PaymentOperations.swift in Sources */,
 				55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */,
 				7201F0BB2636E83100D25097 /* ViewHolder.swift in Sources */,
+				721B4D1C267334220054B63C /* KassFilter.swift in Sources */,
 				7201F0222636E49E00D25097 /* InputValidatable.swift in Sources */,
+				72A61685266450B80005B25C /* KassOperationFilterModule.swift in Sources */,
 				7201F0DD2636E9FE00D25097 /* UITableView+Reuse.swift in Sources */,
 				7201F0182636E45400D25097 /* StoriesPresentAnimationController.swift in Sources */,
 				5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */,
@@ -2368,6 +2576,7 @@
 				5560EE2F265BDDD10032BFFA /* CashierPickerViewDataSource.swift in Sources */,
 				7201F0472636E5EC00D25097 /* HTTPMethod.swift in Sources */,
 				7201F0682636E68300D25097 /* AuthServiceAssembly.swift in Sources */,
+				72A61688266452F70005B25C /* CheapsCollectionViewCell.swift in Sources */,
 				55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */,
 				72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */,
 				7201EFD02636E2AE00D25097 /* CloseableViewController.swift in Sources */,
@@ -2380,6 +2589,7 @@
 				72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */,
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
 				55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */,
+				721069BB2663A0AD00D38FFF /* SectinNameValue.swift in Sources */,
 				7201F08C2636E72100D25097 /* UIScrollView+ReachedBottom.swift in Sources */,
 				55A6F3E82653838200ADB9CB /* CabinetTarget.swift in Sources */,
 				72DF18B8263C2C7200E5F3D6 /* RegularTextFieldState.swift in Sources */,
@@ -2419,7 +2629,9 @@
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
 				55B818F026563360007DB5F9 /* MapModule.swift in Sources */,
 				55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */,
+				721069B326639FE800D38FFF /* DataSheetCell.swift in Sources */,
 				7201F0F72636EBDC00D25097 /* SetAnchors.swift in Sources */,
+				72A6168A2664530B0005B25C /* CheapsSelectorView.swift in Sources */,
 				5F3CCFA8264BDB34001836A8 /* ResetPasswordView.swift in Sources */,
 				55738B33264940C500CE2BD5 /* SuccessModule.swift in Sources */,
 				72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */,
@@ -2562,14 +2774,14 @@
 		};
 		7201EF862636DF2E00D25097 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F252A58D0EAC716A99DA54CF /* Pods-Kreditomat.debug.xcconfig */;
+			baseConfigurationReference = 79E8F05E81071843D7720D7F /* Pods-Kreditomat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 68F942NMT8;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = XCVRQLC39R;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2587,14 +2799,14 @@
 		};
 		7201EF872636DF2E00D25097 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F6B64A2EE2B31E9CCB34B1D /* Pods-Kreditomat.release.xcconfig */;
+			baseConfigurationReference = 8CEB3BC133EAA45A2AA88979 /* Pods-Kreditomat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 68F942NMT8;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = XCVRQLC39R;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

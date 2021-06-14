@@ -25,7 +25,7 @@ final class ConfigServiceImpl: ConfigService {
 
   lazy var appVersion: Int = {
     guard let versionIdObject = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String,
-      let versionId = Int(versionIdObject)  else {
+      let versionId = Int(versionIdObject) else {
         fatalError("Could not get app version")
     }
     return versionId
