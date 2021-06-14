@@ -71,6 +71,8 @@ class RightButtonTextField: RegularTextField {
         addSubview(button)
         button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.rightSpacing).isActive = true
         button.setCenterYConstraint(by: self)
-        button.setSizeConstraints(width: Constants.buttonWidth, height: Constants.buttonHeight)
+//        button.setSizeConstraints(width: Constants.buttonWidth, height: Constants.buttonHeight)
+        button.snp.makeConstraints { $0.size.equalTo(15) }
+        button.imageView?.contentMode = .scaleAspectFit
     }
 }

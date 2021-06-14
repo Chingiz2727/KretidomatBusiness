@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         makeCoordinator(application: application)
         setupKeyboardManager()
         setupNavigationBar()
+        #if DEBUG
         LoggerConfigurator.configure()
+        #endif
         GMSServices.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
         GMSPlacesClient.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
         return true
