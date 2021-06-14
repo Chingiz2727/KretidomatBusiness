@@ -4,7 +4,7 @@ enum MainTarget: ApiTarget {
     
     case createCashRequest(type: Int, sum: Int, point: Int)
     case getActualPoints
-    case registerPoint(name: String, email: String, phone: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String)
+    case registerPoint(name: String, email: String, phone: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String, workingTime: String)
     
     var version: ApiVersion { .custom("") }
     
@@ -40,7 +40,7 @@ enum MainTarget: ApiTarget {
                     "Point": point]
         case .getActualPoints:
             return [:]
-        case let .registerPoint(name, email, phone, city, address, house, apartments, bin, posLat, posLng):
+        case let .registerPoint(name, email, phone, city, address, house, apartments, bin, posLat, posLng, workingTime):
             return ["Name": name,
                     "Email": email,
                     "Phone": phone,
@@ -50,7 +50,8 @@ enum MainTarget: ApiTarget {
                     "Apartments": apartments,
                     "BIN": bin,
                     "Pos_Lat": posLat,
-                    "Pos_Lng": posLng]
+                    "Pos_Lng": posLng,
+                    "WorkingTime": workingTime]
         }
     }
     
