@@ -77,6 +77,9 @@ final class MainCoordinator: BaseCoordinator {
             module.showSucces = { [weak self] qr in
                 self?.showSuccess(data: qr)
             }
+            module.errorTapped = { [weak self] in
+                self?.router.popToRootModule()
+            }
         default:
             return
         }
@@ -113,6 +116,9 @@ final class MainCoordinator: BaseCoordinator {
         var module = moduleFactory.makeSignature(data: data)
         module.showSucces = { [weak self] data in
             self?.showSuccess(data: data)
+        }
+        module.errorTapped = { [weak self] in
+            self?.router.popToRootModule()
         }
         router.push(module)
     }

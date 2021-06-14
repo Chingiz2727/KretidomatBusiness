@@ -55,7 +55,30 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
             .subscribe(onNext: { [unowned self] in
                 self.create?()
             }).disposed(by: disposeBag)
-        let output = viewModel.transform(input: .init(loadInfo: .just(())))
+        let output = viewModel.transform(input: .init(loadInfo: .just(()), blockTapped: rootView.blockTapped))
+        
+        let block = output.blockResponse.publish()
+        
+        block.element
+            .subscribe(onNext: { [unowned self] res in
+                if res.Success {
+                    showSuccessAlert {
+                    }
+                } else {
+                    showSimpleAlert(title: "Ошибка", message: res.Message)
+                }
+            }).disposed(by: disposeBag)
+        
+        block.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        block.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        block.connect()
+            .disposed(by: disposeBag)
         
         let info = output.info.publish()
         
@@ -78,7 +101,11 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         
         cashierPickerDelegate.selectedCashier
             .subscribe(onNext: { [unowned self] name in
+                self.viewModel.sellerUserId = name.SellerUserID
+                self.viewModel.sellerId = name.SellerID
                 rootView.cashiersList.textField.text = name.Name
+                rootView.cashiers = [name]
+                rootView.tableView.reloadData()
             }).disposed(by: disposeBag)
     }
     

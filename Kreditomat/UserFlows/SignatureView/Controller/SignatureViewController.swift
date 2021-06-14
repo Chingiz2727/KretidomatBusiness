@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 
 class SignatureViewController: ViewController, SignatureModule, ViewHolder {
+    var errorTapped: Callback?
     var showSucces: ShowSuccess?
     
     typealias RootViewType = SignatureView
@@ -63,10 +64,11 @@ class SignatureViewController: ViewController, SignatureModule, ViewHolder {
                                 }
                             } else {
                                 self.dismiss(animated: true) {
-                                    self.showSucces?(data)
-                                }
+                                    showErrorAlert(title: "Ошибка", message: res.Message) {
+                                        self.errorTapped?()
+                                    }
                             }
-                        }).disposed(by: disposeBag)
+                            }}).disposed(by: disposeBag)
                     
                     output.loading
                         .bind(to: ProgressView.instance.rx.loading)

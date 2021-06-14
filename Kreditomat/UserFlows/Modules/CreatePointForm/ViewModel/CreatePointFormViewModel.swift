@@ -47,7 +47,7 @@ final class CreatePointFormViewModel: ViewModel {
         
         let point = input.createPointTapped
             .flatMap { [unowned self] _ in
-                apiService.makeRequest(to: MainTarget.registerPoint(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: String(lat), posLng: String(long), workingTime: workingTime))
+                apiService.makeRequest(to: MainTarget.registerPoint(name: name, email: email, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: String(lat), posLng: String(long), workingTime: workingTime))
                     .result(ResponseStatus.self)
                     .asLoadingSequence()
             }.share()

@@ -8,12 +8,16 @@
 import RxSwift
 
 class CreateCashierViewModel: ViewModel {
+    var sellerId = 0
+    var sellerUserId = 0
     struct Input {
         let loadInfo: Observable<Void>
+        let blockTapped: Observable<Void>
     }
     
     struct Output {
         let info: Observable<LoadingSequence<CashierInfo>>
+        let blockResponse: Observable<LoadingSequence<ResponseStatus>>
     }
     
     private let apiService: ApiService
@@ -29,6 +33,12 @@ class CreateCashierViewModel: ViewModel {
                     .result(CashierInfo.self)
                     .asLoadingSequence()
             }.share()
-        return .init(info: info)
+        let blockResponse = input.blockTapped
+            .flatMap { [unowned self] in
+                return apiService.makeRequest(to: CashierTarget.block(sellerId: sellerId, sellerUserId: sellerUserId, type: 2))
+                                                .result(ResponseStatus.self)
+                                                .asLoadingSequence()
+            }.share()
+        return .init(info: info, blockResponse: blockResponse)
     }
 }
