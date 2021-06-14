@@ -25,7 +25,7 @@ final class AboutKassaViewModel: ViewModel {
         let result = input.succesTapped
             .withLatestFrom(Observable.combineLatest(input.typeButton, input.sum, input.point))
             .flatMap { [unowned self] type, sum, point in
-                return apiService.makeRequest(to: MainTarget.createCashRequest(type: type, sum: Int(sum ?? "") ?? 0, point: point.SellerID))
+                return apiService.makeRequest(to: MainTarget.createCashRequest(type: type, sum: Int(sum ?? "") ?? 0, point: point.SellerID ?? 0))
                     .result(ResponseStatus.self)
                     .asLoadingSequence()
             }.share()

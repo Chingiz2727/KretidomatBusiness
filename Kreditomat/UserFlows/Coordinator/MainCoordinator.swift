@@ -40,6 +40,10 @@ final class MainCoordinator: BaseCoordinator {
             case .logout:
                 let authState = assembler.resolver.resolve(AuthStateObserver.self)!
                 authState.forceLogout()
+            case  .aboutBonus:
+                self?.showOperations(type: .BonusHistory)
+            case .aboutCredit:
+                self?.showOperations(type: .PaymentHistory)
             default:
                 return
             }
@@ -79,6 +83,16 @@ final class MainCoordinator: BaseCoordinator {
             }
         default:
             return
+        }
+        router.push(module)
+    }
+    
+    private func showOperations(type: OperationType) {
+        var module = assembler.resolver.resolve(KassOperationReportModule.self, argument: type)!
+        module.filterTapped = { [weak self] in
+            self?.kassoperationFilter(operation: { filter in
+                module.onfilterSelect?(filter)
+            })
         }
         router.push(module)
     }
@@ -132,6 +146,15 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showResetPassword() {
         let module = moduleFactory.makeResetPassword()
+        router.push(module)
+    }
+    
+    private func kassoperationFilter(operation:(((KassFilter))->Void)?) {
+        var module = assembler.resolver.resolve(KassOperationFilterModule.self)!
+        module.onFilterSended = { [weak self] filter in
+            operation?(filter)
+            self?.router.popModule()
+        }
         router.push(module)
     }
 }

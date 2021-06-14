@@ -3,6 +3,7 @@ import UIKit
 final class PrimaryButton: BaseButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layer.cornerRadius = 20
         configureView()
     }
 
@@ -25,7 +26,6 @@ final class PrimaryButton: BaseButton {
     private func configureView() {
         backgroundColor = .primary
         titleLabel?.font = .regular16
-        layer.cornerRadius = 20
         setTitleColor(.white, for: .normal)
     }
 
