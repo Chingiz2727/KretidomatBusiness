@@ -17,6 +17,7 @@ enum Menu: CaseIterable {
     case aboutBonus
     case aboutKassa
     case createPoint
+    case createCashier
     case changePassWord
     case share
     case logout
@@ -37,6 +38,8 @@ enum Menu: CaseIterable {
             return "Кассовые операции"
         case .createPoint:
             return "Создать точку"
+        case .createCashier:
+            return "Создать кассира"
         case .changePassWord:
             return "Изменить пароль"
         case .logout:
@@ -63,6 +66,8 @@ enum Menu: CaseIterable {
             return #imageLiteral(resourceName: "kassa")
         case .createPoint:
             return #imageLiteral(resourceName: "kreditPlace")
+        case .createCashier:
+            return #imageLiteral(resourceName: "cashier")
         case .changePassWord:
             return #imageLiteral(resourceName: "changePass")
         case .share:

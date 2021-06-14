@@ -17,12 +17,14 @@ class SuccessView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Поздравляем!"
+        label.font = .bold15
         return label
     }()
     
     let clientTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Вы успешно приняли денежные средства:"
+        label.font = .regular14
         label.textAlignment = .center
         return label
     }()
@@ -30,6 +32,7 @@ class SuccessView: UIView {
     let clientValueLabel: UILabel = {
         let label = UILabel()
         label.text = "Серхио Рамос"
+        label.font = .bold15
         label.textAlignment = .center
         return label
     }()
@@ -44,6 +47,7 @@ class SuccessView: UIView {
         let label = UILabel()
         label.text = "на сумму:"
         label.textAlignment = .center
+        label.font = .regular14
         return label
     }()
     
@@ -51,6 +55,7 @@ class SuccessView: UIView {
         let label = UILabel()
         label.text = "000  тенге"
         label.textAlignment = .center
+        label.font = .bold15
         return label
     }()
     
@@ -63,6 +68,7 @@ class SuccessView: UIView {
     let bonusTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Ваш бонус увеличился на:"
+        label.font = .regular14
         label.textAlignment = .center
         return label
     }()
@@ -71,6 +77,7 @@ class SuccessView: UIView {
         let label = UILabel()
         label.text = "000 тенге"
         label.textAlignment = .center
+        label.font = .bold15
         return label
     }()
     
@@ -83,6 +90,7 @@ class SuccessView: UIView {
     let balanceTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Остаток в точке получения/погашения:"
+        label.font = .regular14
         label.textAlignment = .center
         return label
     }()
@@ -90,6 +98,7 @@ class SuccessView: UIView {
     let balanceValueLabel: UILabel = {
         let label = UILabel()
         label.text = "000 тенге"
+        label.font = .bold15
         label.textAlignment = .center
         return label
     }()
@@ -100,10 +109,17 @@ class SuccessView: UIView {
         distribution: .fillEqually,
         spacing: 0)
     
+    let closeButton = PrimaryButton()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupInitialLayouts()
         configureView()
+    }
+    
+    func setData(data: qrResult) {
+        clientValueLabel.text = data.FIO
+        sumValueLabel.text = "\(data.CreditSum) тенге"
     }
     
     required init?(coder: NSCoder) {
@@ -147,9 +163,17 @@ class SuccessView: UIView {
             make.top.equalTo(bonusStackView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
         }
+        
+        addSubview(closeButton)
+        closeButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(safeAreaLayoutGuide).inset(40)
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(40)
+        }
     }
     
     private func configureView() {
         backgroundColor = .background
+        closeButton.setTitle("Закрыть", for: .normal)
     }
 }

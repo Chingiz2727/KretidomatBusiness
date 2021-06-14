@@ -48,7 +48,9 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
     }
     
     private func bindView() {
-        let output = viewModel.transform(input: .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in  }))
+        let output = viewModel.transform(input:
+                                            .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in},
+                                                  createPointTapped: rootView.createButton.rx.tap.asObservable()))
         
         let day = output.getDay.publish()
         
@@ -72,6 +74,69 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         
         day.connect()
             .disposed(by: disposeBag)
+        
+        rootView.pointNameTextField.textField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.name = text
+            }).disposed(by: disposeBag)
+        
+        cityPickerDelegate.selectedCity
+            .subscribe(onNext: { [unowned self] city in
+                rootView.cityList.textField.text = city.name
+            }).disposed(by: disposeBag)
+        
+        rootView.cityList.textField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.city = text
+            }).disposed(by: disposeBag)
+        
+        rootView.streetList.textField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.address = text
+            }).disposed(by: disposeBag)
+        
+        rootView.houseNumberTextField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.house = text
+            }).disposed(by: disposeBag)
+        
+        rootView.officeNumberTextField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.viewModel.apartments = text
+            }).disposed(by: disposeBag)
+        
+        Observable.combineLatest(rootView.startDayTextField.textField.rx.text.unwrap(),
+                                 rootView.endDayTextField.textField.rx.text.unwrap(),
+                                 rootView.startTimeTextField.rx.text.unwrap(),
+                                 rootView.endTimeTextField.rx.text.unwrap())
+            .subscribe(onNext:  { [unowned self] startDay, endDay, startTime, endTime in
+                self.viewModel.workingTime = "\(startDay)-\(endDay); \(startTime) - \(endTime)"
+            }).disposed(by: disposeBag)
+            
+        
+        let createPoint = output.createPoint.publish()
+        
+        createPoint.element
+            .subscribe(onNext: { [unowned self] result in
+                if result.Success == true {
+                    self.showErrorInAlert(text: result.Message)
+                } else {
+                    self.showErrorInAlert(text: result.Message)
+                }
+            }).disposed(by: disposeBag)
+        
+        createPoint.connect()
+            .disposed(by: disposeBag)
+        
+        createPoint.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        createPoint.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        
     }
     
     private func setupPickersView() {
