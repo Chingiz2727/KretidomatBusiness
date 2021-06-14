@@ -43,7 +43,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
             input: .init(typeButton: rootView.selectTag,
                          point: pointsSelledId,
                          sum: rootView.amountOperationView.amountTextField.rx.text.asObservable(),
-                         succesTapped: rootView.accessButton.rx.tap.asObservable(),
+                         succesTapped: buttontapped,
                          pointList: .just(())))
         
         let result = output.nextTapped.publish()
@@ -51,9 +51,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         result.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    self.presentCustomAlert(type: .giveMoneyToPoint(name: "", sum: rootView.amountOperationView.amountTextField.allText), secondButtonAction:  {
-                        self.navigationController?.popViewController(animated: true)
-                    })
+                    self.showSuccessAlert {
+                        print(result.Message)
+                    }
                 } else {
                     self.showErrorInAlert(text: result.Message)
                 }
@@ -97,8 +97,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
             .withLatestFrom(rootView.selectTag)
             .subscribe(onNext: { [unowned self] tag in
                 if tag == 1 {
-                    self.presentCustomAlert(type: .giveMoneyToPoint(name: "name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                    self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
                         self.makeRefillActioin.onNext(())
+                        self.buttontapped.disposed(by: disposeBag)
                         self.dismiss(animated: true, completion: nil)
                     } secondButtonAction: {
                         
@@ -107,8 +108,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                     //refill
                 } else {
                     //withdrawwl
-                    self.presentCustomAlert(type: .getMoneyFromPoint(name: "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                    self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
                         self.makeWithAction.onNext(())
+                        self.buttontapped.disposed(by: disposeBag)
                         self.dismiss(animated: true, completion: nil)
                     } secondButtonAction: {
                         
