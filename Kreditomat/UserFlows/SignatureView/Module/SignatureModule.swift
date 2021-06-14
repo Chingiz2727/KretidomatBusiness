@@ -6,4 +6,5 @@ protocol SignatureModule: Presentable {
     var onTapSubmit: OnTapSubmit? { get set }
     typealias ShowSuccess = (qrResult) -> Void
     var showSucces: ShowSuccess? { get set }
+    var errorTapped: Callback? { get set }
 }

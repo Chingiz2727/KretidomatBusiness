@@ -34,6 +34,7 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
         super.viewDidLoad()
         bindView()
         setupPointPickerView()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Создать точку"
     }
     

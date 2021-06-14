@@ -34,6 +34,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         super.viewDidLoad()
         bindViewModel()
         setupPointPickerView()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Кассовые операции"
     }
     

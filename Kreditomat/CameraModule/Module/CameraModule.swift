@@ -13,4 +13,5 @@ protocol CameraModule: Presentable {
     var payCredit: PayCredit? { get set }
     typealias ShowSuccess = (qrResult) -> Void
     var showSucces: ShowSuccess? { get set }
+    var errorTapped: Callback? { get set }
 }
