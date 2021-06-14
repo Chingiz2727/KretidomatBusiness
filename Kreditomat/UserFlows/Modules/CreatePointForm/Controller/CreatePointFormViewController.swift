@@ -44,6 +44,7 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         super.viewDidLoad()
         bindView()
         setupPickersView()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Создать точку"
     }
     

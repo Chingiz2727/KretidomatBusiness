@@ -29,6 +29,8 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        navigationController?.navigationBar.layer.addShadow()
+        title = "Главная"
     }
     
     override func viewWillAppear(_ animated: Bool) {

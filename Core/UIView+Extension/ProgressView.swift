@@ -37,7 +37,7 @@ public final class ProgressView: UIView {
         switch status {
         case .loading:
             addSubview(animationView)
-            animationView.backgroundColor = UIColor.green.withAlphaComponent(0.5)
+            animationView.backgroundColor = .primary
             animationView.style = .whiteLarge
             animationView.layer.cornerRadius = 30
             animationView.startAnimating()

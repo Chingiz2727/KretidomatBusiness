@@ -36,6 +36,7 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Создать кассира"
         setupPointPickerView()
     }

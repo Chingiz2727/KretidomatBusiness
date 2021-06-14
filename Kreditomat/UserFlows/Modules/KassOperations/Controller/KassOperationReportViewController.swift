@@ -28,6 +28,8 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
                 self.filterTapped?()
             }).disposed(by: disposeBag)
         title = "Отчет по кассовым операциям"
+        navigationController?.navigationBar.layer.addShadow()
+
         bindViewModel()
     }
 

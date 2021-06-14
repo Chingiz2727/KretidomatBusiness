@@ -31,6 +31,7 @@ class SuccessViewController: ViewController, ViewHolder, SuccessModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
+        navigationController?.navigationBar.layer.addShadow()
     }
     
     private func bindView() {
