@@ -57,6 +57,8 @@ enum MainTarget: ApiTarget {
                     "Pos_Lat": posLat,
                     "Pos_Lng": posLng,
                     "WorkingTime": workingTime]
+        case let.payHistory(dateFrom, dateTo, filter, point, _):
+        return ["DateFrom": dateFrom, "DateTo": dateTo, "Filter": filter, "Point": point]
         }
     }
     

@@ -94,7 +94,9 @@ final class MainCoordinator: BaseCoordinator {
                 module.onfilterSelect?(filter)
             })
         }
+        router.push(module)
     }
+    
     private func showSuccess(data: qrResult) {
         var module = moduleFactory.makeSuccess(data: data)
         module.closeTapped = { [weak self] in

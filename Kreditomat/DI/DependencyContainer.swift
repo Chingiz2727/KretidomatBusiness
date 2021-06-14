@@ -53,7 +53,6 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(AVMediaType.self) { _ in
             AVMediaType.video
         }
-        
 
         container.register(AVCaptureDevice.self) { _ in
             let mediaType = container.resolve(AVMediaType.self)!
