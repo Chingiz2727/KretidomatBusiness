@@ -21,6 +21,17 @@
 		5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BD32264CFBD000900F4E /* CreatePointFormViewModel.swift */; };
 		5510BD37264D014100900F4E /* StartDayPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BD36264D014100900F4E /* StartDayPickerViewDelegate.swift */; };
 		5510BD3A264D015400900F4E /* EndDayPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BD39264D015400900F4E /* EndDayPickerViewDelegate.swift */; };
+		5560EE16265BA6EA0032BFFA /* GiveCreditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE15265BA6EA0032BFFA /* GiveCreditViewModel.swift */; };
+		5560EE1C265BD9440032BFFA /* CreateCashierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE1B265BD9440032BFFA /* CreateCashierView.swift */; };
+		5560EE20265BDAB70032BFFA /* CashierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE1F265BDAB70032BFFA /* CashierCell.swift */; };
+		5560EE24265BDC130032BFFA /* CreateCashierModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE23265BDC130032BFFA /* CreateCashierModule.swift */; };
+		5560EE28265BDC350032BFFA /* CreateCashierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE27265BDC350032BFFA /* CreateCashierViewController.swift */; };
+		5560EE2C265BDD880032BFFA /* CashierPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE2B265BDD880032BFFA /* CashierPickerViewDelegate.swift */; };
+		5560EE2F265BDDD10032BFFA /* CashierPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE2E265BDDD10032BFFA /* CashierPickerViewDataSource.swift */; };
+		5560EE32265BDDF40032BFFA /* Cashier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE31265BDDF40032BFFA /* Cashier.swift */; };
+		5560EE37265BDF490032BFFA /* CreateCashierFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE36265BDF490032BFFA /* CreateCashierFormView.swift */; };
+		5560EE3B265BE0080032BFFA /* CreateCashierFormModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE3A265BE0080032BFFA /* CreateCashierFormModule.swift */; };
+		5560EE3F265BE02C0032BFFA /* CreateCashierFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560EE3E265BE02C0032BFFA /* CreateCashierFormViewController.swift */; };
 		55738B022647FDB900CE2BD5 /* CabinetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B012647FDB900CE2BD5 /* CabinetView.swift */; };
 		55738B062647FF4200CE2BD5 /* InfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B052647FF4200CE2BD5 /* InfoItemView.swift */; };
 		55738B09264801ED00CE2BD5 /* SumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B08264801ED00CE2BD5 /* SumView.swift */; };
@@ -48,6 +59,8 @@
 		55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B83264A6A7B00CE2BD5 /* CameraAction.swift */; };
 		55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */; };
 		55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */; };
+		5582A4EE2657DE6500E477E4 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582A4ED2657DE6500E477E4 /* CameraViewModel.swift */; };
+		5582A5232657E0C500E477E4 /* CreditTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582A5222657E0C500E477E4 /* CreditTarget.swift */; };
 		55A6F3CE265378E500ADB9CB /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6F3CD265378E500ADB9CB /* UIFont.swift */; };
 		55A6F3DB26537C5E00ADB9CB /* Evolventa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */; };
 		55A6F3DC26537C5E00ADB9CB /* Evolventa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */; };
@@ -62,6 +75,10 @@
 		55B819EC26568D88007DB5F9 /* OfertaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819EB26568D88007DB5F9 /* OfertaView.swift */; };
 		55B819F12656912E007DB5F9 /* OfertaModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F02656912E007DB5F9 /* OfertaModule.swift */; };
 		55B819F52656914B007DB5F9 /* OfertaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B819F42656914B007DB5F9 /* OfertaViewController.swift */; };
+		55BA8E212663CD2900F74589 /* CreateCashierViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA8E202663CD2900F74589 /* CreateCashierViewModel.swift */; };
+		55BA8E262663CD7B00F74589 /* CashierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA8E252663CD7B00F74589 /* CashierTarget.swift */; };
+		55BA8E2B2663CEED00F74589 /* CashierInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA8E2A2663CEED00F74589 /* CashierInfo.swift */; };
+		55BA8E532663D31800F74589 /* CreateCashierFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA8E522663D31800F74589 /* CreateCashierFormViewModel.swift */; };
 		5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B631264410F100315D87 /* AuthUserModule.swift */; };
 		5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B6342644113800315D87 /* AuthUserViewController.swift */; };
 		5F14B63C2644117400315D87 /* AuthUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F14B63B2644117400315D87 /* AuthUserView.swift */; };
@@ -256,6 +273,17 @@
 		5510BD32264CFBD000900F4E /* CreatePointFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormViewModel.swift; sourceTree = "<group>"; };
 		5510BD36264D014100900F4E /* StartDayPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDayPickerViewDelegate.swift; sourceTree = "<group>"; };
 		5510BD39264D015400900F4E /* EndDayPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndDayPickerViewDelegate.swift; sourceTree = "<group>"; };
+		5560EE15265BA6EA0032BFFA /* GiveCreditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveCreditViewModel.swift; sourceTree = "<group>"; };
+		5560EE1B265BD9440032BFFA /* CreateCashierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierView.swift; sourceTree = "<group>"; };
+		5560EE1F265BDAB70032BFFA /* CashierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierCell.swift; sourceTree = "<group>"; };
+		5560EE23265BDC130032BFFA /* CreateCashierModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierModule.swift; sourceTree = "<group>"; };
+		5560EE27265BDC350032BFFA /* CreateCashierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierViewController.swift; sourceTree = "<group>"; };
+		5560EE2B265BDD880032BFFA /* CashierPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierPickerViewDelegate.swift; sourceTree = "<group>"; };
+		5560EE2E265BDDD10032BFFA /* CashierPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierPickerViewDataSource.swift; sourceTree = "<group>"; };
+		5560EE31265BDDF40032BFFA /* Cashier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cashier.swift; sourceTree = "<group>"; };
+		5560EE36265BDF490032BFFA /* CreateCashierFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierFormView.swift; sourceTree = "<group>"; };
+		5560EE3A265BE0080032BFFA /* CreateCashierFormModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierFormModule.swift; sourceTree = "<group>"; };
+		5560EE3E265BE02C0032BFFA /* CreateCashierFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierFormViewController.swift; sourceTree = "<group>"; };
 		55738B012647FDB900CE2BD5 /* CabinetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetView.swift; sourceTree = "<group>"; };
 		55738B052647FF4200CE2BD5 /* InfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItemView.swift; sourceTree = "<group>"; };
 		55738B08264801ED00CE2BD5 /* SumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumView.swift; sourceTree = "<group>"; };
@@ -283,6 +311,8 @@
 		55738B83264A6A7B00CE2BD5 /* CameraAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAction.swift; sourceTree = "<group>"; };
 		55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermission.swift; sourceTree = "<group>"; };
 		55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleFactory.swift; sourceTree = "<group>"; };
+		5582A4ED2657DE6500E477E4 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		5582A5222657E0C500E477E4 /* CreditTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTarget.swift; sourceTree = "<group>"; };
 		55A6F3CD265378E500ADB9CB /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		55A6F3D626537C5E00ADB9CB /* Evolventa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Evolventa-Bold.ttf"; sourceTree = "<group>"; };
 		55A6F3D726537C5E00ADB9CB /* Evolventa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Evolventa-Regular.ttf"; sourceTree = "<group>"; };
@@ -297,6 +327,10 @@
 		55B819EB26568D88007DB5F9 /* OfertaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaView.swift; sourceTree = "<group>"; };
 		55B819F02656912E007DB5F9 /* OfertaModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaModule.swift; sourceTree = "<group>"; };
 		55B819F42656914B007DB5F9 /* OfertaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaViewController.swift; sourceTree = "<group>"; };
+		55BA8E202663CD2900F74589 /* CreateCashierViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierViewModel.swift; sourceTree = "<group>"; };
+		55BA8E252663CD7B00F74589 /* CashierTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierTarget.swift; sourceTree = "<group>"; };
+		55BA8E2A2663CEED00F74589 /* CashierInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashierInfo.swift; sourceTree = "<group>"; };
+		55BA8E522663D31800F74589 /* CreateCashierFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCashierFormViewModel.swift; sourceTree = "<group>"; };
 		5F14B631264410F100315D87 /* AuthUserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModule.swift; sourceTree = "<group>"; };
 		5F14B6342644113800315D87 /* AuthUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserViewController.swift; sourceTree = "<group>"; };
 		5F14B63B2644117400315D87 /* AuthUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserView.swift; sourceTree = "<group>"; };
@@ -565,11 +599,105 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5560EE14265BA6D80032BFFA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE15265BA6EA0032BFFA /* GiveCreditViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5560EE19265BD92E0032BFFA /* CreateCashier */ = {
+			isa = PBXGroup;
+			children = (
+				55BA8E292663CEE300F74589 /* Model */,
+				55BA8E242663CD7000F74589 /* Target */,
+				55BA8E1F2663CCF400F74589 /* ViewModel */,
+				5560EE2A265BDD640032BFFA /* CashierPicker */,
+				5560EE26265BDC220032BFFA /* Controller */,
+				5560EE22265BDC080032BFFA /* Module */,
+				5560EE1A265BD9360032BFFA /* View */,
+			);
+			path = CreateCashier;
+			sourceTree = "<group>";
+		};
+		5560EE1A265BD9360032BFFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE1B265BD9440032BFFA /* CreateCashierView.swift */,
+				5560EE1F265BDAB70032BFFA /* CashierCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5560EE22265BDC080032BFFA /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE23265BDC130032BFFA /* CreateCashierModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		5560EE26265BDC220032BFFA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE27265BDC350032BFFA /* CreateCashierViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5560EE2A265BDD640032BFFA /* CashierPicker */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE2B265BDD880032BFFA /* CashierPickerViewDelegate.swift */,
+				5560EE2E265BDDD10032BFFA /* CashierPickerViewDataSource.swift */,
+				5560EE31265BDDF40032BFFA /* Cashier.swift */,
+			);
+			path = CashierPicker;
+			sourceTree = "<group>";
+		};
+		5560EE34265BDF2E0032BFFA /* CreateCashierForm */ = {
+			isa = PBXGroup;
+			children = (
+				55BA8E512663D30500F74589 /* ViewModel */,
+				5560EE3D265BE0160032BFFA /* Controller */,
+				5560EE39265BDFFA0032BFFA /* Module */,
+				5560EE35265BDF370032BFFA /* View */,
+			);
+			path = CreateCashierForm;
+			sourceTree = "<group>";
+		};
+		5560EE35265BDF370032BFFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE36265BDF490032BFFA /* CreateCashierFormView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5560EE39265BDFFA0032BFFA /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE3A265BE0080032BFFA /* CreateCashierFormModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		5560EE3D265BE0160032BFFA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5560EE3E265BE02C0032BFFA /* CreateCashierFormViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		55738AFE2647FD7D00CE2BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				72A6167D2664504A0005B25C /* KassOperationFilter */,
 				72C67CB126639E16000CB03D /* KassOperations */,
+				5560EE34265BDF2E0032BFFA /* CreateCashierForm */,
+				5560EE19265BD92E0032BFFA /* CreateCashier */,
 				5FA65059265531B4009B93F7 /* ChangePassword */,
 				5F3CCFF6264BFBC3001836A8 /* AboutKassa */,
 				5510BCDF264BEDD200900F4E /* CreatePointForm */,
@@ -773,6 +901,8 @@
 		55738B71264A649000CE2BD5 /* CameraModule */ = {
 			isa = PBXGroup;
 			children = (
+				5582A5212657E0B800E477E4 /* Target */,
+				5582A4EC2657DE5800E477E4 /* ViewModel */,
 				55738B82264A6A6C00CE2BD5 /* Model */,
 				55738B7E264A69A100CE2BD5 /* Module */,
 				55738B79264A663F00CE2BD5 /*  Controller */,
@@ -828,6 +958,22 @@
 				55738B93264A8C1100CE2BD5 /* MainModuleFactory.swift */,
 			);
 			path = ModuleFactory;
+			sourceTree = "<group>";
+		};
+		5582A4EC2657DE5800E477E4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5582A4ED2657DE6500E477E4 /* CameraViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5582A5212657E0B800E477E4 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				5582A5222657E0C500E477E4 /* CreditTarget.swift */,
+			);
+			path = Target;
 			sourceTree = "<group>";
 		};
 		55A6F3C62653780B00ADB9CB /* Fonts */ = {
@@ -954,6 +1100,38 @@
 				55B819F42656914B007DB5F9 /* OfertaViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		55BA8E1F2663CCF400F74589 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55BA8E202663CD2900F74589 /* CreateCashierViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55BA8E242663CD7000F74589 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				55BA8E252663CD7B00F74589 /* CashierTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
+		55BA8E292663CEE300F74589 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55BA8E2A2663CEED00F74589 /* CashierInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55BA8E512663D30500F74589 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55BA8E522663D31800F74589 /* CreateCashierFormViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5F14B62C264410A500315D87 /* AuthFlow */ = {
@@ -1859,6 +2037,7 @@
 		72567B92264A8838004D45C8 /* SignatureView */ = {
 			isa = PBXGroup;
 			children = (
+				5560EE14265BA6D80032BFFA /* ViewModel */,
 				72567B95264A88AF004D45C8 /* Module */,
 				72567B94264A8894004D45C8 /* Controller */,
 				72567B93264A8890004D45C8 /* View */,
@@ -2221,6 +2400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7201F0272636E4B800D25097 /* KeyChainStorage.swift in Sources */,
+				5560EE20265BDAB70032BFFA /* CashierCell.swift in Sources */,
 				55738B6A264A5B8900CE2BD5 /* AttachCashierViewController.swift in Sources */,
 				55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */,
 				72DF18BF263C2CBF00E5F3D6 /* Colors.swift in Sources */,
@@ -2253,9 +2433,11 @@
 				7201EFA82636E1BD00D25097 /* AuthStateObserver.swift in Sources */,
 				7201F05F2636E65B00D25097 /* SertRequestRetrierImpl.swift in Sources */,
 				5F591809265532AE00317529 /* ChangePasswordModule.swift in Sources */,
+				55BA8E532663D31800F74589 /* CreateCashierFormViewModel.swift in Sources */,
 				55B818F426563378007DB5F9 /* MapViewController.swift in Sources */,
 				5F3CCFFF264BFC47001836A8 /* AboutKassaModule.swift in Sources */,
 				5F3CCFAF264BEBF8001836A8 /* ResetPasswordViewModel.swift in Sources */,
+				55BA8E262663CD7B00F74589 /* CashierTarget.swift in Sources */,
 				7201EFDB2636E2E600D25097 /* Coordinator.swift in Sources */,
 				5F7DEB0F26639009006A1323 /* MainTarget.swift in Sources */,
 				7201EFD42636E2BB00D25097 /* BaseCoordinator.swift in Sources */,
@@ -2267,11 +2449,13 @@
 				7201F02F2636E57A00D25097 /* LoggerConfigurator.swift in Sources */,
 				5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */,
 				55738B09264801ED00CE2BD5 /* SumView.swift in Sources */,
+				5560EE3B265BE0080032BFFA /* CreateCashierFormModule.swift in Sources */,
 				55738B4E264A3CB000CE2BD5 /* PointCell.swift in Sources */,
 				72A6167F266450610005B25C /* KassOperatiolFilterView.swift in Sources */,
 				7201F0AB2636E7C300D25097 /* ProgressView.swift in Sources */,
 				55738B62264A57E300CE2BD5 /* AttachCashierView.swift in Sources */,
 				72DF18EC263C2FB200E5F3D6 /* BaseButton.swift in Sources */,
+				5560EE24265BDC130032BFFA /* CreateCashierModule.swift in Sources */,
 				55738B1F26480D7200CE2BD5 /* Images.swift in Sources */,
 				7201F01B2636E46000D25097 /* StoriesTransitionDelegate.swift in Sources */,
 				72567B83264A78BE004D45C8 /* MenuModule.swift in Sources */,
@@ -2281,15 +2465,18 @@
 				7201F0922636E73F00D25097 /* LoadingSequence+RX.swift in Sources */,
 				7201EF792636DF2D00D25097 /* ViewController.swift in Sources */,
 				7201EFEE2636E34200D25097 /* NotificationDeepLinkActionModel.swift in Sources */,
+				5582A4EE2657DE6500E477E4 /* CameraViewModel.swift in Sources */,
 				7201EFFB2636E39000D25097 /* DropdownPresentable.swift in Sources */,
 				7201F00A2636E3FC00D25097 /* SlidingTransitioningDelegate.swift in Sources */,
 				721069B526639FFE00D38FFF /* KassOperationReportViewController.swift in Sources */,
 				72DF18C2263C2D7C00E5F3D6 /* PhoneNumberTextField.swift in Sources */,
+				5560EE2C265BDD880032BFFA /* CashierPickerViewDelegate.swift in Sources */,
 				7201F04D2636E60B00D25097 /* ApiService.swift in Sources */,
 				5F14B648264412AF00315D87 /* RegisterViewController.swift in Sources */,
 				7281C961266F88A40057F683 /* DateFormatting.swift in Sources */,
 				72DF18C8263C2E5C00E5F3D6 /* Layout.swift in Sources */,
 				7201F0CC2636E8EE00D25097 /* BackButton.swift in Sources */,
+				5560EE37265BDF490032BFFA /* CreateCashierFormView.swift in Sources */,
 				72567B91264A8674004D45C8 /* MainCoordinator.swift in Sources */,
 				7201F0E02636EA0C00D25097 /* UICollectionView+Reuse.swift in Sources */,
 				5F582C38264961F800BB070D /* OfferButton.swift in Sources */,
@@ -2323,6 +2510,7 @@
 				7201F0352636E59500D25097 /* SertLombardLogger+HTTP.swift in Sources */,
 				7201EFD72636E2C800D25097 /* CoordinatorNavigationController.swift in Sources */,
 				55738B5D264A48C100CE2BD5 /* PointPickerViewDataSource.swift in Sources */,
+				5560EE1C265BD9440032BFFA /* CreateCashierView.swift in Sources */,
 				7201EFEA2636E32D00D25097 /* NotificationDeepLinkAction.swift in Sources */,
 				7201F0592636E63F00D25097 /* SerlLombardRequestAdapter.swift in Sources */,
 				5510BD0C264CD62C00900F4E /* City.swift in Sources */,
@@ -2332,6 +2520,7 @@
 				72D0A720267097500081DEE5 /* KassOperationsViewModel.swift in Sources */,
 				7201F0C72636E87400D25097 /* CallBack.swift in Sources */,
 				5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */,
+				5560EE3F265BE02C0032BFFA /* CreateCashierFormViewController.swift in Sources */,
 				5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */,
 				7201EFE22636E30800D25097 /* DeepLinkAction.swift in Sources */,
 				7201EFF22636E35D00D25097 /* Router.swift in Sources */,
@@ -2345,6 +2534,8 @@
 				7201F09B2636E76400D25097 /* String+Unwrap.swift in Sources */,
 				72A61682266450960005B25C /* KassOperationFilterViewController.swift in Sources */,
 				7201F0652636E67600D25097 /* StubApiRequset.swift in Sources */,
+				5560EE16265BA6EA0032BFFA /* GiveCreditViewModel.swift in Sources */,
+				55BA8E212663CD2900F74589 /* CreateCashierViewModel.swift in Sources */,
 				7201F0D72636E9E400D25097 /* UIStackView+Init.swift in Sources */,
 				5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */,
 				729B16F626669AB50082355D /* CalendarView.swift in Sources */,
@@ -2382,6 +2573,7 @@
 				55738B77264A655800CE2BD5 /* CameraView.swift in Sources */,
 				72567B8B264A7B86004D45C8 /* MenuHeaderView.swift in Sources */,
 				5F9FD51B2647E80E0067EE19 /* AuthUserViewModel.swift in Sources */,
+				5560EE2F265BDDD10032BFFA /* CashierPickerViewDataSource.swift in Sources */,
 				7201F0472636E5EC00D25097 /* HTTPMethod.swift in Sources */,
 				7201F0682636E68300D25097 /* AuthServiceAssembly.swift in Sources */,
 				72A61688266452F70005B25C /* CheapsCollectionViewCell.swift in Sources */,
@@ -2393,6 +2585,7 @@
 				7201F04A2636E5FA00D25097 /* AuthenticationService.swift in Sources */,
 				7201F02B2636E56D00D25097 /* Logger.swift in Sources */,
 				7201F0842636E6FD00D25097 /* PaginationTableFooterView.swift in Sources */,
+				5560EE32265BDDF40032BFFA /* Cashier.swift in Sources */,
 				72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */,
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
 				55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */,
@@ -2421,6 +2614,8 @@
 				5510BD3A264D015400900F4E /* EndDayPickerViewDelegate.swift in Sources */,
 				7201F0AF2636E7E800D25097 /* UserDefaultsStorage.swift in Sources */,
 				7201F0782636E6CE00D25097 /* Pagination.swift in Sources */,
+				55BA8E2B2663CEED00F74589 /* CashierInfo.swift in Sources */,
+				5560EE28265BDC350032BFFA /* CreateCashierViewController.swift in Sources */,
 				55738B73264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift in Sources */,
 				5FBE1C412642C76B001F4CAF /* AuthCheckCoordinator.swift in Sources */,
 				5F3CD002264BFC5E001836A8 /* AboutKassaViewController.swift in Sources */,
@@ -2430,6 +2625,7 @@
 				5F14B6422644126200315D87 /* RegisterModule.swift in Sources */,
 				5510BD33264CFBD000900F4E /* CreatePointFormViewModel.swift in Sources */,
 				5F59181526553B6F00317529 /* ChangePassTarget.swift in Sources */,
+				5582A5232657E0C500E477E4 /* CreditTarget.swift in Sources */,
 				72567B80264A7680004D45C8 /* Menu.swift in Sources */,
 				55B818F026563360007DB5F9 /* MapModule.swift in Sources */,
 				55A6F3E32653816D00ADB9CB /* CabinetViewModel.swift in Sources */,
@@ -2593,7 +2789,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -2618,7 +2814,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kreditomat.business1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

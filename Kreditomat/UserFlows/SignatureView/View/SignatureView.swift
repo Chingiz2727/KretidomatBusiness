@@ -57,7 +57,6 @@ final class SignatureView: UIView {
         addSubview(titleLabel)
         addSubview(drawerView)
         addSubview(buttonStack)
-        
         buttonStack.snp.makeConstraints { make in
             make.bottom.equalTo(safeAreaLayoutGuide).inset(20)
             make.leading.trailing.equalToSuperview().inset(20)
