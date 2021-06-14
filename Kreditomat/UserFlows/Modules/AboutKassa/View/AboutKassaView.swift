@@ -1,10 +1,11 @@
+
 import UIKit
 import RxSwift
 
 final class AboutKassaView: UIView {
     
     private let disposeBag = DisposeBag()
-    let selectTag = BehaviorSubject.init(value: 1)
+    var selectTag = BehaviorSubject.init(value: 0)
     
     let pointTitle: UILabel = {
         let l = UILabel()
@@ -21,9 +22,7 @@ final class AboutKassaView: UIView {
         imageView.image = Images.arrowbottom.image
         return imageView
     }()
-    
-    let tableView = UITableView()
-    
+        
     let kassaOperationTitle: UILabel = {
         let l = UILabel()
         l.text = "Выберите желаемую кассовую операцию"
@@ -93,7 +92,6 @@ final class AboutKassaView: UIView {
         super.init(frame: frame)
         setupInitialLayouts()
         configureView()
-//        configureButton()
     }
 
     required init?(coder: NSCoder) {
@@ -145,19 +143,10 @@ final class AboutKassaView: UIView {
             make.height.equalTo(40)
         }
         
-        addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
-        }
     }
     
     private func configureView() {
         backgroundColor = .background
-        tableView.backgroundColor = .white
-        tableView.separatorStyle = .none
-        tableView.registerClassForCell(UITableViewCell.self)
-        
-        tableView.rowHeight = 400
         pointListTextField.textField.placeholder = "Все.."
         amountOperationView.amountLabel.text = "СУММА"
         amountOperationView.amountTextField.placeholder = "10 000 тг"
