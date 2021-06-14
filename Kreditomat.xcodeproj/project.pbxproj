@@ -214,6 +214,7 @@
 		72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B98264A891E004D45C8 /* SignatureViewController.swift */; };
 		72567B9B264A8A48004D45C8 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B9A264A8A48004D45C8 /* SignatureView.swift */; };
 		72721E702675DA2F00DA871A /* PaymentOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E6F2675DA2F00DA871A /* PaymentOperations.swift */; };
+		72721E7326770BEB00DA871A /* TimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E7226770BEB00DA871A /* TimesView.swift */; };
 		727431492650535E00A1B9F4 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727431482650535E00A1B9F4 /* CustomAlertViewController.swift */; };
 		7281C961266F88A40057F683 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7281C960266F88A40057F683 /* DateFormatting.swift */; };
 		7281C963266F88B50057F683 /* PropertyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7281C962266F88B50057F683 /* PropertyFormatter.swift */; };
@@ -449,6 +450,7 @@
 		72567B98264A891E004D45C8 /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		72567B9A264A8A48004D45C8 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		72721E6F2675DA2F00DA871A /* PaymentOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOperations.swift; sourceTree = "<group>"; };
+		72721E7226770BEB00DA871A /* TimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesView.swift; sourceTree = "<group>"; };
 		727431482650535E00A1B9F4 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		7281C960266F88A40057F683 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		7281C962266F88B50057F683 /* PropertyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFormatter.swift; sourceTree = "<group>"; };
@@ -1894,6 +1896,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		72721E7126770BDE00DA871A /* TimesView */ = {
+			isa = PBXGroup;
+			children = (
+				72721E7226770BEB00DA871A /* TimesView.swift */,
+			);
+			path = TimesView;
+			sourceTree = "<group>";
+		};
 		7281C95F266F888D0057F683 /* DateFormatter */ = {
 			isa = PBXGroup;
 			children = (
@@ -2023,6 +2033,7 @@
 		72F61494263C1ED300039B35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72721E7126770BDE00DA871A /* TimesView */,
 				729B16F426669AA80082355D /* CalendarView */,
 				721069B92663A08D00D38FFF /* SectionNameValue */,
 				5F9FD5212647FB830067EE19 /* TitleAndTextField */,
@@ -2211,6 +2222,7 @@
 				55A6F3F22653AD7000ADB9CB /* MainMenuViewModel.swift in Sources */,
 				72DF18BF263C2CBF00E5F3D6 /* Colors.swift in Sources */,
 				7201F1002636EC6300D25097 /* DependencyContainer.swift in Sources */,
+				72721E7326770BEB00DA871A /* TimesView.swift in Sources */,
 				7201F1052636ED9700D25097 /* AppCoordinator.swift in Sources */,
 				7201F10B2636EDC600D25097 /* AppCoordinatorFactory.swift in Sources */,
 				5510BCFA264CC21100900F4E /* TimeTextFieldContainer.swift in Sources */,

@@ -14,7 +14,7 @@ class KassOperationFilterViewController: UIViewController, KassOperationFilterMo
         super.viewDidLoad()
         rootView.acceptButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-                let filter = KassFilter(firsDate: rootView.firstPeriod.selectedDate, secondDate: rootView.secondPeriod.selectedDate, period: 1)
+                let filter = KassFilter(firsDate: rootView.firstPeriod.selectedDate, secondDate: rootView.secondPeriod.selectedDate, period: rootView.timesView.selectedIndex)
                 self.onFilterSended?(filter)
             })
             .disposed(by: diposeBag)

@@ -4,7 +4,7 @@ import UIKit
 final class KassOperationFilterView: UIView {
     private let scrollView = UIScrollView()
     private let titleLabel = UILabel()
-    let timesView = CheapsSelectorView()
+    let timesView = TimesView()
     private let timesLabel = UILabel()
     let firstPeriod = CalendarView()
     let secondPeriod = CalendarView()
@@ -47,7 +47,7 @@ final class KassOperationFilterView: UIView {
         timesView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(50)
+            make.height.equalTo(33)
         }
     
         timesLabel.snp.makeConstraints { make in
@@ -81,7 +81,7 @@ final class KassOperationFilterView: UIView {
         titleLabel.font = .bold12
         titleLabel.font = .bold12
         secondPeriod.nextMonth()
-        timesView.setupCollectionItems(collectionItems: [.init(title: "За неделю"), .init(title: "За месяц"), .init(title: "За полгода"), .init(title: "За год")])
+        timesView.setTitles(titles: ["За неделю","За месяц","За полгода","За год"])
         backgroundColor = .white
         cancelButton.setTitle("Отмена", for: .normal)
         acceptButton.setTitle("Применить", for: .normal)

@@ -52,6 +52,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
                 DispatchQueue.main.async {
                     self.rootView.dataTable.reloadData()
                     self.rootView.dataTable.reloadInputViews()
+                    self.rootView.setView(data: data)
                 }
             })
             .disposed(by: disposeBag)

@@ -23,7 +23,7 @@ final class KassOperationReportView: UIView {
     
     private lazy var fullStack = UIStackView(views: [selectContainer, sectionValue, timeStack], axis: .vertical, distribution: .fill, spacing: 20)
     
-    private let operations: [NameValue] = [
+    private var operations: [NameValue] = [
         NameValue(name: "Обороты по точкам: ", value: "Общие"),
         NameValue(name: "ИП/ТОО", value: "Наименование отчета"),
         NameValue(name: "Текущий остаток", value: "1 000 000 тенге"),
@@ -66,6 +66,16 @@ final class KassOperationReportView: UIView {
         setupTable()
     }
     
+    func setView(data: PaymentOperations) {
+        let operations: [NameValue] = [
+            NameValue(name: "Обороты по точкам: ", value: "Общие"),
+            NameValue(name: "Текущий остаток", value: "\(data.data.totalSum) тенге"),
+            NameValue(name: "Общий входящий остаток", value: "\(data.data.totalPlus)тенге")
+        ]
+        sectionValue.setupValueView(value: operations)
+        sectionValue.isHidden = false
+    }
+    
     func setupTable() {
         scrollView.addSubview(dataTable)
         scrollView.addSubview(headerView)
@@ -98,7 +108,6 @@ final class KassOperationReportView: UIView {
         calendarButton.layer.cornerRadius = 4
         selectContainer.title = "Выберите точку"
         selectContainer.textField.setButtonImage(image: #imageLiteral(resourceName: "arrowbottom"))
-        sectionValue.setupValueView(value: operations)
         sectionValue.layer.cornerRadius = 3
         sectionValue.layer.borderWidth = 2
         sectionValue.layer.borderColor = UIColor.secondary.cgColor
@@ -106,6 +115,7 @@ final class KassOperationReportView: UIView {
         firstPeriod.layer.cornerRadius = 5
         secondPeriod.layer.cornerRadius = 5
         dataTable.layer.cornerRadius = 8
+        sectionValue.isHidden = true
         backgroundColor = .white
     }
 }

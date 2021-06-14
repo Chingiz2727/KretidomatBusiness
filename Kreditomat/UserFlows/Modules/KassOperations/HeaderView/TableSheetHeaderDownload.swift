@@ -31,7 +31,7 @@ final class TableSheetHeaderDownload: UIView {
         backgroundColor = .primary
         downloadButton.imageView?.contentMode = .scaleAspectFit
         downloadButton.imageView?.tintColor = .white
-        downloadButton.setImage(#imageLiteral(resourceName: "download"), for: .normal)
+//        downloadButton.setImage(#imageLiteral(resourceName: "download"), for: .normal)
         titleLabel.textAlignment = .center
         titleLabel.text = "Отчет по кассовым операциям"
         titleLabel.textColor = .white
