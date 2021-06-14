@@ -29,6 +29,7 @@ class CreateCashierFormViewController: ViewController, ViewHolder, CreateCashier
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Создать кассира"
+        navigationController?.navigationBar.layer.addShadow()
         bindView()
     }
     

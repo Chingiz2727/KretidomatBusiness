@@ -31,6 +31,7 @@ class AttachCashierViewController: ViewController, ViewHolder, AttachCashierModu
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPointPickerView()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Прикрепить кассира"
     }
     
