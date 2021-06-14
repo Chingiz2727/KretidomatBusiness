@@ -2,11 +2,13 @@ import Koyomi
 import UIKit
 
 final class KassOperationFilterView: UIView {
+    private let scrollView = UIScrollView()
     private let titleLabel = UILabel()
     let timesView = CheapsSelectorView()
     private let timesLabel = UILabel()
-    private let firstPeriod = CalendarView()
-    private let secondPeriod = Koyomi(frame: .zero, sectionSpace: 0, cellSpace: 0, inset: UIEdgeInsets.init(top: 3, left: 3, bottom: 3, right: 3), weekCellHeight: 30)
+    let firstPeriod = CalendarView()
+    let secondPeriod = CalendarView()
+    
     let cancelButton = PrimaryButton()
     let acceptButton = PrimaryButton()
     
@@ -29,21 +31,23 @@ final class KassOperationFilterView: UIView {
     }
     
     private func setupInitialLayout() {
-        addSubview(titleLabel)
-        addSubview(timesView)
-        addSubview(timesLabel)
-        addSubview(firstPeriod)
-        addSubview(secondPeriod)
-        addSubview(buttonStackView)
+        addSubview(scrollView)
+        scrollView.snp.makeConstraints { $0.edges.width.height.equalToSuperview() }
+        scrollView.addSubview(titleLabel)
+        scrollView.addSubview(timesView)
+        scrollView.addSubview(timesLabel)
+        scrollView.addSubview(firstPeriod)
+        scrollView.addSubview(secondPeriod)
+        scrollView.addSubview(buttonStackView)
 
         titleLabel.snp.makeConstraints { make in
-            make.top.leading.equalTo(safeAreaLayoutGuide).inset(10)
+            make.top.leading.equalToSuperview().inset(10)
         }
         
         timesView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(44)
+            make.height.equalTo(50)
         }
     
         timesLabel.snp.makeConstraints { make in
@@ -66,36 +70,26 @@ final class KassOperationFilterView: UIView {
         }
         
         buttonStackView.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(44)
+            make.top.equalTo(secondPeriod.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(100)
+            make.height.equalTo(40)
         }
     }
     
     private func configureView() {
         titleLabel.font = .bold12
         titleLabel.font = .bold12
-
-        secondPeriod.weeks = ("вс","пн","вт","ср","чт","пт","сб")
-
-
-        secondPeriod.holidayColor.saturday = .red
-        secondPeriod.holidayColor.sunday = .red
-        secondPeriod.isHiddenOtherMonth = true
-        secondPeriod.separatorColor = .clear
-        secondPeriod.sectionSeparatorColor = .clear
-
-        secondPeriod.circularViewDiameter = 0.5
-        secondPeriod.selectionMode = .single(style: .circle)
-        secondPeriod.selectedStyleColor = .primary
+        secondPeriod.nextMonth()
+        timesView.setupCollectionItems(collectionItems: [.init(title: "За неделю"), .init(title: "За месяц"), .init(title: "За полгода"), .init(title: "За год")])
+        backgroundColor = .white
         cancelButton.setTitle("Отмена", for: .normal)
         acceptButton.setTitle("Применить", for: .normal)
         acceptButton.layer.cornerRadius = 12
         cancelButton.layer.cornerRadius = 12
-
-        secondPeriod.setDayFont(size: 11)
-        secondPeriod.setWeekFont(size: 12)
-        timesView.setupCollectionItems(collectionItems: [.init(title: "За неделю"), .init(title: "За месяц"), .init(title: "За полгода"), .init(title: "За год")])
-        backgroundColor = .white
-        
+        titleLabel.text = "Выберите период"
+        titleLabel.font = .regular12
+        timesLabel.font = .regular12
+        timesLabel.text = "Укажите определенный период вручную"
     }
 }

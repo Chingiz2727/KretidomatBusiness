@@ -70,8 +70,9 @@ public class CheapsSelectorCollectionViewCell: UICollectionViewCell {
         label.frame.size.width = Swift.min(availableSpace, label.frame.width)
     }
     
+    
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let height: CGFloat = size.height // Just set height of the cell as the height from the provided size
+        let height: CGFloat = 44 // Just set height of the cell as the height from the provided size
         let labelSize = label.sizeThatFits(CGSize(width: Swift.min(CGFloat.greatestFiniteMagnitude, size.width),
                                                   height: height))
         let width = labelSize.width + labelInsets.left + labelInsets.right

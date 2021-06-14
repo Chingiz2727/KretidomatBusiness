@@ -39,7 +39,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         
         let output = viewModel.transform(
             input: .init(typeButton: rootView.selectTag,
-                         point: .just(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: "", CashierName: "", CashierPhone: "")),
+                         point: .just(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: nil, CashierName: "", CashierPhone: "", BonusSum: nil)),
                          sum: rootView.amountOperationView.amountTextField.rx.text.asObservable(),
                          succesTapped: rootView.accessButton.rx.tap.asObservable(),
                          pointList: .just(())))
@@ -59,7 +59,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
             .bind(to: rx.error)
             .disposed(by: disposeBag)
 
-        pointPickerDelegate.selectedPoint.onNext(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: "", CashierName: "", CashierPhone: ""))
+        pointPickerDelegate.selectedPoint.onNext(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: nil, CashierName: "", CashierPhone: "", BonusSum: nil))
         
         result.connect()
             .disposed(by: disposeBag)

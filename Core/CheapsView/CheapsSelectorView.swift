@@ -14,6 +14,7 @@ public class CheapsSelectorView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        layout.scrollDirection = .horizontal
         return collectionView
     }()
     
@@ -44,8 +45,8 @@ public class CheapsSelectorView: UIView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-//        layout.inset.top = 5
-//        layout.inset.bottom = 5
+        layout.inset.top = 5
+        layout.inset.bottom = 5
         let needsInvalidateLayout = collectionView.frame != bounds
         collectionView.frame = bounds
 
@@ -105,6 +106,7 @@ extension CheapsSelectorView: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         delegate?.cheapsSelectorView(self, didSelectItemAt: indexPath.item)
     }
 }

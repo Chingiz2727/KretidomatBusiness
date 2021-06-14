@@ -5,7 +5,7 @@ import Foundation
 
 final class KassOperationReportView: UIView {
     
-    private let selectContainer = TextFieldContainer<RightButtonTextField>()
+    let selectContainer = TextFieldContainer<RightButtonTextField>()
     private let sectionValue = SectionNameValueView()
     
     private let periodTitle = UILabel()
@@ -15,6 +15,7 @@ final class KassOperationReportView: UIView {
     let secondPeriod = RegularTextField()
     let calendarButton = UIButton()
     var dataTable = SpreadsheetView()
+    private let scrollView = UIScrollView()
     
     private lazy var calendarStack = UIStackView(views: [firstPeriod, separotTitle, secondPeriod], axis: .horizontal, distribution: .fill, alignment: .center, spacing: 7)
     
@@ -40,31 +41,34 @@ final class KassOperationReportView: UIView {
     }
     
     private func setupInitialLayout() {
-        addSubview(fullStack)
+        addSubview(scrollView)
+        scrollView.snp.makeConstraints { $0.edges.width.height.equalToSuperview() }
+        scrollView.addSubview(fullStack)
         fullStack.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).inset(20)
+            make.top.equalToSuperview().inset(20)
             make.leading.width.trailing.equalToSuperview().inset(20)
         }
         
         firstPeriod.snp.makeConstraints { make in
-            make.width.equalTo(75)
+            make.width.equalTo(100)
             make.height.equalTo(30)
         }
         
         secondPeriod.snp.makeConstraints { make in
-            make.width.equalTo(75)
+            make.width.equalTo(100)
             make.height.equalTo(30)
         }
-        
-        selectContainer.snp.makeConstraints { $0.height.equalTo(60) }
+        firstPeriod.isUserInteractionEnabled = false
+        secondPeriod.isUserInteractionEnabled = false
+        selectContainer.snp.makeConstraints { $0.height.equalTo(40) }
         calendarButton.imageView?.contentMode = .scaleAspectFit
         calendarButton.snp.makeConstraints { $0.size.equalTo(30) }
         setupTable()
     }
     
     func setupTable() {
-        addSubview(dataTable)
-        addSubview(headerView)
+        scrollView.addSubview(dataTable)
+        scrollView.addSubview(headerView)
         
         headerView.snp.makeConstraints { make in
             make.top.equalTo(fullStack.snp.bottom).offset(10)
@@ -76,6 +80,7 @@ final class KassOperationReportView: UIView {
             make.top.equalTo(headerView.snp.bottom)
             make.height.equalTo(400)
             make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(50)
         }
     }
 

@@ -18,7 +18,9 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(NotificationCenter.self) { _ in
             NotificationCenter.default
         }.inObjectScope(.container)
-        
+        container.register(PropertyFormatter.self) { resolver in
+            PropertyFormatter()
+        }.inObjectScope(.container)
         container.register(UserInfoStorage.self) { _ in
             UserInfoStorage()
         }.inObjectScope(.container)

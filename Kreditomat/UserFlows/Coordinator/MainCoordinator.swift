@@ -80,7 +80,9 @@ final class MainCoordinator: BaseCoordinator {
     private func showOperations() {
         var module = assembler.resolver.resolve(KassOperationReportModule.self)!
         module.filterTapped = { [weak self] in
-            self?.kassoperationFilter()
+            self?.kassoperationFilter(operation: { filter in
+                module.onfilterSelect?(filter)
+            })
         }
         router.push(module)
     }
@@ -118,8 +120,12 @@ final class MainCoordinator: BaseCoordinator {
         router.push(module)
     }
     
-    private func kassoperationFilter() {
-        let module = assembler.resolver.resolve(KassOperationFilterModule.self)!
+    private func kassoperationFilter(operation:(((KassFilter))->Void)?) {
+        var module = assembler.resolver.resolve(KassOperationFilterModule.self)!
+        module.onFilterSended = { [weak self] filter in
+            operation?(filter)
+            self?.router.popModule()
+        }
         router.push(module)
     }
 }
