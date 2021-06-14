@@ -23,13 +23,6 @@ final class KassOperationReportView: UIView {
     
     private lazy var fullStack = UIStackView(views: [selectContainer, sectionValue, timeStack], axis: .vertical, distribution: .fill, spacing: 20)
     
-    private var operations: [NameValue] = [
-        NameValue(name: "Обороты по точкам: ", value: "Общие"),
-        NameValue(name: "ИП/ТОО", value: "Наименование отчета"),
-        NameValue(name: "Текущий остаток", value: "1 000 000 тенге"),
-        NameValue(name: "Общий входящий остаток", value: "1 000 000 тенге")
-    ]
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupInitialLayout()
@@ -42,10 +35,10 @@ final class KassOperationReportView: UIView {
     
     private func setupInitialLayout() {
         addSubview(scrollView)
-        scrollView.snp.makeConstraints { $0.edges.width.height.equalToSuperview() }
+        scrollView.snp.makeConstraints { $0.edges.width.height.equalTo(safeAreaLayoutGuide) }
         scrollView.addSubview(fullStack)
         fullStack.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
+            make.top.equalToSuperview().inset(40)
             make.leading.width.trailing.equalToSuperview().inset(20)
         }
         
@@ -70,7 +63,7 @@ final class KassOperationReportView: UIView {
         let operations: [NameValue] = [
             NameValue(name: "Обороты по точкам: ", value: "Общие"),
             NameValue(name: "Текущий остаток", value: "\(data.data.totalSum) тенге"),
-            NameValue(name: "Общий входящий остаток", value: "\(data.data.totalPlus)тенге")
+            NameValue(name: "Общий входящий остаток", value: "\(data.data.totalPlus) тенге")
         ]
         sectionValue.setupValueView(value: operations)
         sectionValue.isHidden = false
@@ -98,6 +91,7 @@ final class KassOperationReportView: UIView {
         dataTable.register(DataSheetTableViewCell.self, forCellWithReuseIdentifier: "cellid")
 //        dataTable.layer.borderWidth = 2
 //        dataTable.layer.borderColor = UIColor.primary.cgColor
+        selectContainer.textField.placeholder = "Все..."
         separotTitle.text = "-"
         periodTitle.text = "Период: "
         periodTitle.font = .systemFont(ofSize: 12)
@@ -109,13 +103,16 @@ final class KassOperationReportView: UIView {
         selectContainer.title = "Выберите точку"
         selectContainer.textField.setButtonImage(image: #imageLiteral(resourceName: "arrowbottom"))
         sectionValue.layer.cornerRadius = 3
-        sectionValue.layer.borderWidth = 2
+        sectionValue.layer.borderWidth = 1
         sectionValue.layer.borderColor = UIColor.secondary.cgColor
         calendarButton.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         firstPeriod.layer.cornerRadius = 5
         secondPeriod.layer.cornerRadius = 5
         dataTable.layer.cornerRadius = 8
         sectionValue.isHidden = true
-        backgroundColor = .white
+        headerView.layer.cornerRadius = 8
+        firstPeriod.placeholder = "00.00.0000"
+        secondPeriod.placeholder = "00.00.0000"
+        backgroundColor = .background
     }
 }

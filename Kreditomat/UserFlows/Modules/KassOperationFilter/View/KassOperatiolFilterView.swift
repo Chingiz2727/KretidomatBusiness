@@ -91,5 +91,6 @@ final class KassOperationFilterView: UIView {
         titleLabel.font = .regular12
         timesLabel.font = .regular12
         timesLabel.text = "Укажите определенный период вручную"
+        backgroundColor = .background
     }
 }

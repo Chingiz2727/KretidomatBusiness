@@ -4,6 +4,11 @@ import UIKit
 final class KassOperationsViewModel: ViewModel {
     
     let apiService = assembler.resolver.resolve(ApiService.self)!
+    let operationType: OperationType
+    
+    init(operationType: OperationType) {
+        self.operationType = operationType
+    }
     
     struct Input {
         let filter: Observable<KassFilter>
@@ -26,7 +31,7 @@ final class KassOperationsViewModel: ViewModel {
         
         let dataTable = Observable.combineLatest(input.filter,input.retailPoint)
             .flatMap { [unowned self] filter, point  -> Observable<LoadingSequence<PaymentOperations>> in
-                return apiService.makeRequest(to: MainTarget.payHistory(dateFrom: filter.firstData ?? "", dateTo: filter.secondData ?? "", filter: filter.periodType ?? 0, point: Int(point)!), stubbed: false)
+                return apiService.makeRequest(to: MainTarget.payHistory(dateFrom: filter.firstData ?? "", dateTo: filter.secondData ?? "", filter: filter.periodType ?? 0, point: Int(point)!, type: self.operationType), stubbed: false)
                     .result(PaymentOperations.self)
                     .asLoadingSequence()
                 

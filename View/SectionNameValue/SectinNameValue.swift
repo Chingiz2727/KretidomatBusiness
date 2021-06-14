@@ -10,8 +10,7 @@ import UIKit
 
      override init(frame: CGRect) {
          super.init(frame: frame)
-         addSubview(verticalStack)
-         verticalStack.snp.makeConstraints { $0.edges.width.height.equalToSuperview().inset(10) }
+
      }
 
      required init?(coder: NSCoder) {
@@ -19,7 +18,9 @@ import UIKit
      }
 
      func setupValueView(value: [NameValue]) {
-         verticalStack.arrangedSubviews.forEach { verticalStack.removeArrangedSubview($0) }
+        verticalStack.removeFullyAllArrangedSubviews()
+        addSubview(verticalStack)
+        verticalStack.snp.makeConstraints { $0.edges.width.height.equalToSuperview().inset(10) }
          value.forEach { item in
              let valueView = NameValueView()
              valueView.setup(title: item.name)
@@ -28,3 +29,17 @@ import UIKit
          }
      }
  }
+extension UIStackView {
+    
+    func removeFully(view: UIView) {
+        removeArrangedSubview(view)
+        view.removeFromSuperview()
+    }
+    
+    func removeFullyAllArrangedSubviews() {
+        arrangedSubviews.forEach { (view) in
+            removeFully(view: view)
+        }
+    }
+    
+}

@@ -8,7 +8,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     typealias RootViewType = KassOperationReportView
     var filterTapped: FilterTapped?
     private let disposeBag = DisposeBag()
-    private let viewModel = KassOperationsViewModel()
+    var viewModel: KassOperationsViewModel!
     private let filter = PublishSubject<KassFilter>()
     private let retailPoint = PublishSubject<String>()
     private let pickerView = UIPickerView()
@@ -27,6 +27,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             .subscribe(onNext: { [unowned self] in
                 self.filterTapped?()
             }).disposed(by: disposeBag)
+        title = "Отчет по кассовым операциям"
         bindViewModel()
     }
 
@@ -68,6 +69,10 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             rootView.secondPeriod.text = filter.secondData
             self.filter.onNext(filter)
         }
+    }
+    
+    override func customBackButtonDidTap() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -122,7 +127,6 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
                 cell.titleLabel.text = "\(items?.sum) тг"
             }
         }
-        
         return cell
     }
 }

@@ -34,7 +34,7 @@ final class TimesView: UIView {
         button.setTitle(title, for: .normal)
         button.configureDeselected()
         button.addTarget(self, action: #selector(selectButton(_:)), for: .touchUpInside)
-        button.titleLabel?.font = .regular10
+        button.titleLabel?.font = .bold10
         buttonsArray.append(button)
         stackView.addArrangedSubview(button)
         button.snp.makeConstraints { $0.height.equalTo(30) }
@@ -62,7 +62,7 @@ extension UIButton {
         self.layer.borderColor = UIColor.primary.cgColor
         self.layer.cornerRadius = 8
         self.backgroundColor = .white
-        self.setTitleColor(.primary, for: .normal)
+        self.setTitleColor(.black, for: .normal)
     }
 }
 
