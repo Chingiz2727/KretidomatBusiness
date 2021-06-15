@@ -16,12 +16,17 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
     private var cashierPickerDelegate: CashierPickerViewDelegate
     private var cashierPickerDataSource: CashierPickerViewDataSource
     private let cashierPickerView = UIPickerView()
+    private var pointPickerDataSource: PointPickerViewDataSource
+    private var pointPickerDelegate: PointPickerViewDelegate
+    private let pointPickerView = UIPickerView()
     private let disposeBag = DisposeBag()
     private let viewModel: CreateCashierViewModel
     
     init(viewModel: CreateCashierViewModel) {
         self.cashierPickerDataSource = CashierPickerViewDataSource()
         self.cashierPickerDelegate = CashierPickerViewDelegate()
+        self.pointPickerDataSource = PointPickerViewDataSource()
+        self.pointPickerDelegate = PointPickerViewDelegate()
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -56,7 +61,49 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
             .subscribe(onNext: { [unowned self] in
                 self.create?()
             }).disposed(by: disposeBag)
-        let output = viewModel.transform(input: .init(loadInfo: .just(()), blockTapped: rootView.blockTapped))
+        let output = viewModel.transform(input: .init(loadInfo: .just(()), blockTapped: rootView.blockTapped, loadPoints: .just(()), attachTapped: rootView.attachTap))
+        
+        let points = output.points.publish()
+        
+        points.element
+            .subscribe(onNext: { [unowned self] res in
+                pointPickerDelegate.point = res.Data
+                pointPickerDataSource.point = res.Data
+            }).disposed(by: disposeBag)
+        
+        points.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        points.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        points.connect()
+            .disposed(by: disposeBag)
+        
+        let attach = output.attachResponse.publish()
+        
+        attach.element
+            .subscribe(onNext: { [unowned self] res in
+                if res.Success {
+                    showSuccessAlert {
+                    }
+                } else {
+                    showSimpleAlert(title: "Ошибка", message: res.Message)
+                }
+            }).disposed(by: disposeBag)
+        
+        attach.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        attach.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        attach.connect()
+            .disposed(by: disposeBag)
         
         let block = output.blockResponse.publish()
         
@@ -108,11 +155,20 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
                 rootView.cashiers = [name]
                 rootView.tableView.reloadData()
             }).disposed(by: disposeBag)
+        
+        pointPickerDelegate.selectedPoint
+            .subscribe(onNext: { [unowned self] res in
+                self.viewModel.pointId = res.SellerID ?? 0
+                rootView.pointsList.textField.text = res.Name
+            }).disposed(by: disposeBag)
     }
     
     private func setupPointPickerView() {
         cashierPickerView.delegate = cashierPickerDelegate
         cashierPickerView.dataSource = cashierPickerDataSource
         rootView.cashiersList.textField.inputView = cashierPickerView
+        pointPickerView.delegate = pointPickerDelegate
+        pointPickerView.dataSource = pointPickerDataSource
+        rootView.pointsList.textField.inputView = pointPickerView
     }
 }

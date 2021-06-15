@@ -10,6 +10,7 @@ import Foundation
 enum CashierTarget: ApiTarget {
     case getCashiers
     case createCashier(name: String, email: String, phone: String)
+    case getPoints
     case attachCashier(sellerId: Int, sellerUserId: Int)
     case block(sellerId: Int, sellerUserId: Int, type: Int)
     
@@ -21,6 +22,8 @@ enum CashierTarget: ApiTarget {
     
     var path: String {
         switch self {
+        case .getPoints:
+            return "GetActualPoints"
         case .getCashiers:
             return "GetCashiers"
         case .createCashier:
@@ -34,7 +37,7 @@ enum CashierTarget: ApiTarget {
     
     var method: HTTPMethod {
         switch self {
-        case .getCashiers:
+        case .getCashiers, .getPoints:
             return .get
         case .createCashier, .attachCashier:
             return .put
@@ -45,7 +48,7 @@ enum CashierTarget: ApiTarget {
     
     var parameters: [String : Any]? {
         switch self {
-        case .getCashiers:
+        case .getCashiers, .getPoints:
             return [:]
         case let  .createCashier(name, email, phone):
             return [
