@@ -11,6 +11,7 @@ import RxSwift
 class CreateCashierView: UIView {
     private let disposeBag = DisposeBag()
     var blockTapped = PublishSubject<Void>()
+    var attachTap = PublishSubject<Void>()
     var cashiers: [CashierData] = []
     let questionLabel: UILabel = {
         let label = UILabel()
@@ -36,7 +37,23 @@ class CreateCashierView: UIView {
     
     let cashiersList = TextFieldContainer()
     
+    let choosePointLabel: UILabel = {
+        let label = UILabel()
+        label.text =  "Выберите точку"
+        label.font = .regular14
+        label.textColor = .black
+        return label
+    }()
+    
+    let pointsList = TextFieldContainer()
+    
     let tableView = UITableView()
+    
+    let cashierImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Images.arrowbottom.image
+        return imageView
+    }()
     
     let pointImage: UIImageView = {
         let imageView = UIImageView()
@@ -81,7 +98,28 @@ class CreateCashierView: UIView {
             make.height.equalTo(40)
         }
         
-        cashiersList.addSubview(pointImage)
+        cashiersList.addSubview(cashierImage)
+        cashierImage.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().inset(10)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(8)
+            make.width.equalTo(14)
+        }
+        
+        addSubview(choosePointLabel)
+        choosePointLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(cashiersList.snp.bottom).offset(20)
+            make.left.equalToSuperview().inset(20)
+        }
+        
+        addSubview(pointsList)
+        pointsList.snp.makeConstraints { (make) in
+            make.top.equalTo(choosePointLabel.snp.bottom).offset(5)
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(40)
+        }
+        
+        pointsList.addSubview(pointImage)
         pointImage.snp.makeConstraints { (make) in
             make.right.equalToSuperview().inset(10)
             make.centerY.equalToSuperview()
@@ -91,7 +129,7 @@ class CreateCashierView: UIView {
         
         addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(cashiersList.snp.bottom).offset(20)
+            make.top.equalTo(pointsList.snp.bottom).offset(20)
             make.left.right.bottom.equalToSuperview().inset(16)
         }
     }
@@ -103,6 +141,7 @@ class CreateCashierView: UIView {
         tableView.separatorStyle = .none
         tableView.rowHeight = 170
         cashiersList.textField.placeholder = "Выберите кассира"
+        pointsList.textField.placeholder = "Выберите точку"
         createButton.layer.addShadow()
         cashiersList.layer.addShadow()
         tableView.delegate = self
@@ -122,6 +161,7 @@ extension CreateCashierView: UITableViewDelegate, UITableViewDataSource {
         let cashier = cashiers[indexPath.row]
         cell.setupData(data: cashier)
         cell.bodyLockImage.addTarget(self, action: #selector(lockTapped), for: .touchUpInside)
+        cell.attachButton.addTarget(self, action: #selector(attachTapped), for: .touchUpInside)
         cell.selectionStyle = .none
         cell.layer.addShadow()
         return cell
@@ -129,5 +169,9 @@ extension CreateCashierView: UITableViewDelegate, UITableViewDataSource {
     
     @objc func lockTapped() {
         blockTapped.onNext(())
+    }
+    
+    @objc func attachTapped() {
+        attachTap.onNext(())
     }
 }

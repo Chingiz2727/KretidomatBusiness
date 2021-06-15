@@ -21,3 +21,5 @@ struct CashierData: Codable {
     let Phone: String
     let Email: String
 }
+
+
