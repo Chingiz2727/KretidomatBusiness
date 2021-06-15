@@ -92,6 +92,7 @@ final class AboutKassaView: UIView {
         super.init(frame: frame)
         setupInitialLayouts()
         configureView()
+        configureButtonType()
     }
 
     required init?(coder: NSCoder) {
@@ -158,7 +159,7 @@ final class AboutKassaView: UIView {
         accessButton.isEnabled = true
     }
     
-    func configureButton(selected: Bool) {
+    func configureButtonType() {
         refillButton.tag = 1
         withdrawalButton.tag = 2
         let buttons = [refillButton, withdrawalButton]
@@ -169,6 +170,9 @@ final class AboutKassaView: UIView {
                     self.selectTag.onNext(button.tag)
                 }).disposed(by: disposeBag)
         }
+    }
+    
+    func configureButton(selected: Bool) {
         
         if selected == true {
             refillButton.backgroundColor = .secondary

@@ -11,6 +11,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
     private let pointPickerView = UIPickerView()
     private let disposeBag = DisposeBag()
     private let buttontapped: PublishSubject<Void> = .init()
+    private let makeRefillActioin = PublishSubject<Void>()
+    private let makeWithAction = PublishSubject<Void>()
+
     private let pointsSelledId = PublishSubject<Int>()
     private var points: [Point] = []
     
@@ -41,7 +44,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
             input: .init(typeButton: rootView.selectTag,
                          point: pointsSelledId,
                          sum: rootView.amountOperationView.amountTextField.rx.text.asObservable(),
-                         succesTapped: rootView.accessButton.rx.tap.asObservable(),
+                         succesTapped: buttontapped,
                          pointList: .just(())))
         
         let result = output.nextTapped.publish()
@@ -49,7 +52,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         result.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    self.presentCustomAlert(type: .giveMoneyToPoint(name: "", sum: rootView.amountOperationView.amountTextField.allText))
+                    self.showSuccessAlert {
+                        print(result.Message)
+                    }
                 } else {
                     self.showErrorInAlert(text: result.Message)
                 }
@@ -84,9 +89,33 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                 self.rootView.configureButton(selected: false)
             }).disposed(by: disposeBag)
         
-        rootView.accessButton.rx.tap.subscribe(onNext: { [unowned self] tap in
-            self.buttontapped.onNext(())
-        } )
+        rootView.accessButton.rx.tap
+            .withLatestFrom(rootView.selectTag)
+            .subscribe(onNext: { [unowned self] tag in
+                if tag == 1 {
+                    self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true) {
+                            self.buttontapped.onNext(())
+                        }
+                    } secondButtonAction: {
+                        
+                    }
+
+                    //refill
+                } else {
+                    //withdrawwl
+                    self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+//                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true) {
+                            self.buttontapped.onNext(())
+                        }
+                    } secondButtonAction: {
+                        
+                    }
+
+                }
+            })
             .disposed(by: disposeBag)
     }
     
