@@ -89,19 +89,15 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                 self.rootView.configureButton(selected: false)
             }).disposed(by: disposeBag)
         
-        rootView.accessButton.rx.tap.subscribe(onNext: { [unowned self] tap in
-            self.buttontapped.onNext(())
-        })
-            .disposed(by: disposeBag)
-        
         rootView.accessButton.rx.tap
             .withLatestFrom(rootView.selectTag)
             .subscribe(onNext: { [unowned self] tag in
                 if tag == 1 {
                     self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
-                        self.makeRefillActioin.onNext(())
-                        self.buttontapped.disposed(by: disposeBag)
                         self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true) {
+                            self.buttontapped.onNext(())
+                        }
                     } secondButtonAction: {
                         
                     }
@@ -110,9 +106,10 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                 } else {
                     //withdrawwl
                     self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
-                        self.makeWithAction.onNext(())
-                        self.buttontapped.disposed(by: disposeBag)
-                        self.dismiss(animated: true, completion: nil)
+//                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true) {
+                            self.buttontapped.onNext(())
+                        }
                     } secondButtonAction: {
                         
                     }
