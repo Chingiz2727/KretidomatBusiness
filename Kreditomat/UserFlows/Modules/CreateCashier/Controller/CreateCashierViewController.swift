@@ -39,11 +39,11 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         navigationController?.navigationBar.layer.addShadow()
         title = "Создать кассира"
         setupPointPickerView()
+        bindView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bindView()
     }
     
     override func customBackButtonDidTap() {

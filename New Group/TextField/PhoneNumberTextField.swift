@@ -20,6 +20,12 @@ final class PhoneNumberTextField: RegularTextField {
         return extractedValue
     }
 
+    var phoneTextObservable: Observable<String> {
+        return phoneTextSubject
+    }
+    
+   private var phoneTextSubject: PublishSubject<String> = .init()
+    
     var isFilled: Observable<Bool> {
         filledSubject
     }
@@ -78,8 +84,9 @@ final class PhoneNumberTextField: RegularTextField {
     
     override func configureDelegate() {
         delegate = listener
-        listener.onMaskedTextChangedCallback = { [weak self] _, _, isFilled in
+        listener.onMaskedTextChangedCallback = { [weak self] _, phoneText, isFilled in
             self?.filledSubject.onNext(isFilled)
+            self?.phoneTextSubject.onNext(phoneText)
         }
     }
     

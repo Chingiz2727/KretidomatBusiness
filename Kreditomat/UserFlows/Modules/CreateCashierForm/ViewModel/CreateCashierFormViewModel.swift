@@ -10,7 +10,7 @@ import RxSwift
 class CreateCashierFormViewModel: ViewModel {
     struct Input {
         let name: Observable<String?>
-        let phone: Observable<String?>
+        let phone: Observable<String>
         let createTapped: Observable<Void>
     }
 
@@ -27,8 +27,9 @@ class CreateCashierFormViewModel: ViewModel {
     func transform(input: Input) -> Output {
         let response = input.createTapped
             .withLatestFrom(Observable.combineLatest(input.name, input.phone))
-            .flatMap { [unowned self] name, phone in
-                return apiService.makeRequest(to: CashierTarget.createCashier(name: name ?? "", email: "", phone: phone ?? ""))
+            .flatMap { [unowned self] name, phone -> Observable<LoadingSequence<ResponseStatus>> in
+                let phone = phone.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
+                return apiService.makeRequest(to: CashierTarget.createCashier(name: name ?? "", email: "", phone: phone))
                     .result(ResponseStatus.self)
                     .asLoadingSequence()
             }.share()
