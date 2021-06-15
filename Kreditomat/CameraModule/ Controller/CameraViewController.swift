@@ -65,11 +65,26 @@ class CameraViewController: ViewController, CameraModule {
     }
 
     private func bindViewModel() {
-        cameraUsagePermission.checkStatus()
+        switch cameraUsagePermission.avAuthorizationStatus {
+        case .authorized:
+            DispatchQueue.main.async {
+                self.setupCamera()
+            }
+        default:
+            cameraUsagePermission.checkStatus()
+            addEmptyButton()
+        }
+        
         cameraUsagePermission.isAccesGranted
             .subscribe(onNext: { [unowned self] isEnabled in
                 if isEnabled {
-                    self.setupCamera()
+                    DispatchQueue.main.async {
+                        self.setupCamera()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }).disposed(by: disposeBag)
         
@@ -162,6 +177,29 @@ class CameraViewController: ViewController, CameraModule {
     
     override func customBackButtonDidTap() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func addEmptyButton() {
+        let button = UIButton()
+        view.addSubview(button)
+        button.setTitle("Для сканирования QR, дайте доступ к камере", for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
+        button.setTitleColor(.primary, for: .normal)
+        button.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        button.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                   return
+                }
+                if UIApplication.shared.canOpenURL(url) {
+                   UIApplication.shared.open(url, options: [:])
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 
