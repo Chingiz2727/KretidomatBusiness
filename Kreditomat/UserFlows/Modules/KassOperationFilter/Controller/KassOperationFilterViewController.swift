@@ -3,7 +3,7 @@ import UIKit
 
 class KassOperationFilterViewController: ViewController, KassOperationFilterModule, ViewHolder {
     var onFilterSended: OnFilterSended?
-    private let diposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     typealias RootViewType = KassOperationFilterView
     
     override func loadView() {
@@ -20,7 +20,11 @@ class KassOperationFilterViewController: ViewController, KassOperationFilterModu
                 let filter = KassFilter(firsDate: rootView.firstPeriod.selectedDate, secondDate: rootView.secondPeriod.selectedDate, period: rootView.timesView.selectedIndex)
                 self.onFilterSended?(filter)
             })
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
+        rootView.cancelButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                navigationController?.popViewController(animated: true)
+            }).disposed(by: disposeBag)
     }
     
     override func customBackButtonDidTap() {

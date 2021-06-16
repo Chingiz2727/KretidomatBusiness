@@ -22,6 +22,8 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
     private let disposeBag = DisposeBag()
     private let viewModel: CreateCashierViewModel
     
+    private var blockCashierSubject = PublishSubject<Void>()
+    
     init(viewModel: CreateCashierViewModel) {
         self.cashierPickerDataSource = CashierPickerViewDataSource()
         self.cashierPickerDelegate = CashierPickerViewDelegate()
@@ -61,7 +63,16 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
             .subscribe(onNext: { [unowned self] in
                 self.create?()
             }).disposed(by: disposeBag)
-        let output = viewModel.transform(input: .init(loadInfo: .just(()), blockTapped: rootView.blockTapped, loadPoints: .just(()), attachTapped: rootView.attachTap))
+        let output = viewModel.transform(input: .init(loadInfo: .just(()), blockTapped: blockCashierSubject, loadPoints: .just(()), attachTapped: rootView.attachTap))
+        
+        rootView.blockCashierCallback = { [unowned self] cashier in
+            presentCustomAlert(type: .blockKassir(fio: cashier.Name)) {
+                blockCashierSubject.onNext(())
+            } secondButtonAction: {
+                dismiss(animated: true, completion: nil)
+            }
+
+        }
         
         let points = output.points.publish()
         
@@ -110,10 +121,14 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         block.element
             .subscribe(onNext: { [unowned self] res in
                 if res.Success {
-                    showSuccessAlert {
+                    dismiss(animated: true) {
+                        showSuccessAlert {
+                        }
                     }
                 } else {
-                    showSimpleAlert(title: "Ошибка", message: res.Message)
+                    dismiss(animated: true) {
+                        showSimpleAlert(title: "Ошибка", message: res.Message)
+                    }
                 }
             }).disposed(by: disposeBag)
         
@@ -150,7 +165,6 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         cashierPickerDelegate.selectedCashier
             .subscribe(onNext: { [unowned self] name in
                 self.viewModel.sellerUserId = name.SellerUserID
-                self.viewModel.sellerId = name.SellerID
                 rootView.cashiersList.textField.text = name.Name
                 rootView.cashiers = [name]
                 rootView.tableView.reloadData()

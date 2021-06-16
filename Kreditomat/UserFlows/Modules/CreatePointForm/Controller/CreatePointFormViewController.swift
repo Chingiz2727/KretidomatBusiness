@@ -109,9 +109,9 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         Observable.combineLatest(rootView.startDayTextField.textField.rx.text.unwrap(),
                                  rootView.endDayTextField.textField.rx.text.unwrap(),
                                  rootView.startTimeTextField.rx.text.unwrap(),
-                                 rootView.endTimeTextField.rx.text.unwrap())
+                                 rootView.endTimeTextField.timeTextObservable)
             .subscribe(onNext:  { [unowned self] startDay, endDay, startTime, endTime in
-                self.viewModel.workingTime = "\(startDay)-\(endDay); \(startTime) - \(endTime)"
+                self.viewModel.workingTime = "\(startDay)-\(endDay); \(startTime)-\(endTime)"
             }).disposed(by: disposeBag)
             
         

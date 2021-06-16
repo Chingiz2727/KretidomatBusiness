@@ -61,6 +61,6 @@ class InfoItemView: UIView {
     }
     
     private func configureView() {
-        dividerLine.backgroundColor = .gray
+        dividerLine.backgroundColor = .lightGray
     }
 }

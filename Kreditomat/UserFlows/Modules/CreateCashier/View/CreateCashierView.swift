@@ -10,7 +10,7 @@ import RxSwift
 
 class CreateCashierView: UIView {
     private let disposeBag = DisposeBag()
-    var blockTapped = PublishSubject<Void>()
+    var blockCashierCallback: ((CashierData) -> Void)?
     var attachTap = PublishSubject<Void>()
     var cashiers: [CashierData] = []
     let questionLabel: UILabel = {
@@ -160,15 +160,13 @@ extension CreateCashierView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cashier", for: indexPath) as! CashierCell
         let cashier = cashiers[indexPath.row]
         cell.setupData(data: cashier)
-        cell.bodyLockImage.addTarget(self, action: #selector(lockTapped), for: .touchUpInside)
+        cell.blockCashierCallBack = { [weak self] in
+            self?.blockCashierCallback?(cashier)
+        }
         cell.attachButton.addTarget(self, action: #selector(attachTapped), for: .touchUpInside)
         cell.selectionStyle = .none
         cell.layer.addShadow()
         return cell
-    }
-    
-    @objc func lockTapped() {
-        blockTapped.onNext(())
     }
     
     @objc func attachTapped() {

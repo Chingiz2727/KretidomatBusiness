@@ -21,7 +21,9 @@ final class MainModuleFactory {
     }
     
     func makeCreatePoint() -> CreatePointModule {
-        return CreatePointViewController()
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = CreatePointViewModel(apiService: apiService)
+        return CreatePointViewController(viewModel: viewModel)
     }
     
     func makeAttachCashier() -> AttachCashierModule {

@@ -27,4 +27,5 @@ struct Point: Codable {
     let CashierName: String?
     let CashierPhone: String?
     let BonusSum: Int?
+    let Balance: Int?
 }

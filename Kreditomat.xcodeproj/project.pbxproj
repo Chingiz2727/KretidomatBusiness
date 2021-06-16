@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5507524F267872F6008F9884 /* CreatePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507524E267872F6008F9884 /* CreatePointViewModel.swift */; };
 		5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */; };
 		5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */; };
 		5510BCF3264BFBE600900F4E /* CreatePointFormModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */; };
@@ -259,6 +260,7 @@
 
 /* Begin PBXFileReference section */
 		13154A890713CA31BE17B195 /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5507524E267872F6008F9884 /* CreatePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointViewModel.swift; sourceTree = "<group>"; };
 		5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormView.swift; sourceTree = "<group>"; };
 		5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextFieldContainer.swift; sourceTree = "<group>"; };
 		5510BCF2264BFBE600900F4E /* CreatePointFormModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormModule.swift; sourceTree = "<group>"; };
@@ -524,6 +526,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5507524D267872E6008F9884 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5507524E267872F6008F9884 /* CreatePointViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5510BCDF264BEDD200900F4E /* CreatePointForm */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,6 +831,7 @@
 		55738B3E264973A900CE2BD5 /* CreatePoint */ = {
 			isa = PBXGroup;
 			children = (
+				5507524D267872E6008F9884 /* ViewModel */,
 				55738B50264A47CC00CE2BD5 /* PointPicker */,
 				55738B48264978C600CE2BD5 /* Controller */,
 				55738B442649789F00CE2BD5 /* Module */,
@@ -2519,6 +2530,7 @@
 				7201F0952636E74A00D25097 /* UIViewController+Error.swift in Sources */,
 				72D0A720267097500081DEE5 /* KassOperationsViewModel.swift in Sources */,
 				7201F0C72636E87400D25097 /* CallBack.swift in Sources */,
+				5507524F267872F6008F9884 /* CreatePointViewModel.swift in Sources */,
 				5F582C3B26499D7E00BB070D /* OfferContainerView.swift in Sources */,
 				5560EE3F265BE02C0032BFFA /* CreateCashierFormViewController.swift in Sources */,
 				5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */,
