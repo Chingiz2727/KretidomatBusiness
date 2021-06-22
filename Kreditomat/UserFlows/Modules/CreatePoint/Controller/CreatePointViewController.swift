@@ -105,7 +105,8 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
                         }
                     }
                 } else {
-                    showErrorAlert(title: "Ошибка", message: res.Message) {
+                    dismiss(animated: true) {
+                        showSimpleAlert(title: "Ошибка", message: res.Message)
                     }
                 }
             }).disposed(by: disposeBag)
@@ -142,6 +143,7 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
         
         pointPickerDelegate.selectedPoint
             .subscribe(onNext: { [unowned self] res in
+                self.viewModel.sellerUserId = res.CashierID ?? 0
                 self.viewModel.sellerId = res.SellerID ?? 0
                 rootView.points = [res]
                 rootView.tableView.reloadData()

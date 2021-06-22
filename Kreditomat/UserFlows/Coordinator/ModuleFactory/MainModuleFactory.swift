@@ -58,8 +58,8 @@ final class MainModuleFactory {
         return SignatureViewController(data: data, viewModel: viewModel)
     }
     
-    func makeSuccess(data: qrResult) -> SuccessModule {
-        return SuccessViewController(data: data)
+    func makeSuccess(data: qrResult, titleText: String, checkoutData: CheckoutData) -> SuccessModule {
+        return SuccessViewController(data: data, titleText: titleText, checkoutData: checkoutData)
     }
     
     func makeCreateCashier() -> CreateCashierModule {

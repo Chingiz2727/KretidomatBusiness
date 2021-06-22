@@ -102,7 +102,7 @@ class CreatePointView: UIView {
         tableView.backgroundColor = .background
         tableView.separatorStyle = .none
         tableView.register(PointCell.self, forCellReuseIdentifier: "point")
-        tableView.rowHeight = 210
+        tableView.rowHeight = 155
         pointsList.textField.placeholder = "Выберите точку"
         tableView.showsVerticalScrollIndicator = false
         createButton.layer.addShadow()

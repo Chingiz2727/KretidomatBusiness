@@ -120,7 +120,10 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         createPoint.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    self.showErrorInAlert(text: result.Message)
+                    dismiss(animated: true) {
+                        showSuccessAlert {
+                        }
+                    }
                 } else {
                     self.showErrorInAlert(text: result.Message)
                 }

@@ -60,7 +60,7 @@ class SignatureViewController: ViewController, SignatureModule, ViewHolder {
                         .subscribe(onNext: { [unowned self] res in
                             if res.Success {
                                 self.dismiss(animated: true) {
-                                    self.showSucces?(data)
+                                    self.showSucces?(data, res.Data)
                                 }
                             } else {
                                 self.dismiss(animated: true) {

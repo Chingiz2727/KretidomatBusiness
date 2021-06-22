@@ -37,13 +37,13 @@ class CreatePointViewModel: ViewModel {
             }.share()
         let pointBlockRes = input.pointBlock
             .flatMap { [unowned self] in
-                return apiService.makeRequest(to: CashierTarget.block(sellerId: sellerId, sellerUserId: sellerUserId, type: 1))
+                return apiService.makeRequest(to: CashierTarget.block(sellerId: sellerId, sellerUserId: 0, type: 1))
                     .result(ResponseStatus.self)
                     .asLoadingSequence()
             }.share()
         let cashierBlockRes = input.cashierBlock
             .flatMap { [unowned self] in
-                return apiService.makeRequest(to: CashierTarget.block(sellerId: sellerId, sellerUserId: sellerUserId, type: 2))
+                return apiService.makeRequest(to: CashierTarget.block(sellerId: 0, sellerUserId: sellerUserId, type: 2))
                     .result(ResponseStatus.self)
                     .asLoadingSequence()
             }.share()

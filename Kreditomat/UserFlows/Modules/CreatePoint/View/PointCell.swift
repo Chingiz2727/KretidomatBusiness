@@ -121,19 +121,19 @@ class PointCell: UITableViewCell {
             make.right.equalToSuperview().inset(35)
         }
         
-        bodyView.addSubview(dividerLine)
-        dividerLine.snp.makeConstraints { (make) in
-            make.top.equalTo(phoneItem.snp.bottom).offset(24)
-            make.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(1)
-        }
+//        bodyView.addSubview(dividerLine)
+//        dividerLine.snp.makeConstraints { (make) in
+//            make.top.equalTo(phoneItem.snp.bottom).offset(24)
+//            make.left.right.equalToSuperview().inset(10)
+//            make.height.equalTo(1)
+//        }
         
-        bodyView.addSubview(attachButton)
-        attachButton.snp.makeConstraints { (make) in
-            make.top.equalTo(phoneItem.snp.bottom).offset(32)
-            make.left.right.equalToSuperview().inset(35)
-            make.height.equalTo(40)
-        }
+//        bodyView.addSubview(attachButton)
+//        attachButton.snp.makeConstraints { (make) in
+//            make.top.equalTo(phoneItem.snp.bottom).offset(32)
+//            make.left.right.equalToSuperview().inset(35)
+//            make.height.equalTo(40)
+//        }
     }
     
     private func configureView() {
