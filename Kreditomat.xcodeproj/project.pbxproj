@@ -230,6 +230,7 @@
 		72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B96264A88B9004D45C8 /* SignatureModule.swift */; };
 		72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B98264A891E004D45C8 /* SignatureViewController.swift */; };
 		72567B9B264A8A48004D45C8 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72567B9A264A8A48004D45C8 /* SignatureView.swift */; };
+		726F685C2682005900D7F433 /* DataTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F685B2682005900D7F433 /* DataTableFooterView.swift */; };
 		72721E702675DA2F00DA871A /* PaymentOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E6F2675DA2F00DA871A /* PaymentOperations.swift */; };
 		72721E7326770BEB00DA871A /* TimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E7226770BEB00DA871A /* TimesView.swift */; };
 		72721E75267751ED00DA871A /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72721E74267751ED00DA871A /* OperationType.swift */; };
@@ -484,6 +485,7 @@
 		72567B96264A88B9004D45C8 /* SignatureModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureModule.swift; sourceTree = "<group>"; };
 		72567B98264A891E004D45C8 /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		72567B9A264A8A48004D45C8 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		726F685B2682005900D7F433 /* DataTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableFooterView.swift; sourceTree = "<group>"; };
 		72721E6F2675DA2F00DA871A /* PaymentOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOperations.swift; sourceTree = "<group>"; };
 		72721E7226770BEB00DA871A /* TimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesView.swift; sourceTree = "<group>"; };
 		72721E74267751ED00DA871A /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
@@ -2069,6 +2071,14 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		726F685A2682004300D7F433 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				726F685B2682005900D7F433 /* DataTableFooterView.swift */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
 		72721E6E2675DA1C00DA871A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2159,6 +2169,7 @@
 		72C67CB126639E16000CB03D /* KassOperations */ = {
 			isa = PBXGroup;
 			children = (
+				726F685A2682004300D7F433 /* FooterView */,
 				72721E6E2675DA1C00DA871A /* Model */,
 				72D0A71E267097350081DEE5 /* ViewModel */,
 				721069B62663A00D00D38FFF /* Module */,
@@ -2512,6 +2523,7 @@
 				55738B5D264A48C100CE2BD5 /* PointPickerViewDataSource.swift in Sources */,
 				5560EE1C265BD9440032BFFA /* CreateCashierView.swift in Sources */,
 				7201EFEA2636E32D00D25097 /* NotificationDeepLinkAction.swift in Sources */,
+				726F685C2682005900D7F433 /* DataTableFooterView.swift in Sources */,
 				7201F0592636E63F00D25097 /* SerlLombardRequestAdapter.swift in Sources */,
 				5510BD0C264CD62C00900F4E /* City.swift in Sources */,
 				5510BCF3264BFBE600900F4E /* CreatePointFormModule.swift in Sources */,

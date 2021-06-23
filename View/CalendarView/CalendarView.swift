@@ -7,9 +7,10 @@ final class CalendarView: UIView {
     private let nextButton = UIButton()
     private let previousButton = UIButton()
     private let titleLabel =  UILabel()
+    private lazy var stackView = UIStackView(arrangedSubviews: [previousButton, titleLabel, nextButton])
+
     var selectedDate = Date()
     private let propertyFormattter = assembler.resolver.resolve(PropertyFormatter.self)!
-    private lazy var stackView = UIStackView(arrangedSubviews: [previousButton, titleLabel, nextButton])
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,6 +60,8 @@ final class CalendarView: UIView {
         titleLabel.font = .regular14
         backView.layer.cornerRadius = 6
         calendarView.calendarDelegate = self
+        let date = propertyFormattter.string(from: Date(), type: .fullMonthWithYear)
+
         let backimage = UIImage(named: "back_black")?.withRenderingMode(.alwaysTemplate)
         previousButton.setImage(backimage, for: .normal)
         previousButton.imageView?.tintColor = .white
@@ -69,7 +72,6 @@ final class CalendarView: UIView {
         nextButton.setImage(nextImage, for: .normal)
         nextButton.snp.makeConstraints { $0.size.equalTo(13) }
         previousButton.snp.makeConstraints { $0.size.equalTo(13) }
-        let date = propertyFormattter.string(from: Date(), type: .fullMonthWithYear)
         titleLabel.text = date?.capitalized
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center

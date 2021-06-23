@@ -5,7 +5,7 @@ enum MainTarget: ApiTarget {
     case createCashRequest(type: Int, sum: Int, point: Int)
     case getActualPoints
     case registerPoint(name: String, email: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String, workingTime: String)
-    case payHistory(dateFrom: String, dateTo: String, filter: Int, point: Int, type: OperationType)
+    case payHistory(dateFrom: String, dateTo: String, filter: Int, point: Int, type: OperationType, skipValue: Int)
     
     var version: ApiVersion { .custom("") }
     
@@ -19,7 +19,7 @@ enum MainTarget: ApiTarget {
             return "GetActualPoints"
         case .registerPoint:
             return "RegisterPoint"
-        case .payHistory(_,_,_,_,let type):
+        case .payHistory(_,_,_,_,let type,_):
             return type.rawValue
         }
     }
@@ -56,8 +56,8 @@ enum MainTarget: ApiTarget {
                     "Pos_Lat": posLat,
                     "Pos_Lng": posLng,
                     "WorkingTime": workingTime]
-        case let.payHistory(dateFrom, dateTo, filter, point, _):
-        return ["DateFrom": dateFrom, "DateTo": dateTo, "Filter": filter, "Point": point]
+        case let.payHistory(dateFrom, dateTo, filter, point, _, skipValue):
+            return ["DateFrom": dateFrom, "DateTo": dateTo, "Filter": filter, "Point": point, "Skip": skipValue, "Take": 10]
         }
     }
     

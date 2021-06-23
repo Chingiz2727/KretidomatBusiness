@@ -19,6 +19,7 @@ struct DataClass: Codable {
     let sellerBalanceOperations: [SellerBalanceOperation]
     let date: String
     let totalPlus, totalSum: Int
+    let pagesCount: Int
 
     enum CodingKeys: String, CodingKey {
         case dateTo = "DateTo"
@@ -27,6 +28,7 @@ struct DataClass: Codable {
         case date = "Date"
         case totalPlus = "TotalPlus"
         case totalSum = "TotalSum"
+        case pagesCount = "PagesCount"
     }
 }
 
@@ -53,6 +55,7 @@ enum BalanceType: Int, Codable {
     case giveKredit = 2
     case incassation = 3
     case replenishment = 4
+    case unknown = 5
     
     var title: String {
         switch self {
@@ -64,6 +67,8 @@ enum BalanceType: Int, Codable {
             return "Инкассация кассы"
         case .replenishment:
             return "Пополнение кассы"
+        case .unknown:
+            return "Unknown"
         }
     }
 }
