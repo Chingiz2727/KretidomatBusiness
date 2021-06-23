@@ -10,7 +10,9 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     private let disposeBag = DisposeBag()
     var viewModel: KassOperationsViewModel!
     private let filter = PublishSubject<KassFilter>()
-    private let retailPoint = PublishSubject<String>()
+    private let retailPoint = BehaviorSubject<String>(value: "")
+    private let stepsValue = 10
+    private let skipValue: BehaviorSubject<Int> = .init(value: 0)
     private let pickerView = UIPickerView()
     private let operationTitle: [String] = ["ID операции", "Дата и время", "Тип операции", "ФИО Кассира", "Текущий остаток"]
     private var points: [Point] = []
@@ -34,7 +36,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     }
 
     private func bindViewModel() {
-        let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(())))
+        let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(()), stepsValue: skipValue))
         
         let points = output.points.publish()
         points.element
@@ -71,6 +73,25 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             rootView.secondPeriod.text = filter.secondData
             self.filter.onNext(filter)
         }
+        
+        rootView.footerView.nextPageOpen = { [unowned self] page in
+            self.skipValue.onNext((page-1)*stepsValue)
+        }
+        
+        rootView.footerView.prevPageOpen = { [unowned self] page in
+            self.skipValue.onNext((page-1)*stepsValue)
+        }
+        
+        rootView.selectContainer.textField.rx.controlEvent(.editingDidBegin)
+            .withLatestFrom(retailPoint)
+            .subscribe(onNext: { [unowned self] point in
+                if point == "" {
+                    let pointId = self.points.first?.SellerID ?? 0
+                    rootView.selectContainer.textField.text = self.points.first?.Name ?? ""
+                    self.retailPoint.onNext(String(pointId))
+                }
+        })
+        .disposed(by: disposeBag)
     }
     
     override func customBackButtonDidTap() {
@@ -114,7 +135,7 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
                 cell.backgroundColor = UIColor.primary.withAlphaComponent(0.1)
             }
             if indexPath.column == 0 {
-                cell.titleLabel.text = "\(items?.requestID)"
+                cell.titleLabel.text = "\(String(describing: items?.requestID ?? 0))"
             }
             if indexPath.column == 1 {
                 cell.titleLabel.text = items?.date
@@ -126,7 +147,7 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
                 cell.titleLabel.text = items?.sellerName
             }
             if indexPath.column == 4 {
-                cell.titleLabel.text = "\(items?.sum) тг"
+                cell.titleLabel.text = "\(String(describing: items?.sum ?? 0)) тг"
             }
         }
         return cell

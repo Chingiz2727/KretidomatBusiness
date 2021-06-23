@@ -1,15 +1,18 @@
 
 import UIKit
 import SpreadsheetView
+import SnapKit
 import Foundation
 
 final class KassOperationReportView: UIView {
     
     let selectContainer = TextFieldContainer<RightButtonTextField>()
     private let sectionValue = SectionNameValueView()
-    
+    private var contentSizeObserver: NSKeyValueObservation?
+    private var heightConstraint: Constraint?
     private let periodTitle = UILabel()
     private let headerView = TableSheetHeaderDownload()
+    let footerView = DataTableFooterView()
     let firstPeriod = RegularTextField()
     let separotTitle = UILabel()
     let secondPeriod = RegularTextField()
@@ -27,6 +30,12 @@ final class KassOperationReportView: UIView {
         super.init(frame: frame)
         setupInitialLayout()
         configureView()
+//        contentSizeObserver = dataTable.observe(
+//            \.contentSize,
+//            options: [.initial, .new]
+//        ) { [weak self] tableView, _ in
+//            self?.heightConstraint?.update(offset: max(0, tableView.contentSize.height))
+//        }
     }
     
     required init?(coder: NSCoder) {
@@ -53,10 +62,13 @@ final class KassOperationReportView: UIView {
         }
         firstPeriod.isUserInteractionEnabled = false
         secondPeriod.isUserInteractionEnabled = false
+        footerView.isHidden = true
         selectContainer.snp.makeConstraints { $0.height.equalTo(40) }
         calendarButton.imageView?.contentMode = .scaleAspectFit
         calendarButton.snp.makeConstraints { $0.size.equalTo(30) }
         setupTable()
+        heightConstraint?.activate()
+
     }
     
     func setView(data: PaymentOperations) {
@@ -65,14 +77,18 @@ final class KassOperationReportView: UIView {
             NameValue(name: "Текущий остаток", value: "\(data.data.totalSum) тенге"),
             NameValue(name: "Общий входящий остаток", value: "\(data.data.totalPlus) тенге")
         ]
+        footerView.isHidden = false
+        footerView.configureView(viewModel: data)
         sectionValue.setupValueView(value: operations)
         sectionValue.isHidden = false
+        heightConstraint?.update(offset: max(dataTable.contentSize.height, dataTable.contentSize.height))
+        
     }
     
     func setupTable() {
         scrollView.addSubview(dataTable)
         scrollView.addSubview(headerView)
-        
+        scrollView.addSubview(footerView)
         headerView.snp.makeConstraints { make in
             make.top.equalTo(fullStack.snp.bottom).offset(10)
             make.height.equalTo(40)
@@ -81,9 +97,15 @@ final class KassOperationReportView: UIView {
         
         dataTable.snp.makeConstraints { make in
             make.top.equalTo(headerView.snp.bottom)
-            make.height.equalTo(400)
+            heightConstraint = make.height.equalTo(0).constraint
             make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(50)
+        }
+        
+        footerView.snp.makeConstraints { make in
+            make.top.equalTo(dataTable.snp.bottom)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(40)
+            make.bottom.equalToSuperview().inset(100)
         }
     }
 

@@ -14,6 +14,7 @@ final class KassOperationsViewModel: ViewModel {
         let filter: Observable<KassFilter>
         let retailPoint: Observable<String>
         let loadPoint: Observable<Void>
+        let stepsValue: Observable<Int>
     }
     
     struct Output {
@@ -29,9 +30,9 @@ final class KassOperationsViewModel: ViewModel {
                     .asLoadingSequence()
             }.share()
         
-        let dataTable = Observable.combineLatest(input.filter,input.retailPoint)
-            .flatMap { [unowned self] filter, point  -> Observable<LoadingSequence<PaymentOperations>> in
-                return apiService.makeRequest(to: MainTarget.payHistory(dateFrom: filter.firstData ?? "", dateTo: filter.secondData ?? "", filter: filter.periodType ?? 0, point: Int(point)!, type: self.operationType), stubbed: false)
+        let dataTable = Observable.combineLatest(input.filter,input.retailPoint, input.stepsValue)
+            .flatMap { [unowned self] filter, point, step  -> Observable<LoadingSequence<PaymentOperations>> in
+                return apiService.makeRequest(to: MainTarget.payHistory(dateFrom: filter.firstData ?? "", dateTo: filter.secondData ?? "", filter: filter.periodType ?? 0, point: Int(point)!, type: self.operationType, skipValue: step), stubbed: false)
                     .result(PaymentOperations.self)
                     .asLoadingSequence()
                 
