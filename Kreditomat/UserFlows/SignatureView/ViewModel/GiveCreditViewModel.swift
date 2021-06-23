@@ -9,8 +9,8 @@ import RxSwift
 
 final class GiveCreditViewModel: ViewModel {
     
-    var clientId = 0
-    var creditId = 0
+    var clientId = "0"
+    var creditId = "0"
     var sig = ""
     
     struct Input {
@@ -18,7 +18,7 @@ final class GiveCreditViewModel: ViewModel {
     }
     
     struct Output {
-        let response: Observable<LoadingSequence<ResponseStatus>>
+        let response: Observable<LoadingSequence<Checkout>>
     }
     
     private let apiService: ApiService
@@ -30,8 +30,8 @@ final class GiveCreditViewModel: ViewModel {
     func transform(input: Input) -> Output {
         let give = input.giveTapped
             .flatMap { [unowned self] in
-                self.apiService.makeRequest(to: CreditTarget.getCredit(ClientID: clientId, CreditID: creditId, Signature: sig))
-                    .result(ResponseStatus.self)
+                self.apiService.makeRequest(to: CreditTarget.getCredit(ClientID: Int(clientId.replacingOccurrences(of: " ", with: "")) ?? 0, CreditID: Int(creditId.replacingOccurrences(of: " ", with: "")) ?? 0, Signature: sig))
+                    .result(Checkout.self)
             }.asLoadingSequence()
         return .init(response: give)
     }

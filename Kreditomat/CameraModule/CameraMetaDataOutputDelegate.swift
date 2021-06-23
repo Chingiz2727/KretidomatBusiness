@@ -18,7 +18,7 @@ final class CameraMetadaOutputDelegate: NSObject, AVCaptureMetadataOutputObjects
             guard let objectString = object.stringValue?.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "", with: "").replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "{", with: "").replacingOccurrences(of: "}", with: "") else { return }
             let array = objectString.split(separator: .init(","))
             let values = array.map { $0.split(separator: ":").last}
-            let result = qrResult(FIO: String(values[0] ?? ""), CreditSum: Int(String(values[1] ?? "")) ?? 0, ClientID: Int(String(values[2] ?? "")) ?? 0 , CreditID: Int(String(values[3] ?? "")) ?? 0)
+            let result = qrResult(FIO: String(values[0] ?? ""), CreditSum: String(values[1] ?? ""), ClientID: String(values[2] ?? ""), CreditID: String(values[3] ?? ""))
             self.qrScanned?(result)
         }
     }

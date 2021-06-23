@@ -21,7 +21,9 @@ final class MainModuleFactory {
     }
     
     func makeCreatePoint() -> CreatePointModule {
-        return CreatePointViewController()
+        let apiService = container.resolve(ApiService.self)!
+        let viewModel = CreatePointViewModel(apiService: apiService)
+        return CreatePointViewController(viewModel: viewModel)
     }
     
     func makeAttachCashier() -> AttachCashierModule {
@@ -56,8 +58,8 @@ final class MainModuleFactory {
         return SignatureViewController(data: data, viewModel: viewModel)
     }
     
-    func makeSuccess(data: qrResult) -> SuccessModule {
-        return SuccessViewController(data: data)
+    func makeSuccess(data: qrResult, titleText: String, checkoutData: CheckoutData) -> SuccessModule {
+        return SuccessViewController(data: data, titleText: titleText, checkoutData: checkoutData)
     }
     
     func makeCreateCashier() -> CreateCashierModule {

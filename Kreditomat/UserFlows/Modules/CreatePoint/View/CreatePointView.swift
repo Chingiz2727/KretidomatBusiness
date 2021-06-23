@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class CreatePointView: UIView {
+    var attachSubject = PublishSubject<Void>()
+    var points: [Point] = []
+    var blockPointCallback: ((Point)->Void)?
+    var blockCashierCallback: ((Point) -> Void)?
     let questionLabel: UILabel = {
         let label = UILabel()
         label.text =  "Вы хотите создать новую точку?"
@@ -88,19 +93,48 @@ class CreatePointView: UIView {
         addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(pointsList.snp.bottom).offset(20)
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.bottom.equalToSuperview().inset(16)
         }
     }
     
     private func configureView() {
         backgroundColor = .background
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .background
         tableView.separatorStyle = .none
-        tableView.registerClassForCell(PointCell.self)
-        tableView.rowHeight = 400
-        pointsList.textField.placeholder = "Все ..."
+        tableView.register(PointCell.self, forCellReuseIdentifier: "point")
+        tableView.rowHeight = 155
+        pointsList.textField.placeholder = "Выберите точку"
+        tableView.showsVerticalScrollIndicator = false
         createButton.layer.addShadow()
+        tableView.delegate = self
+        tableView.dataSource = self
         pointsList.layer.addShadow()
+    }
+}
+
+extension CreatePointView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return points.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "point", for: indexPath) as! PointCell
+        cell.selectionStyle = .none
+        let point = points[indexPath.row]
+        cell.setupData(data: point)
+        cell.blockPointCallBack = { [weak self] in
+            self?.blockPointCallback?(point)
+        }
         
+        cell.blockCashierCallBack = { [weak self] in
+            self?.blockCashierCallback?(point)
+        }
+        cell.attachButton.addTarget(self, action: #selector(attach), for: .touchUpInside)
+        cell.layer.addShadow()
+        return cell
+    }
+    
+    @objc func attach() {
+        attachSubject.onNext(())
     }
 }

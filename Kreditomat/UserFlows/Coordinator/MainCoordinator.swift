@@ -78,8 +78,8 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showSignature(data: qr)
             }
         case .payCredit:
-            module.showSucces = { [weak self] qr in
-                self?.showSuccess(data: qr)
+            module.showSucces = { [weak self] qr, checkoutData in
+                self?.showSuccess(data: qr, titleText: "Вы успешно приняли денежные средства:", checkoutData: checkoutData)
             }
             module.errorTapped = { [weak self] in
                 self?.router.popToRootModule()
@@ -100,8 +100,8 @@ final class MainCoordinator: BaseCoordinator {
         router.push(module)
     }
     
-    private func showSuccess(data: qrResult) {
-        var module = moduleFactory.makeSuccess(data: data)
+    private func showSuccess(data: qrResult, titleText: String, checkoutData: CheckoutData) {
+        var module = moduleFactory.makeSuccess(data: data, titleText: titleText, checkoutData: checkoutData)
         module.closeTapped = { [weak self] in
             self?.router.popToRootModule()
         }
@@ -128,8 +128,8 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showSignature(data: qrResult) {
         var module = moduleFactory.makeSignature(data: data)
-        module.showSucces = { [weak self] data in
-            self?.showSuccess(data: data)
+        module.showSucces = { [weak self] data, checkoutData in
+            self?.showSuccess(data: data, titleText: "Вы успешно выдали денежные средства:", checkoutData: checkoutData)
         }
         module.errorTapped = { [weak self] in
             self?.router.popToRootModule()

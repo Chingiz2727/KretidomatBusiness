@@ -7,6 +7,7 @@
 
 import InputMask
 import UIKit
+import RxSwift
 
 private enum Constants {
     static let textMask = "[00]{:}[00]"
@@ -28,6 +29,12 @@ final class TimeTextFieldContainer: RegularTextField {
 
         }
     }
+    
+    var timeTextObservable: Observable<String> {
+        return timeTextSubject
+    }
+    
+    private var timeTextSubject = PublishSubject<String>()
     
     override var isEnabled: Bool {
         didSet {
@@ -69,8 +76,9 @@ final class TimeTextFieldContainer: RegularTextField {
     
     override func configureDelegate() {
         delegate = listener
-        listener.onMaskedTextChangedCallback = { [weak self] _, _, isFilled in
+        listener.onMaskedTextChangedCallback = { [weak self] _, timeText, isFilled in
             self?.isFilled = isFilled
+            self?.timeTextSubject.onNext(timeText)
         }
     }
     
