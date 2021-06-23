@@ -117,9 +117,11 @@ class SuccessView: UIView {
         configureView()
     }
     
-    func setData(data: qrResult) {
+    func setData(data: qrResult, checkoutData: CheckoutData) {
         clientValueLabel.text = data.FIO
         sumValueLabel.text = "\(data.CreditSum) тенге"
+        bonusValueLabel.text = "\(checkoutData.BonusSum)"
+        balanceValueLabel.text = "\(checkoutData.Balance)"
     }
     
     required init?(coder: NSCoder) {

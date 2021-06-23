@@ -116,7 +116,7 @@ class CameraViewController: ViewController, CameraModule {
                     .subscribe(onNext: { [unowned self] res in
                         if res.Success {
                             self.dismiss(animated: true) {
-                                self.showSucces?(qr)
+                                self.showSucces?(qr, res.Data)
                             }
                         } else {
                             self.dismiss(animated: true) {

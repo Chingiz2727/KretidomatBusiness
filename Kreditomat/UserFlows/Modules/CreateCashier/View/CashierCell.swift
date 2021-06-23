@@ -11,6 +11,7 @@ class CashierCell: UITableViewCell {
     let containerView = UIView()
     let headerView = UIView()
     let bodyView = UIView()
+    var blockCashierCallBack: Callback?
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -124,6 +125,11 @@ class CashierCell: UITableViewCell {
     func setupData(data: CashierData) {
         cashierItem.setupData(title: "Кассир:", value: data.Name)
         phoneItem.setupData(title: "Телефон:", value: data.Phone)
+        bodyLockImage.addTarget(self, action: #selector(blockCashier), for: .touchUpInside)
+    }
+    
+    @objc func blockCashier() {
+        blockCashierCallBack?()
     }
     
     required init?(coder: NSCoder) {
