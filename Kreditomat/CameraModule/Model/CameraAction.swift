@@ -14,7 +14,19 @@ enum CameraAction {
 
 struct qrResult: Codable {
     let FIO: String
-    let CreditSum: Int
-    let ClientID: Int
-    let CreditID: Int
+    let CreditSum: String
+    let ClientID: String
+    let CreditID: String
+}
+
+struct Checkout: Codable {
+    let Success: Bool
+    let Message: String
+    let ErrorCode: Int
+    let Data: CheckoutData
+}
+
+struct CheckoutData: Codable {
+    let Balance: Int
+    let BonusSum: Int
 }

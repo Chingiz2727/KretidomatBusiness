@@ -16,12 +16,19 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
     private var cashierPickerDelegate: CashierPickerViewDelegate
     private var cashierPickerDataSource: CashierPickerViewDataSource
     private let cashierPickerView = UIPickerView()
+    private var pointPickerDataSource: PointPickerViewDataSource
+    private var pointPickerDelegate: PointPickerViewDelegate
+    private let pointPickerView = UIPickerView()
     private let disposeBag = DisposeBag()
     private let viewModel: CreateCashierViewModel
+    
+    private var blockCashierSubject = PublishSubject<Void>()
     
     init(viewModel: CreateCashierViewModel) {
         self.cashierPickerDataSource = CashierPickerViewDataSource()
         self.cashierPickerDelegate = CashierPickerViewDelegate()
+        self.pointPickerDataSource = PointPickerViewDataSource()
+        self.pointPickerDelegate = PointPickerViewDelegate()
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,13 +43,14 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Создать кассира"
         setupPointPickerView()
+        bindView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bindView()
     }
     
     override func customBackButtonDidTap() {
@@ -55,7 +63,85 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
             .subscribe(onNext: { [unowned self] in
                 self.create?()
             }).disposed(by: disposeBag)
-        let output = viewModel.transform(input: .init(loadInfo: .just(())))
+        let output = viewModel.transform(input: .init(loadInfo: .just(()), blockTapped: blockCashierSubject, loadPoints: .just(()), attachTapped: rootView.attachTap))
+        
+        rootView.blockCashierCallback = { [unowned self] cashier in
+            presentCustomAlert(type: .blockKassir(fio: cashier.Name)) {
+                blockCashierSubject.onNext(())
+            } secondButtonAction: {
+                dismiss(animated: true, completion: nil)
+            }
+
+        }
+        
+        let points = output.points.publish()
+        
+        points.element
+            .subscribe(onNext: { [unowned self] res in
+                pointPickerDelegate.point = res.Data
+                pointPickerDataSource.point = res.Data
+            }).disposed(by: disposeBag)
+        
+        points.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        points.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        points.connect()
+            .disposed(by: disposeBag)
+        
+        let attach = output.attachResponse.publish()
+        
+        attach.element
+            .subscribe(onNext: { [unowned self] res in
+                if res.Success {
+                    showSuccessAlert {
+                    }
+                } else {
+                    showSimpleAlert(title: "Ошибка", message: res.Message)
+                }
+            }).disposed(by: disposeBag)
+        
+        attach.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        attach.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        attach.connect()
+            .disposed(by: disposeBag)
+        
+        let block = output.blockResponse.publish()
+        
+        block.element
+            .subscribe(onNext: { [unowned self] res in
+                if res.Success {
+                    dismiss(animated: true) {
+                        showSuccessAlert {
+                        }
+                    }
+                } else {
+                    dismiss(animated: true) {
+                        showSimpleAlert(title: "Ошибка", message: res.Message)
+                    }
+                }
+            }).disposed(by: disposeBag)
+        
+        block.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        block.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        block.connect()
+            .disposed(by: disposeBag)
         
         let info = output.info.publish()
         
@@ -78,7 +164,16 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         
         cashierPickerDelegate.selectedCashier
             .subscribe(onNext: { [unowned self] name in
+                self.viewModel.sellerUserId = name.SellerUserID
                 rootView.cashiersList.textField.text = name.Name
+                rootView.cashiers = [name]
+                rootView.tableView.reloadData()
+            }).disposed(by: disposeBag)
+        
+        pointPickerDelegate.selectedPoint
+            .subscribe(onNext: { [unowned self] res in
+                self.viewModel.pointId = res.SellerID ?? 0
+                rootView.pointsList.textField.text = res.Name
             }).disposed(by: disposeBag)
     }
     
@@ -86,5 +181,8 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         cashierPickerView.delegate = cashierPickerDelegate
         cashierPickerView.dataSource = cashierPickerDataSource
         rootView.cashiersList.textField.inputView = cashierPickerView
+        pointPickerView.delegate = pointPickerDelegate
+        pointPickerView.dataSource = pointPickerDataSource
+        rootView.pointsList.textField.inputView = pointPickerView
     }
 }

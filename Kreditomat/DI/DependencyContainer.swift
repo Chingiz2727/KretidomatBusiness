@@ -18,7 +18,9 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(NotificationCenter.self) { _ in
             NotificationCenter.default
         }.inObjectScope(.container)
-        
+        container.register(PropertyFormatter.self) { resolver in
+            PropertyFormatter()
+        }.inObjectScope(.container)
         container.register(UserInfoStorage.self) { _ in
             UserInfoStorage()
         }.inObjectScope(.container)
@@ -35,7 +37,13 @@ public final class DependencyContainerAssembly: Assembly {
         container.register(NotificationCenter.self) { _ in
             NotificationCenter.default
         }.inObjectScope(.container)
-        
+
+        container.register(KassOperationReportModule.self) { (_, type: OperationType) in
+            let viewModel = KassOperationsViewModel(operationType: type)
+            let controller = KassOperationReportViewController()
+            controller.viewModel = viewModel
+            return controller
+        }
         container.register(MenuModule.self) { _ in
             let apiService = container.resolve(ApiService.self)!
             let viewModel = MainMenuViewModel(apiService: apiService)
@@ -81,7 +89,10 @@ public final class DependencyContainerAssembly: Assembly {
             return controller
     }
         container.register(SignatureModule.self) { _ in
-            return SignatureViewController(data: .init(FIO: "", CreditSum: 0, ClientID: 0, CreditID: 0), viewModel: .init(apiService: container.resolve(ApiService.self)!))
+            return SignatureViewController(data: .init(FIO: "", CreditSum: "0", ClientID: "0", CreditID: "0"), viewModel: .init(apiService: container.resolve(ApiService.self)!))
+        }
+        container.register(KassOperationFilterModule.self) { _ in
+            return KassOperationFilterViewController()
         }
 }
 }

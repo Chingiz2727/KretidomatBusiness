@@ -220,7 +220,6 @@ extension ObservableType {
             fatalError()
         }
     }
-
 #endif
 
 #if os(macOS)

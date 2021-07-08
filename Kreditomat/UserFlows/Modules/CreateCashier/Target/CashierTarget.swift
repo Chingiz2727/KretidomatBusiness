@@ -10,6 +10,9 @@ import Foundation
 enum CashierTarget: ApiTarget {
     case getCashiers
     case createCashier(name: String, email: String, phone: String)
+    case getPoints
+    case attachCashier(sellerId: Int, sellerUserId: Int)
+    case block(sellerId: Int, sellerUserId: Int, type: Int)
     
     var version: ApiVersion {
         .custom("")
@@ -19,25 +22,33 @@ enum CashierTarget: ApiTarget {
     
     var path: String {
         switch self {
+        case .getPoints:
+            return "GetActualPoints"
         case .getCashiers:
             return "GetCashiers"
         case .createCashier:
             return "RegisterCashier"
+        case .attachCashier:
+            return "AttachCashierToPoint"
+        case .block:
+            return "Disable"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .getCashiers:
+        case .getCashiers, .getPoints:
             return .get
-        case .createCashier:
+        case .createCashier, .attachCashier:
             return .put
+        case .block:
+            return .post
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
-        case .getCashiers:
+        case .getCashiers, .getPoints:
             return [:]
         case let  .createCashier(name, email, phone):
             return [
@@ -45,6 +56,10 @@ enum CashierTarget: ApiTarget {
                 "email": email,
                 "phone": phone
             ]
+        case let .attachCashier(sellerId, sellerUserId):
+            return ["sellerId": sellerId, "sellerUserId": sellerUserId]
+        case let .block(sellerId, sellerUserId, type):
+            return ["sellerId": sellerId, "sellerUserId": sellerUserId, "type": type]
         }
     }
     

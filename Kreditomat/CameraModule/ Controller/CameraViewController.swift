@@ -11,6 +11,8 @@ import AVFoundation
 import UIKit
 
 class CameraViewController: ViewController, CameraModule {
+    var errorTapped: Callback?
+    
     var showSucces: ShowSuccess?
     
     var giveCredit: GiveCredit?
@@ -63,11 +65,26 @@ class CameraViewController: ViewController, CameraModule {
     }
 
     private func bindViewModel() {
-        cameraUsagePermission.checkStatus()
+        switch cameraUsagePermission.avAuthorizationStatus {
+        case .authorized:
+            DispatchQueue.main.async {
+                self.setupCamera()
+            }
+        default:
+            cameraUsagePermission.checkStatus()
+            addEmptyButton()
+        }
+        
         cameraUsagePermission.isAccesGranted
             .subscribe(onNext: { [unowned self] isEnabled in
                 if isEnabled {
-                    self.setupCamera()
+                    DispatchQueue.main.async {
+                        self.setupCamera()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }).disposed(by: disposeBag)
         
@@ -99,8 +116,14 @@ class CameraViewController: ViewController, CameraModule {
                     .subscribe(onNext: { [unowned self] res in
                         if res.Success {
                             self.dismiss(animated: true) {
-                                self.showSucces?(qr)
+                                self.showSucces?(qr, res.Data)
                             }
+                        } else {
+                            self.dismiss(animated: true) {
+                                showErrorAlert(title: "Ошибка", message: res.Message) {
+                                    self.errorTapped?()
+                                }
+                        }
                         }
                     }).disposed(by: disposeBag)
                 
@@ -154,6 +177,29 @@ class CameraViewController: ViewController, CameraModule {
     
     override func customBackButtonDidTap() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func addEmptyButton() {
+        let button = UIButton()
+        view.addSubview(button)
+        button.setTitle("Для сканирования QR, дайте доступ к камере", for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
+        button.setTitleColor(.primary, for: .normal)
+        button.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        button.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                   return
+                }
+                if UIApplication.shared.canOpenURL(url) {
+                   UIApplication.shared.open(url, options: [:])
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 

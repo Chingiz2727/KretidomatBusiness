@@ -29,6 +29,7 @@ class CreateCashierFormViewController: ViewController, ViewHolder, CreateCashier
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Создать кассира"
+        navigationController?.navigationBar.layer.addShadow()
         bindView()
     }
     
@@ -39,7 +40,7 @@ class CreateCashierFormViewController: ViewController, ViewHolder, CreateCashier
     private func bindView() {
         let output = viewModel.transform(
             input: .init(
-                name: rootView.nameCashierTextField.textField.rx.text.asObservable(), phone: rootView.phoneCashierTextField.rx.text.asObservable(), createTapped: rootView.createButton.rx.tap.asObservable()))
+                name: rootView.nameCashierTextField.textField.rx.text.asObservable(), phone: rootView.phoneCashierTextField.phoneTextObservable, createTapped: rootView.createButton.rx.tap.asObservable()))
         
         let response = output.response.publish()
         

@@ -8,15 +8,17 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
     var nextTapped: NextTapped?
     
     private let viewModel: AboutKassaViewModel
-    private var pointPickerDelegate: PointPickerViewDelegate
-    private var pointPickerDataSource: PointPickerViewDataSource
     private let pointPickerView = UIPickerView()
     private let disposeBag = DisposeBag()
     private let buttontapped: PublishSubject<Void> = .init()
+    private let makeRefillActioin = PublishSubject<Void>()
+    private let makeWithAction = PublishSubject<Void>()
+
+    private let pointsSelledId = PublishSubject<Int>()
+    private var points: [Point] = []
+    
     init(viewModel: AboutKassaViewModel) {
         self.viewModel = viewModel
-        self.pointPickerDataSource = PointPickerViewDataSource()
-        self.pointPickerDelegate = PointPickerViewDelegate()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,6 +34,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         super.viewDidLoad()
         bindViewModel()
         setupPointPickerView()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Кассовые операции"
     }
     
@@ -39,9 +42,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         
         let output = viewModel.transform(
             input: .init(typeButton: rootView.selectTag,
-                         point: .just(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: "", CashierName: "", CashierPhone: "")),
+                         point: pointsSelledId,
                          sum: rootView.amountOperationView.amountTextField.rx.text.asObservable(),
-                         succesTapped: rootView.accessButton.rx.tap.asObservable(),
+                         succesTapped: buttontapped,
                          pointList: .just(())))
         
         let result = output.nextTapped.publish()
@@ -49,7 +52,9 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         result.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    self.presentCustomAlert(type: .giveMoneyToPoint(name: "", sum: rootView.amountOperationView.amountTextField.allText))
+                    self.showSuccessAlert {
+                        print(result.Message)
+                    }
                 } else {
                     self.showErrorInAlert(text: result.Message)
                 }
@@ -58,28 +63,21 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         result.errors
             .bind(to: rx.error)
             .disposed(by: disposeBag)
-
-        pointPickerDelegate.selectedPoint.onNext(.init(SellerID: 3, Phone: "", Name: "", City: "", Address: "", House: "", Apartments: "", BIN: "", CashierID: "", CashierName: "", CashierPhone: ""))
         
         result.connect()
             .disposed(by: disposeBag)
         
         let points = output.loadPoint.publish()
         
-        points.subscribe(onNext: { [unowned self] point in
-            point.result.map { [weak self] p in
-                self?.pointPickerDataSource.point = p.element?.Data ?? []
-                self?.pointPickerDelegate.point = p.element?.Data ?? []
-            }
-        }).disposed(by: disposeBag)
+        points.element
+            .subscribe(onNext: { [unowned self] point in
+                self.points = point.Data
+                self.pointPickerView.reloadAllComponents()
+            }).disposed(by: disposeBag)
         
         points.connect()
             .disposed(by: disposeBag)
         
-        pointPickerDelegate.selectedPoint
-            .subscribe(onNext: { [unowned self] point in
-                self.rootView.pointListTextField.textField.text = point.Name
-            }).disposed(by: disposeBag)
         
         rootView.refillButton.rx.tap
             .subscribe(onNext: { [unowned self] in
@@ -90,20 +88,64 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
             .subscribe(onNext: { [unowned self] in
                 self.rootView.configureButton(selected: false)
             }).disposed(by: disposeBag)
-        rootView.accessButton.rx.tap.subscribe(onNext: { [unowned self] tap in
-            self.buttontapped.onNext(())
-        } )
+        
+        rootView.accessButton.rx.tap
+            .withLatestFrom(rootView.selectTag)
+            .subscribe(onNext: { [unowned self] tag in
+                if tag == 1 {
+                    self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true) {
+                            self.buttontapped.onNext(())
+                        }
+                    } secondButtonAction: {
+                        
+                    }
+
+                    //refill
+                } else {
+                    //withdrawwl
+                    self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+//                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true) {
+                            self.buttontapped.onNext(())
+                        }
+                    } secondButtonAction: {
+                        
+                    }
+
+                }
+            })
             .disposed(by: disposeBag)
     }
     
     private func setupPointPickerView() {
-        rootView.tableView.registerClassForCell(UITableViewCell.self)
-        pointPickerView.delegate = pointPickerDelegate
-        pointPickerView.dataSource = pointPickerDataSource
+        pointPickerView.delegate = self
+        pointPickerView.dataSource = self
         rootView.pointListTextField.textField.inputView = pointPickerView
     }
     
     override func customBackButtonDidTap() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension AboutKassaViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return points.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let pointId = points[row].SellerID ?? 0
+        rootView.pointListTextField.textField.text = points[row].Name ?? ""
+        pointsSelledId.onNext(pointId)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return points[row].Name
     }
 }

@@ -40,6 +40,10 @@ final class MainCoordinator: BaseCoordinator {
             case .logout:
                 let authState = assembler.resolver.resolve(AuthStateObserver.self)!
                 authState.forceLogout()
+            case  .aboutBonus:
+                self?.showOperations(type: .BonusHistory)
+            case .aboutCredit:
+                self?.showOperations(type: .PaymentHistory)
             default:
                 return
             }
@@ -74,8 +78,11 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showSignature(data: qr)
             }
         case .payCredit:
-            module.showSucces = { [weak self] qr in
-                self?.showSuccess(data: qr)
+            module.showSucces = { [weak self] qr, checkoutData in
+                self?.showSuccess(data: qr, titleText: "Вы успешно приняли денежные средства:", checkoutData: checkoutData)
+            }
+            module.errorTapped = { [weak self] in
+                self?.router.popToRootModule()
             }
         default:
             return
@@ -83,8 +90,18 @@ final class MainCoordinator: BaseCoordinator {
         router.push(module)
     }
     
-    private func showSuccess(data: qrResult) {
-        var module = moduleFactory.makeSuccess(data: data)
+    private func showOperations(type: OperationType) {
+        var module = assembler.resolver.resolve(KassOperationReportModule.self, argument: type)!
+        module.filterTapped = { [weak self] in
+            self?.kassoperationFilter(operation: { filter in
+                module.onfilterSelect?(filter)
+            })
+        }
+        router.push(module)
+    }
+    
+    private func showSuccess(data: qrResult, titleText: String, checkoutData: CheckoutData) {
+        var module = moduleFactory.makeSuccess(data: data, titleText: titleText, checkoutData: checkoutData)
         module.closeTapped = { [weak self] in
             self?.router.popToRootModule()
         }
@@ -111,8 +128,11 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showSignature(data: qrResult) {
         var module = moduleFactory.makeSignature(data: data)
-        module.showSucces = { [weak self] data in
-            self?.showSuccess(data: data)
+        module.showSucces = { [weak self] data, checkoutData in
+            self?.showSuccess(data: data, titleText: "Вы успешно выдали денежные средства:", checkoutData: checkoutData)
+        }
+        module.errorTapped = { [weak self] in
+            self?.router.popToRootModule()
         }
         router.push(module)
     }
@@ -132,6 +152,15 @@ final class MainCoordinator: BaseCoordinator {
     
     private func showResetPassword() {
         let module = moduleFactory.makeResetPassword()
+        router.push(module)
+    }
+    
+    private func kassoperationFilter(operation:(((KassFilter))->Void)?) {
+        var module = assembler.resolver.resolve(KassOperationFilterModule.self)!
+        module.onFilterSended = { [weak self] filter in
+            operation?(filter)
+            self?.router.popModule()
+        }
         router.push(module)
     }
 }

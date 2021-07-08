@@ -32,6 +32,7 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Личный кабинет"
     }
     

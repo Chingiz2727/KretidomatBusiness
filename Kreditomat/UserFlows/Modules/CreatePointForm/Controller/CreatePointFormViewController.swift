@@ -44,6 +44,7 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         super.viewDidLoad()
         bindView()
         setupPickersView()
+        navigationController?.navigationBar.layer.addShadow()
         title = "Создать точку"
     }
     
@@ -51,7 +52,6 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
         let output = viewModel.transform(input:
                                             .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in},
                                                   createPointTapped: rootView.createButton.rx.tap.asObservable()))
-//        let output = viewModel.transform(input: .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in  }))
         
         let day = output.getDay.publish()
         
@@ -106,12 +106,24 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
                 self.viewModel.apartments = text
             }).disposed(by: disposeBag)
         
+        Observable.combineLatest(rootView.startDayTextField.textField.rx.text.unwrap(),
+                                 rootView.endDayTextField.textField.rx.text.unwrap(),
+                                 rootView.startTimeTextField.rx.text.unwrap(),
+                                 rootView.endTimeTextField.timeTextObservable)
+            .subscribe(onNext:  { [unowned self] startDay, endDay, startTime, endTime in
+                self.viewModel.workingTime = "\(startDay)-\(endDay); \(startTime)-\(endTime)"
+            }).disposed(by: disposeBag)
+            
+        
         let createPoint = output.createPoint.publish()
         
         createPoint.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    self.showErrorInAlert(text: result.Message)
+                    dismiss(animated: true) {
+                        showSuccessAlert {
+                        }
+                    }
                 } else {
                     self.showErrorInAlert(text: result.Message)
                 }

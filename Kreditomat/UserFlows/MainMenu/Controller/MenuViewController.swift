@@ -29,6 +29,8 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        navigationController?.navigationBar.layer.addShadow()
+        title = "Главная"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +61,11 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
         rootView.tableView.rx.itemSelected
             .withLatestFrom(Observable.just(Menu.allCases)) { $1[$0.row] }
             .bind { [unowned self] item in
-                self.selectMenu?(item, cabinetData)
+                if item == .logout {
+                    presentCustomAlert(type: .logout, firstButtonAction: { selectMenu?(item, cabinetData) }, secondButtonAction: { self.dismiss(animated: true, completion: nil)} )
+                } else {
+                    self.selectMenu?(item, cabinetData)
+                }
             }.disposed(by: disposeBag)
         
         let output = viewModel.transform(input: .init(loadInfo: .just(())))
