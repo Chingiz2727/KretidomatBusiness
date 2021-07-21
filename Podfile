@@ -27,5 +27,6 @@ target 'Kreditomat' do
   pod 'GooglePlaces', '4.2.0'
   pod 'SpreadsheetView'
   pod "Koyomi"
+  pod 'PDFReader'
 
 end

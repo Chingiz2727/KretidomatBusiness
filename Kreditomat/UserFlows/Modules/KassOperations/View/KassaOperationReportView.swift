@@ -11,7 +11,7 @@ final class KassOperationReportView: UIView {
     private var contentSizeObserver: NSKeyValueObservation?
     private var heightConstraint: Constraint?
     private let periodTitle = UILabel()
-    private let headerView = TableSheetHeaderDownload()
+    let headerView = TableSheetHeaderDownload()
     let footerView = DataTableFooterView()
     let firstPeriod = RegularTextField()
     let separotTitle = UILabel()

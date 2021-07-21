@@ -1,8 +1,11 @@
 import RxSwift
 import SpreadsheetView
+import PDFReader
 import UIKit
 
 class KassOperationReportViewController: ViewController, KassOperationReportModule, ViewHolder {
+    var openPdf: OpenPdf?
+    
     var onfilterSelect: OnFilterSelect?
     
     typealias RootViewType = KassOperationReportView
@@ -36,7 +39,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     }
 
     private func bindViewModel() {
-        let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(()), stepsValue: skipValue))
+        let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(()), loadPdf: rootView.headerView.downloadButton.rx.tap.asObservable(), stepsValue: skipValue))
         
         let points = output.points.publish()
         points.element
@@ -92,10 +95,34 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
                 }
         })
         .disposed(by: disposeBag)
+        
+        let pdf = output.pdfUrl.publish()
+        
+        pdf.element.subscribe(onNext: { [unowned self] pdfResponse in
+            if pdfResponse.Success == true {
+                self.opendpdf(url: pdfResponse.Data)
+            }
+            print(pdfResponse)
+            
+        }).disposed(by: disposeBag)
+        
+        pdf.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        pdf.connect()
+            .disposed(by: disposeBag)
     }
     
     override func customBackButtonDidTap() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func opendpdf(url: String) {
+        let remotePDFDocumentURL = URL(string: url)!
+        let document = PDFDocument(url: remotePDFDocumentURL)!
+        let readerController = PDFViewController.createNew(with: document)
+        navigationController?.pushViewController(readerController, animated: true)
     }
 }
 

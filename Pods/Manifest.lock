@@ -16,6 +16,7 @@ PODS:
   - Kingfisher/Core (5.12.0)
   - Koyomi (1.2.7)
   - lottie-ios (3.1.2)
+  - PDFReader (2.5.1)
   - RxAlamofire (5.1.0):
     - RxAlamofire/Core (= 5.1.0)
   - RxAlamofire/Core (5.1.0):
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.12.0)
   - Koyomi
   - lottie-ios (= 3.1.2)
+  - PDFReader
   - RxAlamofire (= 5.1.0)
   - RxCocoa (= 5.0.1)
   - RxDataSources (= 4.0.1)
@@ -79,6 +81,7 @@ SPEC REPOS:
     - Kingfisher
     - Koyomi
     - lottie-ios
+    - PDFReader
     - RxAlamofire
     - RxCocoa
     - RxDataSources
@@ -105,6 +108,7 @@ SPEC CHECKSUMS:
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   Koyomi: f03615b8d2bb5a5a4752c6404a9794ed7ef7b327
   lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
+  PDFReader: 2c4a845d0560f33221cf911516e3b700967680f6
   RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
@@ -120,6 +124,6 @@ SPEC CHECKSUMS:
   UltraDrawerView: 50968b8838d22adf33d083a4d7a8e5293a74bec8
   Willow: 8efe9bd7bb99b06fe017566848492748b763a0ac
 
-PODFILE CHECKSUM: 45a659d13725a1eead24b8efa78df9ed06eab0c8
+PODFILE CHECKSUM: 72d91fb70d1a8209b29256453221630c68406ea5
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0

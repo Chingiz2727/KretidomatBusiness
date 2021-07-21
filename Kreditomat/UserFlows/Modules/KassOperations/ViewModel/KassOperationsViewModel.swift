@@ -14,12 +14,14 @@ final class KassOperationsViewModel: ViewModel {
         let filter: Observable<KassFilter>
         let retailPoint: Observable<String>
         let loadPoint: Observable<Void>
+        let loadPdf: Observable<Void>
         let stepsValue: Observable<Int>
     }
     
     struct Output {
         let points: Observable<LoadingSequence<PointResponse>>
         let tableData: Observable<LoadingSequence<PaymentOperations>>
+        let pdfUrl: Observable<LoadingSequence<PdfResponse>>
     }
     
     func transform(input: Input) -> Output {
@@ -38,7 +40,15 @@ final class KassOperationsViewModel: ViewModel {
                 
             }.share()
         
+        let pdfRes = input.loadPdf
+            .withLatestFrom(Observable.combineLatest(input.filter, input.retailPoint, input.loadPdf)) { _, element -> Observable<PdfResponse> in
+                return self.apiService.makeRequest(to: MainTarget.getPdf(dateFrom: element.0.firstData ?? "", dateTo: element.0.secondData ?? "", filter: element.0.periodType ?? 0, point: Int(element.1)!, type: self.operationType))
+                    .result(PdfResponse.self)
+            }.flatMap { res in
+                return res.asLoadingSequence()
+            }
         
-        return .init(points: pointList, tableData: dataTable)
+        
+        return .init(points: pointList, tableData: dataTable, pdfUrl: pdfRes)
     }
 }
