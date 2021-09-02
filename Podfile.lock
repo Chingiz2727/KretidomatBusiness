@@ -1,13 +1,7 @@
 PODS:
   - Alamofire (4.8.0)
   - Differentiator (4.0.1)
-  - GoogleMaps (4.2.0):
-    - GoogleMaps/Maps (= 4.2.0)
-  - GoogleMaps/Base (4.2.0)
-  - GoogleMaps/Maps (4.2.0):
-    - GoogleMaps/Base
-  - GooglePlaces (4.2.0):
-    - GoogleMaps/Base (= 4.2.0)
+  - FSCalendar (2.8.2)
   - InputMask (6.0.0)
   - IQKeyboardManagerSwift (6.3.0)
   - KeychainAccess (4.1.0)
@@ -43,11 +37,11 @@ PODS:
   - TouchDraw (2.1.2)
   - UltraDrawerView (0.5.0)
   - Willow (6.0.0)
+  - YandexMapsMobile (4.0.0-full)
 
 DEPENDENCIES:
   - Alamofire (= 4.8)
-  - GoogleMaps (= 4.2.0)
-  - GooglePlaces (= 4.2.0)
+  - FSCalendar
   - InputMask (= 6.0.0)
   - IQKeyboardManagerSwift (= 6.3.0)
   - KeychainAccess (= 4.1.0)
@@ -68,13 +62,13 @@ DEPENDENCIES:
   - TouchDraw (~> 2.1)
   - UltraDrawerView (= 0.5.0)
   - Willow (~> 6.0)
+  - YandexMapsMobile (= 4.0.0-full)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Differentiator
-    - GoogleMaps
-    - GooglePlaces
+    - FSCalendar
     - InputMask
     - IQKeyboardManagerSwift
     - KeychainAccess
@@ -96,12 +90,12 @@ SPEC REPOS:
     - TouchDraw
     - UltraDrawerView
     - Willow
+    - YandexMapsMobile
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
-  GooglePlaces: 196a9dd88580dcb3f3df46f415057703d0d2a310
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   InputMask: f340bdc905a4c4f377e44d865f129f752ac2383d
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
@@ -123,7 +117,8 @@ SPEC CHECKSUMS:
   TouchDraw: 80b52af0e29354473205ffb478c881683d770475
   UltraDrawerView: 50968b8838d22adf33d083a4d7a8e5293a74bec8
   Willow: 8efe9bd7bb99b06fe017566848492748b763a0ac
+  YandexMapsMobile: 0f3d8c92fad685dc33d07f83eed4eb0166089743
 
-PODFILE CHECKSUM: 72d91fb70d1a8209b29256453221630c68406ea5
+PODFILE CHECKSUM: 862350e8762031c2ec995bb97e01756c56740a6e
 
 COCOAPODS: 1.10.0

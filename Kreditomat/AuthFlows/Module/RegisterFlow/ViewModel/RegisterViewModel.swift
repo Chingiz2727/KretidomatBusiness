@@ -32,7 +32,7 @@ final class RegisterViewModel: ViewModel {
     func transform(input: Input) -> Output {
         let registerUser = input.registerTapped
             .flatMap { [unowned self] _ in
-                authService.register(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: "", posLng: "")
+                self.authService.register(name: name, email: email, phone: phone, city: city, address: address, house: house, apartments: apartments, bin: bin, posLat: "", posLng: "")
             }.share()
         
         return .init(token: registerUser)

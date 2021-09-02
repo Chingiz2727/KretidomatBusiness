@@ -7,7 +7,6 @@ final class KassOperationFilterView: UIView {
     let timesView = TimesView()
     private let timesLabel = UILabel()
     let firstPeriod = CalendarView()
-    let secondPeriod = CalendarView()
     
     let cancelButton = PrimaryButton()
     let acceptButton = PrimaryButton()
@@ -37,7 +36,7 @@ final class KassOperationFilterView: UIView {
         scrollView.addSubview(timesView)
         scrollView.addSubview(timesLabel)
         scrollView.addSubview(firstPeriod)
-        scrollView.addSubview(secondPeriod)
+//        scrollView.addSubview(secondPeriod)
         scrollView.addSubview(buttonStackView)
 
         titleLabel.snp.makeConstraints { make in
@@ -62,25 +61,40 @@ final class KassOperationFilterView: UIView {
             make.centerX.equalToSuperview()
         }
         
-        secondPeriod.snp.makeConstraints { make in
-            make.top.equalTo(firstPeriod.snp.bottom).offset(10)
-            make.height.equalTo(200)
-            make.leading.trailing.equalToSuperview().inset(50)
-            make.centerX.equalToSuperview()
-        }
+//        secondPeriod.snp.makeConstraints { make in
+//            make.top.equalTo(firstPeriod.snp.bottom).offset(10)
+//            make.height.equalTo(200)
+//            make.leading.trailing.equalToSuperview().inset(50)
+//            make.centerX.equalToSuperview()
+//        }
         
         buttonStackView.snp.makeConstraints { make in
-            make.top.equalTo(secondPeriod.snp.bottom).offset(20)
+            make.top.equalTo(firstPeriod.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(10)
             make.bottom.equalToSuperview().inset(100)
             make.height.equalTo(40)
         }
+        timesView.atItemSelect = { [weak self] index in
+            switch index {
+            case 1:
+                self?.firstPeriod.selectDate(item: .week)
+            case 2:
+                self?.firstPeriod.selectDate(item: .month)
+            case 3:
+                self?.firstPeriod.selectDate(item: .halfYear)
+            case 4:
+                self?.firstPeriod.selectDate(item: .year)
+            default:
+                break
+            }
+        }
+        
     }
     
     private func configureView() {
         titleLabel.font = .bold12
         titleLabel.font = .bold12
-        secondPeriod.nextMonth()
+//        secondPeriod.nextMonth()
         timesView.setTitles(titles: ["За неделю","За месяц","За полгода","За год"])
         backgroundColor = .white
         cancelButton.setTitle("Отмена", for: .normal)

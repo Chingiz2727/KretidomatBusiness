@@ -10,17 +10,13 @@ final class RegisterView: UIView {
         didSet {
             if isSelected == true {
                 offerView.checkBox.setImage(Images.checkboxSelected.image, for: .normal)
-//                registerButton.backgroundColor = .primary
-//                registerButton.isEnabled = true
             } else {
                 offerView.checkBox.setImage(Images.checkboxUnselected.image, for: .normal)
-//                registerButton.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
-//                registerButton.isEnabled = false
             }
         }
     }
     
-    let selectedSubject = PublishSubject<Bool>()
+    let selectedSubject = BehaviorSubject.init(value: false)
     
     let chooseFormTitle: UILabel = {
         let label = UILabel()
@@ -157,6 +153,7 @@ final class RegisterView: UIView {
         let button = PrimaryButton()
         button.setTitle("Отправить", for: .normal)
         button.layer.cornerRadius = 20
+        button.isEnabled = false
         button.setTitleColor(.white, for: .normal)
         return button
     }()
@@ -323,6 +320,7 @@ final class RegisterView: UIView {
         coordinateTextField.layer.addShadow()
         coordinateButtonView.layer.addShadow()
         offerView.checkBox.layer.addShadow()
+        offerView.checkBox.addTarget(self, action: #selector(checkBox), for: .touchUpInside)
         offerView.buttonContainerView.layer.addShadow()
     }
     
@@ -359,8 +357,9 @@ final class RegisterView: UIView {
     }
     
    @objc func checkBox() {
-      selectedSubject.onNext(isSelected)
     isSelected = !isSelected
+    print(isSelected)
+    selectedSubject.onNext(isSelected)
     }
     
 }

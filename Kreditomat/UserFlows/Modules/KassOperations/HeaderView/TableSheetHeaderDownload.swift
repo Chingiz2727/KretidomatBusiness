@@ -1,7 +1,7 @@
 import UIKit
 
 final class TableSheetHeaderDownload: UIView {
-    private let titleLabel = UILabel()
+    let titleLabel = UILabel()
     let downloadButton = UIButton()
     
     override init(frame: CGRect) {

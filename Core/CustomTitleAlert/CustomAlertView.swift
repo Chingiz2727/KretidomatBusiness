@@ -5,7 +5,7 @@ final class CustomAlertView: UIView {
     private let backgroundView = UIView()
     private let logoImageView = UIImageView()
     private let headerView = UIView()
-    
+    let exitView = UIButton()
     private let titleLabel = UILabel()
     private let subtitleTitleLabel = UILabel()
     
@@ -81,6 +81,8 @@ final class CustomAlertView: UIView {
         }
         
         backgroundView.addSubview(headerView)
+
+
         headerView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(60)
@@ -104,6 +106,14 @@ final class CustomAlertView: UIView {
         
         buttonsStackView.snp.makeConstraints { make in
             make.height.equalTo(40)
+        }
+        headerView.addSubview(exitView)
+        exitView.setImage(.init(named: "exit")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        exitView.tintColor = .white
+        exitView.imageView?.tintColor = .white
+        exitView.snp.makeConstraints { make in
+            make.top.right.equalToSuperview().inset(10)
+            make.size.equalTo(20)
         }
     }
     

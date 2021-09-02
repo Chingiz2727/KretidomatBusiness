@@ -12,12 +12,10 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     typealias RootViewType = CabinetView
     
     private let disposeBag = DisposeBag()
-    private let data: CabinetData
     private let viewModel: CabinetViewModel
     
-    init(viewModel: CabinetViewModel, data: CabinetData) {
+    init(viewModel: CabinetViewModel) {
         self.viewModel = viewModel
-        self.data = data
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,8 +45,6 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
                     rootView.profileImage.image = image
                 }
             }).disposed(by: disposeBag)
-        
-        rootView.setupData(data: data)
     }
     
     override func customBackButtonDidTap() {

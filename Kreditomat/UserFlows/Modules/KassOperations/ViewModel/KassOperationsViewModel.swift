@@ -6,6 +6,15 @@ final class KassOperationsViewModel: ViewModel {
     let apiService = assembler.resolver.resolve(ApiService.self)!
     let operationType: OperationType
     
+    var arrayHeaders: [String] {
+        switch operationType {
+        case .PaymentHistory:
+            return ["ID операции", "Дата и время", "Тип операции", "ФИО Кассира", "Наименование контрагента", "Входящий остаток", "Исходящий остаток"]
+        case .BonusHistory:
+            return ["ID операции", "Дата и время", "Тип операции", "ФИО Кассира", "Размер бонуса", "ИИН заемщика", "Текущий остаток"]
+        }
+    }
+    
     init(operationType: OperationType) {
         self.operationType = operationType
     }
@@ -32,9 +41,15 @@ final class KassOperationsViewModel: ViewModel {
                     .asLoadingSequence()
             }.share()
         
+        let table = input.retailPoint.withLatestFrom(Observable.combineLatest(input.filter,input.stepsValue)) { point, element -> Observable<LoadingSequence<PaymentOperations>> in
+            return self.apiService.makeRequest(to: MainTarget.payHistory(dateFrom: element.0.firstData ?? "", dateTo: element.0.secondData ?? "", filter: element.0.periodType ?? 0, point: Int(point)!, type: self.operationType, skipValue: element.1))
+                .result(PaymentOperations.self)
+                .asLoadingSequence()
+        }.flatMap { $0 }
+        
         let dataTable = Observable.combineLatest(input.filter,input.retailPoint, input.stepsValue)
             .flatMap { [unowned self] filter, point, step  -> Observable<LoadingSequence<PaymentOperations>> in
-                return apiService.makeRequest(to: MainTarget.payHistory(dateFrom: filter.firstData ?? "", dateTo: filter.secondData ?? "", filter: filter.periodType ?? 0, point: Int(point)!, type: self.operationType, skipValue: step), stubbed: false)
+                return apiService.makeRequest(to: MainTarget.payHistory(dateFrom: filter.firstData ?? "", dateTo: filter.secondData ?? "", filter: filter.periodType ?? 0, point: Int(point) ?? 0, type: self.operationType, skipValue: step), stubbed: false)
                     .result(PaymentOperations.self)
                     .asLoadingSequence()
                 
@@ -49,6 +64,6 @@ final class KassOperationsViewModel: ViewModel {
             }
         
         
-        return .init(points: pointList, tableData: dataTable, pdfUrl: pdfRes)
+        return .init(points: pointList, tableData: table, pdfUrl: pdfRes)
     }
 }

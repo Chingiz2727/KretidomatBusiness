@@ -30,14 +30,6 @@ final class ChangePasswordView: UIView {
     
     let repeatNewPassword = PasswordTextField()
     
-    let resetPassword : UIButton = {
-        let b = UIButton()
-        b.setTitle("Забыли пароль?", for: .normal)
-        b.setTitleColor(.resetPswdColor, for: .normal)
-        b.titleLabel?.font = .regular12
-        return b
-    }()
-    
     let changePasswordButton: UIButton = {
         let b = UIButton()
         b.setTitle("ИЗМЕНИТЬ ПАРОЛЬ", for: .normal)
@@ -96,12 +88,6 @@ final class ChangePasswordView: UIView {
             make.top.equalTo(repeatNewPasswordTitle.snp.bottom).offset(5)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(40)
-        }
-        
-        addSubview(resetPassword)
-        resetPassword.snp.makeConstraints { make in
-            make.top.equalTo(repeatNewPassword.snp.bottom).offset(30)
-            make.right.equalToSuperview().inset(20)
         }
         
         addSubview(changePasswordButton)

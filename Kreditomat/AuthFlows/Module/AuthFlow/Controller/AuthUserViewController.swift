@@ -10,6 +10,7 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
     
     private let viewModel: AuthUserViewModel
     private let userSession = assembler.resolver.resolve(UserSessionStorage.self)!
+    private let saveUserInfo = assembler.resolver.resolve(LoadUserInfo.self)!
     private let disposeBag = DisposeBag()
     
     init(viewModel: AuthUserViewModel) {
@@ -44,7 +45,8 @@ final class AuthUserViewController: ViewController, ViewHolder, AuthUserModule {
         result.element
             .subscribe(onNext: { status in
                 if status.Success == true {
-                    self.authTapped?()
+                    self.saveUserInfo.savedInfo = { self.authTapped?() }
+                    self.saveUserInfo.loadUserInfo()
                     self.userSession.save(accessToken: status.Message, refreshToken: status.Message)
                 } else {
                     self.showErrorInAlert(text: status.Message)

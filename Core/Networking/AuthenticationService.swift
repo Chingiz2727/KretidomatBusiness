@@ -72,9 +72,6 @@ public final class AuthenticationServiceImpl: AuthenticationService {
     
     public func updateToken(with newToken: UserResponse?) {
         sessionStorage.save(accessToken: newToken?.access_token, refreshToken: nil)
-        infoStorage.iin = newToken?.iin
-        infoStorage.fullName = newToken?.fio
-        infoStorage.mobilePhoneNumber = newToken?.phone
     }
     
     public func clearUserInfo() {

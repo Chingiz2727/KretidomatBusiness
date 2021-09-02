@@ -32,7 +32,14 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             .subscribe(onNext: { [unowned self] in
                 self.filterTapped?()
             }).disposed(by: disposeBag)
-        title = "Отчет по кассовым операциям"
+        switch viewModel.operationType {
+        case .PaymentHistory:
+            rootView.headerView.titleLabel.text = "Отчет по кассовым операциям"
+            title = "Отчет по кассовым операциям"
+        case .BonusHistory:
+            rootView.headerView.titleLabel.text = "Отчет по Бонусам"
+            title = "Отчет по Бонусам"
+        }
         navigationController?.navigationBar.layer.addShadow()
 
         bindViewModel()
@@ -129,15 +136,15 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
 extension KassOperationReportViewController: SpreadsheetViewDataSource {
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
-        return ((rootView.frame.width - 50) / 5)
+        return ((rootView.frame.width - 50) / 4)
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow column: Int) -> CGFloat {
-        return 35
+        return 45
     }
     
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 5
+        return viewModel.arrayHeaders.count
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
@@ -146,13 +153,13 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
         let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath) as! DataSheetTableViewCell
-        print(indexPath.column)
         let items = operations?.data.sellerBalanceOperations[indexPath.row]
-        if case (0...(5), 0) = (indexPath.column, indexPath.row) {
-            cell.titleLabel.text = operationTitle[indexPath.column]
+        if case (0...(viewModel.arrayHeaders.count), 0) = (indexPath.column, indexPath.row) {
+          
+            cell.titleLabel.text = viewModel.arrayHeaders[indexPath.column]
             cell.backgroundColor = UIColor.primary.withAlphaComponent(0.1)
 
-        } else if case (0...(9), 0...5) = (indexPath.row, indexPath.column) {
+        } else if case (0...(9), 0...viewModel.arrayHeaders.count) = (indexPath.row, indexPath.column) {
             if indexPath.row % 2 != 0 {
                 cell.titleLabel.textColor = .secondary
             } else {
@@ -173,8 +180,31 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
             if indexPath.column == 3 {
                 cell.titleLabel.text = items?.sellerName
             }
+            
             if indexPath.column == 4 {
-                cell.titleLabel.text = "\(String(describing: items?.sum ?? 0)) тг"
+                switch viewModel.operationType {
+                case .BonusHistory:
+                    cell.titleLabel.text = "\(String(describing: items?.sum ?? 0)) тг"
+                case .PaymentHistory:
+                    cell.titleLabel.text = items?.counterParty
+                }
+            }
+            if indexPath.column == 5 {
+                switch viewModel.operationType {
+                case .BonusHistory:
+                    cell.titleLabel.text = items?.clientIIN
+                case .PaymentHistory:
+                    cell.titleLabel.text = "\(String(describing: items?.incomeSum ?? 0)) тг"
+                }
+            }
+            
+            if indexPath.column == 6 {
+                switch viewModel.operationType {
+                case .BonusHistory:
+                    cell.titleLabel.text = "\(String(describing: items?.incomeSum ?? 0)) тг"
+                case .PaymentHistory:
+                    cell.titleLabel.text = "\(String(describing: items?.outgoingSum ?? 0)) тг"
+                }
             }
         }
         return cell

@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 class CustomAlertViewController: UIViewController, ViewHolder {
     typealias RootViewType = CustomAlertView
@@ -6,6 +7,9 @@ class CustomAlertViewController: UIViewController, ViewHolder {
     
     var firstButtonAction: (()->Void)?
     var secondButtonAction: (()->Void)?
+    var exitButtonAction: (()->Void)?
+    
+    let disposeBag = DisposeBag()
     
     override func loadView() {
         view = CustomAlertView()
@@ -16,6 +20,10 @@ class CustomAlertViewController: UIViewController, ViewHolder {
         rootView.acceptButton.addTarget(self, action: #selector(firstTapped), for: .touchUpInside)
         rootView.declineButton.addTarget(self, action: #selector(secondTapped), for: .touchUpInside)
         rootView.configureByType(type: type)
+        rootView.exitView.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.dismiss(animated: true, completion: exitButtonAction)
+            }).disposed(by: disposeBag)
     }
     
     @objc private func firstTapped() {
@@ -37,6 +45,7 @@ enum AlertType {
     case giveMoneyToPoint(name: String, sum: String)
     case getMoneyFromPoint(name: String, sum: String)
     case logout
+    case changePass
     
     var title: String? {
         switch self {
@@ -58,6 +67,8 @@ enum AlertType {
             return "Вы принимаете оплату микрокредита от заемщика:"
         case .giveCredit:
             return "Вы выдаете денежные средства на сумму:"
+        case .changePass:
+            return "Пароль успешно изменен"
         default:
             return nil
         }
@@ -86,7 +97,7 @@ enum AlertType {
     
     var descriptionTitle: String? {
         switch self {
-        case .anketoOnRequest, .recoverPass:
+        case .anketoOnRequest, .recoverPass,.changePass:
             return "Возникли вопросы? \nВы можете связаться с нами:"
         case .giveMoneyToPoint:
             return "на сумму:"
@@ -118,7 +129,7 @@ enum AlertType {
     
     var firstButtonHidden: Bool {
         switch self {
-        case .anketoOnRequest, .recoverPass:
+        case .anketoOnRequest, .recoverPass,.changePass:
             return true
         default:
             return false
@@ -137,12 +148,13 @@ enum AlertType {
 
 extension UIViewController {
     
-    func presentCustomAlert(type: AlertType, firstButtonAction: Callback? = nil, secondButtonAction: Callback? = nil) {
+    func presentCustomAlert(type: AlertType, firstButtonAction: Callback? = nil, secondButtonAction: Callback? = nil, ondismiss: Callback? = nil) {
         let controller = CustomAlertViewController()
         controller.type = type
         controller.firstButtonAction = { firstButtonAction?() }
         controller.secondButtonAction = { secondButtonAction?() }
+        controller.exitButtonAction = { ondismiss?() }
         controller.modalPresentationStyle = .overCurrentContext
-        navigationController?.present(controller, animated: true, completion: nil)
+        navigationController?.present(controller, animated: true, completion: ondismiss)
     }
 }

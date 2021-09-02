@@ -3,8 +3,7 @@ import CoreData
 import Swinject
 import IQKeyboardManagerSwift
 import Kingfisher
-import GooglePlaces
-import GoogleMaps
+import YandexMapsMobile
 
 public let assembler = Assembler([DependencyContainerAssembly()])
 
@@ -22,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         LoggerConfigurator.configure()
         #endif
-        GMSServices.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
-        GMSPlacesClient.provideAPIKey("AIzaSyBgudSZCiL5HbuBcjLUviiLBoEdXvz-Kxw")
+        YMKMapKit.setApiKey("948c76e1-c753-4415-8219-6a0580ecdc9b")
         return true
     }
     

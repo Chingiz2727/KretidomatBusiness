@@ -45,9 +45,7 @@ public final class DependencyContainerAssembly: Assembly {
             return controller
         }
         container.register(MenuModule.self) { _ in
-            let apiService = container.resolve(ApiService.self)!
-            let viewModel = MainMenuViewModel(apiService: apiService)
-            return MenuViewController(viewModel: viewModel, info: .init(AppSignature: "0", SellerID: 0, AlterNames: "", RegTime: "nil", RegCode: 0, Name: "nil", Email: "nil", Phone: "nil", City: "nil", Address: "nil", House: "nil", Apartments: "nil", UniqueCode: 0, BIN: "nil", Pos_Lat: "nil", Pos_Lng: "nil", Balance: 0, BonusSum: 0, CashierID: 0, CashierName: "nil", CashierPhone: "nil"))
+            return MenuViewController()
         }
         
         container.register(AVMediaType.self) { _ in
@@ -61,6 +59,10 @@ public final class DependencyContainerAssembly: Assembly {
 
         container.register(AVCaptureSession.self) { _ in
             return AVCaptureSession()
+        }
+        
+        container.register(LoadUserInfo.self) { resolver in
+            return LoadUserInfo()
         }
         
         container.register(AVCaptureVideoPreviewLayer.self) {  _ in
