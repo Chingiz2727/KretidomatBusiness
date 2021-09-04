@@ -20,7 +20,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     private let operationTitle: [String] = ["ID операции", "Дата и время", "Тип операции", "ФИО Кассира", "Текущий остаток"]
     private var points: [Point] = []
     private var operations: PaymentOperations?
-    
+    private var loadData = PublishSubject<Void>()
     override func loadView() {
         view = KassOperationReportView()
     }
@@ -46,7 +46,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     }
 
     private func bindViewModel() {
-        let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(()), loadPdf: rootView.headerView.downloadButton.rx.tap.asObservable(), stepsValue: skipValue))
+        let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(()), loadPdf: rootView.headerView.downloadButton.rx.tap.asObservable(), stepsValue: skipValue, loadInfoOfTable: loadData))
         
         let points = output.points.publish()
         points.element
@@ -79,8 +79,8 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
         rootView.selectContainer.textField.inputView = pickerView
         
         onfilterSelect = { [unowned self] filter in
-            rootView.firstPeriod.text = filter.firstData
-            rootView.secondPeriod.text = filter.secondData
+            rootView.firstPeriod.setValue(phone: filter.firstData ?? "")
+            rootView.secondPeriod.setValue(phone: filter.secondData ?? "")
             self.filter.onNext(filter)
         }
         
@@ -119,6 +119,17 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
         
         pdf.connect()
             .disposed(by: disposeBag)
+        
+        let successArray = [rootView.firstPeriod.isFilled, rootView.secondPeriod.isFilled, retailPoint.map { $0 != ""}]
+        
+        Observable.combineLatest(successArray).map { $0 }.map { $0.allSatisfy { $0 } }
+            .distinctUntilChanged()
+            .subscribe { [unowned self] success in
+                print(success.element)
+                if success.element ?? false {
+                    self.loadData.onNext(())
+                }
+            }.disposed(by: disposeBag)
     }
     
     override func customBackButtonDidTap() {

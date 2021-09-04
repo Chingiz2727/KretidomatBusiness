@@ -256,9 +256,12 @@
 		72DF18E8263C2F4700E5F3D6 /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */; };
 		72DF18EC263C2FB200E5F3D6 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */; };
 		72DF18EF263C2FC300E5F3D6 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */; };
+		A4554EEB26E22E5700407326 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4554EEA26E22E5700407326 /* DateTextField.swift */; };
+		A4554EEE26E33DA900407326 /* oferta.docx in Resources */ = {isa = PBXBuildFile; fileRef = A4554EED26E33DA900407326 /* oferta.docx */; };
 		A456903126A7D1E400877FCF /* PdfResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456903026A7D1E400877FCF /* PdfResponse.swift */; };
 		A4678A2726D78AC300992000 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4678A2626D78AC300992000 /* MapViewModel.swift */; };
 		A4678A2926D78B1B00992000 /* DeliveryLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4678A2826D78B1B00992000 /* DeliveryLocation.swift */; };
+		A47DBD2826E0DE6D001F9F64 /* DateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47DBD2726E0DE6D001F9F64 /* DateContentView.swift */; };
 		CF80BC14CBCFA58216CF53DF /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D3BE01BCE3C0C47CB5C779 /* Pods_Kreditomat.framework */; };
 /* End PBXBuildFile section */
 
@@ -515,9 +518,13 @@
 		72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		A4554EEA26E22E5700407326 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
+		A4554EEC26E33D7000407326 /* offer.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = offer.pages; sourceTree = "<group>"; };
+		A4554EED26E33DA900407326 /* oferta.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = oferta.docx; sourceTree = "<group>"; };
 		A456903026A7D1E400877FCF /* PdfResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfResponse.swift; sourceTree = "<group>"; };
 		A4678A2626D78AC300992000 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		A4678A2826D78B1B00992000 /* DeliveryLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryLocation.swift; sourceTree = "<group>"; };
+		A47DBD2726E0DE6D001F9F64 /* DateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateContentView.swift; sourceTree = "<group>"; };
 		B728E295E371C5EB6337C8F2 /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 		E3C33004ECE995BC935615B6 /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1489,6 +1496,8 @@
 		7201EF682636DF2D00D25097 = {
 			isa = PBXGroup;
 			children = (
+				A4554EEC26E33D7000407326 /* offer.pages */,
+				A4554EED26E33DA900407326 /* oferta.docx */,
 				72DF18BD263C2CB500E5F3D6 /* Components */,
 				72F61494263C1ED300039B35 /* View */,
 				7201EF9E2636E0B700D25097 /* Core */,
@@ -2254,6 +2263,7 @@
 		72F61494263C1ED300039B35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A47DBD2626E0DE58001F9F64 /* DateContentView */,
 				72721E7126770BDE00DA871A /* TimesView */,
 				729B16F426669AA80082355D /* CalendarView */,
 				721069B92663A08D00D38FFF /* SectionNameValue */,
@@ -2279,6 +2289,7 @@
 				72DF18BA263C2C9400E5F3D6 /* RightButtonTextField.swift */,
 				5F9FD525264808610067EE19 /* NumberTextField.swift */,
 				5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */,
+				A4554EEA26E22E5700407326 /* DateTextField.swift */,
 				5510BCF9264CC21100900F4E /* TimeTextFieldContainer.swift */,
 			);
 			name = TextField;
@@ -2291,6 +2302,14 @@
 				A4678A2626D78AC300992000 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A47DBD2626E0DE58001F9F64 /* DateContentView */ = {
+			isa = PBXGroup;
+			children = (
+				A47DBD2726E0DE6D001F9F64 /* DateContentView.swift */,
+			);
+			path = DateContentView;
 			sourceTree = "<group>";
 		};
 		EA97BADE1D40BDC29617CCDE /* Pods */ = {
@@ -2362,6 +2381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4554EEE26E33DA900407326 /* oferta.docx in Resources */,
 				7201EF812636DF2E00D25097 /* LaunchScreen.storyboard in Resources */,
 				7201EFA12636E10900D25097 /* Colors.xcassets in Resources */,
 				55A6F3DC26537C5E00ADB9CB /* Evolventa-Regular.ttf in Resources */,
@@ -2580,6 +2600,7 @@
 				5560EE16265BA6EA0032BFFA /* GiveCreditViewModel.swift in Sources */,
 				55BA8E212663CD2900F74589 /* CreateCashierViewModel.swift in Sources */,
 				7201F0D72636E9E400D25097 /* UIStackView+Init.swift in Sources */,
+				A47DBD2826E0DE6D001F9F64 /* DateContentView.swift in Sources */,
 				5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */,
 				729B16F626669AB50082355D /* CalendarView.swift in Sources */,
 				72567B97264A88B9004D45C8 /* SignatureModule.swift in Sources */,
@@ -2630,6 +2651,7 @@
 				7201F02B2636E56D00D25097 /* Logger.swift in Sources */,
 				7201F0842636E6FD00D25097 /* PaginationTableFooterView.swift in Sources */,
 				5560EE32265BDDF40032BFFA /* Cashier.swift in Sources */,
+				A4554EEB26E22E5700407326 /* DateTextField.swift in Sources */,
 				72567B99264A891E004D45C8 /* SignatureViewController.swift in Sources */,
 				7201F0562636E63200D25097 /* ApiServiceAssemblyImpl.swift in Sources */,
 				55738B94264A8C1100CE2BD5 /* MainModuleFactory.swift in Sources */,
@@ -2824,7 +2846,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = XCVRQLC39R;
 				EXCLUDED_ARCHS = arm64;
 				"EXCLUDED_ARCHS[sdk=*]" = "Simulator-iOS 14.0 SDK";
@@ -2852,7 +2874,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = XCVRQLC39R;
 				EXCLUDED_ARCHS = arm64;
 				"EXCLUDED_ARCHS[sdk=*]" = "Simulator-iOS 14.0 SDK";

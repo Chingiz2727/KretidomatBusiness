@@ -13,8 +13,8 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
     private let buttontapped: PublishSubject<Void> = .init()
     private let makeRefillActioin = PublishSubject<Void>()
     private let makeWithAction = PublishSubject<Void>()
-
-    private let pointsSelledId = PublishSubject<Int>()
+    
+    private let pointsSelledId = BehaviorSubject<Int>.init(value: 0)
     private var points: [Point] = []
     
     init(viewModel: AboutKassaViewModel) {
@@ -101,19 +101,30 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                     } secondButtonAction: {
                         
                     }
-
+                    
                     //refill
                 } else {
                     //withdrawwl
                     self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
-//                        self.dismiss(animated: true, completion: nil)
+                        //                        self.dismiss(animated: true, completion: nil)
                         self.dismiss(animated: true) {
                             self.buttontapped.onNext(())
                         }
                     } secondButtonAction: {
                         
                     }
-
+                    
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.pointListTextField.textField.rx.controlEvent(.editingDidBegin)
+            .withLatestFrom(pointsSelledId)
+            .subscribe(onNext: { [unowned self] point in
+                if point == 0 {
+                    let pointId = self.points.first?.SellerID ?? 0
+                    rootView.pointListTextField.textField.text = self.points.first?.Name ?? ""
+                    self.pointsSelledId.onNext(pointId)
                 }
             })
             .disposed(by: disposeBag)

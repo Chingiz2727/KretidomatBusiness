@@ -25,6 +25,7 @@ final class KassOperationsViewModel: ViewModel {
         let loadPoint: Observable<Void>
         let loadPdf: Observable<Void>
         let stepsValue: Observable<Int>
+        let loadInfoOfTable: Observable<Void>
     }
     
     struct Output {
@@ -47,14 +48,13 @@ final class KassOperationsViewModel: ViewModel {
                 .asLoadingSequence()
         }.flatMap { $0 }
         
-        let dataTable = Observable.combineLatest(input.filter,input.retailPoint, input.stepsValue)
-            .flatMap { [unowned self] filter, point, step  -> Observable<LoadingSequence<PaymentOperations>> in
+        let dataTable = input.loadInfoOfTable
+            .withLatestFrom(Observable.combineLatest(input.filter,input.retailPoint,input.stepsValue))
+            .flatMap { [unowned self] filter, point, step -> Observable<LoadingSequence<PaymentOperations>> in
                 return apiService.makeRequest(to: MainTarget.payHistory(dateFrom: filter.firstData ?? "", dateTo: filter.secondData ?? "", filter: filter.periodType ?? 0, point: Int(point) ?? 0, type: self.operationType, skipValue: step), stubbed: false)
                     .result(PaymentOperations.self)
                     .asLoadingSequence()
-                
             }.share()
-        
         let pdfRes = input.loadPdf
             .withLatestFrom(Observable.combineLatest(input.filter, input.retailPoint, input.loadPdf)) { _, element -> Observable<PdfResponse> in
                 return self.apiService.makeRequest(to: MainTarget.getPdf(dateFrom: element.0.firstData ?? "", dateTo: element.0.secondData ?? "", filter: element.0.periodType ?? 0, point: Int(element.1)!, type: self.operationType))

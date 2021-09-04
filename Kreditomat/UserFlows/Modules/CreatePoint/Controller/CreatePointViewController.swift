@@ -51,19 +51,19 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
         let output = viewModel.transform(input: .init(loadPoints: .just(()), pointBlock: blockPointSubject, cashierBlock: blockCashierSubject))
         
         rootView.blockPointCallback = { [unowned self] point in
-            presentCustomAlert(type: .blockPoint(name: point.Name ?? "")) {
-                blockPointSubject.onNext(())
-            } secondButtonAction: {
-                dismiss(animated: true, completion: nil)
-            }
+//            presentCustomAlert(type: .blockPoint(name: point.Name ?? "")) {
+//                blockPointSubject.onNext(())
+//            } secondButtonAction: {
+//                dismiss(animated: true, completion: nil)
+//            }
         }
         
         rootView.blockCashierCallback = { [unowned self] point in
-            presentCustomAlert(type: .blockKassir(fio: point.CashierName ?? "")) {
-                blockCashierSubject.onNext(())
-            } secondButtonAction: {
-                dismiss(animated: true, completion: nil)
-            }
+//            presentCustomAlert(type: .blockKassir(fio: point.CashierName ?? "")) {
+//                blockCashierSubject.onNext(())
+//            } secondButtonAction: {
+//                dismiss(animated: true, completion: nil)
+//            }
         }
         
         let cashierBlock = output.cashierBlockRes.publish()

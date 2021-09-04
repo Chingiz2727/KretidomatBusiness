@@ -13,9 +13,9 @@ final class KassOperationReportView: UIView {
     private let periodTitle = UILabel()
     let headerView = TableSheetHeaderDownload()
     let footerView = DataTableFooterView()
-    let firstPeriod = RegularTextField()
+    let firstPeriod = DateTextField()
     let separotTitle = UILabel()
-    let secondPeriod = RegularTextField()
+    let secondPeriod = DateTextField()
     let calendarButton = UIButton()
     var dataTable = SpreadsheetView()
     private let scrollView = UIScrollView()
@@ -60,8 +60,6 @@ final class KassOperationReportView: UIView {
             make.width.equalTo(100)
             make.height.equalTo(30)
         }
-        firstPeriod.isUserInteractionEnabled = false
-        secondPeriod.isUserInteractionEnabled = false
         footerView.isHidden = true
         selectContainer.snp.makeConstraints { $0.height.equalTo(40) }
         calendarButton.imageView?.contentMode = .scaleAspectFit
@@ -133,8 +131,6 @@ final class KassOperationReportView: UIView {
         dataTable.layer.cornerRadius = 8
         sectionValue.isHidden = true
         headerView.layer.cornerRadius = 8
-        firstPeriod.placeholder = "00.00.0000"
-        secondPeriod.placeholder = "00.00.0000"
         backgroundColor = .background
     }
 }
