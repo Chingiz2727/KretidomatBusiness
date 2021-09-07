@@ -9,7 +9,8 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     
     private let disposeBag = DisposeBag()
     private let menu = UserInfoStorage.shared.menu
-    
+    private let userInfo = assembler.resolver.resolve(LoadUserInfo.self)
+
     override func loadView() {
         view = MenuView()
     }
@@ -17,6 +18,9 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        userInfo?.savedInfo = { [weak self] in
+            self?.rootView.headerView.setupData()
+        }
         navigationController?.navigationBar.layer.addShadow()
         title = "Главная"
     }

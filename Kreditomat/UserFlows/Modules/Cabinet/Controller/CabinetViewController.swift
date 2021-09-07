@@ -31,6 +31,9 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
+        userInfo?.savedInfo = { [weak self] in
+            self?.rootView.setupData()
+        }
         navigationController?.navigationBar.layer.addShadow()
         title = "Личный кабинет"
     }
