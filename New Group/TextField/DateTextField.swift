@@ -3,11 +3,11 @@ import UIKit
 import RxSwift
 
 private enum Constants {
-    static let textMask = "[00].[00].[0000]"
+    static let textMask = "[0000]-[00]-[00]"
     static let prefixText = "+7"
     static let prefixSpacing: CGFloat = 16
     static let dividerWidth: CGFloat = 2
-    static let placeholder = "00.00.0000"
+    static let placeholder = "0000-00-00"
 }
 
 final class DateTextField: RegularTextField {

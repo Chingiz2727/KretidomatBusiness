@@ -34,6 +34,12 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
         userInfo?.savedInfo = { [weak self] in
             self?.rootView.setupData()
         }
+        let storage = UserInfoStorage.shared
+        
+        if let imageBase = storage.Photo {
+            rootView.profileImage.image = convertBase64StringToImage(imageBase64String: imageBase)
+        }
+        
         navigationController?.navigationBar.layer.addShadow()
         title = "Личный кабинет"
     }
@@ -83,6 +89,12 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
         
         output?.connect()
             .disposed(by: disposeBag)
+    }
+    
+    func convertBase64StringToImage (imageBase64String:String) -> UIImage {
+        let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
+        let image = UIImage(data: imageData!)
+        return image!
     }
 }
 extension UIImage {

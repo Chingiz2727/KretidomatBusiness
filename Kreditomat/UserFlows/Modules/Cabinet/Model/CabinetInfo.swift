@@ -21,6 +21,7 @@ public struct CabinetData: Codable {
     let RegTime: String
     let RegCode: Int
     let Name: String
+    let Photo: String?
     let Email: String?
     let Phone: String
     let City: String

@@ -56,7 +56,8 @@ public final class UserInfoStorage {
     
     @UserDefaultsEntry("Role", defaultValue: nil)
     public var Role: String?
-    
+    @UserDefaultsEntry("Photo", defaultValue: nil)
+    public var Photo: String?
     
     public init() {}
 
@@ -87,6 +88,7 @@ public final class UserInfoStorage {
         CashierName = cabinetData.CashierName
         CashierPhone = cabinetData.CashierPhone
         Role = cabinetData.Role.rawValue
+        Photo = cabinetData.Photo
     }
     
     public func clearAll() {

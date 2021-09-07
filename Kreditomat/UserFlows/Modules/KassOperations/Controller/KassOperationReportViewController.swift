@@ -13,7 +13,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     private let disposeBag = DisposeBag()
     var viewModel: KassOperationsViewModel!
     private let filter = PublishSubject<KassFilter>()
-    private let retailPoint = BehaviorSubject<String>(value: "")
+    private let retailPoint = BehaviorSubject<String>(value: "0")
     private let stepsValue = 10
     private let skipValue: BehaviorSubject<Int> = .init(value: 0)
     private let pickerView = UIPickerView()
@@ -21,6 +21,8 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     private var points: [Point] = []
     private var operations: PaymentOperations?
     private var loadData = PublishSubject<Void>()
+    private var kassSelected : BehaviorSubject<Bool> = .init(value: true)
+    
     override func loadView() {
         view = KassOperationReportView()
     }
@@ -73,7 +75,8 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             .disposed(by: disposeBag)
         history.connect()
             .disposed(by: disposeBag)
-        
+        self.retailPoint.onNext("0")
+
         pickerView.dataSource = self
         pickerView.delegate = self
         rootView.selectContainer.textField.inputView = pickerView
@@ -82,6 +85,8 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             rootView.firstPeriod.setValue(phone: filter.firstData ?? "")
             rootView.secondPeriod.setValue(phone: filter.secondData ?? "")
             self.filter.onNext(filter)
+            self.loadData.onNext(())
+            self.kassSelected.onNext(true)
         }
         
         rootView.footerView.nextPageOpen = { [unowned self] page in
@@ -120,12 +125,11 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
         pdf.connect()
             .disposed(by: disposeBag)
         
-        let successArray = [rootView.firstPeriod.isFilled, rootView.secondPeriod.isFilled, retailPoint.map { $0 != ""}]
+        let successArray = [rootView.firstPeriod.isFilled, rootView.secondPeriod.isFilled, kassSelected]
         
         Observable.combineLatest(successArray).map { $0 }.map { $0.allSatisfy { $0 } }
             .distinctUntilChanged()
             .subscribe { [unowned self] success in
-                print(success.element)
                 if success.element ?? false {
                     self.loadData.onNext(())
                 }
@@ -234,7 +238,9 @@ extension KassOperationReportViewController: UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let pointId = points[row].SellerID ?? 0
         rootView.selectContainer.textField.text = points[row].Name ?? ""
+        kassSelected.onNext(true)
         retailPoint.onNext(String(pointId))
+        loadData.onNext(())
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
