@@ -13,6 +13,7 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     
     private let disposeBag = DisposeBag()
     private let viewModel: CabinetViewModel
+    private let userInfo = assembler.resolver.resolve(LoadUserInfo.self)
     
     init(viewModel: CabinetViewModel) {
         self.viewModel = viewModel
@@ -41,13 +42,50 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     private func bindView() {
         rootView.addImageButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-                ImagePickerManager().pickImage(self) { (image) in
-                    rootView.profileImage.image = image
-                }
+                getImage()
             }).disposed(by: disposeBag)
+    }
+    
+    private func getImage() {
+        let manager = ImagePickerManager()
+        manager.pickImage(self) { image in
+            
+            self.bindUploadPhoto(img: image)
+        }
     }
     
     override func customBackButtonDidTap() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func bindUploadPhoto(img: UIImage?) {
+        guard let image = img?.jpegData(compressionQuality: 0.4)?.base64EncodedString() else { return }
+        
+        let target = userInfo?.uploadPhoto(photo: image)
+        
+        let output = target?.publish()
+        
+        output?.element.subscribe(onNext: { [unowned self] status in
+            if status.Success == true {
+                self.rootView.profileImage.image = img
+                self.userInfo?.loadUserInfo()
+            } else {
+                self.showErrorInAlert(text: status.Message)
+            }
+        })
+        .disposed(by: disposeBag)
+        
+        output?.loading.bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        output?.connect()
+            .disposed(by: disposeBag)
+    }
+}
+extension UIImage {
+    func toBase64() -> String? {
+        guard let imageData = self.jpegData(compressionQuality: 0.3) else { return nil }
+        
+        return imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
     }
 }

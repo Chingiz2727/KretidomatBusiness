@@ -44,7 +44,9 @@ final class MenuHeaderView: UIView {
         let data = UserInfoStorage.shared
         firstValue.setup(title: "Мой промокод:")
         thirdValue.setup(title: "Телефон:")
-        firstValue.setup(detail: "№ \(String(describing: data.UniqueCode))")
+        let unicode = String(data.UniqueCode ?? 0)
+        
+        firstValue.setup(detail: "№ \(unicode)")
         secondValue.setup(detail: data.Name ?? "")
         thirdValue.setup(detail: data.Phone ?? "")
         let role = Role.init(rawValue: data.Role ?? "")

@@ -40,7 +40,7 @@ final class DateContentView: UIView {
     
     @objc func handleDatePicker(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd.MM.yyyy"
         dateFormatter.locale = Locale(identifier: "ru_RU")
         selectedDate = dateFormatter.string(from: sender.date)
         textField.text = dateFormatter.string(from: sender.date)
@@ -49,7 +49,7 @@ final class DateContentView: UIView {
     func selectDate(item: SelectedDateItem) {
         print(item.rawValue)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd.MM.yyyy"
         dateFormatter.locale = Locale(identifier: "ru_RU")
         let today = Date()
         var components = DateComponents()
@@ -61,7 +61,7 @@ final class DateContentView: UIView {
     
     func selectCurrentDate() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd.MM.yyyy"
         dateFormatter.locale = Locale(identifier: "ru_RU")
         
         let today = Date()

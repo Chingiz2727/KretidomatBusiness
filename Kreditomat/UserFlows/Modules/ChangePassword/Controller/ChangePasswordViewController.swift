@@ -45,6 +45,11 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
                     self.presentCustomAlert(type: .changePass, ondismiss:  {
                         self.navigationController?.popViewController(animated: true)
                     })
+                } else {
+                    
+                    self.showErrorAlert(title: "Ошибка", message: "Введите корректные данные") {
+                        
+                    }
                 }
             })
             .disposed(by: disposeBag)

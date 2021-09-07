@@ -64,7 +64,7 @@ public final class UserInfoStorage {
         if Role ?? "" == "Agent" {
             return Menu.allCases
         } else {
-            return [.mainPage,.getCredit,.clearCredit,.aboutBonus,.aboutKassa,.changePassWord,.logout,.share]
+            return [.mainPage,.getCredit,.clearCredit,.aboutBonus,.aboutKassa,.changePassWord,.share,.logout]
         }
     }
     

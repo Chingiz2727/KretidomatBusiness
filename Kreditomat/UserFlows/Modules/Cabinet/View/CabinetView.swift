@@ -15,6 +15,7 @@ class CabinetView: UIView {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 6
         imageView.contentMode = .scaleToFill
+        imageView.image = #imageLiteral(resourceName: "profile")
         return imageView
     }()
     

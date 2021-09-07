@@ -47,7 +47,7 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
             .disposed(by: disposeBag)
         
         rootView.tableView.rx.itemSelected
-            .withLatestFrom(Observable.just(Menu.allCases)) { $1[$0.row] }
+            .withLatestFrom(Observable.just(menu)) { $1[$0.row] }
             .bind { [unowned self] item in
                 if item == .logout {
                     presentCustomAlert(type: .logout, firstButtonAction: { selectMenu?(item) }, secondButtonAction: { self.dismiss(animated: true, completion: nil)} )

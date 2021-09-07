@@ -23,6 +23,13 @@ class LoadUserInfo {
             .disposed(by: disposeBag)
     }
     
+    
+    func uploadPhoto(photo: String) -> Observable<LoadingSequence<ResponseStatus>> {
+        let info = apiService.makeRequest(to: CabinetTarget.uploadPhoto(base64: photo))
+            .result(ResponseStatus.self)
+            .asLoadingSequence()
+        return info
+    }
     private func saveInfo(cabinet: CabinetInfo) {
         UserInfoStorage.shared.save(cabinetData: cabinet.Data)
     }

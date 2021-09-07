@@ -37,15 +37,15 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showAboutKassa()
             case .changePassWord:
                 self?.showChangePassword()
-            case .logout:
-                let authState = assembler.resolver.resolve(AuthStateObserver.self)!
-                authState.forceLogout()
             case  .aboutBonus:
                 self?.showOperations(type: .BonusHistory)
             case .aboutCredit:
                 self?.showOperations(type: .PaymentHistory)
+            case .logout:
+                let authState = assembler.resolver.resolve(AuthStateObserver.self)!
+                authState.forceLogout()
             default:
-                return
+                break
             }
         }
         router.setRootModule(module)
