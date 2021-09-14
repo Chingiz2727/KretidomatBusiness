@@ -3,7 +3,7 @@ import UIKit
 final class DateContentView: UIView {
     
     var selectedDate: String?
-    private let textField = RegularTextField()
+    let textField = RegularTextField()
     private let datePicker = UIDatePicker()
     let titleLabel = UILabel()
     

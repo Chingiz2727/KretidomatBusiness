@@ -26,7 +26,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     override func loadView() {
         view = KassOperationReportView()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.dataTable.dataSource = self
@@ -43,10 +43,10 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             title = "Отчет по Бонусам"
         }
         navigationController?.navigationBar.layer.addShadow()
-
+        
         bindViewModel()
     }
-
+    
     private func bindViewModel() {
         let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(()), loadPdf: rootView.headerView.downloadButton.rx.tap.asObservable(), stepsValue: skipValue, loadInfoOfTable: loadData))
         
@@ -65,8 +65,9 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
         
         history.element
             .subscribe(onNext: { [unowned self] data in
-                self.operations = data
+                
                 DispatchQueue.main.async {
+                    self.operations = data
                     self.rootView.dataTable.reloadData()
                     self.rootView.dataTable.reloadInputViews()
                     self.rootView.setView(data: data)
@@ -76,7 +77,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
         history.connect()
             .disposed(by: disposeBag)
         self.retailPoint.onNext("0")
-
+        
         pickerView.dataSource = self
         pickerView.delegate = self
         rootView.selectContainer.textField.inputView = pickerView
@@ -105,8 +106,8 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
                     rootView.selectContainer.textField.text = self.points.first?.Name ?? ""
                     self.retailPoint.onNext(String(pointId))
                 }
-        })
-        .disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
         
         let pdf = output.pdfUrl.publish()
         
@@ -163,26 +164,26 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
-        return operations?.data.sellerBalanceOperations.count ?? 0
+        if let operations = operations?.data.sellerBalanceOperations {
+            return operations.count + 1
+        }
+        return 0
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
         let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath) as! DataSheetTableViewCell
-        let items = operations?.data.sellerBalanceOperations[indexPath.row]
         if case (0...(viewModel.arrayHeaders.count), 0) = (indexPath.column, indexPath.row) {
-          
             cell.titleLabel.text = viewModel.arrayHeaders[indexPath.column]
-            cell.backgroundColor = UIColor.primary.withAlphaComponent(0.1)
+        } else if case (1...(operations?.data.sellerBalanceOperations.count ?? 0), 0...viewModel.arrayHeaders.count) = (indexPath.row, indexPath.column) {
+            let items = operations?.data.sellerBalanceOperations[indexPath.row-1]
 
-        } else if case (0...(9), 0...viewModel.arrayHeaders.count) = (indexPath.row, indexPath.column) {
-            if indexPath.row % 2 != 0 {
+            if items?.operationType == "Оплата кредитной линии" {
                 cell.titleLabel.textColor = .secondary
             } else {
                 cell.titleLabel.textColor = .error
+                
             }
-            if indexPath.column == 0 {
-                cell.backgroundColor = UIColor.primary.withAlphaComponent(0.1)
-            }
+            
             if indexPath.column == 0 {
                 cell.titleLabel.text = "\(String(describing: items?.requestID ?? 0))"
             }

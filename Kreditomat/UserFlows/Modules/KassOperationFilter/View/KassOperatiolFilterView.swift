@@ -1,4 +1,5 @@
 import Koyomi
+import RxSwift
 import UIKit
 
 final class KassOperationFilterView: UIView {
@@ -10,7 +11,7 @@ final class KassOperationFilterView: UIView {
     let secondPeriod = DateContentView()
     let cancelButton = PrimaryButton()
     let acceptButton = PrimaryButton()
-    
+    private let disposeBag = DisposeBag()
     private lazy var buttonStackView = UIStackView(
         views: [cancelButton, acceptButton],
         axis: .horizontal,
@@ -91,7 +92,13 @@ final class KassOperationFilterView: UIView {
             }
             self?.secondPeriod.selectCurrentDate()
         }
-        
+        secondPeriod.textField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: { [weak self] in
+                if self?.secondPeriod.textField.text == "" {
+                    self?.secondPeriod.selectCurrentDate()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     private func configureView() {
