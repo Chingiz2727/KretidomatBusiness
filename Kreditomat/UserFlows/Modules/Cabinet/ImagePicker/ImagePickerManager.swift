@@ -11,7 +11,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     var picker = UIImagePickerController();
     var alert = UIAlertController(title: "Фото профиля", message: nil, preferredStyle: .actionSheet)
     var viewController: UIViewController?
-    var pickImageCallback : ((UIImage) -> ())?;
+    var pickImageCallback : ((UIImage?) -> ())?;
     
     override init(){
         super.init()
@@ -38,7 +38,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         alert.addAction(cancelAction)
     }
 
-    func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
+    func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage?) -> ())) {
         pickImageCallback = callback;
         self.viewController = viewController;
 
@@ -46,6 +46,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
 
         viewController.present(alert, animated: true, completion: nil)
     }
+    
     func openCamera(){
         alert.dismiss(animated: true, completion: nil)
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
@@ -73,6 +74,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
@@ -83,6 +85,9 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
 
 
     @objc func imagePickerController(_ picker: UIImagePickerController, pickedImage: UIImage?) {
+        picker.dismiss(animated: true) {
+            self.pickImageCallback?(pickedImage)
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 import Koyomi
+import RxSwift
 import UIKit
 
 final class KassOperationFilterView: UIView {
@@ -6,12 +7,11 @@ final class KassOperationFilterView: UIView {
     private let titleLabel = UILabel()
     let timesView = TimesView()
     private let timesLabel = UILabel()
-    let firstPeriod = CalendarView()
-    let secondPeriod = CalendarView()
-    
+    let firstPeriod = DateContentView()
+    let secondPeriod = DateContentView()
     let cancelButton = PrimaryButton()
     let acceptButton = PrimaryButton()
-    
+    private let disposeBag = DisposeBag()
     private lazy var buttonStackView = UIStackView(
         views: [cancelButton, acceptButton],
         axis: .horizontal,
@@ -39,7 +39,8 @@ final class KassOperationFilterView: UIView {
         scrollView.addSubview(firstPeriod)
         scrollView.addSubview(secondPeriod)
         scrollView.addSubview(buttonStackView)
-
+        firstPeriod.titleLabel.text = "Период с"
+        secondPeriod.titleLabel.text = "До"
         titleLabel.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().inset(10)
         }
@@ -57,15 +58,15 @@ final class KassOperationFilterView: UIView {
         
         firstPeriod.snp.makeConstraints { make in
             make.top.equalTo(timesLabel.snp.bottom).offset(10)
-            make.height.equalTo(200)
-            make.leading.trailing.equalToSuperview().inset(50)
+            make.height.equalTo(80)
+            make.leading.trailing.equalToSuperview().inset(10)
             make.centerX.equalToSuperview()
         }
         
         secondPeriod.snp.makeConstraints { make in
             make.top.equalTo(firstPeriod.snp.bottom).offset(10)
-            make.height.equalTo(200)
-            make.leading.trailing.equalToSuperview().inset(50)
+            make.height.equalTo(80)
+            make.leading.trailing.equalToSuperview().inset(10)
             make.centerX.equalToSuperview()
         }
         
@@ -75,12 +76,35 @@ final class KassOperationFilterView: UIView {
             make.bottom.equalToSuperview().inset(100)
             make.height.equalTo(40)
         }
+        
+        timesView.atItemSelect = { [weak self] index in
+            switch index {
+            case 1:
+                self?.firstPeriod.selectDate(item: .week)
+            case 2:
+                self?.firstPeriod.selectDate(item: .month)
+            case 3:
+                self?.firstPeriod.selectDate(item: .halfYear)
+            case 4:
+                self?.firstPeriod.selectDate(item: .year)
+            default:
+                break
+            }
+            self?.secondPeriod.selectCurrentDate()
+        }
+        secondPeriod.textField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: { [weak self] in
+                if self?.secondPeriod.textField.text == "" {
+                    self?.secondPeriod.selectCurrentDate()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     private func configureView() {
         titleLabel.font = .bold12
         titleLabel.font = .bold12
-        secondPeriod.nextMonth()
+//        secondPeriod.nextMonth()
         timesView.setTitles(titles: ["За неделю","За месяц","За полгода","За год"])
         backgroundColor = .white
         cancelButton.setTitle("Отмена", for: .normal)

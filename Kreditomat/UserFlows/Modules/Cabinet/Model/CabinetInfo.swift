@@ -14,13 +14,14 @@ public struct CabinetInfo: Codable {
     let Data: CabinetData
 }
 
-struct CabinetData: Codable {
+public struct CabinetData: Codable {
     let AppSignature: String?
     let SellerID: Int
     let AlterNames: String
     let RegTime: String
     let RegCode: Int
     let Name: String
+    let Photo: String?
     let Email: String?
     let Phone: String
     let City: String
@@ -36,4 +37,10 @@ struct CabinetData: Codable {
     let CashierID: Int
     let CashierName: String
     let CashierPhone: String
+    let Role: Role
+}
+
+enum Role: String, Codable {
+    case agent = "Agent"
+    case cashier = "Cashier"
 }

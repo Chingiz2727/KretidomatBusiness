@@ -42,7 +42,14 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
         result.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    self.changePasTapped?()
+                    self.presentCustomAlert(type: .changePass, ondismiss:  {
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                } else {
+                    
+                    self.showErrorAlert(title: "Ошибка", message: "Введите корректные данные") {
+                        
+                    }
                 }
             })
             .disposed(by: disposeBag)
@@ -52,12 +59,6 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
             .disposed(by: disposeBag)
         
         result.connect()
-            .disposed(by: disposeBag)
-        
-        rootView.resetPassword.rx.tap
-            .subscribe(onNext: { [unowned self] in
-                self.resetPasTapped?()
-            })
             .disposed(by: disposeBag)
     }
     

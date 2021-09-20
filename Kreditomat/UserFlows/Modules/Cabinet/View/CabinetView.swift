@@ -15,6 +15,7 @@ class CabinetView: UIView {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 6
         imageView.contentMode = .scaleToFill
+        imageView.image = #imageLiteral(resourceName: "profile")
         return imageView
     }()
     
@@ -54,6 +55,7 @@ class CabinetView: UIView {
         super.init(frame: frame)
         setupInitialLayouts()
         configureView()
+        setupData()
     }
     
     required init?(coder: NSCoder) {
@@ -117,15 +119,24 @@ class CabinetView: UIView {
         cashboxSum.layer.addShadow()
     }
     
-    func setupData(data: CabinetData) {
-        agentItem.setupData(title: "Агент:", value: data.Name ?? "Test")
-        binItem.setupData(title: "БИН:", value: data.BIN ?? "test")
-        cityItem.setupData(title: "Город:", value: data.City ?? "test")
-        streetItem.setupData(title: "Улица:", value: data.Address ?? "test")
-        homeItem.setupData(title: "Номер дома:", value: data.House ?? "test")
-        officeItem.setupData(title: "Номер офиса:", value: data.Apartments ?? "test")
-        phoneItem.setupData(title: "Телефон:", value: data.Phone ?? "test")
-        emailItem.setupData(title: "Почта:", value: data.Email ?? "test")
+    func setupData() {
+        let data = UserInfoStorage.shared
+        let type = Role.init(rawValue: data.Role ?? "")
+        switch type {
+        case .agent:
+            agentItem.setupData(title: "Агент:", value: data.Name ?? "")
+        case .cashier:
+            agentItem.setupData(title: "Кассир:", value: data.Name ?? "")
+        case .none:
+            break
+        }
+        binItem.setupData(title: "БИН:", value: data.BIN ?? "")
+        cityItem.setupData(title: "Город:", value: data.City ?? "")
+        streetItem.setupData(title: "Улица:", value: data.Address ?? "")
+        homeItem.setupData(title: "Номер дома:", value: data.House ?? "")
+        officeItem.setupData(title: "Номер офиса:", value: data.Apartments ?? "")
+        phoneItem.setupData(title: "Телефон:", value: data.Phone ?? "")
+        emailItem.setupData(title: "Почта:", value: data.Email ?? "")
         bonusSum.setupSum(title: "СУММА БОНУСОВ", value: "\(data.BonusSum ?? 0) тенге")
         cashboxSum.setupSum(title: "СУММА В КАССЕ", value: "\(data.Balance ?? 0) тенге")
     }

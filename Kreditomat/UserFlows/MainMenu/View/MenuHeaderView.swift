@@ -22,6 +22,7 @@ final class MenuHeaderView: UIView {
         super.init(frame: frame)
         setupInitalLayout()
         configureView()
+        setupData()
     }
     
     required init?(coder: NSCoder) {
@@ -39,13 +40,22 @@ final class MenuHeaderView: UIView {
         }
     }
     
-    func setupData(data: CabinetData) {
+    func setupData() {
+        let data = UserInfoStorage.shared
         firstValue.setup(title: "Мой промокод:")
-        secondValue.setup(title: "Агент:")
         thirdValue.setup(title: "Телефон:")
-        firstValue.setup(detail: "№ \(data.UniqueCode)")
-        secondValue.setup(detail: data.Name)
-        thirdValue.setup(detail: data.Phone)
+        let unicode = String(data.UniqueCode ?? 0)
+        
+        firstValue.setup(detail: "№ \(unicode)")
+        secondValue.setup(detail: data.Name ?? "")
+        thirdValue.setup(detail: data.Phone ?? "")
+        let role = Role.init(rawValue: data.Role ?? "")
+        switch role {
+        case .agent:
+            secondValue.setup(title: "Агент:")
+        default:
+            secondValue.setup(title: "Кассир:")
+        }
     }
     
     private func configureView() {

@@ -1,5 +1,5 @@
 protocol MenuModule: Presentable {
-    typealias SelectMenu = (Menu, CabinetData) -> Void
+    typealias SelectMenu = (Menu) -> Void
     
     var selectMenu: SelectMenu? { get set }
 }

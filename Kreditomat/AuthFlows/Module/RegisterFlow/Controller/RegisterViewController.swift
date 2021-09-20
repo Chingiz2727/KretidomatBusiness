@@ -39,6 +39,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         super.viewDidLoad()
         bindViewModel()
         setupCityPickerView()
+        setIsEnabled()
         title = "Регистрация"
         
     }
@@ -48,13 +49,13 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         
         rootView.ipButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-                rootView.buttonActive(ipButtonSelected: true)
+                self.rootView.buttonActive(ipButtonSelected: true)
             })
             .disposed(by: disposeBag)
         
         rootView.tooButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-                rootView.buttonActive(ipButtonSelected: false)
+                self.rootView.buttonActive(ipButtonSelected: false)
             })
             .disposed(by: disposeBag)
         
@@ -78,7 +79,7 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         
         rootView.offerView.checkBox.rx.tap
             .subscribe(onNext: { [unowned self]  in
-                self.rootView.checkBox()
+//                self.rootView.checkBox()
             })
             .disposed(by: disposeBag)
         
@@ -158,34 +159,23 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         putAddress = { [unowned self] address in
             self.rootView.coordinateTextField.text = address.name
         }
-        
-        isNextButtonEnabled(name: rootView.nameUserView.textField.rx.text.orEmpty.asObservable(),
-                            bin: rootView.binUserView.textField.rx.text.orEmpty.asObservable(),
-                            city: rootView.cityView.cityListTextField.textField.rx.text.orEmpty.asObservable(),
-                            street: rootView.streetView.textField.rx.text.orEmpty.asObservable(),
-                            phone: rootView.numberPhoneTextField.rx.text.orEmpty.asObservable(),
-                            email: rootView.emailTextField.rx.text.orEmpty.asObservable(),
-                            coordinate: rootView.coordinateTextField.rx.text.orEmpty.asObservable(),
-                            checkBox: rootView.offerView.checkBox.rx.tap.asObservable())
-            .bind(to: rootView.registerButton.rx.isEnabled)
-            .disposed(by: disposeBag)
     }
     
-    func isNextButtonEnabled(name: Observable<String>, bin: Observable<String>, city: Observable<String>, street: Observable<String>, phone: Observable<String>, email: Observable<String>, coordinate: Observable<String>, checkBox: Observable<Void>) -> Observable<Bool> {
-        return Observable.combineLatest(
-            [
-                name.map { $0.count >= 5 },
-                bin.map { $0.count >= 9},
-                city.map { !$0.isEmpty},
-                street.map { !$0.isEmpty},
-                phone.map { $0.count >= 9},
-                email.map { $0.validEmail() },
-                coordinate.map { !$0.isEmpty },
-                checkBox.scan(false) { state, _ in !state }.startWith(false)
-            ]
-        )
-        .map { $0.allSatisfy { $0 } }
-    }
+//    func isNextButtonEnabled(name: Observable<String>, bin: Observable<String>, city: Observable<String>, street: Observable<String>, phone: Observable<String>, email: Observable<String>, coordinate: Observable<String>, checkBox: Observable<Void>) -> Observable<Bool> {
+//        return Observable.combineLatest(
+//            [
+//                name.map { $0.count >= 5 },
+//                bin.map { $0.count >= 9},
+//                city.map { !$0.isEmpty},
+//                street.map { !$0.isEmpty},
+//                phone.map { $0.count >= 9},
+//                email.map { $0.validEmail() },
+//                coordinate.map { !$0.isEmpty },
+//                checkBox.scan(false) { state, _ in !state }.startWith(false)
+//            ]
+//        )
+//        .map { $0.allSatisfy { $0 } }
+//    }
     
     private func setupCityPickerView() {
         cityPicker.delegate = cityPickerDelegate
@@ -197,4 +187,21 @@ final class RegisterViewController: ViewController, ViewHolder, RegisterModule {
         navigationController?.popViewController(animated: true)
     }
     
+    private func setIsEnabled() {
+        Observable.combineLatest(
+            [
+                rootView.nameUserView.textField.rx.text.unwrap().map { !$0.isEmpty },
+                rootView.binUserView.textField.rx.text.unwrap().map { $0.count >= 9 },
+                rootView.cityView.cityListTextField.textField.rx.text.unwrap().map { !$0.isEmpty },
+                rootView.streetView.textField.rx.text.unwrap().map { !$0.isEmpty },
+                rootView.numberPhoneTextField.isFilled,
+                rootView.emailTextField.rx.text.unwrap().map { $0.validEmail() },
+                rootView.coordinateTextField.rx.text.unwrap().map { !$0.isEmpty },
+                rootView.selectedSubject
+            ]
+        ).map { $0.allSatisfy { $0 } }
+        .distinctUntilChanged()
+        .bind(to: rootView.registerButton.rx.isEnabled)
+        .disposed(by: disposeBag)
+    }
 }

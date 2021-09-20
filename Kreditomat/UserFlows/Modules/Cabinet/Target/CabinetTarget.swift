@@ -9,6 +9,7 @@ import Foundation
 
 enum CabinetTarget: ApiTarget {
     case getInfo
+    case uploadPhoto(base64: String)
     
     var version: ApiVersion {
         .custom("")
@@ -17,14 +18,31 @@ enum CabinetTarget: ApiTarget {
     var servicePath: String { "" }
     
     var path: String {
-        return "Get"
+        switch self {
+        case .getInfo:
+            return "Get"
+        case .uploadPhoto:
+            return "UploadPhoto"
+        }
     }
     
     var method: HTTPMethod {
-        return .get
+        switch self {
+        case .getInfo:
+            return .get
+        case .uploadPhoto:
+            return .put
+        }
     }
     
-    var parameters: [String : Any]? { [:] }
+    var parameters: [String : Any]? {
+        switch self {
+        case .getInfo:
+            return [:]
+        case .uploadPhoto(let base64):
+            return ["Photo": base64]
+        }
+    }
     
     var stubData: Any { return [:] }
     

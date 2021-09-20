@@ -7,9 +7,9 @@ struct KassFilter {
     
     private let propertyFormattter = assembler.resolver.resolve(PropertyFormatter.self)!
 
-    init(firsDate: Date, secondDate: Date, period: Int?) {
+    init(firsDate: String?, secondDate: String?, period: Int?) {
         self.periodType = period
-        firstData = propertyFormattter.string(from: firsDate, type: .birthday)
-        secondData = propertyFormattter.string(from: secondDate, type: .birthday)
+        self.firstData = firsDate
+        self.secondData = secondDate
     }
 }

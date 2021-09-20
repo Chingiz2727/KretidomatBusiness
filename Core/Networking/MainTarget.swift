@@ -6,7 +6,7 @@ enum MainTarget: ApiTarget {
     case getActualPoints
     case registerPoint(name: String, email: String, city: String, address: String, house: String, apartments: String, bin: String, posLat: String, posLng: String, workingTime: String)
     case payHistory(dateFrom: String, dateTo: String, filter: Int, point: Int, type: OperationType, skipValue: Int)
-    
+    case getPdf(dateFrom: String, dateTo: String, filter: Int, point: Int, type: OperationType)
     var version: ApiVersion { .custom("") }
     
     var servicePath: String { return "" }
@@ -21,6 +21,8 @@ enum MainTarget: ApiTarget {
             return "RegisterPoint"
         case .payHistory(_,_,_,_,let type,_):
             return type.rawValue
+        case .getPdf:
+            return "GetPDF"
         }
     }
     
@@ -33,6 +35,8 @@ enum MainTarget: ApiTarget {
         case .registerPoint:
             return .put
         case .payHistory:
+            return .post
+        case .getPdf:
             return .post
         }
     }
@@ -57,7 +61,10 @@ enum MainTarget: ApiTarget {
                     "Pos_Lng": posLng,
                     "WorkingTime": workingTime]
         case let.payHistory(dateFrom, dateTo, filter, point, _, skipValue):
-            return ["DateFrom": dateFrom, "DateTo": dateTo, "Filter": filter, "Point": point, "Skip": skipValue, "Take": 10]
+            return ["DateFrom": "\(dateFrom)T00:00:00", "DateTo": "\(dateTo)T00:00:00", "Filter": filter, "Point": point, "Skip": skipValue, "Take": 10]
+        case let.getPdf(dateFrom, dateTo, filter, point, type):
+            return [ "Type": type.pdfType, "DateFrom": dateFrom, "DateTo": dateTo, "Filter": filter, "Point": point
+                ]
         }
     }
     

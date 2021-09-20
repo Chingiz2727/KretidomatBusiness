@@ -8,20 +8,9 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     var selectMenu: SelectMenu?
     
     private let disposeBag = DisposeBag()
-    private let viewModel: MainMenuViewModel
-    private var cabinetData: CabinetData
-    let menu = Menu.allCases
-    
-    init(viewModel: MainMenuViewModel, info: CabinetData) {
-        self.viewModel = viewModel
-        self.cabinetData = info
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    private let menu = UserInfoStorage.shared.menu
+    private let userInfo = assembler.resolver.resolve(LoadUserInfo.self)
+
     override func loadView() {
         view = MenuView()
     }
@@ -29,6 +18,9 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        userInfo?.savedInfo = { [weak self] in
+            self?.rootView.headerView.setupData()
+        }
         navigationController?.navigationBar.layer.addShadow()
         title = "Главная"
     }
@@ -59,34 +51,14 @@ final class MenuViewController: UIViewController, ViewHolder, MenuModule {
             .disposed(by: disposeBag)
         
         rootView.tableView.rx.itemSelected
-            .withLatestFrom(Observable.just(Menu.allCases)) { $1[$0.row] }
+            .withLatestFrom(Observable.just(menu)) { $1[$0.row] }
             .bind { [unowned self] item in
                 if item == .logout {
-                    presentCustomAlert(type: .logout, firstButtonAction: { selectMenu?(item, cabinetData) }, secondButtonAction: { self.dismiss(animated: true, completion: nil)} )
+                    presentCustomAlert(type: .logout, firstButtonAction: { selectMenu?(item) }, secondButtonAction: { self.dismiss(animated: true, completion: nil)} )
                 } else {
-                    self.selectMenu?(item, cabinetData)
+                    self.selectMenu?(item)
                 }
             }.disposed(by: disposeBag)
         
-        let output = viewModel.transform(input: .init(loadInfo: .just(())))
-        
-        let info = output.info.publish()
-        
-        info.element
-            .subscribe(onNext: { [unowned self] info in
-                self.cabinetData = info.Data
-                self.rootView.headerView.setupData(data: info.Data)
-            }).disposed(by: disposeBag)
-        
-        info.loading
-            .bind(to: ProgressView.instance.rx.loading)
-            .disposed(by: disposeBag)
-        
-        info.errors
-            .bind(to: rx.error)
-            .disposed(by: disposeBag)
-        
-        info.connect()
-            .disposed(by: disposeBag)
     }
 }

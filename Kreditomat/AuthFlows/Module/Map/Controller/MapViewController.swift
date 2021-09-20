@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
+import CoreLocation
+import YandexMapsMobile
 import RxSwift
 
 class MapViewController: ViewController, ViewHolder, MapModule {
@@ -16,6 +16,9 @@ class MapViewController: ViewController, ViewHolder, MapModule {
     typealias RootViewType = MapView
     
     let locationManager = CLLocationManager()
+    private let deliveryLocationObject: PublishSubject<DeliveryLocation> = .init()
+    
+    private let viewModel = MapViewModel()
     private let disposeBag = DisposeBag()
     private var address = Address(lat: 0, long: 0, name: "")
     
@@ -25,136 +28,100 @@ class MapViewController: ViewController, ViewHolder, MapModule {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        let mapKit = YMKMapKit.sharedInstance()
+        let userLocationLayer = mapKit.createUserLocationLayer(with: rootView.mapView.mapWindow)
+        userLocationLayer.setVisibleWithOn(true)
+        userLocationLayer.isHeadingEnabled = true
+        
         title = "Выберите адрес"
-        checkLocationServices()
         bindView()
-        rootView.mapView.delegate = self
-    }
-    
-    // Present the Autocomplete view controller when the button is pressed.
-    @objc func autocompleteClicked() {
-      let autocompleteController = GMSAutocompleteViewController()
-      autocompleteController.delegate = self
-
-      // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) | UInt(GMSPlaceField.coordinate.rawValue))
-      autocompleteController.placeFields = fields
-
-      // Specify a filter.
-      let filter = GMSAutocompleteFilter()
-      filter.type = .address
-      filter.country = "KZ"
-      autocompleteController.autocompleteFilter = filter
-
-      // Display the autocomplete view controller.
-      present(autocompleteController, animated: true, completion: nil)
     }
     
     private func bindView() {
+        let output = viewModel.transform(input: .init(text: rootView.textField.rx.text.unwrap()))
+        
+        
+        let locationArr = output.locationArray.share()
+        
+        locationArr.bind(to: rootView.tableView.rx.items(UITableViewCell.self)) { _, model ,cell in
+            cell.textLabel?.text = model.name
+        }
+        .disposed(by: disposeBag)
+        
         rootView.textField.rx.controlEvent(.allEditingEvents)
             .subscribe(onNext: { [unowned self] in
-                self.autocompleteClicked()
+                //                self.autocompleteClicked()
             }).disposed(by: disposeBag)
+        
+        let location = output.locationName.publish()
+        location.subscribe(onNext: { [unowned self] location in
+            self.rootView.textField.text = location.name
+            self.address = Address(lat: location.point.latitude, long: location.point.longitude, name: location.name)
+        }).disposed(by: disposeBag)
+        
+        location.connect()
+            .disposed(by: disposeBag)
         
         rootView.saveButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.didAddressSelectedHandler?(address)
             }).disposed(by: disposeBag)
+        
+        rootView.textField.rx.text.unwrap()
+            .subscribe(onNext: { [unowned self] text in
+                self.rootView.tableView.isHidden = text.isEmpty
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.tableView.rx.itemSelected
+            .withLatestFrom(locationArr) { (index, array) -> DeliveryLocation in
+                return array[index.row]
+            }.subscribe(onNext: { [unowned self] location in
+                self.selectLocationAtList(location: location)
+                self.address = Address(lat: location.point.latitude, long: location.point.longitude, name: location.name)
+                self.moveToMyLocation(lat: location.point.latitude, lon: location.point.longitude)
+            })
+            .disposed(by: disposeBag)
+        rootView.mapView.mapWindow.map.addCameraListener(with: self)
+        
+        rootView.locationButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                if let location = self.locationManager.location?.coordinate {
+                    self.moveToMyLocation(lat: location.latitude, lon: location.longitude)
+                }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func selectLocationAtList(location: DeliveryLocation) {
+        rootView.textField.text = location.name
+        self.rootView.tableView.isHidden =  true
+        address = Address(lat: location.point.latitude, long: location.point.longitude, name: location.name)
+        deliveryLocationObject.onNext(location)
+    }
+    
+    private func moveToMyLocation(lat: Double, lon: Double) {
+        let mapWindow = rootView.mapView.mapWindow.map
+        mapWindow.move(with: .init(target: .init(latitude: lat, longitude: lon), zoom: 14, azimuth: 0, tilt: 0), animationType: YMKAnimation.init(type: .linear, duration: 0.4), cameraCallback: nil)
     }
     
     override func customBackButtonDidTap() {
         navigationController?.popViewController(animated: true)
     }
-    func zoomToCamera(lat: Double, long: Double) {
-        self.rootView.mapView.animate(to: GMSCameraPosition(latitude: lat, longitude: long, zoom: 14))
-    }
 }
 
-extension MapViewController: GMSAutocompleteViewControllerDelegate {
-
-  // Handle the user's selection.
-  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-    let placeLat = place.coordinate.latitude
-    let placeLong = place.coordinate.longitude
-        self.rootView.textField.text = place.name
-        self.address = Address(lat: placeLat, long: placeLong, name: place.name ?? "")
-        dismiss(animated: true, completion: nil)
-    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
-        self.zoomToCamera(lat: placeLat, long: placeLong)
-        })
-  }
-
-  func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-    // TODO: handle the error.
-    print("Error: ", error.localizedDescription)
-  }
-
-  // User canceled the operation.
-  func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-    dismiss(animated: true, completion: nil)
-  }
-
-  // Turn the network activity indicator on and off again.
-  func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-  }
-
-  func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-  }
-
+extension MapViewController: YMKMapCameraListener {
+    func onCameraPositionChanged(with map: YMKMap, cameraPosition: YMKCameraPosition, cameraUpdateReason: YMKCameraUpdateReason, finished: Bool) {
+        viewModel.cameraLocationItem?(.init(latitude: cameraPosition.target.latitude, longitude: cameraPosition.target.longitude),finished)
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
-    
-    func startTackingUserLocation() {
-        guard
-            let lat = self.locationManager.location?.coordinate.latitude,
-            let lng = self.locationManager.location?.coordinate.longitude else { return }
-        
-        let camera: GMSCameraPosition = .camera(withLatitude: lat, longitude: lng, zoom: 16)
-        rootView.mapView.camera = camera
-        
-        locationManager.startUpdatingLocation()
-    }
-    
-    func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-    
-    // MARK:- Location Services
-    func checkLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            rootView.mapView.isMyLocationEnabled = true
-            rootView.mapView.settings.myLocationButton = true
-            setupLocationManager()
-            startTackingUserLocation()
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard let coordinate = manager.location?.coordinate else {
+            return
         }
+        moveToMyLocation(lat: coordinate.latitude, lon: coordinate.longitude)
     }
 }
-
-extension MapViewController: GMSMapViewDelegate {
-
-    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
-
-      let geocoder = GMSGeocoder()
-
-      geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
-        if let address = response?.firstResult() {
-    
-            self.rootView.textField.text = address.thoroughfare
-            self.address = Address(lat: address.coordinate.latitude, long: address.coordinate.longitude, name: address.thoroughfare ?? "")
-
-            UIView.animate(withDuration: 0.25) {
-            self.view.layoutIfNeeded()
-          }
-        }
-      }
-    }
-    
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        reverseGeocodeCoordinate(coordinate: position.target)
-    }
-}
-

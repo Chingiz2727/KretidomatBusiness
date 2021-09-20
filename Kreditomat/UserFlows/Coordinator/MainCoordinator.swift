@@ -21,10 +21,10 @@ final class MainCoordinator: BaseCoordinator {
     
     private func startHome() {
         var module = assembler.resolver.resolve(MenuModule.self)!
-        module.selectMenu = { [weak self] menu, data in
+        module.selectMenu = { [weak self] menu in
             switch menu {
             case .mainPage:
-                self?.showCabinet(data: data)
+                self?.showCabinet()
             case .createPoint:
                 self?.showCreatePoint()
             case .createCashier:
@@ -37,15 +37,15 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showAboutKassa()
             case .changePassWord:
                 self?.showChangePassword()
-            case .logout:
-                let authState = assembler.resolver.resolve(AuthStateObserver.self)!
-                authState.forceLogout()
             case  .aboutBonus:
                 self?.showOperations(type: .BonusHistory)
             case .aboutCredit:
                 self?.showOperations(type: .PaymentHistory)
+            case .logout:
+                let authState = assembler.resolver.resolve(AuthStateObserver.self)!
+                authState.forceLogout()
             default:
-                return
+                break
             }
         }
         router.setRootModule(module)
@@ -56,8 +56,8 @@ final class MainCoordinator: BaseCoordinator {
         router.push(module)
     }
     
-    private func showCabinet(data: CabinetData) {
-        let module = moduleFactory.makeCabiner(data: data)
+    private func showCabinet() {
+        let module = moduleFactory.makeCabiner()
         router.push(module)
     }
     

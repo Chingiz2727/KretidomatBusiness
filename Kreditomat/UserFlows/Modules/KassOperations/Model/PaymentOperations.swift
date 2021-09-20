@@ -36,10 +36,15 @@ struct DataClass: Codable {
 struct SellerBalanceOperation: Codable {
     let date: String
     let sum: Int
-    let clientPhone, sellerName: String
+    let clientPhone, sellerName: String?
     let requestID: Int
     let sellerBalanceType: BalanceType
-
+    let outgoingSum: Int?
+    let operationType: String?
+    let counterParty: String?
+    let clientIIN: String?
+    let incomeSum: Int?
+    
     enum CodingKeys: String, CodingKey {
         case date = "Date"
         case sum = "Sum"
@@ -47,6 +52,11 @@ struct SellerBalanceOperation: Codable {
         case sellerName = "SellerName"
         case sellerBalanceType = "SellerBalanceType"
         case requestID = "RequestID"
+        case outgoingSum = "OutgoingSum"
+        case operationType = "OperationType"
+        case counterParty = "Counterparty"
+        case clientIIN = "ClientIIN"
+        case incomeSum = "IncomeSum"
     }
 }
 
@@ -55,8 +65,8 @@ enum BalanceType: Int, Codable {
     case giveKredit = 2
     case incassation = 3
     case replenishment = 4
-    case unknown = 5
-    
+    case addBonus = 5
+    case getBonus = 6
     var title: String {
         switch self {
         case .repayment:
@@ -67,8 +77,10 @@ enum BalanceType: Int, Codable {
             return "Инкассация кассы"
         case .replenishment:
             return "Пополнение кассы"
-        case .unknown:
-            return "Unknown"
+        case .addBonus:
+            return "Начисление бонусов"
+        case .getBonus:
+            return "Вывод бонусов"
         }
     }
 }

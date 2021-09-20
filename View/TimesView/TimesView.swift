@@ -4,6 +4,7 @@ final class TimesView: UIView {
     private lazy var stackView = UIStackView(arrangedSubviews: [])
     var selectedIndex = 0
     var buttons: [UIButton: ((Int)->Void)] = [:]
+    var atItemSelect: ((Int)->Void)?
     private var buttonsArray: [UIButton] = []
     private var titles: [String] = []
 
@@ -44,6 +45,7 @@ final class TimesView: UIView {
         buttonsArray.forEach { $0.configureDeselected() }
         sender.configureSelected()
         selectedIndex = sender.tag
+        atItemSelect?(sender.tag)
         sender.configureSelected()
     }
 }

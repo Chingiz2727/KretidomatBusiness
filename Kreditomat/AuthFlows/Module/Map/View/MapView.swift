@@ -6,18 +6,11 @@
 //
 
 import UIKit
-import GoogleMaps
+import YandexMapsMobile
 import SnapKit
-import GooglePlaces
 
 class MapView: UIView {
-    lazy var mapView: GMSMapView = {
-        let mapView = GMSMapView(frame: .zero)
-        mapView.isMyLocationEnabled = true
-        mapView.settings.myLocationButton = false
-        mapView.accessibilityElementsHidden = false
-        return mapView
-    }()
+    let mapView = YMKMapView()
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -31,6 +24,7 @@ class MapView: UIView {
         return button
     }()
     
+    let locationButton = UIButton()
     let textField = RegularTextField()
     let saveButton = PrimaryButton()
     let tableView = UITableView()
@@ -39,12 +33,14 @@ class MapView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         contentSizeObserver = tableView.observe(
             \.contentSize,
             options: [.initial, .new]
         ) { [weak self] tableView, _ in
             self?.heightConstraint?.update(offset: max(40, tableView.contentSize.height))
         }
+        
         setupInitialLayouts()
         configureView()
     }
@@ -68,6 +64,7 @@ class MapView: UIView {
         addSubview(textField)
         addSubview(saveButton)
         addSubview(tableView)
+        addSubview(locationButton)
         //addSubview(myLocationButton)
         
 //        myLocationButton.snp.makeConstraints { (make) in
@@ -75,6 +72,16 @@ class MapView: UIView {
 //            make.bottom.equalToSuperview().inset(120)
 //        }
         
+        locationButton.snp.makeConstraints { make in
+            make.size.equalTo(40)
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(20)
+        }
+        
+        locationButton.setImage(#imageLiteral(resourceName: "compass").withRenderingMode(.alwaysTemplate), for: .normal)
+        locationButton.imageView?.tintColor = .white
+        locationButton.layer.cornerRadius = 20
+        locationButton.backgroundColor = .primary
         tableView.snp.makeConstraints  { make in
             make.top.equalTo(textField.snp.bottom)
             make.leading.trailing.equalTo(textField)
