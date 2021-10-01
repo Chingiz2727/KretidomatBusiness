@@ -68,4 +68,32 @@ final class DateContentView: UIView {
         selectedDate = dateFormatter.string(from: today)
         textField.text = dateFormatter.string(from: today)
     }
+    
+    func currentDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        let today = Date()
+        selectedDate = dateFormatter.string(from: today)
+        textField.text = dateFormatter.string(from: today)
+    }
 }
+
+extension DateFormatter {
+    
+    class func formattedDottedFullDate(_ dateStr: String?) -> String? {
+        let formatter = fullDateFormatter()
+        if let dateStr = dateStr, let date = formatter.date(from: dateStr) {
+            formatter.dateFormat = "yyyy-MM-dd"
+            return formatter.string(from: date)
+        }
+        return nil
+    }
+    
+    private class func fullDateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-dd-MM"
+        return formatter
+    }
+}
+

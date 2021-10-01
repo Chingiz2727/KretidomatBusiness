@@ -32,7 +32,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         }
 
         picker.delegate = self
-        alert.addAction(deleteAction)
+//        alert.addAction(deleteAction)
         alert.addAction(cameraAction)
         alert.addAction(galleryAction)
         alert.addAction(cancelAction)

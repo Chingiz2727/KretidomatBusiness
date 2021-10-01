@@ -49,6 +49,27 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     }
     
     private func bindView() {
+        let output = viewModel.transform(input: .init(userInfo: .just(())))
+
+        let loadGetProfile = output.loadUserInfo.publish()
+            
+        loadGetProfile.element
+            .subscribe(onNext: { [ unowned self] res in
+                let image = res.Data
+                self.rootView.profileImage.image = convertBase64StringToImage(imageBase64String: image.Photo ?? "")
+            }).disposed(by: disposeBag)
+        
+        loadGetProfile.loading
+            .bind(to: ProgressView.instance.rx.loading)
+            .disposed(by: disposeBag)
+        
+        loadGetProfile.errors
+            .bind(to: rx.error)
+            .disposed(by: disposeBag)
+        
+        loadGetProfile.connect()
+            .disposed(by: disposeBag)
+        
         rootView.addImageButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 getImage()

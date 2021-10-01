@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class MainCoordinator: BaseCoordinator {
     private let moduleFactory: MainModuleFactory
@@ -41,11 +42,11 @@ final class MainCoordinator: BaseCoordinator {
                 self?.showOperations(type: .BonusHistory)
             case .aboutCredit:
                 self?.showOperations(type: .PaymentHistory)
+            case .share:
+                self?.shareLink()
             case .logout:
                 let authState = assembler.resolver.resolve(AuthStateObserver.self)!
                 authState.forceLogout()
-            default:
-                break
             }
         }
         router.setRootModule(module)
@@ -162,5 +163,13 @@ final class MainCoordinator: BaseCoordinator {
             self?.router.popModule()
         }
         router.push(module)
+    }
+    
+    private func shareLink() {
+        let shareText = "Дайте какой нибудь текст"
+        let shareActivityController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        DispatchQueue.main.async {
+            self.router.present(shareActivityController)
+        }
     }
 }

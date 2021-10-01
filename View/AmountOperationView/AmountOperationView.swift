@@ -26,8 +26,8 @@ final class AmountOperationView: UIView {
         return l
     }()
     
-    let amountTextField: UITextField = {
-        let tf = UITextField()
+    let amountTextField: LimitedLengthField = {
+        let tf = LimitedLengthField()
         tf.backgroundColor = .clear
         tf.keyboardType = .numberPad
         return tf
@@ -66,4 +66,15 @@ final class AmountOperationView: UIView {
         }
     }
     
+}
+
+class LimitedLengthField: UITextField {
+    var maxLength: Int = 7
+    override func willMove(toSuperview newSuperview: UIView?) {
+        addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        editingChanged()
+    }
+    @objc func editingChanged() {
+        text = String(text!.prefix(maxLength))
+    }
 }

@@ -83,8 +83,11 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
         rootView.selectContainer.textField.inputView = pickerView
         
         onfilterSelect = { [unowned self] filter in
-            rootView.firstPeriod.setValue(phone: filter.firstData ?? "")
-            rootView.secondPeriod.setValue(phone: filter.secondData ?? "")
+            guard let firstDate = DateFormatter.formattedDottedFullDate(filter.firstData),
+                  let secondDate = DateFormatter.formattedDottedFullDate(filter.secondData) else { return }
+            
+            rootView.firstPeriod.setValue(phone: firstDate)
+            rootView.secondPeriod.setValue(phone: secondDate)
             self.filter.onNext(filter)
             self.loadData.onNext(())
             self.kassSelected.onNext(true)
@@ -174,11 +177,17 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
         let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath) as! DataSheetTableViewCell
         if case (0...(viewModel.arrayHeaders.count), 0) = (indexPath.column, indexPath.row) {
             cell.titleLabel.text = viewModel.arrayHeaders[indexPath.column]
+            cell.titleLabel.textColor = .black
         } else if case (1...(operations?.data.sellerBalanceOperations.count ?? 0), 0...viewModel.arrayHeaders.count) = (indexPath.row, indexPath.column) {
             let items = operations?.data.sellerBalanceOperations[indexPath.row-1]
-
+            cell.titleLabel.font = .bold10
             if items?.operationType == "Оплата кредитной линии" {
-                cell.titleLabel.textColor = .secondary
+                cell.titleLabel.textColor = .greenOperation
+            } else if items?.operationType == "Начисление бонусов" {
+                cell.titleLabel.textColor = .greenOperation
+                if items?.sellerBalanceType.rawValue == 6 {
+                    cell.titleLabel.textColor = .error
+                }
             } else {
                 cell.titleLabel.textColor = .error
                 
@@ -188,6 +197,7 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
                 cell.titleLabel.text = "\(String(describing: items?.requestID ?? 0))"
             }
             if indexPath.column == 1 {
+//                cell.titleLabel.text = DateFormatter.formattedDottedFullDate(items?.date)
                 cell.titleLabel.text = items?.date
             }
             if indexPath.column == 2 {

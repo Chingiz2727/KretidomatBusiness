@@ -60,7 +60,7 @@ final class KassOperationsViewModel: ViewModel {
         
         let pdfRes = input.loadPdf
             .withLatestFrom(Observable.combineLatest(input.filter, input.retailPoint, input.loadPdf)) { _, element -> Observable<PdfResponse> in
-                return self.apiService.makeRequest(to: MainTarget.getPdf(dateFrom: element.0.firstData ?? "", dateTo: element.0.secondData ?? "", filter: element.0.periodType ?? 0, point: Int(element.1)!, type: self.operationType))
+                return self.apiService.makeRequest(to: MainTarget.getPdf(dateFrom: DateFormatter.formattedDottedFullDate(element.0.firstData) ?? "", dateTo: DateFormatter.formattedDottedFullDate(element.0.secondData) ?? "", filter: element.0.periodType ?? 0, point: Int(element.1)!, type: self.operationType))
                     .result(PdfResponse.self)
             }.flatMap { res in
                 return res.asLoadingSequence()

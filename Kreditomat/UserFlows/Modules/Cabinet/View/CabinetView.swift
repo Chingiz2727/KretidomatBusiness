@@ -125,8 +125,10 @@ class CabinetView: UIView {
         switch type {
         case .agent:
             agentItem.setupData(title: "Агент:", value: data.Name ?? "")
+            phoneItem.setupData(title: "Телефон:", value: data.Phone ?? "")
         case .cashier:
             agentItem.setupData(title: "Кассир:", value: data.Name ?? "")
+            phoneItem.setupData(title: "Телефон", value: data.CashierPhone ?? "")
         case .none:
             break
         }
@@ -135,7 +137,6 @@ class CabinetView: UIView {
         streetItem.setupData(title: "Улица:", value: data.Address ?? "")
         homeItem.setupData(title: "Номер дома:", value: data.House ?? "")
         officeItem.setupData(title: "Номер офиса:", value: data.Apartments ?? "")
-        phoneItem.setupData(title: "Телефон:", value: data.Phone ?? "")
         emailItem.setupData(title: "Почта:", value: data.Email ?? "")
         bonusSum.setupSum(title: "СУММА БОНУСОВ", value: "\(data.BonusSum ?? 0) тенге")
         cashboxSum.setupSum(title: "СУММА В КАССЕ", value: "\(data.Balance ?? 0) тенге")

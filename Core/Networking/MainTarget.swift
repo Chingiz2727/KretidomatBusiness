@@ -63,7 +63,7 @@ enum MainTarget: ApiTarget {
         case let.payHistory(dateFrom, dateTo, filter, point, _, skipValue):
             return ["DateFrom": "\(dateFrom)T00:00:00", "DateTo": "\(dateTo)T00:00:00", "Filter": filter, "Point": point, "Skip": skipValue, "Take": 10]
         case let.getPdf(dateFrom, dateTo, filter, point, type):
-            return [ "Type": type.pdfType, "DateFrom": dateFrom, "DateTo": dateTo, "Filter": filter, "Point": point
+            return [ "Type": type.pdfType, "DateFrom": "\(dateFrom)T00:00:00", "DateTo": "\(dateTo)T00:00:00", "Filter": filter, "Point": point
                 ]
         }
     }
@@ -116,4 +116,3 @@ enum MainTarget: ApiTarget {
     }
     
 }
-

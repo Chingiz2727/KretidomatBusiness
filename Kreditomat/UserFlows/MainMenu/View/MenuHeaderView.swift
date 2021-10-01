@@ -48,13 +48,15 @@ final class MenuHeaderView: UIView {
         
         firstValue.setup(detail: "№ \(unicode)")
         secondValue.setup(detail: data.Name ?? "")
-        thirdValue.setup(detail: data.Phone ?? "")
         let role = Role.init(rawValue: data.Role ?? "")
         switch role {
         case .agent:
             secondValue.setup(title: "Агент:")
+            thirdValue.setup(detail: data.Phone ?? "")
         default:
             secondValue.setup(title: "Кассир:")
+            thirdValue.setup(detail: data.CashierPhone ?? "")
+
         }
     }
     

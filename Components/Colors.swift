@@ -6,5 +6,5 @@ extension UIColor {
     static let background = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
     static let error = #colorLiteral(red: 0.9418101907, green: 0.1820020676, blue: 0.186471045, alpha: 1)
     static let resetPswdColor = #colorLiteral(red: 0.2738550603, green: 0.5339697599, blue: 0.8297217488, alpha: 1)
-
+    static let greenOperation = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
 }

@@ -108,7 +108,8 @@ final class CustomAlertView: UIView {
             make.height.equalTo(40)
         }
         headerView.addSubview(exitView)
-        exitView.setImage(.init(named: "exit")?.withRenderingMode(.alwaysTemplate), for: .normal)
+//        exitView.setImage(.init(named: "exit")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        exitView.setImage(UIImage(named: "exit")?.withRenderingMode(.alwaysTemplate), for: .normal)
         exitView.tintColor = .white
         exitView.imageView?.tintColor = .white
         exitView.snp.makeConstraints { make in

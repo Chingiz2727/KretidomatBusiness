@@ -9,9 +9,11 @@ import RxSwift
 
 final class CabinetViewModel: ViewModel {
     struct Input {
+        let userInfo: Observable<Void>
     }
     
     struct Output {
+        let loadUserInfo: Observable<LoadingSequence<CabinetInfo>>
     }
     
     private let apiService: ApiService
@@ -21,6 +23,17 @@ final class CabinetViewModel: ViewModel {
     }
     
     func transform(input: Input) -> Output {
-        return .init()
+        
+        let loadUserInfoRes = input.userInfo
+            .flatMap { [unowned self] in
+                return apiService.makeRequest(to: CabinetTarget.getInfo)
+                    .result(CabinetInfo.self)
+                    .asLoadingSequence()
+            }.share()
+        
+        return .init(loadUserInfo: loadUserInfoRes)
     }
 }
+
+
+

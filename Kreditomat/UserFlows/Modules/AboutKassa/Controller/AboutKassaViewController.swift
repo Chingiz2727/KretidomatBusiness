@@ -92,26 +92,35 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         rootView.accessButton.rx.tap
             .withLatestFrom(rootView.selectTag)
             .subscribe(onNext: { [unowned self] tag in
-                if tag == 1 {
-                    self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
-                        self.dismiss(animated: true, completion: nil)
-                        self.dismiss(animated: true) {
-                            self.buttontapped.onNext(())
-                        }
-                    } secondButtonAction: {
-                        
-                    }
-                    
-                    //refill
+                guard let text = self.rootView.amountOperationView.amountTextField.text else { return }
+                var number = 0
+                number = Int(text) ?? 0
+                
+                debugPrint(number)
+                
+                if number > 1000000 || number < 10000 {
+                    self.showErrorInAlert(text: "Минимальный порог операций \nот 10 000 тг до 1 000 000 тг")
                 } else {
-                    //withdrawwl
-                    self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
-                        //                        self.dismiss(animated: true, completion: nil)
-                        self.dismiss(animated: true) {
-                            self.buttontapped.onNext(())
+                    if tag == 1 {
+                        self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: String(number))) {
+                            self.dismiss(animated: true, completion: nil)
+                            self.dismiss(animated: true) {
+                                self.buttontapped.onNext(())
+                            }
+                        } secondButtonAction: {
+                            
                         }
-                    } secondButtonAction: {
-                        
+                        //refill
+                    } else {
+                        //withdrawwl
+                        self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                            //                        self.dismiss(animated: true, completion: nil)
+                            self.dismiss(animated: true) {
+                                self.buttontapped.onNext(())
+                            }
+                        } secondButtonAction: {
+                            
+                        }
                     }
                     
                 }
