@@ -90,9 +90,24 @@ extension DateFormatter {
         return nil
     }
     
+    class func formatterDottedWithoutT(_ dateStr: String?) -> String? {
+        let formatter = fullDateWithoutT()
+        if let dateStr = dateStr, let date = formatter.date(from: dateStr) {
+            formatter.dateFormat = "yyyy-MM-dd"
+            return formatter.string(from: date)
+        }
+        return nil
+    }
+    
     private class func fullDateFormatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-dd-MM"
+        return formatter
+    }
+    
+    private class func fullDateWithoutT() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return formatter
     }
 }

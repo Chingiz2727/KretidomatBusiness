@@ -133,7 +133,7 @@ final class CustomAlertView: UIView {
         titleLabel.font = .regular14
         descriptionTitleLabel.font = .regular14
         descriptionSubtitleLabel.font = .bold15
-        subtitleTitleLabel.font = .bold15
+        subtitleTitleLabel.font = .regular14
         acceptButton.layer.cornerRadius = 20
         declineButton.layer.cornerRadius = 20
         backgroundColor = UIColor.black.withAlphaComponent(0.3)

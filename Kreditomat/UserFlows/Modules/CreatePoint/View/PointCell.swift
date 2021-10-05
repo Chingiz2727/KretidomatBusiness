@@ -38,8 +38,8 @@ class PointCell: UITableViewCell {
     
     let bodyLockImage: UIButton = {
         let imageView = UIButton()
-        let image = UIImage(named: "whiteZamok")?.withRenderingMode(.alwaysTemplate)
-        imageView.setImage(image, for: .normal)
+        let image = UIImage(named: "lockClose")?.withRenderingMode(.alwaysOriginal)
+        imageView.setImage(UIImage(named: "lockClose"), for: .normal)
         imageView.imageView?.tintColor = .black
         return imageView
     }()

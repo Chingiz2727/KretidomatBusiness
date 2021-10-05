@@ -8,11 +8,13 @@ final class AboutKassaViewModel: ViewModel {
         let sum: Observable<String?>
         let succesTapped: Observable<Void>
         let pointList: Observable<Void>
+        let typeButtonTapped: Observable<Void>
     }
     
     struct Output {
         let nextTapped: Observable<LoadingSequence<ResponseStatus>>
         let loadPoint: Observable<LoadingSequence<PointResponse>>
+        let checkRequest: Observable<LoadingSequence<ResponseStatus>>
     }
 
     private let apiService: ApiService
@@ -30,15 +32,21 @@ final class AboutKassaViewModel: ViewModel {
                     .asLoadingSequence()
             }.share()
         
-        
         let pointList = input.pointList
             .flatMap { [unowned self] in
                 return apiService.makeRequest(to: MainTarget.getActualPoints)
                     .result(PointResponse.self)
                     .asLoadingSequence()
             }.share()
-            
         
-        return .init(nextTapped: result, loadPoint: pointList)
+        let checkRequest = input.typeButtonTapped
+            .withLatestFrom(Observable.combineLatest(input.typeButton, input.point))
+            .flatMap { [unowned self] type, point in
+                return apiService.makeRequest(to: MainTarget.checkActualRequest(type: type, point: 0))
+                    .result(ResponseStatus.self)
+                    .asLoadingSequence()
+            }.share()
+        
+        return .init(nextTapped: result, loadPoint: pointList, checkRequest: checkRequest)
     }
 }

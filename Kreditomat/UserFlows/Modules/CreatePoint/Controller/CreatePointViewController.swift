@@ -59,11 +59,11 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
         }
         
         rootView.blockCashierCallback = { [unowned self] point in
-//            presentCustomAlert(type: .blockKassir(fio: point.CashierName ?? "")) {
-//                blockCashierSubject.onNext(())
-//            } secondButtonAction: {
-//                dismiss(animated: true, completion: nil)
-//            }
+            presentCustomAlert(type: .unblockKassir(fio: point.CashierName ?? "")) {
+                blockCashierSubject.onNext(())
+            } secondButtonAction: {
+                dismiss(animated: true, completion: nil)
+            }
         }
         
         let cashierBlock = output.cashierBlockRes.publish()

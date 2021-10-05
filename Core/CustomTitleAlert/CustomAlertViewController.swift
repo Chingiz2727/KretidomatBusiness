@@ -41,11 +41,15 @@ enum AlertType {
     case giveCredit(sum: String, fio: String)
     case getCreditPay(sum: String, fio: String)
     case blockKassir(fio: String)
+    case unblockKassir(fio: String)
     case blockPoint(name: String)
     case giveMoneyToPoint(name: String, sum: String)
     case getMoneyFromPoint(name: String, sum: String)
     case logout
     case changePass
+    case applicationGiveMoney
+    case applicationGetMoney
+    case checkActualApplication(title: String)
     
     var title: String? {
         switch self {
@@ -59,6 +63,8 @@ enum AlertType {
             return "Вы хотите изъять денежные средстав из точки:"
         case .blockKassir:
             return "Вы уверены что хотите заблокировать кассира?"
+        case .unblockKassir:
+            return "Вы уверены что хотите разблокировать кассира?"
         case .blockPoint:
             return "Вы уверены что хотите заблокировать точку полученя/погашения:"
         case .logout:
@@ -69,8 +75,14 @@ enum AlertType {
             return "Вы выдаете денежные средства на сумму:"
         case .changePass:
             return "Пароль успешно изменен"
-        default:
-            return nil
+        case .applicationGiveMoney:
+            return "Заявка на пополнение находится на рассмотрении"
+        case .applicationGetMoney:
+            return "Заявка на изьятие находится на рассмотрении"
+        case let .checkActualApplication(title):
+            return title
+            
+       
         }
     }
     
@@ -78,11 +90,13 @@ enum AlertType {
         switch self {
         case .recoverPass:
             return "Скоро мы с вами обязательно свяжемся"
-        case .anketoOnRequest:
+        case .anketoOnRequest, .checkActualApplication:
             return "Мы с вами обязательно свяжемся"
         case .getMoneyFromPoint(let name, _),.giveMoneyToPoint(let name, _):
             return name
         case .blockKassir(let fio):
+            return fio
+        case .unblockKassir(let fio):
             return fio
         case .blockPoint(let name):
             return name
@@ -90,6 +104,9 @@ enum AlertType {
             return fio
         case  .giveCredit(let sum, _):
             return "\(sum) тенге"
+        case .applicationGetMoney, .applicationGiveMoney:
+            return "Мы с вами обязательно свяжемся"
+        
         default:
             return nil
         }
@@ -97,7 +114,7 @@ enum AlertType {
     
     var descriptionTitle: String? {
         switch self {
-        case .anketoOnRequest, .recoverPass,.changePass:
+        case .anketoOnRequest, .recoverPass,.changePass, .applicationGetMoney, .applicationGiveMoney, .checkActualApplication:
             return "Возникли вопросы? \nВы можете связаться с нами:"
         case .giveMoneyToPoint:
             return "на сумму:"
@@ -114,7 +131,7 @@ enum AlertType {
     
     var descriptionSubtitle: String? {
         switch self {
-        case .anketoOnRequest, .recoverPass:
+        case .anketoOnRequest, .recoverPass, .applicationGetMoney, .applicationGiveMoney, .checkActualApplication:
             return "+7 (000) - 000 - 00 - 00 \nпочта - KREDITOMAT.kz"
         case .getMoneyFromPoint(_,let sum),.giveMoneyToPoint(_ , let sum):
             return "\(sum) тенге"
@@ -129,7 +146,7 @@ enum AlertType {
     
     var firstButtonHidden: Bool {
         switch self {
-        case .anketoOnRequest, .recoverPass,.changePass:
+        case .anketoOnRequest, .recoverPass,.changePass, .applicationGetMoney, .applicationGiveMoney, .checkActualApplication:
             return true
         default:
             return false
@@ -138,7 +155,7 @@ enum AlertType {
     
     var secondButtonHidden: Bool {
         switch self {
-        case .getMoneyFromPoint, .getCreditPay,.blockKassir, .blockPoint, .logout, .giveCredit:
+        case .giveMoneyToPoint,.getMoneyFromPoint, .getCreditPay,.blockKassir, .unblockKassir, .blockPoint, .logout, .giveCredit:
             return false
         default:
             return true

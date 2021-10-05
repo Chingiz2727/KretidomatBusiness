@@ -11,6 +11,7 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
     private let pointPickerView = UIPickerView()
     private let disposeBag = DisposeBag()
     private let buttontapped: PublishSubject<Void> = .init()
+    private let typeButtonTapped: PublishSubject<Void> = .init()
     private let makeRefillActioin = PublishSubject<Void>()
     private let makeWithAction = PublishSubject<Void>()
     
@@ -45,7 +46,10 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                          point: pointsSelledId,
                          sum: rootView.amountOperationView.amountTextField.rx.text.asObservable(),
                          succesTapped: buttontapped,
-                         pointList: .just(())))
+                         pointList: .just(()),
+                         typeButtonTapped: typeButtonTapped)
+            
+        )
         
         let result = output.nextTapped.publish()
         
@@ -82,50 +86,32 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
         rootView.refillButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.rootView.configureButton(selected: true)
+                self.typeButtonTapped.onNext(())
             }).disposed(by: disposeBag)
         
         rootView.withdrawalButton.rx.tap
             .subscribe(onNext: { [unowned self] in
                 self.rootView.configureButton(selected: false)
+                self.typeButtonTapped.onNext(())
             }).disposed(by: disposeBag)
         
-        rootView.accessButton.rx.tap
-            .withLatestFrom(rootView.selectTag)
-            .subscribe(onNext: { [unowned self] tag in
-                guard let text = self.rootView.amountOperationView.amountTextField.text else { return }
-                var number = 0
-                number = Int(text) ?? 0
-                
-                debugPrint(number)
-                
-                if number > 1000000 || number < 10000 {
-                    self.showErrorInAlert(text: "Минимальный порог операций \nот 10 000 тг до 1 000 000 тг")
+        let check = output.checkRequest.publish()
+        check.element
+            .subscribe(onNext: { [ unowned self] res in
+                if res.Success == true {
+                    checkSelectTag()
                 } else {
-                    if tag == 1 {
-                        self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: String(number))) {
-                            self.dismiss(animated: true, completion: nil)
-                            self.dismiss(animated: true) {
-                                self.buttontapped.onNext(())
-                            }
-                        } secondButtonAction: {
-                            
-                        }
-                        //refill
-                    } else {
-                        //withdrawwl
-                        self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
-                            //                        self.dismiss(animated: true, completion: nil)
-                            self.dismiss(animated: true) {
-                                self.buttontapped.onNext(())
-                            }
-                        } secondButtonAction: {
-                            
-                        }
-                    }
-                    
+                    self.presentCustomAlert(type: .checkActualApplication(title: res.Message))
                 }
-            })
+            }).disposed(by: disposeBag)
+        
+        check.errors
+            .bind(to: rx.error)
             .disposed(by: disposeBag)
+        
+        check.connect()
+            .disposed(by: disposeBag)
+      
         
         rootView.pointListTextField.textField.rx.controlEvent(.editingDidBegin)
             .withLatestFrom(pointsSelledId)
@@ -134,6 +120,45 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                     let pointId = self.points.first?.SellerID ?? 0
                     rootView.pointListTextField.textField.text = self.points.first?.Name ?? ""
                     self.pointsSelledId.onNext(pointId)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func checkSelectTag() {
+        rootView.accessButton.rx.tap
+            .withLatestFrom(rootView.selectTag)
+            .subscribe(onNext: { [unowned self] tag in
+                guard let text = self.rootView.amountOperationView.amountTextField.text else { return }
+                var number = 0
+                number = Int(text) ?? 0
+                if number > 1000000 || number < 10000 {
+                    self.showErrorInAlert(text: "Минимальный порог операций \nот 10 000 тг до 1 000 000 тг")
+                } else {
+                    if tag == 1 {
+                        self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: String(number))) {
+                        
+                            self.dismiss(animated: true) {
+                                self.buttontapped.onNext(())
+                                self.presentCustomAlert(type: .applicationGiveMoney)
+                            }
+                        } secondButtonAction: {
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        //refill
+                    } else {
+                        //withdrawwl
+                        self.presentCustomAlert(type: .getMoneyFromPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: rootView.amountOperationView.amountTextField.text ?? "0")) {
+                            //                        self.dismiss(animated: true, completion: nil)
+                            self.dismiss(animated: true) {
+                                self.buttontapped.onNext(())
+                                self.presentCustomAlert(type: .applicationGetMoney)
+                            }
+                        } secondButtonAction: {
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                    
                 }
             })
             .disposed(by: disposeBag)

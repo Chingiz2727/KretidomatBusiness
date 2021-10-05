@@ -7,5 +7,6 @@
 
 import Foundation
 protocol CreateCashierFormModule: Presentable {
-    
+    typealias PopModule = () -> Void
+    var popModule: PopModule? { get set }
 }

@@ -17,7 +17,7 @@ public final class UserInfoStorage {
     @UserDefaultsEntry("Email", defaultValue: nil)
     public var Email: String?
     
-    @UserDefaultsEntry("Phone", defaultValue: nil)
+    @UserDefaultsEntry("Phone", defaultValue: "")
     public var Phone: String?
     
     @UserDefaultsEntry("City", defaultValue: nil)
@@ -39,10 +39,10 @@ public final class UserInfoStorage {
     public var UniqueCode: Int?
     
     @UserDefaultsEntry("Balance", defaultValue: nil)
-    public var Balance: Int?
+    public var Balance: Double?
     
     @UserDefaultsEntry("BonusSum", defaultValue: nil)
-    public var BonusSum: Int?
+    public var BonusSum: Double?
     
     @UserDefaultsEntry("CashierID", defaultValue: nil)
     public var CashierID: Int?
@@ -51,13 +51,16 @@ public final class UserInfoStorage {
     @UserDefaultsEntry("CashierName", defaultValue: nil)
     public var CashierName: String?
     
-    @UserDefaultsEntry("CashierPhone", defaultValue: nil)
+    @UserDefaultsEntry("CashierPhone", defaultValue: "")
     public var CashierPhone: String?
     
     @UserDefaultsEntry("Role", defaultValue: nil)
     public var Role: String?
     @UserDefaultsEntry("Photo", defaultValue: nil)
     public var Photo: String?
+    
+    @UserDefaultsEntry("WorkingTime", defaultValue: nil)
+    public var WorkingTime: String?
     
     public init() {}
 
@@ -75,7 +78,7 @@ public final class UserInfoStorage {
         RegCode = cabinetData.RegCode
         Name = cabinetData.Name
         Email = cabinetData.Email
-        Phone = cabinetData.Phone
+        Phone = cabinetData.Phone ?? ""
         City = cabinetData.City
         Address = cabinetData.Address
         House = cabinetData.House
@@ -86,7 +89,7 @@ public final class UserInfoStorage {
         BonusSum = cabinetData.BonusSum
         CashierID = cabinetData.CashierID
         CashierName = cabinetData.CashierName
-        CashierPhone = cabinetData.CashierPhone
+        CashierPhone = cabinetData.CashierPhone ?? ""
         Role = cabinetData.Role.rawValue
         Photo = cabinetData.Photo
     }

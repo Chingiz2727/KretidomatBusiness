@@ -27,7 +27,7 @@ class CashierCell: UITableViewCell {
     
     let bodyLockImage: UIButton = {
         let imageView = UIButton()
-        imageView.setImage(UIImage(named: "zamok"), for: .normal)
+        imageView.setImage(UIImage(named: "lockOpen"), for: .normal)
         return imageView
     }()
     let backView = UIView()

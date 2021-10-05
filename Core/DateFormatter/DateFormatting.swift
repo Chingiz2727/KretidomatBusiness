@@ -22,6 +22,7 @@ public enum DateFormattingType: String, Identifiable {
 public protocol DateFormatting {
     func string(from date: Date, type: DateFormattingType) -> String?
     func date(from string: String, type: DateFormattingType) -> Date?
+    func stringToStr(from string: String, type: DateFormattingType) -> String?
 }
 
 extension PropertyFormatter: DateFormatting {
@@ -108,5 +109,20 @@ extension PropertyFormatter: DateFormatting {
         let formatter = cachedDateFormatter(with: type)
         let date = formatter?.date(from: string)
         return date
+    }
+    
+    public func stringToStr(from string: String, type: DateFormattingType) -> String? {
+//        if type == .relative {
+//            return handleRelativeFormatting(for: date)
+//        }
+        let formatter: DateFormatter? = getDateFormatter(with: type)
+        let string = formatter?.date(from: string)
+        
+//        if let dateStr = string, let date = formatter.date(from: dateStr) {
+//            formatter?.dateFormat = "yyyy-MM-dd"
+//            return formatter.string(from: date)
+//        }
+        return formatter?.string(from: string ?? Date())
+//        return nil
     }
 }

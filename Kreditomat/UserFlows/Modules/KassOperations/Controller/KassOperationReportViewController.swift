@@ -22,6 +22,8 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     private var operations: PaymentOperations?
     private var loadData = PublishSubject<Void>()
     private var kassSelected : BehaviorSubject<Bool> = .init(value: true)
+    private let propertyFormattter = assembler.resolver.resolve(PropertyFormatter.self)!
+
     
     override func loadView() {
         view = KassOperationReportView()
@@ -101,7 +103,7 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
             self.skipValue.onNext((page-1)*stepsValue)
         }
         
-        rootView.selectContainer.textField.rx.controlEvent(.editingDidBegin)
+        rootView.selectContainer.textField.rx.controlEvent(.allEvents)
             .withLatestFrom(retailPoint)
             .subscribe(onNext: { [unowned self] point in
                 if point == "" {
@@ -197,8 +199,11 @@ extension KassOperationReportViewController: SpreadsheetViewDataSource {
                 cell.titleLabel.text = "\(String(describing: items?.requestID ?? 0))"
             }
             if indexPath.column == 1 {
-//                cell.titleLabel.text = DateFormatter.formattedDottedFullDate(items?.date)
-                cell.titleLabel.text = items?.date
+                var time = items?.date
+                let times = (time?.index(time!.startIndex, offsetBy: 10))!..<time!.endIndex
+                time?.removeSubrange(times)
+                
+                cell.titleLabel.text = time
             }
             if indexPath.column == 2 {
                 cell.titleLabel.text = items?.sellerBalanceType.title

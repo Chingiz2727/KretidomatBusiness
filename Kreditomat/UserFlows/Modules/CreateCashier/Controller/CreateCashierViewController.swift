@@ -46,11 +46,16 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         navigationController?.navigationBar.layer.addShadow()
         title = "Создать кассира"
         setupPointPickerView()
-        bindView()
+//        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        bindView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     override func customBackButtonDidTap() {
@@ -99,6 +104,7 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
             .subscribe(onNext: { [unowned self] res in
                 if res.Success {
                     showSuccessAlert {
+                        
                     }
                 } else {
                     showSimpleAlert(title: "Ошибка", message: res.Message)

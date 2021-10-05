@@ -53,7 +53,10 @@ final class MainCoordinator: BaseCoordinator {
     }
     
     private func showCreateCashierForm() {
-        let module = moduleFactory.makeCreateCashierForm()
+        var module = moduleFactory.makeCreateCashierForm()
+        module.popModule = { [weak self] in
+            self?.router.popModule()
+        }
         router.push(module)
     }
     

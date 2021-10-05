@@ -12,6 +12,7 @@ class CreateCashierFormViewController: ViewController, ViewHolder, CreateCashier
     typealias RootViewType = CreateCashierFormView
     private let disposeBag = DisposeBag()
     private let viewModel: CreateCashierFormViewModel
+    var popModule: PopModule?
     
     init(viewModel: CreateCashierFormViewModel) {
         self.viewModel = viewModel
@@ -48,7 +49,7 @@ class CreateCashierFormViewController: ViewController, ViewHolder, CreateCashier
             .subscribe(onNext: { [unowned self] response in
                 if response.Success {
                     showSuccessAlert {
-                        self.navigationController?.popViewController(animated: true)
+                        self.popModule?()
                     }
                 } else {
                     showErrorInAlert(text: "Что-то пошло не так")

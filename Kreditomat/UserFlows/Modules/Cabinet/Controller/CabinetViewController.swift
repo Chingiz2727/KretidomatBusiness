@@ -74,6 +74,18 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
             .subscribe(onNext: { [unowned self] in
                 getImage()
             }).disposed(by: disposeBag)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(bindPhoto))
+        rootView.profileImageView.isUserInteractionEnabled = true
+        rootView.profileImageView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func bindPhoto() {
+        let manager = ImagePickerManager()
+        manager.pickImage(self) { image in
+            
+            self.bindUploadPhoto(img: image)
+        }
     }
     
     private func getImage() {

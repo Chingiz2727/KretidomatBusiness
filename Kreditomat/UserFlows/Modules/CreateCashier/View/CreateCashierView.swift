@@ -144,6 +144,7 @@ class CreateCashierView: UIView {
         pointsList.textField.placeholder = "Выберите точку"
         createButton.layer.addShadow()
         cashiersList.layer.addShadow()
+        pointsList.layer.addShadow()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
