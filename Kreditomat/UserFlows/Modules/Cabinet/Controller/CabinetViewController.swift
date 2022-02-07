@@ -124,10 +124,10 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
             .disposed(by: disposeBag)
     }
     
-    func convertBase64StringToImage (imageBase64String:String) -> UIImage {
+    func convertBase64StringToImage (imageBase64String:String) -> UIImage? {
         let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
         let image = UIImage(data: imageData!)
-        return image!
+        return image
     }
 }
 extension UIImage {

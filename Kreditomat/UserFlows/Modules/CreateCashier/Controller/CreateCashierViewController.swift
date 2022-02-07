@@ -170,6 +170,7 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         
         cashierPickerDelegate.selectedCashier
             .subscribe(onNext: { [unowned self] name in
+                guard let name = name else { return }
                 self.viewModel.sellerUserId = name.SellerUserID
                 rootView.cashiersList.textField.text = name.Name
                 rootView.cashiers = [name]

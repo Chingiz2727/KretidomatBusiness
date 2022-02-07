@@ -65,11 +65,22 @@ final class PhoneNumberTextField: RegularTextField {
     private func setupInitialLayout() {
         addSubview(prefixLabel)
         addSubview(dividerView)
+        prefixLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(20)
+        }
+        
+        dividerView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.width.equalTo(1)
+            make.top.bottom.equalToSuperview().inset(10)
+            make.leading.equalTo(prefixLabel.snp.trailing).offset(9)
+        }
     }
     
     private func configureColor() {
         textColor = UIColor.black
-        prefixLabel.textColor = UIColor.black
+        prefixLabel.textColor = UIColor.primary
         dividerView.backgroundColor = UIColor.primary
     }
     

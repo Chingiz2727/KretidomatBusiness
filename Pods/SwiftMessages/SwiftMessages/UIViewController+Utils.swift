@@ -8,11 +8,13 @@
 
 import UIKit
 
+private let fullScreenStyles: [UIModalPresentationStyle] = [.fullScreen, .overFullScreen]
+
 extension UIViewController {
     
     func sm_selectPresentationContextTopDown(_ config: SwiftMessages.Config) -> UIViewController {
         let topBottomStyle = config.presentationStyle.topBottomStyle
-        if let presented = presentedViewController {
+        if let presented = sm_presentedFullScreenViewController() {
             return presented.sm_selectPresentationContextTopDown(config)
         } else if case .top? = topBottomStyle, let navigationController = sm_selectNavigationControllerTopDown() {
             return navigationController
@@ -23,7 +25,7 @@ extension UIViewController {
     }
     
     fileprivate func sm_selectNavigationControllerTopDown() -> UINavigationController? {
-        if let presented = presentedViewController {
+        if let presented = sm_presentedFullScreenViewController() {
             return presented.sm_selectNavigationControllerTopDown()
         } else if let navigationController = self as? UINavigationController {
             if navigationController.sm_isVisible(view: navigationController.navigationBar) {
@@ -37,7 +39,7 @@ extension UIViewController {
     }
 
     fileprivate func sm_selectTabBarControllerTopDown() -> UITabBarController? {
-        if let presented = presentedViewController {
+        if let presented = sm_presentedFullScreenViewController() {
             return presented.sm_selectTabBarControllerTopDown()
         } else if let navigationController = self as? UINavigationController {
             return navigationController.topViewController?.sm_selectTabBarControllerTopDown()
@@ -46,6 +48,13 @@ extension UIViewController {
                 return tabBarController
             }
             return tabBarController.selectedViewController?.sm_selectTabBarControllerTopDown()
+        }
+        return nil
+    }
+    
+    fileprivate func sm_presentedFullScreenViewController() -> UIViewController? {
+        if let presented = self.presentedViewController, fullScreenStyles.contains(presented.modalPresentationStyle) {
+            return presented
         }
         return nil
     }

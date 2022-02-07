@@ -19,34 +19,31 @@ open class WindowViewController: UIViewController
         return config.shouldAutorotate
     }
     
-    public init(windowLevel: UIWindow.Level?, config: SwiftMessages.Config) {
+    public init(windowLevel: UIWindow.Level?, config: SwiftMessages.Config)
+    {
         self.windowLevel = windowLevel ?? UIWindow.Level.normal
         self.config = config
-        let view = PassthroughView()
-        let window = PassthroughWindow(hitTestView: view)
+        let window = PassthroughWindow(frame: UIScreen.main.bounds)
         self.window = window
         super.init(nibName: nil, bundle: nil)
-        self.view = view
+        self.view = PassthroughView()
         window.rootViewController = self
         window.windowLevel = windowLevel ?? UIWindow.Level.normal
-        if #available(iOS 13, *) {
-            window.overrideUserInterfaceStyle = config.overrideUserInterfaceStyle
-        }
     }
     
     func install(becomeKey: Bool) {
-        show(becomeKey: becomeKey)
+        guard let window = window else { return }
+        if becomeKey {
+            window.makeKeyAndVisible()
+        } else {
+            window.isHidden = false
+        }
     }
 
     @available(iOS 13, *)
     func install(becomeKey: Bool, scene: UIWindowScene?) {
-        window?.windowScene = scene
-        show(becomeKey: becomeKey, frame: scene?.coordinateSpace.bounds)
-    }
-    
-    private func show(becomeKey: Bool, frame: CGRect? = nil) {
         guard let window = window else { return }
-        window.frame = frame ?? UIScreen.main.bounds
+        window.windowScene = scene
         if becomeKey {
             window.makeKeyAndVisible()
         } else {

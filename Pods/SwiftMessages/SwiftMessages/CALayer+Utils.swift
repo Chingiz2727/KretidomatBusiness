@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwiftKick Mobile. All rights reserved.
 //
 
-import QuartzCore
+import CoreGraphics
 
 extension CALayer {
     func findAnimation(forKeyPath keyPath: String) -> CABasicAnimation? {
