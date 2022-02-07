@@ -50,8 +50,8 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
     
     private func bindView() {
         let output = viewModel.transform(input:
-                                            .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in},
-                                                  createPointTapped: rootView.createButton.rx.tap.asObservable()))
+                                                .init(loadDay: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in},
+                                                      createPointTapped: rootView.createButton.rx.tap.asObservable()))
         
         let day = output.getDay.publish()
         
@@ -113,17 +113,17 @@ class CreatePointFormViewController: ViewController, ViewHolder, CreatePointForm
             .subscribe(onNext:  { [unowned self] startDay, endDay, startTime, endTime in
                 self.viewModel.workingTime = "\(startDay)-\(endDay); \(startTime)-\(endTime)"
             }).disposed(by: disposeBag)
-            
+        
         
         let createPoint = output.createPoint.publish()
         
         createPoint.element
             .subscribe(onNext: { [unowned self] result in
                 if result.Success == true {
-                    dismiss(animated: true) {
-                        showSuccessAlert {
-                        }
+                    showSuccessAlert {
+                        self.navigationController?.popViewController(animated: true)
                     }
+                    
                 } else {
                     self.showErrorInAlert(text: result.Message)
                 }

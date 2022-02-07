@@ -91,7 +91,7 @@ public final class DependencyContainerAssembly: Assembly {
             return controller
     }
         container.register(SignatureModule.self) { _ in
-            return SignatureViewController(data: .init(FIO: "", CreditSum: "0", ClientID: "0", CreditID: "0"), viewModel: .init(apiService: container.resolve(ApiService.self)!))
+            return SignatureViewController(data: .init(FIO: "", CreditSum: "0", ClientID: "0", CreditID: "0", IIN: ""), viewModel: .init(apiService: container.resolve(ApiService.self)!))
         }
         container.register(KassOperationFilterModule.self) { _ in
             return KassOperationFilterViewController()

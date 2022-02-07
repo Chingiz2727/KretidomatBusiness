@@ -9,7 +9,7 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
     
     private let viewModel: ChangePasswordViewModel
     private let disposeBag = DisposeBag()
-    
+    private let sendSubject: PublishSubject<Void> = .init()
     init(viewModel: ChangePasswordViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -35,7 +35,7 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
         let output = viewModel.transform(
             input: .init(oldPassword: rootView.oldPassword.rx.text.asObservable(),
                          newPassword: rootView.newPassword.rx.text.asObservable(),
-                         changeTapped: rootView.changePasswordButton.rx.tap.asObservable()))
+                         changeTapped: sendSubject))
         
         let result = output.changeTapped.publish()
         
@@ -60,13 +60,13 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
         
         result.connect()
             .disposed(by: disposeBag)
+        rootView.changePasswordButton.addTarget(self, action: #selector(sendRepeat), for: .touchUpInside)
     }
     
     private func bindValidation() {
         rootView.changePasswordButton.isEnabled = false
         let newPassword = rootView.newPassword.rx.text.map { $0?.count ?? 0 > 5 }
         let repeatNewPassword = rootView.repeatNewPassword.rx.text.map { $0?.count ?? 0 > 5 }
-        
         Observable.combineLatest([ newPassword, repeatNewPassword])
             .map { $0.allSatisfy { $0 }}
             .distinctUntilChanged()
@@ -74,6 +74,17 @@ final class ChangePasswordViewController: ViewController, ViewHolder, ChangePass
             .disposed(by: disposeBag)
     }
     
+    @objc private func sendRepeat() {
+        guard let firstPass = rootView.newPassword.text, let secondPass = rootView.repeatNewPassword.text else {
+            return
+        }
+        
+        if firstPass == secondPass {
+            sendSubject.onNext(())
+        } else {
+            showErrorInAlert(text: "Пароли не совпадают")
+        }
+    }
     override func customBackButtonDidTap() {
         navigationController?.popViewController(animated: true)
     }

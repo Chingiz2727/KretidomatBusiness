@@ -17,6 +17,7 @@ struct qrResult: Codable {
     let CreditSum: String
     let ClientID: String
     let CreditID: String
+    let IIN: String
 }
 
 struct Checkout: Codable {

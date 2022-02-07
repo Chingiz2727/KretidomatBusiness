@@ -48,6 +48,7 @@ class SuccessView: UIView {
         label.text = "на сумму:"
         label.textAlignment = .center
         label.font = .regular14
+        
         return label
     }()
     
@@ -118,7 +119,7 @@ class SuccessView: UIView {
     }
     
     func setData(data: qrResult, checkoutData: CheckoutData) {
-        clientValueLabel.text = data.FIO
+        clientValueLabel.text = "\(data.FIO) ИИН: \(data.IIN)"
         sumValueLabel.text = "\(data.CreditSum) тенге"
         bonusValueLabel.text = "\(checkoutData.BonusSum)"
         balanceValueLabel.text = "\(checkoutData.Balance)"
