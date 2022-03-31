@@ -252,6 +252,7 @@ extension KassOperationReportViewController: UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard points.count > 0 else { return }
         let pointId = points[row].SellerID ?? 0
         rootView.selectContainer.textField.text = points[row].Name ?? ""
         kassSelected.onNext(true)

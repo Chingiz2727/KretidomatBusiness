@@ -49,14 +49,17 @@ class CabinetViewController: ViewController, ViewHolder, CabinetModule {
     }
     
     private func bindView() {
-        let output = viewModel.transform(input: .init(userInfo: .just(())))
+        let output = viewModel.transform(input: .init(userInfo: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in}))
 
         let loadGetProfile = output.loadUserInfo.publish()
             
         loadGetProfile.element
             .subscribe(onNext: { [ unowned self] res in
                 let image = res.Data
+                
                 self.rootView.profileImage.image = convertBase64StringToImage(imageBase64String: image.Photo ?? "")
+                UserInfoStorage.shared.save(cabinetData: res.Data)
+                self.rootView.setupData()
             }).disposed(by: disposeBag)
         
         loadGetProfile.loading

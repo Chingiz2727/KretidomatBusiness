@@ -132,8 +132,8 @@ final class AboutKassaViewController: ViewController, ViewHolder, AboutKassaModu
                 guard let text = self.rootView.amountOperationView.amountTextField.text else { return }
                 var number = 0
                 number = Int(text) ?? 0
-                if number > 1000000 || number < 10000 {
-                    self.showErrorInAlert(text: "Минимальный порог операций \nот 10 000 тг до 1 000 000 тг")
+                if number > 1000000 || number < 50000 {
+                    self.showErrorInAlert(text: "Минимальный порог операций \nот 50 000 тг до 1 000 000 тг")
                 } else {
                     if tag == 1 {
                         self.presentCustomAlert(type: .giveMoneyToPoint(name: rootView.pointListTextField.textField.text ?? "Name", sum: String(number))) {
