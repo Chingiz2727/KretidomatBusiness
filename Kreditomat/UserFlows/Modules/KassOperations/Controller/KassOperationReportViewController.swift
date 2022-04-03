@@ -50,13 +50,32 @@ class KassOperationReportViewController: ViewController, KassOperationReportModu
     }
     
     private func bindViewModel() {
-        let output = viewModel.transform(input: .init(filter: filter, retailPoint: retailPoint, loadPoint: .just(()), loadPdf: rootView.headerView.downloadButton.rx.tap.asObservable(), stepsValue: skipValue, loadInfoOfTable: loadData))
+        let output = viewModel.transform(input: .init(
+            filter: filter,
+            retailPoint: retailPoint,
+            loadPoint: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in },
+            loadPdf: rootView.headerView.downloadButton.rx.tap.asObservable(),
+            stepsValue: skipValue,
+            loadInfoOfTable: loadData)
+        )
         
         let points = output.points.publish()
         points.element
             .subscribe(onNext: { [unowned self] points in
                 self.points = points.Data
+                
                 self.pickerView.reloadAllComponents()
+            })
+            .disposed(by: disposeBag)
+        
+        rootView.selectContainer.textField.rx.controlEvent(.editingDidBegin)
+            .withLatestFrom(retailPoint)
+            .subscribe(onNext: { [unowned self] point in
+                if point == "0" {
+                    let pointId = self.points.first?.SellerID ?? 0
+                    rootView.selectContainer.textField.text = self.points.first?.Name ?? ""
+                    self.retailPoint.onNext("\(pointId)")
+                }
             })
             .disposed(by: disposeBag)
         

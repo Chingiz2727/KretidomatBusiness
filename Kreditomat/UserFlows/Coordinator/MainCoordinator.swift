@@ -43,6 +43,7 @@ final class MainCoordinator: BaseCoordinator {
             case .aboutCredit:
                 self?.showOperations(type: .PaymentHistory)
             case .share:
+                ProgressView.instance.show()
                 self?.shareLink()
             case .logout:
                 let authState = assembler.resolver.resolve(AuthStateObserver.self)!
@@ -169,10 +170,14 @@ final class MainCoordinator: BaseCoordinator {
     }
     
     private func shareLink() {
-        let shareText = "Дайте какой нибудь текст"
-        let shareActivityController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        let url = URL(string: "http://itunes.apple.com/lookup?bundleId=1568426328")!
+        ProgressView.instance.hide()
+        let shareText = "Kreditomat Business - подключайся и зарабтывай вместе с нами деньги "
+        let shareActivityController = UIActivityViewController(activityItems: [url, shareText], applicationActivities: nil)
         DispatchQueue.main.async {
             self.router.present(shareActivityController)
         }
     }
+    
+    
 }

@@ -48,7 +48,10 @@ class CreatePointViewController: ViewController, ViewHolder, CreatePointModule {
             .subscribe(onNext: { [unowned self] in
                 self.create?()
             }).disposed(by: disposeBag)
-        let output = viewModel.transform(input: .init(loadPoints: .just(()), pointBlock: blockPointSubject, cashierBlock: blockCashierSubject))
+        let output = viewModel.transform(input: .init(
+            loadPoints: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in},
+            pointBlock: blockPointSubject, cashierBlock: blockCashierSubject)
+        )
         
         rootView.blockPointCallback = { [unowned self] point in
 //            presentCustomAlert(type: .blockPoint(name: point.Name ?? "")) {

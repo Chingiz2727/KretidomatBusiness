@@ -46,12 +46,12 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
         navigationController?.navigationBar.layer.addShadow()
         title = "Создать кассира"
         setupPointPickerView()
+        bindView()
 //        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bindView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,7 +68,12 @@ class CreateCashierViewController: ViewController, ViewHolder, CreateCashierModu
             .subscribe(onNext: { [unowned self] in
                 self.create?()
             }).disposed(by: disposeBag)
-        let output = viewModel.transform(input: .init(loadInfo: .just(()), blockTapped: blockCashierSubject, loadPoints: .just(()), attachTapped: rootView.attachTap))
+        
+        let output = viewModel.transform(input: .init(
+            loadInfo: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in},
+            blockTapped: blockCashierSubject,
+            loadPoints: rx.methodInvoked(#selector(viewWillAppear(_:))).map { _ in },
+            attachTapped: rootView.attachTap))
         
         rootView.blockCashierCallback = { [unowned self] cashier in
             presentCustomAlert(type: .blockKassir(fio: cashier.Name)) {
