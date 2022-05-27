@@ -1,10 +1,3 @@
-//
-//  CameraViewController.swift
-//  Kreditomat
-//
-//  Created by kairzhan on 5/11/21.
-//
-
 import RxSwift
 import Vision
 import AVFoundation

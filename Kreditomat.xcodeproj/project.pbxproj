@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A4DF048BB83816656254047 /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC15F1257C73F82D0099CFEC /* Pods_Kreditomat.framework */; };
 		5507524F267872F6008F9884 /* CreatePointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507524E267872F6008F9884 /* CreatePointViewModel.swift */; };
 		5510BCE7264BEE1A00900F4E /* CreatePointFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */; };
 		5510BCEF264BF86900900F4E /* NumberTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */; };
@@ -52,11 +51,9 @@
 		55738B5A264A486F00CE2BD5 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B59264A486F00CE2BD5 /* Point.swift */; };
 		55738B5D264A48C100CE2BD5 /* PointPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B5C264A48C100CE2BD5 /* PointPickerViewDataSource.swift */; };
 		55738B62264A57E300CE2BD5 /* AttachCashierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B61264A57E300CE2BD5 /* AttachCashierView.swift */; };
-		55738B66264A5B6C00CE2BD5 /* AttachCashierModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B65264A5B6C00CE2BD5 /* AttachCashierModule.swift */; };
 		55738B6A264A5B8900CE2BD5 /* AttachCashierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B69264A5B8900CE2BD5 /* AttachCashierViewController.swift */; };
 		55738B73264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B72264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift */; };
 		55738B77264A655800CE2BD5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B76264A655800CE2BD5 /* CameraView.swift */; };
-		55738B7B264A697500CE2BD5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B7A264A697500CE2BD5 /* CameraViewController.swift */; };
 		55738B80264A69AD00CE2BD5 /* CameraModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B7F264A69AD00CE2BD5 /* CameraModule.swift */; };
 		55738B84264A6A7B00CE2BD5 /* CameraAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B83264A6A7B00CE2BD5 /* CameraAction.swift */; };
 		55738B88264A6B1D00CE2BD5 /* CameraUsagePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */; };
@@ -263,10 +260,10 @@
 		A4678A2726D78AC300992000 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4678A2626D78AC300992000 /* MapViewModel.swift */; };
 		A4678A2926D78B1B00992000 /* DeliveryLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4678A2826D78B1B00992000 /* DeliveryLocation.swift */; };
 		A47DBD2826E0DE6D001F9F64 /* DateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47DBD2726E0DE6D001F9F64 /* DateContentView.swift */; };
+		E763022C6245DC7822CAC2FB /* Pods_Kreditomat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ADCAAB9C7E47112B08D2FB /* Pods_Kreditomat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		25CBAE40E9020AF9120F46DE /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 		5507524E267872F6008F9884 /* CreatePointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointViewModel.swift; sourceTree = "<group>"; };
 		5510BCE6264BEE1A00900F4E /* CreatePointFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePointFormView.swift; sourceTree = "<group>"; };
 		5510BCEE264BF86900900F4E /* NumberTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextFieldContainer.swift; sourceTree = "<group>"; };
@@ -315,7 +312,6 @@
 		55738B69264A5B8900CE2BD5 /* AttachCashierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachCashierViewController.swift; sourceTree = "<group>"; };
 		55738B72264A651500CE2BD5 /* CameraMetaDataOutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMetaDataOutputDelegate.swift; sourceTree = "<group>"; };
 		55738B76264A655800CE2BD5 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		55738B7A264A697500CE2BD5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		55738B7F264A69AD00CE2BD5 /* CameraModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModule.swift; sourceTree = "<group>"; };
 		55738B83264A6A7B00CE2BD5 /* CameraAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAction.swift; sourceTree = "<group>"; };
 		55738B87264A6B1D00CE2BD5 /* CameraUsagePermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermission.swift; sourceTree = "<group>"; };
@@ -518,6 +514,8 @@
 		72DF18E7263C2F4700E5F3D6 /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		72DF18EB263C2FB200E5F3D6 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		72DF18EE263C2FC300E5F3D6 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		79425B7D945EA10865F94726 /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
+		9810DD9454FDC763874552D7 /* Pods-Kreditomat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.release.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.release.xcconfig"; sourceTree = "<group>"; };
 		A4554EEA26E22E5700407326 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		A4554EEC26E33D7000407326 /* offer.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = offer.pages; sourceTree = "<group>"; };
 		A4554EED26E33DA900407326 /* oferta.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = oferta.docx; sourceTree = "<group>"; };
@@ -525,8 +523,9 @@
 		A4678A2626D78AC300992000 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		A4678A2826D78B1B00992000 /* DeliveryLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryLocation.swift; sourceTree = "<group>"; };
 		A47DBD2726E0DE6D001F9F64 /* DateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateContentView.swift; sourceTree = "<group>"; };
-		DC15F1257C73F82D0099CFEC /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F30F0CABAB4C456ED456B460 /* Pods-Kreditomat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kreditomat.debug.xcconfig"; path = "Target Support Files/Pods-Kreditomat/Pods-Kreditomat.debug.xcconfig"; sourceTree = "<group>"; };
+		A48FE0D1282D45DE003BFB42 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = "Kreditomat/CameraModule/ Controller/CameraViewController.swift"; sourceTree = SOURCE_ROOT; };
+		A48FE0D4282D4659003BFB42 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		F2ADCAAB9C7E47112B08D2FB /* Pods_Kreditomat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kreditomat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,21 +533,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A4DF048BB83816656254047 /* Pods_Kreditomat.framework in Frameworks */,
+				E763022C6245DC7822CAC2FB /* Pods_Kreditomat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		266F50B81CB83FC1684C803A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DC15F1257C73F82D0099CFEC /* Pods_Kreditomat.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5507524D267872E6008F9884 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -957,7 +948,7 @@
 		55738B79264A663F00CE2BD5 /*  Controller */ = {
 			isa = PBXGroup;
 			children = (
-				55738B7A264A697500CE2BD5 /* CameraViewController.swift */,
+				A48FE0D4282D4659003BFB42 /* CameraViewController.swift */,
 			);
 			path = " Controller";
 			sourceTree = "<group>";
@@ -1432,6 +1423,7 @@
 		5FBE1BF626425E4F001F4CAF /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				A48FE0D1282D45DE003BFB42 /* CameraViewController.swift */,
 				55B819E926568D6D007DB5F9 /* Oferta */,
 				55B818E8265631CB007DB5F9 /* Map */,
 				5F3CCF9E264BDAB7001836A8 /* ResetPasswordFlow */,
@@ -1505,7 +1497,7 @@
 				7201EF732636DF2D00D25097 /* Kreditomat */,
 				7201EF722636DF2D00D25097 /* Products */,
 				EA97BADE1D40BDC29617CCDE /* Pods */,
-				266F50B81CB83FC1684C803A /* Frameworks */,
+				7216812AC4DBAEBC2E0AECDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1991,6 +1983,14 @@
 			path = SectionNameValue;
 			sourceTree = "<group>";
 		};
+		7216812AC4DBAEBC2E0AECDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2ADCAAB9C7E47112B08D2FB /* Pods_Kreditomat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		721B4D1A267334170054B63C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2315,8 +2315,8 @@
 		EA97BADE1D40BDC29617CCDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F30F0CABAB4C456ED456B460 /* Pods-Kreditomat.debug.xcconfig */,
-				25CBAE40E9020AF9120F46DE /* Pods-Kreditomat.release.xcconfig */,
+				79425B7D945EA10865F94726 /* Pods-Kreditomat.debug.xcconfig */,
+				9810DD9454FDC763874552D7 /* Pods-Kreditomat.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2328,12 +2328,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7201EF852636DF2E00D25097 /* Build configuration list for PBXNativeTarget "Kreditomat" */;
 			buildPhases = (
-				CB07A873BBCFC05AED20EC94 /* [CP] Check Pods Manifest.lock */,
+				E959B7F8F0DD547A8F8DC3AE /* [CP] Check Pods Manifest.lock */,
 				7201EF6D2636DF2D00D25097 /* Sources */,
 				7201EF6E2636DF2D00D25097 /* Frameworks */,
 				7201EF6F2636DF2D00D25097 /* Resources */,
-				48D96CF5339A7D4C92639A88 /* [CP] Embed Pods Frameworks */,
-				C00461AA38D3E41F0D2585DF /* [CP] Copy Pods Resources */,
+				17D1B81917A16718A61ACA1D /* [CP] Embed Pods Frameworks */,
+				761B17B01CBDACD017961FBD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2395,7 +2395,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48D96CF5339A7D4C92639A88 /* [CP] Embed Pods Frameworks */ = {
+		17D1B81917A16718A61ACA1D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2412,7 +2412,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C00461AA38D3E41F0D2585DF /* [CP] Copy Pods Resources */ = {
+		761B17B01CBDACD017961FBD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2429,7 +2429,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kreditomat/Pods-Kreditomat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB07A873BBCFC05AED20EC94 /* [CP] Check Pods Manifest.lock */ = {
+		E959B7F8F0DD547A8F8DC3AE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2587,7 +2587,6 @@
 				5F14B632264410F100315D87 /* AuthUserModule.swift in Sources */,
 				7201EFE22636E30800D25097 /* DeepLinkAction.swift in Sources */,
 				7201EFF22636E35D00D25097 /* Router.swift in Sources */,
-				55738B66264A5B6C00CE2BD5 /* AttachCashierModule.swift in Sources */,
 				55738B0D2648080700CE2BD5 /* CabinetModule.swift in Sources */,
 				7201EFBB2636E22300D25097 /* BackButtonContainerView.swift in Sources */,
 				7201EFBE2636E23200D25097 /* BackPressHandler.swift in Sources */,
@@ -2669,7 +2668,6 @@
 				55738B2A2649328E00CE2BD5 /* ImagePickerManager.swift in Sources */,
 				5F14B6352644113800315D87 /* AuthUserViewController.swift in Sources */,
 				5F1B4C03265691AB00FA0E7D /* RxValidation.swift in Sources */,
-				55738B7B264A697500CE2BD5 /* CameraViewController.swift in Sources */,
 				72DF18C5263C2DB100E5F3D6 /* PasswordTextField.swift in Sources */,
 				7201EF752636DF2D00D25097 /* AppDelegate.swift in Sources */,
 				55B819F12656912E007DB5F9 /* OfertaModule.swift in Sources */,
@@ -2726,6 +2724,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2775,10 +2774,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2789,6 +2788,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2832,7 +2832,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -2845,8 +2845,9 @@
 		};
 		7201EF862636DF2E00D25097 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F30F0CABAB4C456ED456B460 /* Pods-Kreditomat.debug.xcconfig */;
+			baseConfigurationReference = 79425B7D945EA10865F94726 /* Pods-Kreditomat.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2854,9 +2855,10 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = XCVRQLC39R;
 				ENABLE_TESTABILITY = NO;
+				EXCLUDED_ARCHS = "";
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2869,13 +2871,15 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
 		7201EF872636DF2E00D25097 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25CBAE40E9020AF9120F46DE /* Pods-Kreditomat.release.xcconfig */;
+			baseConfigurationReference = 9810DD9454FDC763874552D7 /* Pods-Kreditomat.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2883,9 +2887,10 @@
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = XCVRQLC39R;
 				ENABLE_TESTABILITY = NO;
+				EXCLUDED_ARCHS = "";
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = Kreditomat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2898,6 +2903,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};

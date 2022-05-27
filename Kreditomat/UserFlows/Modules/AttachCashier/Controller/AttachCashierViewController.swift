@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AttachCashierModule: Presentable {
+    
+}
+
 class AttachCashierViewController: ViewController, ViewHolder, AttachCashierModule {
     typealias RootViewType = AttachCashierView
     
